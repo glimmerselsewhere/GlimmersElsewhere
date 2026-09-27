@@ -1,0 +1,114 @@
+{
+  "title": "Meow Supreme",
+  "shortTitle": "Meow Supreme",
+  "subtitle": "Seven patrols of everyday conquest",
+  "description": "You are the cat outside the screen. Watch seven ordinary household objects from cat height and let curiosity, trouble and affection turn into one wildly exaggerated epic of conquest.",
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Open your cat eyes",
+    "continueButton": "Keep watching",
+    "finalContinueButton": "See how it ends",
+    "replayButton": "Patrol once more"
+  },
+  "catalog": {
+    "eyebrow": "The first glimmer has woken up",
+    "headline": "Tonight, you are the cat in this room.",
+    "description": "The humans have stepped out. Seven ordinary objects are waiting for your inspection.",
+    "cardDescription": "The humans have stepped out. Seven ordinary objects are waiting for your inspection.",
+    "cardIcon": "✦",
+    "actionSummary": "Claw · Bite · Rub"
+  },
+  "states": [
+    { "label": "Awe", "description": "How nervous the humans get when they find what you did" },
+    { "label": "Closeness", "description": "How much your restraint and affection come through" }
+  ],
+  "actions": [
+    { "name": "Imperial Claw of Destiny", "plain": "Claw" },
+    { "name": "World-Devouring Fang", "plain": "Bite" },
+    { "name": "All-Hearts-Return Rub", "plain": "Rub" }
+  ],
+  "scenes": [
+    {
+      "chapter": "Patrol one",
+      "title": "The Chaos-Endless Litter Tray That Swallows All",
+      "description": "The litter has just been changed and it's suspiciously smooth, as if waiting for the first pawprint.",
+      "outcomes": {
+        "claw": { "text": "You dig out today's first mountain. A few grains clear the rim, and the humans will spot your handiwork the second they get back." },
+        "bite": { "text": "You sniff the edge of the tray carefully, then decide there's nothing here worth putting in your mouth." },
+        "rub": { "text": "You leave your scent on one corner and confirm, with some relief, that this territory is still yours." }
+      }
+    },
+    {
+      "chapter": "Patrol two",
+      "title": "The Abyss-Tipping Glass of Water at the Table's Edge",
+      "description": "An ordinary half-glass of water sits near the table edge, its side catching one very suspicious highlight.",
+      "outcomes": {
+        "claw": { "text": "One light tap of your paw and the base skates across the wood; the water clearly rocks." },
+        "bite": { "text": "Glass is cold and slippery. You test the rim, then lose interest almost immediately." },
+        "rub": { "text": "You lean in against the glass, the water trembles, and not a drop falls. The humans will only ever find a perfectly upright glass." }
+      }
+    },
+    {
+      "chapter": "Patrol three",
+      "title": "The World-Ending Slender Vase Guarding the Living Room",
+      "description": "The vase stands quietly on the narrow cabinet, three small flowers swaying in the air - which gets your attention.",
+      "outcomes": {
+        "claw": { "text": "You bat at the swaying stems. The vase tips with them and stops, at the very last moment." },
+        "bite": { "text": "You sniff at the mouth of the vase and decide this is neither comfortable nor especially fun." },
+        "rub": { "text": "Your cheek brushes the cold side of the vase; the petals shiver, and the vase stays exactly where it belongs." }
+      }
+    },
+    {
+      "chapter": "Patrol four",
+      "title": "The Eternal Fabric Sofa That Endures All Claws",
+      "description": "Soft, wide, and the humans just said not to scratch it - there is no clearer invitation.",
+      "outcomes": {
+        "claw": { "text": "Your claws drag across the fabric and leave three brisk new lines. The humans will see them at a glance." },
+        "bite": { "text": "You take a corner of the cushion in your teeth. It's big and soft, and turns out to be less interesting than it looked." },
+        "rub": { "text": "You work your way along the armrest, and the familiar smell makes the place feel more like yours." }
+      }
+    },
+    {
+      "chapter": "Patrol five",
+      "title": "The Swallowing Bedroom Closet of Hidden Realms",
+      "description": "The closet isn't quite shut. A dark sliver of a gap is pretending it isn't worth investigating.",
+      "outcomes": {
+        "claw": { "text": "You slide your claws into the gap and the door swings slowly open. Inside there is only a black coat hanging down." },
+        "bite": { "text": "The handle is too high and the door is no good for biting. You decide to continue the investigation another way." },
+        "rub": { "text": "You rub past the corner of the closet and leave a reassuring familiar smell on both sides of the door." }
+      }
+    },
+    {
+      "chapter": "Patrol six",
+      "title": "The Thunder-Serpent Charging Cable Lurking in the Corner",
+      "description": "An old, already-unplugged charging cable hangs in the corner, its end swaying gently in the draught.",
+      "outcomes": {
+        "claw": { "text": "One paw pins the swaying end. It stops moving, and you lose all interest in chasing it." },
+        "bite": { "text": "You bite the dead old cable and leave two shallow marks in the casing." },
+        "rub": { "text": "You walk around the cable, do one elegant rub in the corner, and completely ignore the little swaying thing." }
+      }
+    },
+    {
+      "chapter": "Final patrol",
+      "title": "The Supreme Hand of the Can-Opener",
+      "description": "The door opens. The hand that opens cans, pets heads, and occasionally produces nail clippers reaches out in front of you.",
+      "outcomes": {
+        "claw": { "text": "You press your paw pads into the human's palm without unsheathing anything, and they still freeze politely." },
+        "bite": { "text": "You hold the finger gently in your mouth and let it go at once. The human gasps, then works out you were only playing." },
+        "rub": { "text": "You offer your forehead into the palm. The human instantly forgets most of what happened in this room." }
+      }
+    }
+  ],
+  "endings": [
+    { "title": "Meow Supreme", "description": "You left a very clear record of your patrol - and got the humans to offer up the cans anyway. Trouble and cuteness reach a rare balance." },
+    { "title": "Wherever You Go, Humans Tremble", "description": "Table edges, fabric and the closet gap all carry evidence of your inspection. The humans stand in the middle of the room and start seriously reconsidering the furniture layout." },
+    { "title": "Captivating Everyone Without Breaking Anything", "description": "You broke almost nothing and still filled the whole home with a familiar scent. The humans open the can themselves and accept your closeness." },
+    { "title": "Patrol Ends Here for Today", "description": "You inspected every corner properly and decided to save the real enthusiasm for next time. After all, a nap is an important part of a cat's day." }
+  ],
+  "keepsakes": [
+    { "title": "Meow Supreme Seal" },
+    { "title": "All-Trembling Claw-Mark Medal" },
+    { "title": "All-Hearts Golden Bell" },
+    { "title": "Naptime Patrol Pass" }
+  ]
+}

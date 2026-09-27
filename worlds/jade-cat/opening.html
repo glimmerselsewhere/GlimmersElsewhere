@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;font-family:"PingFang SC",system-ui,sans-serif;background:#102a34;color:#fff}main{position:relative;width:100%;height:100%;overflow:hidden;background:radial-gradient(circle at 50% 62%,rgba(245,217,138,.9) 0 4%,rgba(107,209,189,.35) 5% 18%,transparent 35%),linear-gradient(165deg,#183d60,#195c68 55%,#102a34)}.mountains{position:absolute;inset:35% -10% 0;background:linear-gradient(140deg,transparent 20%,rgba(14,40,47,.92) 21% 42%,transparent 43%),linear-gradient(220deg,transparent 26%,rgba(22,66,69,.9) 27% 50%,transparent 51%);opacity:.8}.jade{position:absolute;left:50%;top:58%;width:86px;height:112px;border:11px solid #b6f0d5;border-radius:45% 45% 48% 48%;transform:translate(-50%,-50%) rotate(-8deg);box-shadow:0 0 20px #9cecc9,0 0 70px rgba(156,236,201,.7);animation:pulse 1.8s ease-in-out infinite alternate}.jade:after{content:"";position:absolute;inset:22px;border:2px solid rgba(255,255,255,.75);border-radius:50%}.copy{position:absolute;z-index:2;left:25px;right:25px;top:30px}.copy p{margin:0;color:#f5d98a;font:800 10px/1 monospace;letter-spacing:.18em}.copy h1{margin:9px 0 12px;font:900 44px/1 "Songti SC",serif}.copy span{display:block;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}.copy strong{color:#fff}@keyframes pulse{to{transform:translate(-50%,-54%) rotate(8deg);filter:brightness(1.2)}}
+  </style>
+</head>
+<body><main><div class="mountains"></div><div class="jade"></div><div class="copy"><p>WORLD 03</p><h1>玉猫登仙</h1><span>家中玉佩忽然发光。</span><span>一只猫伸出了爪子。</span><span><strong>从此，猫粮之外，还有大道。</strong></span></div></main><script>
+(function(){
+  var lang = new URLSearchParams(location.search).get('lang') || 'en';
+  var d = lang === 'zh' ? {
+    h1: '玉猫登仙',
+    l1: '家中玉佩忽然发光。',
+    l2: '一只猫伸出了爪子。',
+    strong: '从此，猫粮之外，还有大道。'
+  } : {
+    h1: 'Jade Cat Ascension',
+    l1: 'An old jade pendant begins to glow.',
+    l2: 'One cat reaches out a paw.',
+    strong: 'Beyond cat food, there is a greater path.'
+  };
+  var h1 = document.querySelector('.copy h1'); if (h1) h1.textContent = d.h1;
+  var spans = document.querySelectorAll('.copy span');
+  if (spans[0]) spans[0].textContent = d.l1;
+  if (spans[1]) spans[1].textContent = d.l2;
+  var strong = document.querySelector('.copy strong'); if (strong) strong.textContent = d.strong;
+  document.documentElement.lang = lang;
+})();
+</script>
+</body>
+</html>

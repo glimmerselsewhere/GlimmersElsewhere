@@ -1,0 +1,210 @@
+{
+  "title": "Chapter 2 · Guide to Strange Foods",
+  "subtitle": "See it alive first - then decide how to cook it well",
+  "states": [
+    {
+      "label": "Wonder",
+      "description": "How impossible this dish is"
+    },
+    {
+      "label": "Appetite",
+      "description": "How badly you want a bite after looking at it"
+    },
+    {
+      "label": "Reverence",
+      "description": "Respect and thanks for the ingredient"
+    }
+  ],
+  "scenes": [
+    {
+      "chapter": "Page one",
+      "title": "A frost dragon is snoring, and its breath turns to frost",
+      "description": "Field guide, page one: the frost dragon. Its breath piles up frost-rice at the cave mouth while it sleeps, and the scales it sheds are thin as sugar glass. The Meowchelin rule: only ever take what it offers.",
+      "actions": [
+        {
+          "name": "Frost-breath rice congee",
+          "plain": "Ice congee",
+          "hint": "Frost-rice from the cave mouth, simmered low with the dragon's leftover warmth until it mists cold"
+        },
+        {
+          "name": "Frost-scale sugar crisps",
+          "plain": "Sugar crisps",
+          "hint": "Shed scales wrapped in wild honey, flash-seared on a cold flame until transparent"
+        },
+        {
+          "name": "Snowberry dragon slices",
+          "plain": "Dragon slices",
+          "hint": "Naturally fallen tail meat, sliced paper-thin and chilled in snowberry juice"
+        }
+      ],
+      "outcomes": {
+        "ice-congee": {
+          "text": "The congee still breathes cold when it arrives; one spoonful shows the frost-rice slowly melting open in the bowl. The dragon rolls over and piles a little more frost-rice at the cave mouth, like renewing the subscription."
+        },
+        "frost-crisp": {
+          "text": "Held to the light, the crisp is transparent; one bite cracks, and the cold runs from your throat all the way to the tip of your tail. The dragon wakes at the crackle, takes one look, and goes back to sleep satisfied."
+        },
+        "frost-sashimi": {
+          "text": "The thin slices glow faintly pink in the snowberry juice, melting before you chew, cold but never icy. You write one careful line in the field guide: thank you for today's dragon."
+        }
+      }
+    },
+    {
+      "chapter": "Page two",
+      "title": "A cloud sheep's wool tastes like cotton candy",
+      "description": "Field guide, page two: the cloud sheep. Its wool is actually set sweet cloud, and it sheds a whole layer every spring. The shed cloud can be eaten as it is, but a chef wants to do better than that.",
+      "actions": [
+        {
+          "name": "Cloud-foam milk tea",
+          "plain": "Cloud tea",
+          "hint": "Whip the spring cloud-wool and float it on hot black tea"
+        },
+        {
+          "name": "Cotton-candy cloud rolls",
+          "plain": "Cloud rolls",
+          "hint": "Pull the cloud into threads, roll them in crisp cloud sheets, slice into small rounds"
+        },
+        {
+          "name": "Cloud-velvet pumpkin soup",
+          "plain": "Cloud soup",
+          "hint": "Tear the cloud into pumpkin soup so a velvet layer floats on top"
+        }
+      ],
+      "outcomes": {
+        "cloud-tea": {
+          "text": "The foam floats on the tea as one small cloud; you meet the cold sweetness first and the hot tea right behind it. The cloud sheep watches and gives its ears a happy flick."
+        },
+        "cloud-roll": {
+          "text": "Every cut shows rings of white fluff; crisp first, then soft, and the sweetness stays light. You put the first roll back on the plate in front of the cloud sheep."
+        },
+        "cloud-soup": {
+          "text": "The cloud-velvet turns slowly open behind the spoon, and the whole bowl warms you through. The cloud sheep finishes its own bowl, bleats once, and clearly intends to come back next year."
+        }
+      }
+    },
+    {
+      "chapter": "Page three",
+      "title": "A lava snail carries its own little pot",
+      "description": "Field guide, page three: the lava snail. Its shell holds a pocket of warm mineral broth, so it stews wherever it goes. It is genuinely happy to share - as long as you polish the shell first.",
+      "actions": [
+        {
+          "name": "Shell-baked mushroom gratin",
+          "plain": "Shell gratin",
+          "hint": "Use the heat inside the shell to bake mushrooms and cheese until it bubbles"
+        },
+        {
+          "name": "Molten mineral soup",
+          "plain": "Lava soup",
+          "hint": "A small bowl of shell broth, roasted garlic and herbs, finished with a little cream"
+        },
+        {
+          "name": "Caramel lava pudding",
+          "plain": "Lava pudding",
+          "hint": "Caramelise the top with shell heat - crack it and the centre still flows"
+        }
+      ],
+      "outcomes": {
+        "shell-gratin": {
+          "text": "The cheese bubbles up over the shell mouth in greedy little blisters, and a strand pulls as long as your forearm. The snail pokes its head out to inspect its own shell and pronounces the bake even."
+        },
+        "lava-soup": {
+          "text": "The soup is a beautiful orange-red; it warms you from throat to toes and leaves a faint mineral saltiness behind. You polish the snail's shell to a shine as a thank-you."
+        },
+        "lava-pudding": {
+          "text": "The moment the caramel shell cracks, the centre runs slowly down the gap like a small, quiet lava flow. The snail stares at it for a long time and looks like it would quite like a spoon."
+        }
+      }
+    },
+    {
+      "chapter": "Page four",
+      "title": "A starlight jellyfish glows on its own at night",
+      "description": "Field guide, page four: the starlight jellyfish. The little tentacles under its bell condense bright stardust jelly - and the jelly dissolves the moment it touches the sea, so you have to catch it while it's at the surface.",
+      "actions": [
+        {
+          "name": "Starlight jelly",
+          "plain": "Star jelly",
+          "hint": "Catch naturally dropped stardust jelly, chill it, plate it plain with one mint leaf"
+        },
+        {
+          "name": "Glow-in-the-dark cold noodles",
+          "plain": "Night noodles",
+          "hint": "Melt the jelly into the dough so the noodles shine faintly in the dark"
+        },
+        {
+          "name": "Stardust soda",
+          "plain": "Star soda",
+          "hint": "Drop the jelly into sparkling water and watch it rise, pearl by pearl"
+        }
+      ],
+      "outcomes": {
+        "star-jelly": {
+          "text": "The jelly glows faintly on the plate, like a small piece of night sky served up. The jellyfish flashes once in the basin beside you, as if signing its work."
+        },
+        "night-noodles": {
+          "text": "Turn off the lights and the whole bowl glows a soft blue; lift the noodles and a thread of light trails after them. You decide that from now on, dinner happens in the dark."
+        },
+        "star-soda": {
+          "text": "The stardust rises pearl by pearl, bouncing off the glass and back again; one sip pops a little sweetness on your tongue. The jellyfish watches the glass and seems to think its jelly has done very well for itself."
+        }
+      }
+    },
+    {
+      "chapter": "Page five",
+      "title": "A honey deer grows mushrooms that drip honey",
+      "description": "Field guide, page five: the honey deer. The mushrooms living on its antlers drip honey once they're ripe, and the deer will lower its head to your pot on its own - it likes the smell of something cooking.",
+      "actions": [
+        {
+          "name": "Thick-cut roast honey mushrooms",
+          "plain": "Honey roast",
+          "hint": "Thick slices of a ripe, self-fallen mushroom, roasted until the edges caramelise, finished with salt"
+        },
+        {
+          "name": "Honey-mushroom antler stew",
+          "plain": "Deer stew",
+          "hint": "A slow pot of dripped honey and root vegetables, with a whole mushroom laid in at the end"
+        },
+        {
+          "name": "Honey-mushroom amber candy",
+          "plain": "Amber candy",
+          "hint": "Reduce mushroom honey into syrup and set it into transparent amber sweets"
+        }
+      ],
+      "outcomes": {
+        "honey-roast": {
+          "text": "The thick slices roast until their edges go bright and glassy; salt comes first, and then the honey catches up slowly behind it. The deer lowers its head to sniff the pan and snorts, satisfied."
+        },
+        "deer-stew": {
+          "text": "The stew is a deep amber and the vegetables have drunk up all the honey; sweet and salt land exactly level. The deer leaves you the whole mushroom and drinks the broth itself."
+        },
+        "honey-candy": {
+          "text": "Held to the light, the amber sweet shows the fine grain of the mushroom inside; holding it in your mouth slowly dissolves a whole forest's worth of flavour. You leave the first one beside the deer's antler."
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "title": "The Otherworld Field Guide · Editor-in-Chief",
+      "description": "The last page of the guide reads: every single ingredient would be happy to see you again. The frost dragon, the cloud sheep, the lava snail, the starlight jellyfish and the honey deer all left their marks in the footer - and your name is on the cover."
+    },
+    {
+      "title": "The Taster Whose Appetite Went Continental",
+      "description": "Your cooking has a particular talent: people swallow before they've even seen the plate. So the field guide gained an appendix called \"You Will Get Hungry Reading This\", and the appendix is nearly too thick to bind."
+    },
+    {
+      "title": "Reverence for Every Bite",
+      "description": "Before you light the fire, you always thank the ingredient first. Word travels among the otherworld creatures: whatever comes out of that small pot tastes like something that was treasured."
+    }
+  ],
+  "keepsakes": [
+    {
+      "title": "Otherworld Field Guide · Pocket Edition"
+    },
+    {
+      "title": "Glowing Noodle Bowl Keepsake"
+    },
+    {
+      "title": "Ingredient-Thanks Wooden Plaque"
+    }
+  ]
+}

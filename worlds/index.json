@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "defaultWorldId": "meow-supreme",
+  "catalog": {
+    "eyebrow": "异境拾光 · 世界目录",
+    "headline": "每一片异境，都有一场自己的游戏。",
+    "description": "这里有可爱的猜猫、热血的修仙、苏醒的猫咪异界、开着火的异界食堂，还有一家要靠耳朵点菜的龙餐馆。选择一个世界，开始游玩。"
+  },
+  "worlds": [
+    {
+      "id": "meow-supreme",
+      "config": "meow-supreme/world.json",
+      "status": "ready",
+      "titleEn": "Meow Supreme",
+      "subtitleEn": "Seven patrols, one very ordinary room",
+      "descriptionEn": "The humans are out. You are the cat, and seven ordinary objects are waiting for your inspection."
+    },
+    {
+      "id": "coin-cat",
+      "config": "coin-cat/world.json",
+      "status": "ready",
+      "assetBase": "worlds/coin-cat/",
+      "title": "咪的演员梦",
+      "shortTitle": "咪的演员梦",
+      "subtitle": "可爱猜猫游戏",
+      "description": "看见熟悉又意外的画面，猜猜猫咪会怎么做。",
+      "catalog": {
+        "eyebrow": "第二片异境微光已经苏醒",
+        "cardIcon": "●",
+        "cardLabel": "WORLD 02",
+        "cardGradient": [
+          "#f6b6be",
+          "#e8879a",
+          "#9e4e72"
+        ],
+        "cardAccent": "#ffe6a8",
+        "actionSummary": "看猫 · 猜名场面 · 听声音"
+      },
+      "titleEn": "Meow's Acting Dream",
+      "subtitleEn": "A cute cat guessing game",
+      "descriptionEn": "Look at the picture, guess what the cat is acting out."
+    },
+    {
+      "id": "jade-cat",
+      "config": "jade-cat/world.json",
+      "status": "ready",
+      "titleEn": "Jade Cat Ascension",
+      "subtitleEn": "A hungry cat's cultivation story",
+      "descriptionEn": "A jade pendant drops a house cat into a cultivation world. Cultivation, belly and morality decide what it becomes."
+    },
+    {
+      "id": "meow-kitchen",
+      "config": "meow-kitchen/world.json",
+      "status": "ready",
+      "titleEn": "Meowchelin Isekai Kitchen",
+      "subtitleEn": "Western-fantasy cooking adventure",
+      "descriptionEn": "A cat chef wanders a western-fantasy world where every monster can become dinner."
+    },
+    {
+      "id": "dragon-table",
+      "config": "dragon-table/world.json",
+      "status": "ready",
+      "titleEn": "Dragon Table",
+      "subtitleEn": "Eavesdrop, then guess the dish",
+      "descriptionEn": "A lone cat diner overhears the kitchen and guesses four dishes by ear."
+    }
+  ]
+}

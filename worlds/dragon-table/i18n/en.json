@@ -1,0 +1,390 @@
+{
+  "title": "Dragon Table",
+  "shortTitle": "Dragon Table",
+  "subtitle": "Eavesdrop on the kitchen, guess the dish",
+  "description": "A cat walks into a small restaurant alone and gets exactly one place setting. Before the food arrives, the kitchen starts talking - four dishes, four overheard conversations, four answers you have to guess by ear.",
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Push the door open",
+    "continueButton": "Keep listening",
+    "finalContinueButton": "Look up",
+    "replayButton": "Stay one more night"
+  },
+  "catalog": {
+    "eyebrow": "A fifth glimmer has woken up",
+    "headline": "The food hasn't arrived. The kitchen has.",
+    "description": "A cat walks into the Dragon Table alone. Four dishes, four overheard conversations, four answers you guess by ear.",
+    "cardDescription": "A table for four, and only one place setting - yours. Through the kitchen door, sugar, hot oil, an iron pot and a clear broth give away each dish one at a time.",
+    "cardIcon": "Dragon",
+    "actionSummary": "Eavesdrop · Guess · Eat"
+  },
+  "states": [
+    {
+      "label": "Ear-fortune",
+      "description": "How many dishes you guessed by ear"
+    },
+    {
+      "label": "Warmth",
+      "description": "How warm this one night felt"
+    }
+  ],
+  "actions": [
+    {
+      "name": "Sit by the window",
+      "plain": "Window"
+    },
+    {
+      "name": "Sit at the bar",
+      "plain": "Bar"
+    },
+    {
+      "name": "Sit by the stove",
+      "plain": "Stove"
+    }
+  ],
+  "scenes": [
+    {
+      "chapter": "Opening",
+      "title": "Walking into the Dragon Table",
+      "description": "The bell rings once. Still light out; one square table, four chairs. You're eating alone, so one place is set — yours. Pick a seat.",
+      "actions": [
+        {
+          "name": "Sit by the window",
+          "plain": "Window",
+          "hint": "You can watch the street"
+        },
+        {
+          "name": "Sit at the bar",
+          "plain": "Bar",
+          "hint": "Closest to the pass"
+        },
+        {
+          "name": "Sit by the stove",
+          "plain": "Stove",
+          "hint": "The warmest seat"
+        }
+      ],
+      "outcomes": {
+        "seat-window": {
+          "text": "Tea first. The steam drifts toward the kitchen, and quiet voices come through the door gap."
+        },
+        "seat-bar": {
+          "text": "The pass is right there; plates clinking, clear as anything. The words still get away."
+        },
+        "seat-stove": {
+          "text": "Warm air rolls over your whiskers, and the kitchen feels close enough to whisper."
+        }
+      }
+    },
+    {
+      "id": "candy",
+      "chapter": "Round one",
+      "object": "candy",
+      "image": "assets/images/empty/01-table-tea.webp",
+      "title": "The sugar is changing colour",
+      "description": "Voices leak out of the kitchen:\n\"Pale gold, then kill the heat.\"\n\"Roll-cut chunks, seventy percent oil.\"\n\"Pull the threads hot, dip them in cold water.\"",
+      "actions": [
+        {
+          "id": "candy-sweet-potato",
+          "name": "Candied sweet potato",
+          "plain": "Candied sweet potato",
+          "hint": "Gets a sugar thread and a cold dip",
+          "icon": "菜"
+        },
+        {
+          "id": "roast-sweet-potato",
+          "name": "Roast sweet potato",
+          "plain": "Roast sweet potato",
+          "hint": "Roasted, nothing pulls",
+          "icon": "菜"
+        },
+        {
+          "id": "steamed-pumpkin",
+          "name": "Steamed pumpkin",
+          "plain": "Steamed pumpkin",
+          "hint": "Steamed, no sugar at all",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "candy-sweet-potato": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "A metre of sugar thread under the lamp — candied sweet potato. You called it."
+        },
+        "roast-sweet-potato": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's candied sweet potato. Nobody shouts \"cold water\" over a roast."
+        },
+        "steamed-pumpkin": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's candied sweet potato. Steamed pumpkin never needs caramel."
+        }
+      }
+    },
+    {
+      "id": "dragon",
+      "chapter": "Round two",
+      "object": "dragon",
+      "image": "assets/images/empty/02-table-one-plate.webp",
+      "title": "The fish has to stand up",
+      "description": "The fryer spits, and the words are short:\n\"Cuts down to the skin, don't break through.\"\n\"Fry again at one-eighty — head up.\"\n\"Sauce it while it's hot.\"",
+      "actions": [
+        {
+          "id": "dragon-raises-head",
+          "name": "Dragon Raises Its Head",
+          "plain": "Dragon Raises Its Head",
+          "hint": "Stands up, head to the sky",
+          "icon": "菜"
+        },
+        {
+          "id": "steamed-fish",
+          "name": "Steamed fish",
+          "plain": "Steamed fish",
+          "hint": "Steamed fish lies flat",
+          "icon": "菜"
+        },
+        {
+          "id": "boiled-fish",
+          "name": "Boiled fish",
+          "plain": "Boiled fish",
+          "hint": "Sits in broth, never fried",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "dragon-raises-head": {
+          "image": "assets/images/empty/02-table-one-plate.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "One big fish comes out standing, head held high — Dragon Raises Its Head."
+        },
+        "steamed-fish": {
+          "image": "assets/images/empty/02-table-one-plate.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's the dragon dish. Steamed fish never lifts its head."
+        },
+        "boiled-fish": {
+          "image": "assets/images/empty/02-table-one-plate.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's the dragon dish. Boiled fish stays in the soup."
+        }
+      }
+    },
+    {
+      "id": "stew",
+      "chapter": "Round three",
+      "object": "stew",
+      "image": "assets/images/empty/03-table-two-plates.webp",
+      "title": "Cakes pressed on the rim",
+      "description": "Hot even through the door, half the sentence eaten by steam:\n\"Press the cakes onto the pot's edge.\"\n\"Boiling water, cornmeal, four to one.\"\n\"One pot does everything. Fifty minutes.\"",
+      "actions": [
+        {
+          "id": "iron-pot-stew",
+          "name": "Northeast iron-pot stew",
+          "plain": "Northeast iron-pot stew",
+          "hint": "Corn cakes on the rim",
+          "icon": "菜"
+        },
+        {
+          "id": "hotpot",
+          "name": "Hot pot",
+          "plain": "Hot pot",
+          "hint": "Hot pot presses nothing",
+          "icon": "菜"
+        },
+        {
+          "id": "clay-pot-soup",
+          "name": "Clay-pot congee",
+          "plain": "Clay-pot congee",
+          "hint": "Congee, not ribs",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "iron-pot-stew": {
+          "image": "assets/images/empty/03-table-two-plates.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "A black iron pot lands with a ring of golden cakes — iron-pot stew. You called it."
+        },
+        "hotpot": {
+          "image": "assets/images/empty/03-table-two-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's iron-pot stew. Hot pot means dipping, not pressing."
+        },
+        "clay-pot-soup": {
+          "image": "assets/images/empty/03-table-two-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's iron-pot stew. A clay pot holds congee, not ribs."
+        }
+      }
+    },
+    {
+      "id": "rice",
+      "chapter": "Round four",
+      "object": "rice",
+      "image": "assets/images/empty/04-table-three-plates.webp",
+      "title": "The last one is the quietest",
+      "description": "No sizzle, just broth ticking:\n\"Clarify the stock, render the chicken fat.\"\n\"Meat, then vegetables, stock over rice.\"\n\"A little honey before it comes off.\"",
+      "actions": [
+        {
+          "id": "xufu-braised-rice",
+          "name": "Xu Fu's braised rice",
+          "plain": "Xu Fu's braised rice",
+          "hint": "Rice in broth, honey at the end",
+          "icon": "菜"
+        },
+        {
+          "id": "tomato-beef-pot",
+          "name": "Tomato beef brisket pot",
+          "plain": "Tomato beef brisket pot",
+          "hint": "Beef is a dish, not rice",
+          "icon": "菜"
+        },
+        {
+          "id": "roast-chicken",
+          "name": "Roast chicken",
+          "plain": "Roast chicken",
+          "hint": "Roasts skip the broth",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "xufu-braised-rice": {
+          "image": "assets/images/empty/04-table-three-plates.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "Rice soaked through with stock, the last spoon of honey melting — Xu Fu's braised rice."
+        },
+        "tomato-beef-pot": {
+          "image": "assets/images/empty/04-table-three-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's the braised rice. A brisket pot has no rice in it."
+        },
+        "roast-chicken": {
+          "image": "assets/images/empty/04-table-three-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "It's the braised rice. Roast chicken never touches broth."
+        }
+      }
+    },
+    {
+      "id": "finale",
+      "chapter": "Finale",
+      "object": "finale",
+      "image": "assets/images/finale/dumpling-table.webp",
+      "title": "Flour on the board",
+      "description": "Four dishes done, plates stacked small. The kitchen door is open: three people folding dumplings, one seat left at the table.",
+      "actions": [
+        {
+          "id": "note",
+          "name": "Leave a note under the bowl",
+          "plain": "Leave a note",
+          "hint": "\"The sugar threads were beautiful\" + one coin",
+          "icon": "Note"
+        },
+        {
+          "id": "stay",
+          "name": "Sit and finish your tea",
+          "plain": "Stay",
+          "hint": "Wait for them to look up",
+          "icon": "Tea"
+        },
+        {
+          "id": "leave",
+          "name": "Slip out the back door",
+          "plain": "Leave",
+          "hint": "Full is enough",
+          "icon": "Door"
+        }
+      ],
+      "outcomes": {
+        "note": {
+          "image": "assets/images/endings/gift-bowl.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 1
+          },
+          "text": "Note tucked, coin on top. As you stand, the rolling pin pauses."
+        },
+        "stay": {
+          "image": "assets/images/endings/dumpling-feast.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 2
+          },
+          "text": "You finish the tea and don't get up. The board goes quiet — then a chair is pulled out."
+        },
+        "leave": {
+          "image": "assets/images/endings/checkout.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "Coin on the bill, out the back door. It isn't dark yet."
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "title": "Dumplings · The Fourth Pair of Chopsticks",
+      "description": "Someone who guesses all four dishes can't stay hidden. Just as you start to stand, a pair of chopsticks is set down on the table with a soft click - the old man in the white chef's coat pushes the fourth bowl in front of you, and the bare arm beside him has already picked out a dumpling for you. The flour is still on the board and the steam has fogged all four bowls. This table had a place for you all along."
+    },
+    {
+      "title": "A Parting Bowl",
+      "description": "You got half of them. On the way out, the kitchen sends one extra small bowl of braised rice, with a blank note under it - Ma Junsheng says the last dish can wait for next time. You lift the bowl; the soup is still hot."
+    },
+    {
+      "title": "Settle the Bill · Come Again",
+      "description": "Most of the answers slipped past your ears. That's all right - the food was genuinely good and the coins were genuinely paid. You push your chair back in and the bell on the door rings once more. Next time you'll probably remember the colour of the sugar, the cakes on the pot, and that spoon of honey."
+    }
+  ],
+  "keepsakes": [
+    {
+      "title": "Dragon Chopstick Rest"
+    },
+    {
+      "title": "The Fourth Seat Card"
+    },
+    {
+      "title": "Sugar-Thread Paw Dish"
+    }
+  ]
+}

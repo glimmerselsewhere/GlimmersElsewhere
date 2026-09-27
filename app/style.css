@@ -1,0 +1,244 @@
+:root {
+  color-scheme: light;
+  --ink: #201b2e;
+  --muted: #756e7c;
+  --paper: #f7f0e4;
+  --cream: #fffaf0;
+  --violet: #6b4bb9;
+  --violet-dark: #3f2b76;
+  --gold: #d69a38;
+  --fear: #d8654c;
+  --respect: #6d9e75;
+  --line: rgba(53, 39, 70, .14);
+  font-family: "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #e8dfd1; color: var(--ink); }
+body { min-height: 100dvh; overflow-x: hidden; }
+button { font: inherit; }
+button, [role="button"] { -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+
+.app-shell {
+  position: relative;
+  width: min(100%, 500px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 5%, rgba(255,255,255,.92), transparent 28%),
+    linear-gradient(165deg, #fbf5e9 0%, #f0e4d2 100%);
+  box-shadow: 0 0 60px rgba(42, 31, 54, .14);
+}
+
+.catalog-view, .intro-view, .game-view, .ending-view { min-height: 100dvh; }
+.catalog-view { padding: max(22px, env(safe-area-inset-top)) 22px max(28px, env(safe-area-inset-bottom)); }
+
+.brand-header, .game-header { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.brand-header > div:nth-child(2) { flex: 1; }
+.brand-header p, .world-card-copy > p, .eyebrow { margin: 0 0 3px; color: var(--violet); font: 700 10px/1.3 ui-monospace, monospace; letter-spacing: .13em; }
+.brand-header h1 { margin: 0; font: 800 24px/1.1 "Songti SC", serif; letter-spacing: .08em; }
+.brand-mark { position: relative; width: 45px; height: 45px; border-radius: 16px; background: var(--violet-dark); box-shadow: 0 7px 14px rgba(63,43,118,.25); }
+.brand-mark i::before, .brand-mark i::after { content: ""; position: absolute; top: -6px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 17px solid var(--violet-dark); }
+.brand-mark i::before { left: 3px; transform: rotate(-18deg); }
+.brand-mark i::after { right: 3px; transform: rotate(18deg); }
+.brand-mark b { display: grid; place-items: center; height: 100%; color: #ffd578; font-size: 19px; }
+.icon-button, .back-button { border: 1px solid var(--line); color: var(--ink); background: rgba(255,255,255,.48); backdrop-filter: blur(8px); }
+.icon-button { width: 42px; height: 42px; border-radius: 50%; font-weight: 800; }
+.icon-button.is-muted { opacity: .45; text-decoration: line-through; }
+
+.catalog-hero { padding: 56px 4px 28px; }
+.catalog-hero h2 { max-width: 360px; margin: 10px 0 13px; font: 900 clamp(34px, 10vw, 48px)/1.13 "Songti SC", serif; letter-spacing: -.04em; }
+.catalog-hero > p:last-child { max-width: 340px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+.world-cards { display: grid; gap: 18px; }
+.world-card { overflow: hidden; border: 1px solid rgba(56,41,80,.1); border-radius: 30px; background: rgba(255,255,255,.72); box-shadow: 0 20px 50px rgba(69, 47, 82, .15); }
+.world-card-art { position: relative; height: 290px; overflow: hidden; background: radial-gradient(circle at 58% 38%, var(--world-accent, #f7d582) 0 9%, transparent 10%), linear-gradient(155deg, var(--world-gradient, #8172c3, #44346e, #28203f)); }
+.world-card-art::before { content: ""; position: absolute; inset: 56% -5% -15%; background: #ccb890; clip-path: polygon(0 26%, 35% 8%, 61% 23%, 100% 0, 100% 100%, 0 100%); opacity: .85; }
+.world-number { position: absolute; z-index: 3; top: 18px; left: 19px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.3); border-radius: 99px; color: white; font: 700 10px/1 monospace; letter-spacing: .12em; }
+.world-orbit { position: absolute; z-index: 2; left: 50%; top: 50%; display: grid; place-items: center; width: 136px; height: 136px; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; transform: translate(-50%,-42%) rotate(-12deg); box-shadow: 0 0 0 18px rgba(255,255,255,.06), 0 0 0 38px rgba(255,255,255,.035); }
+.world-orbit::before, .world-orbit::after { content: ""; position: absolute; border-radius: 50%; background: var(--world-accent, #f7d582); box-shadow: 0 0 22px var(--world-accent, #f7d582); }
+.world-orbit::before { width: 13px; height: 13px; top: 15px; left: 19px; }
+.world-orbit::after { width: 8px; height: 8px; right: 10px; bottom: 31px; opacity: .8; }
+.world-orbit i { display: grid; place-items: center; width: 70px; height: 70px; border: 2px solid rgba(255,255,255,.72); border-radius: 24px; color: var(--world-accent, #f7d582); background: rgba(31,23,48,.28); font: normal 900 34px/1 "Songti SC",serif; transform: rotate(12deg); }
+.spark { position: absolute; color: #ffe29d; animation: float 2.5s ease-in-out infinite alternate; }
+.spark-a { left: 41px; top: 91px; }.spark-b { right: 30px; top: 75px; animation-delay: -.8s; }.spark-c { left: 235px; top: 180px; animation-delay: -1.4s; }
+@keyframes float { to { transform: translateY(-8px) rotate(8deg); } }
+.world-card-copy { padding: 23px; }
+.world-card-copy h3 { margin: 1px 0 7px; font: 900 31px/1.2 "Songti SC", serif; }
+.world-card-description { margin: 0 0 11px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.world-card-copy > span { color: var(--muted); font-size: 13px; letter-spacing: .14em; }
+.world-card-copy button, .intro-copy button, .outcome-panel button, .ending-card > button { width: 100%; margin-top: 20px; padding: 16px 19px; border: 0; border-radius: 17px; color: #fff; background: var(--violet-dark); font-weight: 800; text-align: left; box-shadow: 0 8px 18px rgba(63,43,118,.22); }
+.world-card-copy button b, .outcome-panel button b { float: right; }
+.world-card-copy button.is-coming-soon { color: #756b79; background: #e8e0e4; box-shadow: none; cursor: not-allowed; }
+.catalog-note { margin: 22px 0 0; color: #8b7f88; font-size: 12px; text-align: center; }
+
+.intro-view { position: relative; display: flex; flex-direction: column; padding: max(22px, env(safe-area-inset-top)) 22px max(28px, env(safe-area-inset-bottom)); background: #29203d; color: white; }
+.back-button { width: fit-content; padding: 9px 12px; border-radius: 99px; }
+.opening-frame { flex: 1; width: calc(100% + 44px); min-height: 0; margin: 17px -22px 0; border: 0; background: #29203d; }
+.opening-video, .opening-image { object-fit: cover; }
+.opening-fallback { flex: 1; width: min(88vw, 520px); align-self: center; margin: 17px auto 0; padding: 38px 26px; border: 1px solid rgba(255,255,255,.22); border-radius: 30px; color: #fff; background: rgba(36,26,57,.72); box-shadow: 0 22px 70px rgba(22,14,37,.2); text-align: center; }
+.opening-fallback h2 { margin: 12px 0 10px; font: 900 clamp(30px, 9vw, 48px)/1.08 "Songti SC", serif; }
+.opening-fallback > p:last-child { margin: 0; color: rgba(255,255,255,.76); line-height: 1.7; }
+.opening-enter { width: 100%; margin-top: 16px; padding: 16px; border: 0; border-radius: 17px; color: #2e233f; background: #f4c66d; font-weight: 900; }
+.level-select { flex: 0 1 auto; width: 100%; margin: 17px auto 0; padding: 22px 0 4px; }
+.level-select h2 { margin: 8px 0 14px; font: 900 28px/1.15 "Songti SC", serif; }
+.level-cards { display: grid; gap: 11px; }
+.level-card { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; width: 100%; padding: 16px; border: 1px solid rgba(255,255,255,.2); border-radius: 18px; color: #fff; background: rgba(52,39,72,.78); text-align: left; box-shadow: 0 10px 24px rgba(22,14,37,.18); }
+.level-card span { grid-column: 1 / -1; color: #f7ca77; font: 800 10px/1 monospace; letter-spacing: .14em; }
+.level-card strong { font-size: 17px; }
+.level-card small { grid-column: 1 / -1; color: rgba(255,255,255,.67); font-size: 11px; }
+.level-card b { grid-column: 2; grid-row: 2 / span 2; align-self: center; color: #f4c66d; font-size: 11px; white-space: nowrap; }
+.intro-room { position: relative; flex: 1; min-height: 390px; margin: 28px -22px 0; overflow: hidden; background: linear-gradient(#57446e 0 50%, #c5a77f 50% 100%); perspective: 500px; }
+.intro-room::before { content: ""; position: absolute; left: 50%; bottom: -34%; width: 120%; height: 75%; background: repeating-linear-gradient(90deg, transparent 0 71px, rgba(68,49,47,.18) 72px 75px), #c7aa83; transform: translateX(-50%) rotateX(61deg); transform-origin: bottom; }
+.intro-door { position: absolute; left: 12%; top: 10%; width: 40%; height: 48%; background: #a88161; border: 9px solid #352943; box-shadow: inset -14px 0 rgba(39,29,50,.13); }
+.intro-light { position: absolute; top: 0; left: 35%; width: 45%; height: 75%; background: linear-gradient(135deg, rgba(255,237,176,.55), transparent 70%); clip-path: polygon(0 0, 35% 0, 100% 100%, 40% 100%); }
+.intro-paws { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); }
+.intro-paws i { display: inline-block; width: 78px; height: 48px; margin: 0 14px; border-radius: 60% 60% 40% 40%; background: #e4a760; box-shadow: inset 0 -9px rgba(97,56,48,.15); transform: rotate(-7deg); }
+.intro-paws i:last-child { transform: rotate(7deg); }
+.intro-copy { position: relative; padding: 25px 2px 4px; }
+.intro-copy > p { margin: 0; color: #f7ca77; font: 800 10px/1 monospace; letter-spacing: .16em; }
+.intro-copy h2 { margin: 8px 0 15px; font: 900 40px/1 "Songti SC", serif; }
+.intro-lines { display: grid; gap: 5px; color: #cfc6d7; font-size: 14px; }
+.intro-lines strong { color: white; }
+.intro-copy button { background: #f4c66d; color: #2e233f; text-align: center; }
+
+.game-view { display: flex; flex-direction: column; height: 100dvh; min-height: 0; overflow: hidden; padding: max(12px, env(safe-area-inset-top)) 18px max(12px, env(safe-area-inset-bottom)); background: linear-gradient(180deg, #f7f0e5, #eee2d2); }
+.game-header .back-button.compact { font-size: 12px; }
+.world-mini { text-align: center; }
+.world-mini small { display: block; color: var(--muted); font-weight: 600; }.world-mini strong { font: 800 13px/1 monospace; }
+.icon-button.compact { width: 36px; height: 36px; font-size: 13px; }
+.meters { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 14px; }
+.meter { padding: 9px 11px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.6); }
+.meter span { display: flex; justify-content: space-between; font-size: 11px; }.meter em { font-style: normal; font-weight: 900; }
+.meter > i { display: block; height: 5px; margin-top: 6px; overflow: hidden; border-radius: 99px; background: rgba(43,35,51,.1); }
+.meter u { display: block; width: 0; height: 100%; border-radius: inherit; transition: width .5s ease; }
+.meter u { background: var(--meter-color); }
+.scene-copy { min-height: 72px; margin: 0 3px 10px; }
+.scene-copy p { margin: 0 0 4px; color: var(--violet); font-size: 11px; font-weight: 800; letter-spacing: .15em; }
+.scene-copy h2 { max-width: 390px; margin: 0; font: 900 22px/1.24 "Songti SC", serif; }
+
+.visual-stage { position: relative; flex: 1 10 auto; min-height: 112px; overflow: hidden; width: 100%; border-radius: 24px; background: #d8c3a6; box-shadow: 0 14px 28px rgba(61,45,63,.16); }
+.visual-stage svg { display: block; width: 100%; height: 100%; }
+.scene-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.scene-missing { display: grid; place-items: center; height: 100%; padding: 30px; color: #665d68; background: #e5d7c3; text-align: center; font-size: 13px; }
+.pov-label { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; border-radius: 99px; color: white; background: rgba(28,22,37,.62); backdrop-filter: blur(7px); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.result-flash { position: absolute; inset: 0; pointer-events: none; background: white; animation: flash .55s ease both; }
+@keyframes flash { 0% { opacity: .85 } 100% { opacity: 0 } }
+.scene-description { flex: 0 0 auto; min-height: 42px; max-height: none; margin: 12px 4px 8px; overflow: visible; white-space: pre-line; color: #5f5866; font-size: 13px; line-height: 1.55; scrollbar-width: thin; }
+.choice-panel { display: grid; gap: 7px; }
+.choice-button { position: relative; display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 11px; width: 100%; min-height: 64px; padding: 8px 12px 8px 9px; overflow: hidden; border: 1px solid rgba(73,54,100,.16); border-radius: 18px; color: var(--ink); background: linear-gradient(110deg, rgba(255,255,255,.9), rgba(255,255,255,.62)); box-shadow: 0 5px 0 rgba(63,43,118,.07), 0 10px 22px rgba(73,54,100,.06); text-align: left; transition: transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease; }
+.choice-button { animation: choiceEnter .36s cubic-bezier(.2,.8,.25,1) both; }
+.choice-button:nth-child(2) { animation-delay: .055s; }.choice-button:nth-child(3) { animation-delay: .11s; }.choice-button:nth-child(4) { animation-delay: .165s; }
+@keyframes choiceEnter { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.choice-button::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at var(--tap-x, 50%) var(--tap-y, 50%), rgba(214,154,56,.28), transparent 34%); opacity: 0; transform: scale(.72); transition: opacity .18s ease, transform .28s ease; }
+.choice-button:hover { border-color: rgba(107,75,185,.42); box-shadow: 0 6px 0 rgba(63,43,118,.08), 0 13px 26px rgba(73,54,100,.1); transform: translateY(-1px); }
+.choice-button:active { transform: scale(.975) translateY(2px); }
+.choice-button.is-choosing { border-color: var(--gold); background: #fff8df; box-shadow: 0 2px 0 rgba(214,154,56,.22), 0 13px 26px rgba(214,154,56,.16); transform: scale(.985); }
+.choice-button.is-choosing::after { opacity: 1; transform: scale(1.6); }
+.choice-button .choice-icon { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; color: #fff; background: var(--violet-dark); font-size: 12px; font-weight: 900; }
+.choice-thumb { display: grid; place-items: center; width: 48px; height: 48px; overflow: hidden; border: 1px solid rgba(63,43,118,.14); border-radius: 14px; background: #f1e6d5; box-shadow: inset 0 -4px rgba(63,43,118,.06); }
+.choice-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.choice-thumb img { transition: transform .22s ease; }
+.choice-button:hover .choice-thumb img, .choice-button.is-choosing .choice-thumb img { transform: scale(1.08) rotate(-2deg); }
+.choice-button strong { display: block; font-size: 14px; }.choice-button small { color: var(--muted); font-size: 10px; }
+.choice-button > b { color: var(--gold); font-size: 16px; }
+.choice-button:disabled { opacity: .5; }
+.outcome-panel { padding: 15px; border: 1px solid rgba(74,55,93,.12); border-radius: 18px; background: rgba(255,255,255,.72); box-shadow: 0 8px 18px rgba(47,34,53,.08); }
+.outcome-panel > p { min-height: 40px; max-height: none; overflow: visible; white-space: pre-line; margin: 0; font-size: 13px; line-height: 1.55; scrollbar-width: thin; }
+.delta-chips { display: flex; gap: 8px; margin-top: 10px; }
+.delta-chips span { padding: 6px 9px; border-radius: 99px; font-size: 11px; font-weight: 800; }
+.delta-chips .fear { color: #8e2e20; background: #f7d6cf; }.delta-chips .respect { color: #315d38; background: #d9ecdc; }
+.outcome-panel button { margin-top: 12px; padding: 12px 15px; }
+
+.ending-view { position: relative; padding-bottom: max(28px, env(safe-area-inset-bottom)); background: #28203b; color: #fff; }
+.ending-back { position: absolute; z-index: 4; top: max(18px, env(safe-area-inset-top)); left: 18px; color: white; border-color: rgba(255,255,255,.25); background: rgba(31,23,48,.58); }
+.ending-stage { position: relative; overflow: hidden; width: 100%; aspect-ratio: 1; background: #6f5a8d; }
+.ending-stage svg { width: 100%; height: 100%; animation: endingZoom 4s ease-out both; }
+.ending-stage video, .ending-stage .ending-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+@keyframes endingZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+.ending-stage > p { position: absolute; right: 17px; bottom: 13px; margin: 0; color: rgba(255,255,255,.74); font: 700 9px/1 monospace; letter-spacing: .2em; }
+.ending-card { position: relative; z-index: 2; margin: -23px 14px 0; padding: 24px 20px; border-radius: 25px; color: var(--ink); background: #fffaf0; box-shadow: 0 -10px 30px rgba(28,17,41,.2); }
+.ending-card h2 { margin: 7px 0 9px; font: 900 29px/1.18 "Songti SC", serif; }
+.ending-card > p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.final-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 17px 0; }
+.final-stats span { display: flex; justify-content: space-between; padding: 11px 13px; border-radius: 13px; background: #f0e8db; font-size: 12px; }.final-stats b { font-size: 17px; }
+/* keepsake row: thumbnail + title + icon-only download */
+.keepsake { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid #dcbf79; border-radius: 17px; background: linear-gradient(135deg, #fff4ce, #f2dfad); }
+.keepsake-open { display: flex; align-items: center; gap: 12px; flex: 1 1 auto; min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.keepsake-thumb { position: relative; flex: 0 0 58px; width: 58px; height: 58px; overflow: hidden; border-radius: 14px; background: radial-gradient(circle at 50% 40%, #fff8e2, #dfc680); box-shadow: inset 0 0 0 1px rgba(126,99,48,.25); }
+.keepsake-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.keepsake-badge { position: absolute; right: 4px; bottom: 4px; padding: 2px 5px; border-radius: 7px; background: rgba(58,40,20,.72); color: #ffe9b8; font-size: 8px; font-weight: 800; letter-spacing: .04em; }
+.keepsake-copy { display: block; min-width: 0; }
+.keepsake-copy small { display: block; color: #7e6330; font-size: 10px; }
+.keepsake-copy strong { display: block; margin: 1px 0 2px; font-size: 14px; }
+.keepsake-copy em { display: block; color: #8a7a58; font-size: 10px; font-style: normal; }
+.keepsake-download { flex: 0 0 auto; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #6b4a2a; background: rgba(255,255,255,.7); box-shadow: inset 0 0 0 1px rgba(126,99,48,.28); }
+.keepsake-download svg { width: 20px; height: 20px; }
+.keepsake-download:hover { background: #fff; }
+
+/* full-screen 3D showroom */
+body.ks-open { overflow: hidden; }
+.ks-modal { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; }
+.ks-backdrop { position: absolute; inset: 0; background: rgba(26,18,12,.62); backdrop-filter: blur(6px); }
+.ks-panel { position: relative; width: min(560px, calc(100vw - 28px)); max-height: calc(100dvh - 40px); display: flex; flex-direction: column; border-radius: 24px; background: linear-gradient(180deg, #2a2018, #17110c); color: #f6ecdc; box-shadow: 0 30px 70px rgba(0,0,0,.5); overflow: hidden; animation: ksIn .3s cubic-bezier(.2,.8,.25,1) both; }
+@keyframes ksIn { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
+.ks-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 18px 20px 6px; }
+.ks-head .eyebrow { margin: 0; color: #e0b96b; font-size: 10px; font-weight: 800; letter-spacing: .16em; }
+.ks-head h2 { margin: 4px 0 0; font: 900 24px/1.15 "Songti SC", serif; }
+.ks-close { width: 34px; height: 34px; border: 0; border-radius: 50%; background: rgba(255,255,255,.12); color: #f6ecdc; font-size: 20px; line-height: 1; cursor: pointer; }
+.ks-close:hover { background: rgba(255,255,255,.22); }
+.ks-stage { position: relative; flex: 1 1 auto; min-height: 260px; margin: 10px 16px 0; border-radius: 18px; background: radial-gradient(circle at 50% 34%, #4a3826, #241a12 70%); touch-action: none; overflow: hidden; }
+.ks-stage canvas { display: block; width: 100%; height: 100%; }
+.ks-stage .seal { position: absolute; inset: 0; margin: auto; }
+.ks-loading { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; color: #d8c6a8; font-size: 12px; }
+.ks-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px 18px; }
+.ks-hint { margin: 0; color: #b8a68c; font-size: 11px; }
+.ks-download { display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 12px; background: #e0b96b; color: #2b1d10; font-size: 12px; font-weight: 800; text-decoration: none; }
+.ks-download svg { width: 16px; height: 16px; }
+.ks-download:hover { background: #f0cd85; }
+@media (min-width: 700px) { .ks-stage { min-height: 340px; } }
+.ending-card > button { text-align: center; }
+
+@media (min-width: 501px) {
+  body { padding: 18px 0; }
+  .app-shell { min-height: calc(100dvh - 36px); border-radius: 28px; }
+  .catalog-view, .intro-view, .game-view, .ending-view { min-height: calc(100dvh - 36px); }
+}
+
+@media (max-height: 760px) {
+  body.is-playing { overflow: hidden; }
+  body.is-playing .app-shell, body.is-playing .game-view { height: 100dvh; min-height: 0; }
+  .game-view { padding-top: 10px; }
+  .meters { margin: 8px 0; }
+  .scene-copy { min-height: 59px; margin-bottom: 7px; }
+  .scene-copy h2 { font-size: 19px; }
+  .visual-stage { flex: 1 1 auto; min-height: 92px; aspect-ratio: auto; }
+  .scene-description { flex: 0 0 auto; min-height: 34px; max-height: none; margin: 7px 3px 5px; overflow: visible; font-size: 12px; }
+  .choice-button { padding: 7px 11px; }
+  .choice-button .choice-icon { width: 32px; height: 32px; }
+}
+
+body.is-playing { height: 100dvh; overflow: hidden; overscroll-behavior: none; }
+body.is-playing .app-shell { height: 100dvh; min-height: 0; overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .choice-button, .choice-thumb img { animation: none; transition: none; }
+}
+
+/* language switch */
+.header-actions{display:flex;gap:8px;align-items:center}
+.lang-button{font-size:12px;font-weight:800;letter-spacing:.06em;min-width:38px}
+.lang-button.is-active{background:#2b2340;color:#fff}
+
+.intro-topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 0}
+
+
+/* real cover art on the catalogue cards */
+.world-card-art.has-cover::before { opacity: 0; }
+.world-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.world-card-art.has-cover { background: #2a2036; }
+.world-card-art.has-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,30,.42) 0%, rgba(20,14,30,.06) 34%, rgba(20,14,30,.30) 100%); }
+.world-card-art.has-cover .world-orbit { display: none; }
+.world-card-art.has-cover .world-number { z-index: 4; background: rgba(20,14,30,.42); backdrop-filter: blur(4px); }

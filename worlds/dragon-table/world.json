@@ -1,0 +1,490 @@
+{
+  "id": "dragon-table",
+  "title": "龙餐馆 · 邻桌",
+  "shortTitle": "龙餐馆",
+  "subtitle": "偷听后厨做菜，猜今晚吃什么",
+  "description": "一只猫在饭点独自走进一家小餐馆，只摆了自己一副餐具。菜还没上，后厨的声音先传了出来——四道菜，四次偷听，四次要靠耳朵猜出来的答案。",
+  "music": "assets/audio/warm-stomach-tune.mp3",
+  "assetBase": "worlds/dragon-table/",
+  "endingVideo": null,
+  "opening": {
+    "mode": "html",
+    "html": "opening.html",
+    "video": null,
+    "poster": null,
+    "image": null
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "推门进去",
+    "continueButton": "继续听",
+    "finalContinueButton": "抬头看看",
+    "replayButton": "再坐一晚"
+  },
+  "catalog": {
+    "eyebrow": "第五片异境微光已经苏醒",
+    "headline": "菜还没上，后厨的声音先到了。",
+    "description": "一只猫独自走进龙餐馆。四道菜，四次偷听，四次要靠耳朵猜出来的答案。",
+    "cardDescription": "四人方桌，只有你一副餐具。后厨的门缝里，糖丝、热油、铁锅和高汤正一道一道说出答案。",
+    "cardIcon": "龙",
+    "cardLabel": "WORLD 05",
+    "cardGradient": [
+      "#f0d3a8",
+      "#c79a63",
+      "#5b3f2e"
+    ],
+    "cardAccent": "#fff2d8",
+    "actionSummary": "偷听 · 猜菜 · 吃一顿"
+  },
+  "initialState": {
+    "ear": 0,
+    "warmth": 0
+  },
+  "states": [
+    {
+      "id": "ear",
+      "label": "耳福",
+      "description": "你靠耳朵猜中的菜数",
+      "color": "#b0763a",
+      "chipBackground": "#f6e7cd",
+      "max": 4
+    },
+    {
+      "id": "warmth",
+      "label": "烟火",
+      "description": "这一晚你感受到的热气",
+      "color": "#c05a4a",
+      "chipBackground": "#f8ded6",
+      "max": 6
+    }
+  ],
+  "actions": [
+    {
+      "id": "seat-window",
+      "name": "靠窗坐",
+      "plain": "靠窗",
+      "icon": "窗"
+    },
+    {
+      "id": "seat-bar",
+      "name": "坐吧台",
+      "plain": "吧台",
+      "icon": "台"
+    },
+    {
+      "id": "seat-stove",
+      "name": "坐灶边",
+      "plain": "灶边",
+      "icon": "灶"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "enter",
+      "chapter": "第零幕",
+      "object": "enter",
+      "image": "assets/images/empty/00-seat-table.webp",
+      "title": "走进龙餐馆",
+      "description": "门铃轻响。天还亮着，店里只有一张方桌、四把椅子。你独自来吃饭，只摆了一副餐具——你自己的。挑个位置。",
+      "actions": [
+        {
+          "id": "seat-window",
+          "name": "靠窗坐",
+          "plain": "靠窗",
+          "hint": "能看见街",
+          "icon": "窗"
+        },
+        {
+          "id": "seat-bar",
+          "name": "坐吧台",
+          "plain": "吧台",
+          "hint": "离出菜口最近",
+          "icon": "台"
+        },
+        {
+          "id": "seat-stove",
+          "name": "坐灶边",
+          "plain": "灶边",
+          "hint": "最暖的位置",
+          "icon": "灶"
+        }
+      ],
+      "outcomes": {
+        "seat-window": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 1
+          },
+          "text": "茶先到。热气正好飘向厨房的方向，门缝里有很轻的说话声。"
+        },
+        "seat-bar": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 1
+          },
+          "text": "出菜口就在眼前，盘子碰撞的声音清清楚楚。对话还是听不全。"
+        },
+        "seat-stove": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 1
+          },
+          "text": "热气一阵阵烘着胡须，后厨的声音近得像贴着耳朵说。"
+        }
+      }
+    },
+    {
+      "id": "candy",
+      "chapter": "第一幕",
+      "object": "candy",
+      "image": "assets/images/empty/01-table-tea.webp",
+      "title": "糖在锅里变色",
+      "description": "后厨的声音一句句漏出来：\n「糖色浅黄就关火，余温还会往上走。」\n「滚刀块，七成油温下锅。」\n「趁热拉丝，过一下凉水。」",
+      "actions": [
+        {
+          "id": "candy-sweet-potato",
+          "name": "拔丝地瓜",
+          "plain": "拔丝地瓜",
+          "hint": "要拉丝、要过凉水",
+          "icon": "菜"
+        },
+        {
+          "id": "roast-sweet-potato",
+          "name": "烤地瓜",
+          "plain": "烤地瓜",
+          "hint": "烤的，不拉丝",
+          "icon": "菜"
+        },
+        {
+          "id": "steamed-pumpkin",
+          "name": "蒸南瓜",
+          "plain": "蒸南瓜",
+          "hint": "蒸的，不碰糖",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "candy-sweet-potato": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "糖丝在灯下拉出一米——拔丝地瓜。你猜对了。"
+        },
+        "roast-sweet-potato": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是拔丝地瓜。烤地瓜不会有人在旁边喊“过凉水”。"
+        },
+        "steamed-pumpkin": {
+          "image": "assets/images/empty/01-table-tea.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是拔丝地瓜。蒸南瓜用不上糖色。"
+        }
+      }
+    },
+    {
+      "id": "dragon",
+      "chapter": "第二幕",
+      "object": "dragon",
+      "image": "assets/images/empty/02-table-one-plate.webp",
+      "title": "一条鱼要立起来",
+      "description": "油锅响着，话很短：\n「刀口切到皮，别断。」\n「一百八十度复炸，头要抬起来。」\n「糖醋汁趁热浇。」",
+      "actions": [
+        {
+          "id": "dragon-raises-head",
+          "name": "龙抬头",
+          "plain": "龙抬头",
+          "hint": "立起来、头朝上",
+          "icon": "菜"
+        },
+        {
+          "id": "steamed-fish",
+          "name": "清蒸鱼",
+          "plain": "清蒸鱼",
+          "hint": "蒸的鱼是躺着的",
+          "icon": "菜"
+        },
+        {
+          "id": "boiled-fish",
+          "name": "水煮鱼",
+          "plain": "水煮鱼",
+          "hint": "汤里的鱼，不炸",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "dragon-raises-head": {
+          "image": "assets/images/empty/02-table-one-plate.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "一条大鱼立着被端出来，头昂得很高——龙抬头。你猜对了。"
+        },
+        "steamed-fish": {
+          "image": "assets/images/empty/02-table-one-plate.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是龙抬头。清蒸鱼不会“抬头”。"
+        },
+        "boiled-fish": {
+          "image": "assets/images/empty/02-table-one-plate.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是龙抬头。水煮鱼的鱼在汤里，不立着。"
+        }
+      }
+    },
+    {
+      "id": "stew",
+      "chapter": "第三幕",
+      "object": "stew",
+      "image": "assets/images/empty/03-table-two-plates.webp",
+      "title": "锅边贴一圈饼子",
+      "description": "隔着门都热，话被蒸汽吃掉一半：\n「饼子往锅边贴。」\n「玉米面开水烫，四比一。」\n「一锅出，炖五十分钟。」",
+      "actions": [
+        {
+          "id": "iron-pot-stew",
+          "name": "东北铁锅炖",
+          "plain": "东北铁锅炖",
+          "hint": "锅边有玉米饼",
+          "icon": "菜"
+        },
+        {
+          "id": "hotpot",
+          "name": "火锅",
+          "plain": "火锅",
+          "hint": "火锅不贴饼子",
+          "icon": "菜"
+        },
+        {
+          "id": "clay-pot-soup",
+          "name": "砂锅粥",
+          "plain": "砂锅粥",
+          "hint": "砂锅里是粥",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "iron-pot-stew": {
+          "image": "assets/images/empty/03-table-two-plates.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "黑铁锅端上桌，锅边一圈金黄的饼子——铁锅炖。你猜对了。"
+        },
+        "hotpot": {
+          "image": "assets/images/empty/03-table-two-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是铁锅炖。火锅是涮着吃，锅边不贴东西。"
+        },
+        "clay-pot-soup": {
+          "image": "assets/images/empty/03-table-two-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是铁锅炖。砂锅里煮的是粥，不是排骨。"
+        }
+      }
+    },
+    {
+      "id": "rice",
+      "chapter": "第四幕",
+      "object": "rice",
+      "image": "assets/images/empty/04-table-three-plates.webp",
+      "title": "最后一道，声音最轻",
+      "description": "锅不响，只有汤在冒小泡：\n「高汤吊清，鸡油单独熬。」\n「铺肉叠菜，浇汤焖饭。」\n「起锅前一点蜂蜜。」",
+      "actions": [
+        {
+          "id": "xufu-braised-rice",
+          "name": "徐福烩饭",
+          "plain": "徐福烩饭",
+          "hint": "汤泡的饭，最后加蜜",
+          "icon": "菜"
+        },
+        {
+          "id": "tomato-beef-pot",
+          "name": "番茄牛腩煲",
+          "plain": "番茄牛腩煲",
+          "hint": "牛腩是菜，不是饭",
+          "icon": "菜"
+        },
+        {
+          "id": "roast-chicken",
+          "name": "烤鸡",
+          "plain": "烤鸡",
+          "hint": "烤的东西不用汤",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "xufu-braised-rice": {
+          "image": "assets/images/empty/04-table-three-plates.webp",
+          "stateChanges": {
+            "ear": 1,
+            "warmth": 1
+          },
+          "text": "陶锅端上来，饭吸饱了汤，最后一勺蜜光化开——徐福烩饭。你猜对了。"
+        },
+        "tomato-beef-pot": {
+          "image": "assets/images/empty/04-table-three-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是烩饭。番茄牛腩煲里没有饭。"
+        },
+        "roast-chicken": {
+          "image": "assets/images/empty/04-table-three-plates.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "端上来的是烩饭。烤鸡不泡汤。"
+        }
+      }
+    },
+    {
+      "id": "finale",
+      "chapter": "终幕",
+      "object": "finale",
+      "image": "assets/images/finale/dumpling-table.webp",
+      "title": "案板上的面粉",
+      "description": "四道菜上齐，空盘叠成一小摞。后厨门开着：三个人在包饺子，桌边留了一个位置。",
+      "actions": [
+        {
+          "id": "note",
+          "name": "把字条压在碗底",
+          "plain": "留字条",
+          "hint": "写上“拔丝漂亮”，压一枚硬币",
+          "icon": "纸"
+        },
+        {
+          "id": "stay",
+          "name": "坐着把茶喝完",
+          "plain": "坐着",
+          "hint": "等他们抬头",
+          "icon": "茶"
+        },
+        {
+          "id": "leave",
+          "name": "悄悄起身，往后门走",
+          "plain": "离开",
+          "hint": "吃饱了，也可以不留",
+          "icon": "门"
+        }
+      ],
+      "outcomes": {
+        "note": {
+          "image": "assets/images/endings/gift-bowl.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 1
+          },
+          "text": "字条压好，硬币压在上面。你起身时，擀面杖停了一下。"
+        },
+        "stay": {
+          "image": "assets/images/endings/dumpling-feast.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 2
+          },
+          "text": "你喝完最后一口茶，没有起身。那边安静下来——然后是椅子被拉开的声音。"
+        },
+        "leave": {
+          "image": "assets/images/endings/checkout.webp",
+          "stateChanges": {
+            "ear": 0,
+            "warmth": 0
+          },
+          "text": "硬币放在账单上，你从后门走了出去。天还没黑。"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "feast",
+      "title": "包饺子 · 第四双筷子",
+      "video": "assets/videos/feast-ending-v1.mp4",
+      "image": "assets/images/endings/dumpling-feast.webp",
+      "all": [
+        {
+          "state": "ear",
+          "operator": ">=",
+          "value": 4
+        }
+      ],
+      "description": "四道菜全猜中的人，是藏不住的。你刚要起身，一双筷子被轻轻拍在桌上——白厨师服的老人把第四只碗推到你面前，旁边那条没穿袖子的手臂已经替你夹了一个饺子。案板上的面粉还没擦，蒸汽把四副碗筷一起糊上了一层白。这一桌，本来就有你的位置。"
+    },
+    {
+      "id": "gift",
+      "title": "送行的一小碗",
+      "video": "assets/videos/gift-ending-v1.mp4",
+      "image": "assets/images/endings/gift-bowl.webp",
+      "all": [
+        {
+          "state": "ear",
+          "operator": ">=",
+          "value": 2
+        }
+      ],
+      "description": "你猜中了一半。结账的时候，后厨多送出来一小碗烩饭，碗底压着空白字条——马俊生说：剩下那道，下次再猜。你把碗端起来，汤还是烫的。"
+    },
+    {
+      "id": "checkout",
+      "title": "结账 · 下次再来",
+      "video": "assets/videos/checkout-ending-v1.mp4",
+      "image": "assets/images/endings/checkout.webp",
+      "all": [],
+      "description": "四道菜里的大部分答案都从耳边溜走了。不过没关系——饭是真的好吃，硬币是真的付了。你把椅子推回去，门上的铃又轻轻响了一下。下次再来，你大概会先记住糖的颜色、锅边的饼、和那勺蜂蜜。"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "dragon-rest",
+      "endingId": "feast",
+      "title": "龙纹筷托",
+      "glb": "assets/models/dragon-rest.glb",
+      "preview": "assets/models/dragon-rest-source.webp"
+    },
+    {
+      "id": "empty-seat-card",
+      "endingId": "gift",
+      "title": "第四席小桌牌",
+      "glb": "assets/models/empty-seat-card.glb",
+      "preview": "assets/models/empty-seat-card-source.webp"
+    },
+    {
+      "id": "sugar-thread-paw",
+      "endingId": "checkout",
+      "title": "糖丝猫爪小碟",
+      "glb": "assets/models/sugar-thread-paw.glb",
+      "preview": "assets/models/sugar-thread-paw-source.webp"
+    }
+  ],
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "musicVolume": 0.12
+}

@@ -1,0 +1,55 @@
+{
+  "id": "meow-kitchen",
+  "title": "咪其林异界食堂",
+  "shortTitle": "咪其林食堂",
+  "subtitle": "西方奇幻 · 猫咪的异界美食之旅",
+  "description": "一只橘猫背着小锅掉进剑与魔法的异界。精灵三百年只吃露水薄饼，矮人啃会响的石头菌菇，兽人永远把肉烤焦，龙守着宝库几百年没吃过热饭。这里不打怪，只做饭。",
+  "music": "assets/audio/everyones-home.mp3",
+  "musicVolume": 0.12,
+  "assetBase": "worlds/meow-kitchen/",
+  "endingVideo": null,
+  "opening": {
+    "mode": "video",
+    "html": "opening.html",
+    "video": "assets/videos/opening-v1-4s.mp4",
+    "poster": "assets/images/opening-first-frame.webp",
+    "image": null
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "掀开锅盖",
+    "continueButton": "端上下一道",
+    "finalContinueButton": "开宴",
+    "replayButton": "再开一次火"
+  },
+  "catalog": {
+    "eyebrow": "第四片异境微光已经苏醒",
+    "headline": "异界很大，愿意坐下来吃饭的种族也很多。",
+    "description": "一只橘猫背着锅掉进剑与魔法的异界。精灵、矮人、兽人、半身人和龙都吃得很敷衍，而它准备开一间食堂。",
+    "cardDescription": "精灵三百年只吃露水薄饼，矮人啃会响的石头菌菇，龙守着宝库没吃过热饭。一只橘猫背着锅，准备把这里变成全大陆最好吃的地方。",
+    "cardIcon": "锅",
+    "cardLabel": "WORLD 04",
+    "cardGradient": [
+      "#f6c177",
+      "#c9743f",
+      "#3d2450"
+    ],
+    "cardAccent": "#ffe6a8",
+    "actionSummary": "炖 · 烤 · 盘"
+  },
+  "levels": [
+    {
+      "id": "chapter-1",
+      "title": "第一篇 · 异界开锅",
+      "config": "config/chapter-1.json"
+    },
+    {
+      "id": "chapter-2",
+      "title": "第二篇 · 奇食图鉴",
+      "config": "config/chapter-2.json"
+    }
+  ],
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  }
+}
