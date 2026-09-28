@@ -21,10 +21,8 @@
     "cardAccent": "#f7d582"
   },
   "opening": {
-    "mode": "html",
-    "html": "opening.html",
-    "video": null,
-    "poster": "assets/images/scenes/hand-opening.webp"
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
   },
   "assetBase": "worlds/meow-supreme/",
   "endingVideo": null,

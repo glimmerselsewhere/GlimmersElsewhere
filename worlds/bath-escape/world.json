@@ -8,11 +8,8 @@
   "assetBase": "worlds/bath-escape/",
   "endingVideo": null,
   "opening": {
-    "mode": "html",
-    "html": null,
-    "video": null,
-    "poster": null,
-    "image": null
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",
@@ -109,7 +106,7 @@
       ],
       "outcomes": {
         "fast": {
-          "image": "assets/images/scenes/scene-01.webp",
+          "image": "assets/images/outcomes/scene-01-fast.webp",
           "stateChanges": {
             "progress": 2,
             "danger": 1
@@ -117,7 +114,7 @@
           "text": "你两步蹬上书架顶层，人类踮脚也差半个手臂。你居高临下地看她走来走去。"
         },
         "safe": {
-          "image": "assets/images/scenes/scene-01.webp",
+          "image": "assets/images/outcomes/scene-01-safe.webp",
           "stateChanges": {
             "progress": 1,
             "danger": 0
@@ -125,7 +122,7 @@
           "text": "你无声地滑进沙发底，尾巴刚好收进去。人类的拖鞋从你眼前走过，停了两秒，然后继续往前。"
         },
         "trap": {
-          "image": "assets/images/scenes/scene-01.webp",
+          "image": "assets/images/outcomes/scene-01-trap.webp",
           "stateChanges": {
             "progress": 0,
             "danger": 3
@@ -166,7 +163,7 @@
       ],
       "outcomes": {
         "fast": {
-          "image": "assets/images/scenes/scene-02.webp",
+          "image": "assets/images/outcomes/scene-02-fast.webp",
           "stateChanges": {
             "progress": 2,
             "danger": 1
@@ -174,7 +171,7 @@
           "text": "你贴着地板冲刺，人类弯腰的瞬间只抓到一撮浮毛。你的后爪已经蹬到了厨房地板。"
         },
         "safe": {
-          "image": "assets/images/scenes/scene-02.webp",
+          "image": "assets/images/outcomes/scene-02-safe.webp",
           "stateChanges": {
             "progress": 1,
             "danger": 0
@@ -182,7 +179,7 @@
           "text": "你跳进脏衣篮，用一只旧袜子盖住自己的头。人类走过去，翻了一下旁边的柜子，没翻这里。"
         },
         "trap": {
-          "image": "assets/images/scenes/scene-02.webp",
+          "image": "assets/images/outcomes/scene-02-trap.webp",
           "stateChanges": {
             "progress": 0,
             "danger": 3
@@ -223,7 +220,7 @@
       ],
       "outcomes": {
         "fast": {
-          "image": "assets/images/scenes/scene-03.webp",
+          "image": "assets/images/outcomes/scene-03-fast.webp",
           "stateChanges": {
             "progress": 2,
             "danger": 1
@@ -231,7 +228,7 @@
           "text": "你从窗台一步跳上冰箱顶。人类在下面摇罐头，你在上面居高临下地看她的头顶。"
         },
         "safe": {
-          "image": "assets/images/scenes/scene-03.webp",
+          "image": "assets/images/outcomes/scene-03-safe.webp",
           "stateChanges": {
             "progress": 1,
             "danger": 0
@@ -239,7 +236,7 @@
           "text": "你缩在垃圾桶后面。气味很浓，但掩护很好。人类走过来站了一会儿，然后走了。"
         },
         "trap": {
-          "image": "assets/images/scenes/scene-03.webp",
+          "image": "assets/images/outcomes/scene-03-trap.webp",
           "stateChanges": {
             "progress": 0,
             "danger": 3
@@ -280,7 +277,7 @@
       ],
       "outcomes": {
         "fast": {
-          "image": "assets/images/scenes/scene-04.webp",
+          "image": "assets/images/outcomes/scene-04-fast.webp",
           "stateChanges": {
             "progress": 2,
             "danger": 1
@@ -288,7 +285,7 @@
           "text": "你跳上晾衣杆，在杆上走出一条完美的直线。人类在下面伸手，差了整整一个身位。"
         },
         "safe": {
-          "image": "assets/images/scenes/scene-04.webp",
+          "image": "assets/images/outcomes/scene-04-safe.webp",
           "stateChanges": {
             "progress": 1,
             "danger": 0
@@ -296,7 +293,7 @@
           "text": "你缩在花盆后面，一片大叶子刚好挡住你。人类到阳台看了看，没弯腰就走了。"
         },
         "trap": {
-          "image": "assets/images/scenes/scene-04.webp",
+          "image": "assets/images/outcomes/scene-04-trap.webp",
           "stateChanges": {
             "progress": 0,
             "danger": 3
@@ -337,7 +334,7 @@
       ],
       "outcomes": {
         "fast": {
-          "image": "assets/images/scenes/scene-05.webp",
+          "image": "assets/images/outcomes/scene-05-fast.webp",
           "stateChanges": {
             "progress": 2,
             "danger": 1
@@ -345,7 +342,7 @@
           "text": "你纵身一跃，稳稳落在隔壁屋顶的瓦片上。风吹过你的毛。人类在栏杆那头叹了口气。"
         },
         "safe": {
-          "image": "assets/images/scenes/scene-05.webp",
+          "image": "assets/images/outcomes/scene-05-safe.webp",
           "stateChanges": {
             "progress": 1,
             "danger": 0
@@ -353,7 +350,7 @@
           "text": "你缩进空调外机和墙壁之间的缝隙里，等到天完全黑了才出来。月光下，你优雅地走下防火梯。"
         },
         "trap": {
-          "image": "assets/images/scenes/scene-05.webp",
+          "image": "assets/images/outcomes/scene-05-trap.webp",
           "stateChanges": {
             "progress": 0,
             "danger": 3
@@ -367,7 +364,7 @@
     {
       "id": "roof",
       "title": "屋顶自由",
-      "video": null,
+      "video": "assets/videos/roof-ending-v1.mp4",
       "image": "assets/images/endings/roof.webp",
       "all": [
         {
@@ -386,7 +383,7 @@
     {
       "id": "survived",
       "title": "今天不洗澡",
-      "video": null,
+      "video": "assets/videos/survived-ending-v1.mp4",
       "image": "assets/images/endings/survived.webp",
       "all": [
         {
@@ -405,7 +402,7 @@
     {
       "id": "bath",
       "title": "泡泡之巅",
-      "video": null,
+      "video": "assets/videos/bath-ending-v1.mp4",
       "image": "assets/images/endings/bath.webp",
       "all": [],
       "description": "泡泡在你的头顶堆成一座小山。水是温的，毛巾是软的，人类的表情是得意的。你的表情是空的。你知道，有一些东西已经回不来了。"
@@ -413,5 +410,28 @@
   ],
   "cover": {
     "default": "assets/cover/cover.webp"
-  }
+  },
+  "keepsakes": [
+    {
+      "id": "roof-feather-token",
+      "endingId": "roof",
+      "title": "屋顶羽毛通行牌",
+      "glb": "assets/models/roof-feather-token.glb",
+      "preview": "assets/models/roof-feather-token-source.webp"
+    },
+    {
+      "id": "survived-towel-loop",
+      "endingId": "survived",
+      "title": "幸存毛巾环",
+      "glb": "assets/models/survived-towel-loop.glb",
+      "preview": "assets/models/survived-towel-loop-source.webp"
+    },
+    {
+      "id": "bath-bubble-crown",
+      "endingId": "bath",
+      "title": "泡泡王冠",
+      "glb": "assets/models/bath-bubble-crown.glb",
+      "preview": "assets/models/bath-bubble-crown-source.webp"
+    }
+  ]
 }

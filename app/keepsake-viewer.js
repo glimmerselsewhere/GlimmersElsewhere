@@ -17,6 +17,23 @@ let yaw = 0;
 let pitch = 0.06;
 let distance = 4.6;
 let idleSpin = true;
+let loadToken = 0;
+
+function disposeObject(root) {
+  root?.traverse?.(node => {
+    if (node.isMesh) {
+      node.geometry?.dispose?.();
+      const materials = Array.isArray(node.material) ? node.material : [node.material];
+      materials.forEach(material => {
+        for (const key of Object.keys(material || {})) {
+          const value = material[key];
+          if (value && value.isTexture) value.dispose();
+        }
+        material?.dispose?.();
+      });
+    }
+  });
+}
 
 function makeShadowTexture() {
   const size = 256;
@@ -120,8 +137,17 @@ function loadModel(url) {
   const loading = document.getElementById("ksLoading");
   const fallback = document.getElementById("keepsakeFallback");
   if (loading) loading.hidden = false;
+  const token = ++loadToken;
+  if (model) {
+    pivot.remove(model);
+    disposeObject(model);
+    model = null;
+  }
   new GLTFLoader().load(url, gltf => {
-    if (model) pivot.remove(model);
+    if (token !== loadToken) {
+      disposeObject(gltf.scene);
+      return;
+    }
     model = gltf.scene;
     const box = new THREE.Box3().setFromObject(model);
     const size = box.getSize(new THREE.Vector3());
@@ -145,6 +171,7 @@ function loadModel(url) {
     if (loading) loading.hidden = true;
     idleSpin = true;
   }, undefined, () => {
+    if (token !== loadToken) return;
     if (fallback) fallback.hidden = false;
     if (loading) loading.hidden = true;
   });

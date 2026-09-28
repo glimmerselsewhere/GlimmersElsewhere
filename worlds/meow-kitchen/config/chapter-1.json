@@ -72,7 +72,7 @@
       ],
       "outcomes": {
         "soup": {
-          "image": "assets/images/scenes/arrival.webp",
+          "image": "assets/images/outcomes/arrival-soup.webp",
           "stateChanges": {
             "flavor": 1,
             "crave": 1,
@@ -114,7 +114,7 @@
       ],
       "outcomes": {
         "simmer": {
-          "image": "assets/images/scenes/elf-pancake.webp",
+          "image": "assets/images/outcomes/elf-pancake-simmer.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 1,
@@ -123,7 +123,7 @@
           "text": "蜂蜜在锅里化成琥珀色的小泡，薄饼吸饱之后变得柔软发亮。精灵咬了一口，很久没说话，然后很小声地问：「这个……还能再来一张吗？」"
         },
         "sear": {
-          "image": "assets/images/scenes/elf-pancake.webp",
+          "image": "assets/images/outcomes/elf-pancake-sear.webp",
           "stateChanges": {
             "flavor": 3,
             "crave": 2,
@@ -132,7 +132,7 @@
           "text": "锅边响起细密的滋滋声，薄饼边缘卷起一圈金棕，咬下去先是脆的，然后是软的。整片银叶林都闻到了它们从没闻过的味道。"
         },
         "plate": {
-          "image": "assets/images/scenes/elf-pancake.webp",
+          "image": "assets/images/outcomes/elf-pancake-plate.webp",
           "stateChanges": {
             "flavor": 1,
             "crave": 3,
@@ -174,7 +174,7 @@
       ],
       "outcomes": {
         "simmer": {
-          "image": "assets/images/scenes/dwarf-mushroom.webp",
+          "image": "assets/images/outcomes/dwarf-mushroom-simmer.webp",
           "stateChanges": {
             "flavor": 3,
             "crave": 1,
@@ -183,7 +183,7 @@
           "text": "锅盖跳了很久，菌菇最后变得像炖透的牛筋一样会弹。矮人用胡子擦了一次眼睛，坚持说是被蒸汽熏的。"
         },
         "sear": {
-          "image": "assets/images/scenes/dwarf-mushroom.webp",
+          "image": "assets/images/outcomes/dwarf-mushroom-sear.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 3,
@@ -192,7 +192,7 @@
           "text": "薄片下锅的一瞬间爆出一阵焦香，边缘卷成小波浪，咬下去咔的一声，然后在舌头上化开。整个矿洞的人都在偷偷咽口水。"
         },
         "plate": {
-          "image": "assets/images/scenes/dwarf-mushroom.webp",
+          "image": "assets/images/outcomes/dwarf-mushroom-plate.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 2,
@@ -234,7 +234,7 @@
       ],
       "outcomes": {
         "simmer": {
-          "image": "assets/images/scenes/orc-bbq.webp",
+          "image": "assets/images/outcomes/orc-bbq-simmer.webp",
           "stateChanges": {
             "flavor": 3,
             "crave": 1,
@@ -243,7 +243,7 @@
           "text": "火压到只剩红炭，肉慢慢变得一按就出汁。酋长切开的一瞬间愣住了——里面是均匀的粉色，一点也没生，汁水顺着刀背往下流。"
         },
         "sear": {
-          "image": "assets/images/scenes/orc-bbq.webp",
+          "image": "assets/images/outcomes/orc-bbq-sear.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 3,
@@ -252,7 +252,7 @@
           "text": "迷迭香、蒜和一点点蜂蜜在肉表面结成亮亮的壳，火一舔就滋滋作响。香气冲上树梢，隔壁部落翻过山头过来问在煮什么。"
         },
         "plate": {
-          "image": "assets/images/scenes/orc-bbq.webp",
+          "image": "assets/images/outcomes/orc-bbq-plate.webp",
           "stateChanges": {
             "flavor": 1,
             "crave": 2,
@@ -294,7 +294,7 @@
       ],
       "outcomes": {
         "simmer": {
-          "image": "assets/images/scenes/halfling-tea.webp",
+          "image": "assets/images/outcomes/halfling-tea-simmer.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 2,
@@ -303,7 +303,7 @@
           "text": "浆果在小锅里咕嘟咕嘟，慢慢熬成浓稠的紫红色糖浆，浇在热饼上时会顺着纹路一点点流开，把整张饼染成好看的紫色。"
         },
         "sear": {
-          "image": "assets/images/scenes/halfling-tea.webp",
+          "image": "assets/images/outcomes/halfling-tea-sear.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 3,
@@ -312,7 +312,7 @@
           "text": "蜂巢烤过之后，蜜自己流了出来，金黄、拉丝，还带一点烟熏味。半身人们把勺子都舔干净了，然后很庄重地舔了第二遍。"
         },
         "plate": {
-          "image": "assets/images/scenes/halfling-tea.webp",
+          "image": "assets/images/outcomes/halfling-tea-plate.webp",
           "stateChanges": {
             "flavor": 1,
             "crave": 2,
@@ -354,7 +354,7 @@
       ],
       "outcomes": {
         "simmer": {
-          "image": "assets/images/scenes/maze-pudding.webp",
+          "image": "assets/images/outcomes/maze-pudding-simmer.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 1,
@@ -363,7 +363,7 @@
           "text": "热汤下肚，布丁慢慢变回淡淡的焦糖色。它忽然跳了起来：家的方向，就在那道会渗水的石壁后面。它一路蹦蹦跳跳地给你们带路。"
         },
         "sear": {
-          "image": "assets/images/scenes/maze-pudding.webp",
+          "image": "assets/images/outcomes/maze-pudding-sear.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 3,
@@ -372,7 +372,7 @@
           "text": "掉落的果冻在锅里化成糖浆，冷却后变成透亮的脆片，咬下去咔嚓一声，甜得刚好。布丁看着自己的碎片变成零食，骄傲地鼓了起来。"
         },
         "plate": {
-          "image": "assets/images/scenes/maze-pudding.webp",
+          "image": "assets/images/outcomes/maze-pudding-plate.webp",
           "stateChanges": {
             "flavor": 1,
             "crave": 2,
@@ -414,7 +414,7 @@
       ],
       "outcomes": {
         "simmer": {
-          "image": "assets/images/scenes/dragon-feast.webp",
+          "image": "assets/images/outcomes/dragon-feast-simmer.webp",
           "stateChanges": {
             "flavor": 2,
             "crave": 1,
@@ -423,7 +423,7 @@
           "text": "精灵的蜂蜜、矮人的菌菇、兽人的烤肉和半身人的糖浆，在同一锅里慢慢合流。龙把整张脸凑到锅边，很久没有说话，只用尾巴轻轻敲着地板。"
         },
         "sear": {
-          "image": "assets/images/scenes/dragon-feast.webp",
+          "image": "assets/images/outcomes/dragon-feast-sear.webp",
           "stateChanges": {
             "flavor": 3,
             "crave": 2,
@@ -432,7 +432,7 @@
           "text": "龙息只喷了一秒，锅里的表面就结成一层漂亮的焦糖壳。敲开时热气涌出来，所有种族同时发出了同一个声音。"
         },
         "plate": {
-          "image": "assets/images/scenes/dragon-feast.webp",
+          "image": "assets/images/outcomes/dragon-feast-plate.webp",
           "stateChanges": {
             "flavor": 1,
             "crave": 3,

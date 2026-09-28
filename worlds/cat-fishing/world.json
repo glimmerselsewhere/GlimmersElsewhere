@@ -11,7 +11,7 @@
   },
   "opening": {
     "mode": "image",
-    "image": "assets/images/scenes/arrival.webp"
+    "image": "assets/cover/cover.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",

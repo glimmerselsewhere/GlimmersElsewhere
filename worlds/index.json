@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "defaultWorldId": "meow-supreme",
+  "defaultWorldId": "jade-cat",
   "catalog": {
     "eyebrow": "异境拾光 · 世界目录",
     "headline": "每一片异境，都有一场自己的游戏。",
@@ -8,12 +8,28 @@
   },
   "worlds": [
     {
+      "id": "jade-cat",
+      "config": "jade-cat/world.json",
+      "status": "ready",
+      "titleEn": "Jade Cat Ascension",
+      "subtitleEn": "A hungry cat's cultivation story",
+      "descriptionEn": "A jade pendant drops a house cat into a cultivation world. Cultivation, belly and morality decide what it becomes."
+    },
+    {
       "id": "meow-supreme",
       "config": "meow-supreme/world.json",
       "status": "ready",
       "titleEn": "Meow Supreme",
       "subtitleEn": "Seven patrols, one very ordinary room",
       "descriptionEn": "The humans are out. You are the cat, and seven ordinary objects are waiting for your inspection."
+    },
+    {
+      "id": "meow-kitchen",
+      "config": "meow-kitchen/world.json",
+      "status": "ready",
+      "titleEn": "Meowchelin Isekai Kitchen",
+      "subtitleEn": "Western-fantasy cooking adventure",
+      "descriptionEn": "A cat chef wanders a western-fantasy world where every monster can become dinner."
     },
     {
       "id": "coin-cat",
@@ -41,20 +57,9 @@
       "descriptionEn": "Look at the picture, guess what the cat is acting out."
     },
     {
-      "id": "jade-cat",
-      "config": "jade-cat/world.json",
-      "status": "ready",
-      "titleEn": "Jade Cat Ascension",
-      "subtitleEn": "A hungry cat's cultivation story",
-      "descriptionEn": "A jade pendant drops a house cat into a cultivation world. Cultivation, belly and morality decide what it becomes."
-    },
-    {
-      "id": "meow-kitchen",
-      "config": "meow-kitchen/world.json",
-      "status": "ready",
-      "titleEn": "Meowchelin Isekai Kitchen",
-      "subtitleEn": "Western-fantasy cooking adventure",
-      "descriptionEn": "A cat chef wanders a western-fantasy world where every monster can become dinner."
+      "id": "cat-fishing",
+      "config": "cat-fishing/world.json",
+      "status": "ready"
     },
     {
       "id": "everyone-can-fly",
@@ -63,18 +68,13 @@
       "titleEn": "Chinese Cats Can Fly"
     },
     {
-      "id": "wall-street-cat",
-      "config": "wall-street-cat/world.json",
-      "status": "ready"
-    },
-    {
       "id": "bath-escape",
       "config": "bath-escape/world.json",
       "status": "ready"
     },
     {
-      "id": "cat-fishing",
-      "config": "cat-fishing/world.json",
+      "id": "wall-street-cat",
+      "config": "wall-street-cat/world.json",
       "status": "ready"
     }
   ]

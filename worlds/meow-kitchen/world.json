@@ -9,11 +9,8 @@
   "assetBase": "worlds/meow-kitchen/",
   "endingVideo": null,
   "opening": {
-    "mode": "video",
-    "html": "opening.html",
-    "video": "assets/videos/opening-v1-4s.mp4",
-    "poster": "assets/images/opening-first-frame.webp",
-    "image": null
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",

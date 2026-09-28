@@ -243,5 +243,10 @@
       "title": "Practice again tomorrow",
       "description": "After the last wipe-out you took the last bus. Dinner was cold and the human was watching TV. You didn't fly today - tomorrow, though."
     }
+  ],
+  "keepsakes": [
+    {"title": "Warm Dinner Bowl Medal"},
+    {"title": "Late Rain Badge"},
+    {"title": "Last Bus Pass"}
   ]
 }
