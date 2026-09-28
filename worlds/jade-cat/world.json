@@ -7,7 +7,7 @@
   "mode": "life",
   "lifeTurnLimit": 50,
   "lifeTalentPicks": 1,
-  "music": "assets/audio/jade-cat-ascension.mp3",
+  "music": "assets/audio/immortal-cat.mp3",
   "musicVolume": 0.1,
   "assetBase": "worlds/jade-cat/",
   "endingVideo": null,
