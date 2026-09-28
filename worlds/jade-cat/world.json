@@ -1062,17 +1062,17 @@
       "title": "商猫来访",
       "rarity": 1,
       "choices": [
-        {
-          "id": "buy-pill",
-          "text": "买一颗醒神丹",
-          "hint": "修为+2",
-          "effect": {
-            "cultivation": 2,
-            "belly": 1
-          },
-          "cost": 2,
-          "image": "assets/images/events/results/merchant-cat-buy-pill.webp",
-          "result": "醒神丹入口即化，你的耳朵瞬间竖直，整条山路都清晰起来。商猫迅速收好鱼干。"
+    {
+      "id": "buy-pill",
+      "text": "买一炉醒神丹",
+      "hint": "强力：修为+5，肚腩+2",
+      "effect": {
+        "cultivation": 5,
+        "belly": 2
+      },
+      "cost": 5,
+      "image": "assets/images/events/results/merchant-cat-buy-pill.webp",
+      "result": "整炉醒神丹分三次咽下，你的耳朵、胡须和尾巴尖一起发亮。商猫数了五条鱼干，郑重地递上炉盖：这炉，值。"
         },
         {
           "id": "buy-charm",
