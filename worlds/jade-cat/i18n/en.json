@@ -94,7 +94,21 @@
     {
       "id": "awakening",
       "title": "The pendant wakes up",
-      "event": "In an afternoon room, an old jade pendant suddenly glows. You reach out one paw and the whole world flips."
+      "event": "In an afternoon room, an old jade pendant suddenly glows. You reach out one paw and the whole world flips.",
+      "choices": [
+        {
+          "text": "Reach out and touch it",
+          "hint": "A paw of destiny"
+        },
+        {
+          "text": "Sniff it first",
+          "hint": "A cautious cat"
+        },
+        {
+          "text": "Bat it away",
+          "hint": "What is this thing"
+        }
+      ]
     },
     {
       "id": "sect-gate",
@@ -118,62 +132,202 @@
     {
       "id": "morning-drill",
       "title": "Morning drill",
-      "event": "Senior brothers line up to practice. You line up at the end and copy their movements."
+      "event": "Senior brothers line up to practice. You line up at the end and copy their movements.",
+      "choices": [
+        {
+          "text": "Practice seriously",
+          "hint": "Even if the moves look wrong"
+        },
+        {
+          "text": "Hide in the back and sleep",
+          "hint": "If caught, pretend to meditate"
+        },
+        {
+          "text": "Copy the tail movements",
+          "hint": "Accidentally learn footwork"
+        }
+      ]
     },
     {
       "id": "library-cat",
       "title": "Library encounter",
-      "event": "You sneak into the archive and find an unnamed manual in the far corner. The cover has a cat on it."
+      "event": "You sneak into the archive and find an unnamed manual in the far corner. The cover has a cat on it.",
+      "choices": [
+        {
+          "text": "Open the cat manual",
+          "hint": "The cover has a cat on it"
+        },
+        {
+          "text": "Take it with you",
+          "hint": "Read it later"
+        },
+        {
+          "text": "Nap in the book pile",
+          "hint": "The archive is quiet"
+        }
+      ]
     },
     {
       "id": "kitchen-duty",
       "title": "Kitchen duty",
-      "event": "It's your turn to help cook. The crane says the spirit rice should be softer than yesterday."
+      "event": "It's your turn to help cook. The crane says the spirit rice should be softer than yesterday.",
+      "choices": [
+        {
+          "text": "Steam the rice carefully",
+          "hint": "The crane says softer today"
+        },
+        {
+          "text": "Taste as you go",
+          "hint": "This is quality control"
+        },
+        {
+          "text": "Accidentally burn it",
+          "hint": "Spirit rice has a temper"
+        }
+      ]
     },
     {
       "id": "nap-cloud",
       "title": "Cloud nap",
-      "event": "You slept on the cloud terrace all afternoon. When you woke, someone had tucked a thin spirit-mist blanket over you."
+      "event": "You slept on the cloud terrace all afternoon. When you woke, someone had tucked a thin spirit-mist blanket over you.",
+      "choices": [
+        {
+          "text": "Sleep until you wake naturally",
+          "hint": "The mist blanket is warm"
+        },
+        {
+          "text": "Sense the cloud shapes",
+          "hint": "Cloud shapes look like sword moves"
+        }
+      ]
     },
     {
       "id": "chase-butterfly",
       "title": "Chasing a butterfly",
-      "event": "A glowing butterfly flies past. You chased it across three mountain peaks."
+      "event": "A glowing butterfly flies past. You chased it across three mountain peaks.",
+      "choices": [
+        {
+          "text": "You must catch it",
+          "hint": "Chased across three peaks"
+        },
+        {
+          "text": "Give up, enjoy the view",
+          "hint": "The mountain view is nice"
+        }
+      ]
     },
     {
       "id": "pill-accident",
       "title": "Accidental pill",
-      "event": "You accidentally ate an unfinished pill. Your stomach rumbled for a whole hour."
+      "event": "You accidentally ate an unfinished pill. Your stomach rumbled for a whole hour.",
+      "choices": [
+        {
+          "text": "Endure in silence",
+          "hint": "Cat dignity"
+        },
+        {
+          "text": "Find an elder",
+          "hint": "Seek help"
+        }
+      ]
     },
     {
       "id": "festival",
       "title": "Pill festival",
-      "event": "The sect holds an elixir fair. You crouch in the corner and sniff them one by one."
+      "event": "The sect holds an elixir fair. You crouch in the corner and sniff them one by one.",
+      "choices": [
+        {
+          "text": "Smell them one by one",
+          "hint": "Gather intelligence"
+        },
+        {
+          "text": "Enter the contest",
+          "hint": "You think you can do it too"
+        },
+        {
+          "text": "Grab one and run",
+          "hint": "Quick in, quick out"
+        }
+      ]
     },
     {
       "id": "rain-cultivation",
       "title": "Cultivating in the rain",
-      "event": "It rains. Other cats hide; you stand in it and cultivate. There's spirit energy in the rain."
+      "event": "It rains. Other cats hide; you stand in it and cultivate. There's spirit energy in the rain.",
+      "choices": [
+        {
+          "text": "Cultivate in the rain",
+          "hint": "There's spirit energy in rain"
+        },
+        {
+          "text": "Cultivate under the eaves",
+          "hint": "Can meditate under the eaves"
+        }
+      ]
     },
     {
       "id": "gift-fish",
       "title": "Crane's gift",
-      "event": "A crane drops a spirit fish in front of you. It looks deliberate."
+      "event": "A crane drops a spirit fish in front of you. It looks deliberate.",
+      "choices": [
+        {
+          "text": "Take the spirit fish",
+          "hint": "The crane's kindness"
+        },
+        {
+          "text": "Share with the crane",
+          "hint": "It looks hungry too"
+        }
+      ]
     },
     {
       "id": "meditation",
       "title": "Meditation",
-      "event": "You sit in the spirit array. After an hour you open your eyes and find thin ice on your whiskers."
+      "event": "You sit in the spirit array. After an hour you open your eyes and find thin ice on your whiskers.",
+      "choices": [
+        {
+          "text": "Keep sitting",
+          "hint": "Whiskers are icing over"
+        },
+        {
+          "text": "Open your eyes",
+          "hint": "An hour has passed"
+        }
+      ]
     },
     {
       "id": "clean-cave",
       "title": "Cave cleaning",
-      "event": "It's your turn to clean the cave. You swept all the dust to your senior brother's door."
+      "event": "It's your turn to clean the cave. You swept all the dust to your senior brother's door.",
+      "choices": [
+        {
+          "text": "Clean properly",
+          "hint": "Cats have responsibility too"
+        },
+        {
+          "text": "Sweep to brother's door",
+          "hint": "He's not here anyway"
+        }
+      ]
     },
     {
       "id": "night-watch",
       "title": "Night watch",
-      "event": "It's your turn to keep watch. The moonlight is bright and you see three night spirit beasts you've never seen before."
+      "event": "It's your turn to keep watch. The moonlight is bright and you see three night spirit beasts you've never seen before.",
+      "choices": [
+        {
+          "text": "Count the stars",
+          "hint": "Sense the heavens"
+        },
+        {
+          "text": "Watch the spirit beasts",
+          "hint": "What are they doing"
+        },
+        {
+          "text": "Patrol the perimeter",
+          "hint": "Duty calls"
+        }
+      ]
     },
     {
       "id": "mouse-duel",
@@ -182,7 +336,7 @@
       "choices": [
         {
           "text": "Fight",
-          "hint": "Use cat sword"
+          "hint": "Use the cat sword"
         },
         {
           "text": "Share a dried fish",
@@ -269,7 +423,17 @@
     {
       "id": "dream-master",
       "title": "Dream transmission",
-      "event": "You meet a white-haired immortal in a dream. He hands you a key."
+      "event": "You meet a white-haired immortal in a dream. He hands you a key.",
+      "choices": [
+        {
+          "text": "Take the key",
+          "hint": "Dream things should work"
+        },
+        {
+          "text": "Ask a question first",
+          "hint": "Cat curiosity"
+        }
+      ]
     },
     {
       "id": "merchant-cat",
@@ -327,37 +491,107 @@
     {
       "id": "ancient-ruin",
       "title": "Ancient cat ruins",
-      "event": "You find a cat statue in an abandoned immortal palace. Its eyes are moving."
+      "event": "You find a cat statue in an abandoned immortal palace. Its eyes are moving.",
+      "choices": [
+        {
+          "text": "Touch the cat statue",
+          "hint": "Its eyes are moving"
+        },
+        {
+          "text": "Search the area",
+          "hint": "Maybe there's more"
+        }
+      ]
     },
     {
       "id": "time-fruit",
       "title": "Time fruit",
-      "event": "You ate a time fruit. You stood in place for a hundred years, but it felt like one second."
+      "event": "You ate a time fruit. You stood in place for a hundred years, but it felt like one second.",
+      "choices": [
+        {
+          "text": "Eat it slowly",
+          "hint": "Feel time pass"
+        },
+        {
+          "text": "Share with your sect",
+          "hint": "A hundred-year fruit"
+        }
+      ]
     },
     {
       "id": "nine-tail",
       "title": "The fox asks",
-      "event": "A nine-tailed spirit fox asks you to teach it cat hunting techniques. You taught it 'pretend not to care'."
+      "event": "A nine-tailed spirit fox asks you to teach it cat hunting techniques. You taught it 'pretend not to care'.",
+      "choices": [
+        {
+          "text": "Teach it to hunt",
+          "hint": "Pretend not to care"
+        },
+        {
+          "text": "Ask it about magic",
+          "hint": "The fox knows more"
+        }
+      ]
     },
     {
       "id": "immortal-cat-legacy",
       "title": "The immortal cat's last words",
-      "event": "Deep in a cave you find a stone tablet. The last cat who ascended left one sentence: 'Remember to eat enough.'"
+      "event": "Deep in a cave you find a stone tablet. The last cat who ascended left one sentence: 'Remember to eat enough.'",
+      "choices": [
+        {
+          "text": "Bow to the tablet",
+          "hint": "Respect the ancestor"
+        },
+        {
+          "text": "Read the words carefully",
+          "hint": "Remember to eat enough"
+        }
+      ]
     },
     {
       "id": "heaven-gift",
       "title": "Heaven's gift",
-      "event": "A golden light falls from the sky and lands on you. You burp."
+      "event": "A golden light falls from the sky and lands on you. You burp.",
+      "choices": [
+        {
+          "text": "Accept the golden light",
+          "hint": "You burped"
+        },
+        {
+          "text": "Instinctively dodge",
+          "hint": "Cat reflexes"
+        }
+      ]
     },
     {
       "id": "all-cats-meet",
       "title": "The ten-thousand-cat assembly",
-      "event": "Every cat who ever ascended is watching you from the cloud sea. One of them winks."
+      "event": "Every cat who ever ascended is watching you from the cloud sea. One of them winks.",
+      "choices": [
+        {
+          "text": "Bow to all cats",
+          "hint": "They're all watching"
+        },
+        {
+          "text": "Wink back at the winking cat",
+          "hint": "Cat telepathy"
+        }
+      ]
     },
     {
       "id": "samsara-pond",
       "title": "The samsara pond",
-      "event": "You see your past life at the reincarnation pond: a lazy house cat lying in the best patch of sunlight."
+      "event": "You see your past life at the reincarnation pond: a lazy house cat lying in the best patch of sunlight.",
+      "choices": [
+        {
+          "text": "Look at your past life longer",
+          "hint": "A lazy cat in sunlight"
+        },
+        {
+          "text": "Turn and walk away",
+          "hint": "Cats look forward"
+        }
+      ]
     }
   ],
   "endings": [

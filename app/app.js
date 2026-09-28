@@ -724,9 +724,11 @@ const LIFE_RARITY_WEIGHT = { 0: 10, 1: 5, 2: 2, 3: 1 };
 
 function drawLifeEvent() {
   const allEvents = content().events || [];
-  // filter by include/exclude and not-already-seen
+  // filter by turn stage, include/exclude and not-already-seen
   const available = allEvents.filter(event => {
     if (lifeEventHistory.includes(event.id)) return false;
+    if (event.minTurn !== undefined && lifeTurn + 1 < event.minTurn) return false;
+    if (event.maxTurn !== undefined && lifeTurn + 1 > event.maxTurn) return false;
     if (event.include && !checkLifeCondition(event.include)) return false;
     if (event.exclude && checkLifeCondition(event.exclude)) return false;
     return true;

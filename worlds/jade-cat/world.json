@@ -5,7 +5,7 @@
   "subtitle": "猫生重开 · 修仙模拟器",
   "description": "一只家猫被玉佩送进修仙界。抽取天赋，随机经历，每回合都在变——修为、体质、肚腩、气运、道德和寿元共同决定你最后成为什么仙。",
   "mode": "life",
-  "lifeTurns": 10,
+  "lifeTurns": 15,
   "lifeTalentPicks": 3,
   "music": "assets/audio/jade-cat-ascension.mp3",
   "musicVolume": 0.1,
@@ -47,7 +47,7 @@
     "belly": 0,
     "luck": 0,
     "morality": 0,
-    "lifespan": 10
+    "lifespan": 15
   },
   "states": [
     {
@@ -207,9 +207,40 @@
       "title": "玉佩醒了",
       "rarity": 0,
       "effect": {
-        "cultivation": 1
+        "cultivation": 2
       },
-      "image": "assets/images/image2/awakening.webp"
+      "image": "assets/images/image2/awakening.webp",
+      "minTurn": 1,
+      "maxTurn": 3,
+      "choices": [
+        {
+          "id": "touch",
+          "text": "伸爪触碰玉佩",
+          "hint": "命中注定的一爪",
+          "effect": {
+            "cultivation": 2,
+            "luck": 1
+          }
+        },
+        {
+          "id": "sniff",
+          "text": "先闻一闻",
+          "hint": "谨慎的猫",
+          "effect": {
+            "body": 1,
+            "luck": 2
+          }
+        },
+        {
+          "id": "paw-away",
+          "text": "拍开它",
+          "hint": "这是什么怪东西",
+          "effect": {
+            "body": 2,
+            "cultivation": 1
+          }
+        }
+      ]
     },
     {
       "id": "sect-gate",
@@ -249,7 +280,9 @@
             "morality": -1
           }
         }
-      ]
+      ],
+      "minTurn": 1,
+      "maxTurn": 4
     },
     {
       "id": "morning-drill",
@@ -259,7 +292,39 @@
       "effect": {
         "cultivation": 1,
         "body": 1
-      }
+      },
+      "minTurn": 1,
+      "maxTurn": 6,
+      "choices": [
+        {
+          "id": "serious",
+          "text": "认真跟着练",
+          "hint": "虽然动作不像",
+          "effect": {
+            "cultivation": 1,
+            "body": 1
+          }
+        },
+        {
+          "id": "sleep",
+          "text": "躲在最后面睡觉",
+          "hint": "被发现了就装在修炼",
+          "effect": {
+            "belly": 1,
+            "body": 1,
+            "luck": 1
+          }
+        },
+        {
+          "id": "imitate",
+          "text": "模仿师兄的尾巴摆动",
+          "hint": "意外领悟了身法",
+          "effect": {
+            "cultivation": 1,
+            "body": 2
+          }
+        }
+      ]
     },
     {
       "id": "library-cat",
@@ -268,7 +333,37 @@
       "rarity": 0,
       "effect": {
         "cultivation": 2
-      }
+      },
+      "minTurn": 2,
+      "maxTurn": 8,
+      "choices": [
+        {
+          "id": "read",
+          "text": "翻开那本猫功法",
+          "hint": "封面画着一只猫",
+          "effect": {
+            "cultivation": 2
+          }
+        },
+        {
+          "id": "steal-book",
+          "text": "叼走它",
+          "hint": "回去慢慢看",
+          "effect": {
+            "cultivation": 1,
+            "morality": -1
+          }
+        },
+        {
+          "id": "just-nap",
+          "text": "在书堆里睡一觉",
+          "hint": "藏经阁很安静",
+          "effect": {
+            "body": 1,
+            "belly": 1
+          }
+        }
+      ]
     },
     {
       "id": "kitchen-duty",
@@ -278,7 +373,38 @@
       "effect": {
         "belly": 1,
         "morality": 1
-      }
+      },
+      "minTurn": 1,
+      "maxTurn": 6,
+      "choices": [
+        {
+          "id": "cook-well",
+          "text": "认真蒸灵米",
+          "hint": "仙鹤说今天要软一点",
+          "effect": {
+            "belly": 1,
+            "morality": 2
+          }
+        },
+        {
+          "id": "taste-test",
+          "text": "边做边尝",
+          "hint": "这是质检",
+          "effect": {
+            "belly": 3,
+            "morality": 1
+          }
+        },
+        {
+          "id": "burn-it",
+          "text": "不小心烧糊了",
+          "hint": "灵米好像有自己的脾气",
+          "effect": {
+            "body": 1,
+            "luck": -1
+          }
+        }
+      ]
     },
     {
       "id": "nap-cloud",
@@ -288,7 +414,29 @@
       "effect": {
         "body": 1,
         "luck": 1
-      }
+      },
+      "minTurn": 1,
+      "maxTurn": 7,
+      "choices": [
+        {
+          "id": "deep-sleep",
+          "text": "睡到自然醒",
+          "hint": "灵雾被子很暖",
+          "effect": {
+            "body": 2,
+            "luck": 1
+          }
+        },
+        {
+          "id": "cloud-sense",
+          "text": "半梦半醒间感悟",
+          "hint": "云的形状像剑招",
+          "effect": {
+            "cultivation": 2,
+            "body": 1
+          }
+        }
+      ]
     },
     {
       "id": "chase-butterfly",
@@ -298,7 +446,29 @@
       "effect": {
         "body": 2,
         "cultivation": 1
-      }
+      },
+      "minTurn": 1,
+      "maxTurn": 6,
+      "choices": [
+        {
+          "id": "catch",
+          "text": "一定要抓到它",
+          "hint": "追了三座山头",
+          "effect": {
+            "body": 2,
+            "cultivation": 1
+          }
+        },
+        {
+          "id": "give-up",
+          "text": "算了，回头看看风景",
+          "hint": "山顶的视野很好",
+          "effect": {
+            "luck": 2,
+            "body": 1
+          }
+        }
+      ]
     },
     {
       "id": "pill-accident",
@@ -308,7 +478,30 @@
       "effect": {
         "belly": 2,
         "body": -1
-      }
+      },
+      "minTurn": 2,
+      "maxTurn": 8,
+      "choices": [
+        {
+          "id": "endure",
+          "text": "忍住不出声",
+          "hint": "猫的尊严",
+          "effect": {
+            "body": 2,
+            "belly": 1
+          }
+        },
+        {
+          "id": "find-elder",
+          "text": "去找长老",
+          "hint": "寻求帮助",
+          "effect": {
+            "morality": 1,
+            "body": 1,
+            "belly": 1
+          }
+        }
+      ]
     },
     {
       "id": "festival",
@@ -318,7 +511,38 @@
       "effect": {
         "belly": 1,
         "luck": 1
-      }
+      },
+      "minTurn": 2,
+      "maxTurn": 7,
+      "choices": [
+        {
+          "id": "smell-all",
+          "text": "一个一个闻过去",
+          "hint": "收集情报",
+          "effect": {
+            "belly": 1,
+            "luck": 2
+          }
+        },
+        {
+          "id": "enter-contest",
+          "text": "参加比赛",
+          "hint": "你觉得自己也行",
+          "effect": {
+            "cultivation": 2,
+            "belly": 2
+          }
+        },
+        {
+          "id": "sneak-out",
+          "text": "偷一颗就溜",
+          "hint": "速战速决",
+          "effect": {
+            "belly": 3,
+            "morality": -1
+          }
+        }
+      ]
     },
     {
       "id": "rain-cultivation",
@@ -329,7 +553,30 @@
         "cultivation": 2,
         "body": 1,
         "belly": -1
-      }
+      },
+      "minTurn": 2,
+      "maxTurn": 8,
+      "choices": [
+        {
+          "id": "stand-rain",
+          "text": "站在雨里修炼",
+          "hint": "雨水里有灵气",
+          "effect": {
+            "cultivation": 2,
+            "body": 1,
+            "belly": -1
+          }
+        },
+        {
+          "id": "shelter",
+          "text": "躲到屋檐下",
+          "hint": "也可以听着雨修炼",
+          "effect": {
+            "cultivation": 1,
+            "body": 1
+          }
+        }
+      ]
     },
     {
       "id": "gift-fish",
@@ -339,7 +586,30 @@
       "effect": {
         "belly": 2,
         "morality": 1
-      }
+      },
+      "minTurn": 1,
+      "maxTurn": 7,
+      "choices": [
+        {
+          "id": "accept-fish",
+          "text": "叼走灵鱼",
+          "hint": "仙鹤的好意",
+          "effect": {
+            "belly": 2,
+            "morality": 1
+          }
+        },
+        {
+          "id": "share-crane",
+          "text": "和仙鹤一起吃",
+          "hint": "它看起来也饿了",
+          "effect": {
+            "belly": 1,
+            "morality": 3,
+            "luck": 1
+          }
+        }
+      ]
     },
     {
       "id": "meditation",
@@ -349,7 +619,29 @@
       "effect": {
         "cultivation": 3,
         "body": -1
-      }
+      },
+      "minTurn": 3,
+      "maxTurn": 10,
+      "choices": [
+        {
+          "id": "push-harder",
+          "text": "继续坐下去",
+          "hint": "胡须结冰了",
+          "effect": {
+            "cultivation": 2,
+            "body": -1
+          }
+        },
+        {
+          "id": "open-eyes",
+          "text": "睁开眼",
+          "hint": "已经一个时辰了",
+          "effect": {
+            "cultivation": 1,
+            "body": 1
+          }
+        }
+      ]
     },
     {
       "id": "clean-cave",
@@ -359,7 +651,29 @@
       "effect": {
         "morality": -1,
         "luck": 1
-      }
+      },
+      "minTurn": 1,
+      "maxTurn": 7,
+      "choices": [
+        {
+          "id": "do-properly",
+          "text": "认真打扫",
+          "hint": "猫也要有责任心",
+          "effect": {
+            "morality": 2,
+            "body": 1
+          }
+        },
+        {
+          "id": "sweep-out",
+          "text": "扫到师兄门口",
+          "hint": "反正他也不在",
+          "effect": {
+            "morality": -2,
+            "luck": 1
+          }
+        }
+      ]
     },
     {
       "id": "night-watch",
@@ -369,7 +683,38 @@
       "effect": {
         "luck": 2,
         "body": 1
-      }
+      },
+      "minTurn": 2,
+      "maxTurn": 8,
+      "choices": [
+        {
+          "id": "count-stars",
+          "text": "数星星",
+          "hint": "顺便感悟天道",
+          "effect": {
+            "cultivation": 2,
+            "luck": 1
+          }
+        },
+        {
+          "id": "watch-beasts",
+          "text": "观察夜行灵兽",
+          "hint": "它们在做什么",
+          "effect": {
+            "body": 1,
+            "luck": 2
+          }
+        },
+        {
+          "id": "patrol",
+          "text": "巡视一圈",
+          "hint": "尽职尽责",
+          "effect": {
+            "body": 2,
+            "morality": 1
+          }
+        }
+      ]
     },
     {
       "id": "mouse-duel",
@@ -407,7 +752,9 @@
             "morality": -1
           }
         }
-      ]
+      ],
+      "minTurn": 4,
+      "maxTurn": 12
     },
     {
       "id": "secret-realm-open",
@@ -421,7 +768,7 @@
           "text": "立刻钻进去",
           "hint": "机缘不等猫",
           "effect": {
-            "cultivation": 3,
+            "cultivation": 2,
             "luck": 1,
             "body": -1
           }
@@ -445,7 +792,9 @@
             "luck": 1
           }
         }
-      ]
+      ],
+      "minTurn": 5,
+      "maxTurn": 13
     },
     {
       "id": "spirit-fruit-ripe",
@@ -459,7 +808,7 @@
           "text": "炼化它",
           "hint": "化为修为",
           "effect": {
-            "cultivation": 4,
+            "cultivation": 3,
             "belly": 1
           }
         },
@@ -481,7 +830,9 @@
             "cultivation": 1
           }
         }
-      ]
+      ],
+      "minTurn": 5,
+      "maxTurn": 13
     },
     {
       "id": "senior-injured",
@@ -503,7 +854,7 @@
           "text": "拿走宝匣",
           "hint": "没人看见",
           "effect": {
-            "cultivation": 4,
+            "cultivation": 3,
             "morality": -5
           }
         },
@@ -516,7 +867,9 @@
             "luck": 1
           }
         }
-      ]
+      ],
+      "minTurn": 4,
+      "maxTurn": 12
     },
     {
       "id": "rare-herb",
@@ -543,7 +896,9 @@
             "body": 1
           }
         }
-      ]
+      ],
+      "minTurn": 4,
+      "maxTurn": 11
     },
     {
       "id": "dream-master",
@@ -553,7 +908,30 @@
       "effect": {
         "cultivation": 3,
         "luck": 2
-      }
+      },
+      "minTurn": 5,
+      "maxTurn": 12,
+      "choices": [
+        {
+          "id": "take-key",
+          "text": "接过钥匙",
+          "hint": "梦里的东西应该也能用",
+          "effect": {
+            "cultivation": 3,
+            "luck": 2
+          }
+        },
+        {
+          "id": "ask-question",
+          "text": "先问一个问题",
+          "hint": "猫的好奇心",
+          "effect": {
+            "cultivation": 2,
+            "morality": 2,
+            "luck": 1
+          }
+        }
+      ]
     },
     {
       "id": "merchant-cat",
@@ -587,7 +965,9 @@
             "morality": 1
           }
         }
-      ]
+      ],
+      "minTurn": 3,
+      "maxTurn": 10
     },
     {
       "id": "dragon-invite",
@@ -614,7 +994,9 @@
             "cultivation": 1
           }
         }
-      ]
+      ],
+      "minTurn": 8,
+      "maxTurn": 15
     },
     {
       "id": "thunder-trial",
@@ -628,7 +1010,7 @@
           "text": "硬抗",
           "hint": "正面迎雷",
           "effect": {
-            "cultivation": 4,
+            "cultivation": 3,
             "body": -2,
             "luck": 1
           }
@@ -648,11 +1030,13 @@
           "text": "催动暗纹",
           "hint": "用捷径",
           "effect": {
-            "cultivation": 5,
+            "cultivation": 4,
             "morality": -4
           }
         }
-      ]
+      ],
+      "minTurn": 10,
+      "maxTurn": 15
     },
     {
       "id": "ancient-ruin",
@@ -663,7 +1047,31 @@
         "cultivation": 3,
         "luck": 3,
         "morality": 1
-      }
+      },
+      "minTurn": 8,
+      "maxTurn": 15,
+      "choices": [
+        {
+          "id": "touch-statue",
+          "text": "摸一摸猫雕像",
+          "hint": "它的眼睛在动",
+          "effect": {
+            "cultivation": 3,
+            "luck": 3,
+            "morality": 1
+          }
+        },
+        {
+          "id": "search-around",
+          "text": "在周围找找",
+          "hint": "还有别的东西吗",
+          "effect": {
+            "cultivation": 2,
+            "belly": 2,
+            "luck": 2
+          }
+        }
+      ]
     },
     {
       "id": "time-fruit",
@@ -671,10 +1079,33 @@
       "title": "时光果",
       "rarity": 2,
       "effect": {
-        "cultivation": 4,
+        "cultivation": 3,
         "body": 2,
         "belly": 1
-      }
+      },
+      "minTurn": 9,
+      "maxTurn": 15,
+      "choices": [
+        {
+          "id": "eat-slowly",
+          "text": "慢慢吃",
+          "hint": "感受时间流逝",
+          "effect": {
+            "cultivation": 3,
+            "body": 2,
+            "belly": 1
+          }
+        },
+        {
+          "id": "share-time",
+          "text": "带回去分给同门",
+          "hint": "一百年的果子",
+          "effect": {
+            "morality": 4,
+            "cultivation": 2
+          }
+        }
+      ]
     },
     {
       "id": "nine-tail",
@@ -685,7 +1116,30 @@
         "morality": 2,
         "luck": 2,
         "cultivation": 2
-      }
+      },
+      "minTurn": 7,
+      "maxTurn": 14,
+      "choices": [
+        {
+          "id": "teach-hunt",
+          "text": "教它猫的捕猎术",
+          "hint": "假装不在意",
+          "effect": {
+            "morality": 2,
+            "luck": 2,
+            "cultivation": 2
+          }
+        },
+        {
+          "id": "ask-magic",
+          "text": "反过来请教它",
+          "hint": "灵狐的道行更深",
+          "effect": {
+            "cultivation": 3,
+            "luck": 1
+          }
+        }
+      ]
     },
     {
       "id": "immortal-cat-legacy",
@@ -693,11 +1147,36 @@
       "title": "仙猫遗言",
       "rarity": 3,
       "effect": {
-        "cultivation": 5,
+        "cultivation": 3,
         "belly": 3,
         "morality": 2,
         "luck": 2
-      }
+      },
+      "minTurn": 10,
+      "maxTurn": 15,
+      "choices": [
+        {
+          "id": "kneel",
+          "text": "对着石碑拜一拜",
+          "hint": "前辈的遗言",
+          "effect": {
+            "cultivation": 3,
+            "belly": 3,
+            "morality": 2,
+            "luck": 2
+          }
+        },
+        {
+          "id": "read-carefully",
+          "text": "仔细读那句话",
+          "hint": "记得吃饱",
+          "effect": {
+            "belly": 3,
+            "morality": 3,
+            "body": 2
+          }
+        }
+      ]
     },
     {
       "id": "heaven-gift",
@@ -705,10 +1184,34 @@
       "title": "天赐机缘",
       "rarity": 3,
       "effect": {
-        "cultivation": 6,
+        "cultivation": 3,
         "luck": 3,
         "body": 2
-      }
+      },
+      "minTurn": 11,
+      "maxTurn": 15,
+      "choices": [
+        {
+          "id": "accept-light",
+          "text": "接受金光",
+          "hint": "打了一个嗝",
+          "effect": {
+            "cultivation": 4,
+            "luck": 3,
+            "body": 2
+          }
+        },
+        {
+          "id": "dodge",
+          "text": "本能地闪开",
+          "hint": "猫的条件反射",
+          "effect": {
+            "body": 3,
+            "luck": 2,
+            "cultivation": 2
+          }
+        }
+      ]
     },
     {
       "id": "all-cats-meet",
@@ -716,10 +1219,34 @@
       "title": "万猫朝会",
       "rarity": 3,
       "effect": {
-        "cultivation": 4,
+        "cultivation": 3,
         "morality": 4,
         "luck": 2
-      }
+      },
+      "minTurn": 12,
+      "maxTurn": 15,
+      "choices": [
+        {
+          "id": "bow",
+          "text": "对万猫行礼",
+          "hint": "它们都在看你",
+          "effect": {
+            "cultivation": 3,
+            "morality": 4,
+            "luck": 2
+          }
+        },
+        {
+          "id": "wink-back",
+          "text": "朝那只眨眼的猫眨回去",
+          "hint": "猫的默契",
+          "effect": {
+            "luck": 3,
+            "cultivation": 2,
+            "morality": 2
+          }
+        }
+      ]
     },
     {
       "id": "samsara-pond",
@@ -730,7 +1257,30 @@
         "morality": 5,
         "belly": 2,
         "luck": 1
-      }
+      },
+      "minTurn": 12,
+      "maxTurn": 15,
+      "choices": [
+        {
+          "id": "look-longer",
+          "text": "多看一会儿前世",
+          "hint": "阳光下的懒猫",
+          "effect": {
+            "morality": 5,
+            "belly": 2,
+            "luck": 1
+          }
+        },
+        {
+          "id": "turn-away",
+          "text": "转身走开",
+          "hint": "猫要向前看",
+          "effect": {
+            "cultivation": 3,
+            "body": 2
+          }
+        }
+      ]
     }
   ],
   "endings": [
@@ -743,12 +1293,12 @@
         {
           "state": "cultivation",
           "operator": ">=",
-          "value": 15
+          "value": 22
         },
         {
           "state": "morality",
           "operator": ">=",
-          "value": 5
+          "value": 9
         }
       ],
       "description": "修为贯通天地，道心也经得住诱惑。你在万猫注视下登临仙王之位。第一道仙旨：宗门每日加一顿夜宵。"
@@ -761,8 +1311,8 @@
       "all": [
         {
           "state": "morality",
-          "operator": "<",
-          "value": -2
+          "operator": "<=",
+          "value": 1
         }
       ],
       "description": "你以捷径和计谋穿过雷劫，成了来去无踪的邪猫仙。宗门贴出告示：贵重宝匣请加猫锁。"
@@ -776,7 +1326,7 @@
         {
           "state": "belly",
           "operator": ">=",
-          "value": 8
+          "value": 12
         }
       ],
       "description": "你的肚腩替你挡住了最后一缕雷光。你成了青玉宗最受欢迎的护山灵猫。日常职责是守灵果园并试吃。"
@@ -790,7 +1340,7 @@
         {
           "state": "luck",
           "operator": ">=",
-          "value": 10
+          "value": 13
         }
       ],
       "description": "你什么都没刻意做，但每一步都刚好踩在正确的位置上。命运说：这只猫我罩了。"
