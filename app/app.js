@@ -1,5 +1,5 @@
 const $ = id => document.getElementById(id);
-const views = ["catalogView", "introView", "gameView", "endingView"];
+const views = ["languageView", "catalogView", "introView", "gameView", "endingView"];
 let world = null;
 let worldEntries = [];
 let selectedWorldEntry = null;
@@ -14,12 +14,9 @@ const COLLECTION_KEY = "glimmers-collection-v1";
 let lang = "en";                 // default language: English
 let uiText = null;               // platform UI strings for the active language
 
-function detectLang() {
+function requestedLang() {
   const urlLang = new URLSearchParams(location.search).get("lang");
-  if (urlLang === "zh" || urlLang === "en") { localStorage.setItem("glimmers-lang", urlLang); return urlLang; }
-  const stored = localStorage.getItem("glimmers-lang");
-  if (stored === "zh" || stored === "en") return stored;
-  return "en";                    // English first for the Tripothon lane
+  return urlLang === "zh" || urlLang === "en" ? urlLang : null;
 }
 
 function setLang(next) {
@@ -1411,36 +1408,63 @@ function replay() {
 
 async function init() {
   try {
-    setLang(detectLang());
-    labelStaticDom();
-    await loadCatalog();
-    $("beginJourney").addEventListener("click", startJourney);
-    $("continueButton").addEventListener("click", continueJourney);
-    $("replayButton").addEventListener("click", replay);
-    $("keepsakeOpen").addEventListener("click", openKeepsake);
-    document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
-    document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
-    $("catalogSound").addEventListener("click", toggleSound);
-    $("soundToggle").addEventListener("click", toggleSound);
-    document.querySelectorAll(".lang-button").forEach(button => button.addEventListener("click", async () => {
-      setLang(lang === "en" ? "zh" : "en");
-      const configPath = selectedWorldEntry?.config;
-      // refresh platform copy AND world-card data for the new language, otherwise the
-      // catalogue keeps showing the previous language after toggling inside a world
-      await loadPlatformText();
-      await loadCatalog();
-    if (configPath) { await loadWorld(configPath); enterWorld(); } else { showView("catalogView"); setCatalogMusic(); }
-    }));
-    document.querySelectorAll("[data-back-catalog]").forEach(button => button.addEventListener("click", goCatalog));
-    updateSoundButtons();
-    installAudioUnlock();
-    setCatalogMusic();
-    const requestedWorldId = new URLSearchParams(location.search).get("world");
-    const requestedEntry = requestedWorldId && worldEntries.find(entry => entry.id === requestedWorldId);
-    if (requestedEntry?.config) await enterWorldFromCatalog(requestedEntry.config);
+    const explicitLang = requestedLang();
+    if (explicitLang) {
+      await bootPlayer(explicitLang);
+      return;
+    }
+
+    showView("languageView");
+    document.querySelectorAll("[data-language-select]").forEach(button => {
+      button.addEventListener("click", async () => {
+        button.disabled = true;
+        try {
+          // Keep the first play() inside the click's user-activation window.
+          await bootPlayer(button.dataset.languageSelect);
+        } catch (error) {
+          showFatalError(error);
+        }
+      });
+    });
   } catch (error) {
-    document.body.innerHTML = `<main style="max-width:480px;margin:80px auto;padding:24px;font-family:system-ui"><h1>异境暂时没有打开</h1><p>${error.message}</p></main>`;
+    showFatalError(error);
   }
+}
+
+function showFatalError(error) {
+  document.body.innerHTML = `<main style="max-width:480px;margin:80px auto;padding:24px;font-family:system-ui"><h1>异境暂时没有打开</h1><p>${error.message}</p></main>`;
+}
+
+async function bootPlayer(nextLang) {
+  setLang(nextLang);
+  labelStaticDom();
+  updateSoundButtons();
+  installAudioUnlock();
+  // Called before any await so a language-button click can unlock audio immediately.
+  setCatalogMusic();
+  await loadCatalog();
+  $("beginJourney").addEventListener("click", startJourney);
+  $("continueButton").addEventListener("click", continueJourney);
+  $("replayButton").addEventListener("click", replay);
+  $("keepsakeOpen").addEventListener("click", openKeepsake);
+  document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
+  document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
+  $("catalogSound").addEventListener("click", toggleSound);
+  $("soundToggle").addEventListener("click", toggleSound);
+  document.querySelectorAll(".lang-button").forEach(button => button.addEventListener("click", async () => {
+    setLang(lang === "en" ? "zh" : "en");
+    const configPath = selectedWorldEntry?.config;
+    // refresh platform copy AND world-card data for the new language, otherwise the
+    // catalogue keeps showing the previous language after toggling inside a world
+    await loadPlatformText();
+    await loadCatalog();
+    if (configPath) { await loadWorld(configPath); enterWorld(); } else { showView("catalogView"); setCatalogMusic(); }
+  }));
+  document.querySelectorAll("[data-back-catalog]").forEach(button => button.addEventListener("click", goCatalog));
+  showView("catalogView");
+  const requestedWorldId = new URLSearchParams(location.search).get("world");
+  const requestedEntry = requestedWorldId && worldEntries.find(entry => entry.id === requestedWorldId);
+  if (requestedEntry?.config) await enterWorldFromCatalog(requestedEntry.config);
 }
 
 init();
