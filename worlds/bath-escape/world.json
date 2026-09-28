@@ -1,0 +1,417 @@
+{
+  "id": "bath-escape",
+  "title": "今天不洗澡",
+  "shortTitle": "今天不洗澡",
+  "subtitle": "猫的洗澡大逃亡",
+  "description": "人类拿着毛巾和沐浴露向你走来。你要用猫的全部智慧和本能，在一个个藏身点之间做出选择，躲开那些看似安全的陷阱，直到逃到屋顶——或者被塞进浴缸。",
+  "music": null,
+  "assetBase": "worlds/bath-escape/",
+  "endingVideo": null,
+  "opening": {
+    "mode": "html",
+    "html": null,
+    "video": null,
+    "poster": null,
+    "image": null
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "逃！",
+    "continueButton": "继续逃",
+    "finalContinueButton": "看结局",
+    "replayButton": "再逃一次"
+  },
+  "catalog": {
+    "eyebrow": "第六片异境微光已经苏醒",
+    "cardDescription": "一条毛巾、一瓶柑橘沐浴露、一个决心要给你洗澡的人类。五个房间、十五个选择，其中五个是陷阱。",
+    "cardIcon": "澡",
+    "cardLabel": "WORLD 06",
+    "cardGradient": [
+      "#8ecae6",
+      "#219ebc",
+      "#023047"
+    ],
+    "cardAccent": "#ffb703",
+    "actionSummary": "躲 · 跳 · 逃"
+  },
+  "initialState": {
+    "progress": 0,
+    "danger": 0
+  },
+  "states": [
+    {
+      "id": "progress",
+      "label": "逃跑进度",
+      "description": "离屋顶还有多远",
+      "color": "#219ebc",
+      "chipBackground": "#d0edf5",
+      "max": 10
+    },
+    {
+      "id": "danger",
+      "label": "危险",
+      "description": "被人类锁定的程度",
+      "color": "#d62828",
+      "chipBackground": "#fcdede",
+      "max": 15
+    }
+  ],
+  "actions": [
+    {
+      "id": "fast",
+      "name": "快速冲刺",
+      "plain": "冲",
+      "icon": "冲"
+    },
+    {
+      "id": "safe",
+      "name": "安全躲藏",
+      "plain": "躲",
+      "icon": "躲"
+    },
+    {
+      "id": "trap",
+      "name": "看起来很安全",
+      "plain": "？",
+      "icon": "？"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapter": "第一幕",
+      "object": "scene-01",
+      "image": "assets/images/scenes/scene-01.webp",
+      "title": "毛巾出现了",
+      "description": "阳光正好的下午，人类拿着一条黄色毛巾走向你。空气里有柑橘沐浴露的味道——那是猫最讨厌的气味。",
+      "actions": [
+        {
+          "id": "fast",
+          "name": "跳上书架",
+          "plain": "冲",
+          "hint": "两步蹬上最高层，人类够不到",
+          "icon": "冲"
+        },
+        {
+          "id": "safe",
+          "name": "钻沙发底",
+          "plain": "躲",
+          "hint": "经典猫式藏身，谁都知道",
+          "icon": "躲"
+        },
+        {
+          "id": "trap",
+          "name": "钻进旁边的纸箱",
+          "plain": "？",
+          "hint": "猫不是都喜欢箱子吗",
+          "icon": "？"
+        }
+      ],
+      "outcomes": {
+        "fast": {
+          "image": "assets/images/scenes/scene-01.webp",
+          "stateChanges": {
+            "progress": 2,
+            "danger": 1
+          },
+          "text": "你两步蹬上书架顶层，人类踮脚也差半个手臂。你居高临下地看她走来走去。"
+        },
+        "safe": {
+          "image": "assets/images/scenes/scene-01.webp",
+          "stateChanges": {
+            "progress": 1,
+            "danger": 0
+          },
+          "text": "你无声地滑进沙发底，尾巴刚好收进去。人类的拖鞋从你眼前走过，停了两秒，然后继续往前。"
+        },
+        "trap": {
+          "image": "assets/images/scenes/scene-01.webp",
+          "stateChanges": {
+            "progress": 0,
+            "danger": 3
+          },
+          "text": "你钻进纸箱，一股浓烈的柑橘味扑面而来——箱子旁边就是沐浴露和吹风机。人类笑着把箱子抱起来。"
+        }
+      }
+    },
+    {
+      "id": "scene-02",
+      "chapter": "第二幕",
+      "object": "scene-02",
+      "image": "assets/images/scenes/scene-02.webp",
+      "title": "人类在搜房间",
+      "description": "你溜进走廊，听见一扇接一扇的门被推开。脚步声越来越有节奏——人类在系统性地搜索。",
+      "actions": [
+        {
+          "id": "fast",
+          "name": "趁弯腰时冲过去",
+          "plain": "冲",
+          "hint": "贴地冲刺，一秒通过",
+          "icon": "冲"
+        },
+        {
+          "id": "safe",
+          "name": "跳进脏衣篮",
+          "plain": "躲",
+          "hint": "人类不会翻脏衣服",
+          "icon": "躲"
+        },
+        {
+          "id": "trap",
+          "name": "躲进鞋柜",
+          "plain": "？",
+          "hint": "门关着，肯定安全",
+          "icon": "？"
+        }
+      ],
+      "outcomes": {
+        "fast": {
+          "image": "assets/images/scenes/scene-02.webp",
+          "stateChanges": {
+            "progress": 2,
+            "danger": 1
+          },
+          "text": "你贴着地板冲刺，人类弯腰的瞬间只抓到一撮浮毛。你的后爪已经蹬到了厨房地板。"
+        },
+        "safe": {
+          "image": "assets/images/scenes/scene-02.webp",
+          "stateChanges": {
+            "progress": 1,
+            "danger": 0
+          },
+          "text": "你跳进脏衣篮，用一只旧袜子盖住自己的头。人类走过去，翻了一下旁边的柜子，没翻这里。"
+        },
+        "trap": {
+          "image": "assets/images/scenes/scene-02.webp",
+          "stateChanges": {
+            "progress": 0,
+            "danger": 3
+          },
+          "text": "你钻进鞋柜，但门缝里透出的正是浴室的灯光。人类来拿拖鞋，你们四目相对。"
+        }
+      }
+    },
+    {
+      "id": "scene-03",
+      "chapter": "第三幕",
+      "object": "scene-03",
+      "image": "assets/images/scenes/scene-03.webp",
+      "title": "零食罐头响了",
+      "description": "厨房里传来零食罐头的哗啦声。那个声音通常意味着好事，但今天空气里还是柑橘味。猫粮碗旁边放着一双拖鞋。",
+      "actions": [
+        {
+          "id": "fast",
+          "name": "从窗台跳到冰箱顶",
+          "plain": "冲",
+          "hint": "高处的路最安全",
+          "icon": "冲"
+        },
+        {
+          "id": "safe",
+          "name": "躲在垃圾桶后面",
+          "plain": "躲",
+          "hint": "气味掩护，没人会翻",
+          "icon": "躲"
+        },
+        {
+          "id": "trap",
+          "name": "去吃猫粮",
+          "plain": "？",
+          "hint": "猫粮永远没错",
+          "icon": "？"
+        }
+      ],
+      "outcomes": {
+        "fast": {
+          "image": "assets/images/scenes/scene-03.webp",
+          "stateChanges": {
+            "progress": 2,
+            "danger": 1
+          },
+          "text": "你从窗台一步跳上冰箱顶。人类在下面摇罐头，你在上面居高临下地看她的头顶。"
+        },
+        "safe": {
+          "image": "assets/images/scenes/scene-03.webp",
+          "stateChanges": {
+            "progress": 1,
+            "danger": 0
+          },
+          "text": "你缩在垃圾桶后面。气味很浓，但掩护很好。人类走过来站了一会儿，然后走了。"
+        },
+        "trap": {
+          "image": "assets/images/scenes/scene-03.webp",
+          "stateChanges": {
+            "progress": 0,
+            "danger": 3
+          },
+          "text": "你走向猫粮碗，但碗旁边那双拖鞋动了一下——人类从柜子后面冲出来，手里已经有毛巾了。"
+        }
+      }
+    },
+    {
+      "id": "scene-04",
+      "chapter": "第四幕",
+      "object": "scene-04",
+      "image": "assets/images/scenes/scene-04.webp",
+      "title": "通往外面的门",
+      "description": "阳台的门开了一条缝，外面的风吹进来。晾衣杆上挂着一条被子，四个角都用夹子夹得很紧。花盆后面有一小块阴影。",
+      "actions": [
+        {
+          "id": "fast",
+          "name": "跳上晾衣杆",
+          "plain": "冲",
+          "hint": "猫的平衡感不会让你失望",
+          "icon": "冲"
+        },
+        {
+          "id": "safe",
+          "name": "躲在花盆后面",
+          "plain": "躲",
+          "hint": "等人类走开再行动",
+          "icon": "躲"
+        },
+        {
+          "id": "trap",
+          "name": "钻进晾晒的被子里",
+          "plain": "？",
+          "hint": "被子软软的，很舒服",
+          "icon": "？"
+        }
+      ],
+      "outcomes": {
+        "fast": {
+          "image": "assets/images/scenes/scene-04.webp",
+          "stateChanges": {
+            "progress": 2,
+            "danger": 1
+          },
+          "text": "你跳上晾衣杆，在杆上走出一条完美的直线。人类在下面伸手，差了整整一个身位。"
+        },
+        "safe": {
+          "image": "assets/images/scenes/scene-04.webp",
+          "stateChanges": {
+            "progress": 1,
+            "danger": 0
+          },
+          "text": "你缩在花盆后面，一片大叶子刚好挡住你。人类到阳台看了看，没弯腰就走了。"
+        },
+        "trap": {
+          "image": "assets/images/scenes/scene-04.webp",
+          "stateChanges": {
+            "progress": 0,
+            "danger": 3
+          },
+          "text": "你钻进被子，四个角都被夹子夹住了——这是一个口袋。人类直接把被子连猫一起抱走。"
+        }
+      }
+    },
+    {
+      "id": "scene-05",
+      "chapter": "第五幕",
+      "object": "scene-05",
+      "image": "assets/images/scenes/scene-05.webp",
+      "title": "最后一步",
+      "description": "你站在阳台栏杆上，隔壁屋顶就在两米外。人类在下面轻声叫你的名字，手里拿着零食罐头。风从屋顶吹过来，带着自由的味道。",
+      "actions": [
+        {
+          "id": "fast",
+          "name": "跳到隔壁屋顶",
+          "plain": "冲",
+          "hint": "这一跃就是自由",
+          "icon": "冲"
+        },
+        {
+          "id": "safe",
+          "name": "躲在空调外机后面",
+          "plain": "躲",
+          "hint": "等到天黑再走",
+          "icon": "躲"
+        },
+        {
+          "id": "trap",
+          "name": "回头看人类",
+          "plain": "？",
+          "hint": "只是看一眼而已",
+          "icon": "？"
+        }
+      ],
+      "outcomes": {
+        "fast": {
+          "image": "assets/images/scenes/scene-05.webp",
+          "stateChanges": {
+            "progress": 2,
+            "danger": 1
+          },
+          "text": "你纵身一跃，稳稳落在隔壁屋顶的瓦片上。风吹过你的毛。人类在栏杆那头叹了口气。"
+        },
+        "safe": {
+          "image": "assets/images/scenes/scene-05.webp",
+          "stateChanges": {
+            "progress": 1,
+            "danger": 0
+          },
+          "text": "你缩进空调外机和墙壁之间的缝隙里，等到天完全黑了才出来。月光下，你优雅地走下防火梯。"
+        },
+        "trap": {
+          "image": "assets/images/scenes/scene-05.webp",
+          "stateChanges": {
+            "progress": 0,
+            "danger": 3
+          },
+          "text": "你回头看了人类一眼。就那一眼——你们对视了。你的身体不再听大脑指挥，人类轻轻把你抱了下来。"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "roof",
+      "title": "屋顶自由",
+      "video": null,
+      "image": "assets/images/endings/roof.webp",
+      "all": [
+        {
+          "state": "progress",
+          "operator": ">=",
+          "value": 9
+        },
+        {
+          "state": "danger",
+          "operator": "<=",
+          "value": 5
+        }
+      ],
+      "description": "你坐在屋顶最高的那块瓦片上，看夕阳把整条街染成橘红色。楼下的人类还举着毛巾在阳台张望。你舔了舔前爪——今天，你是自由的。"
+    },
+    {
+      "id": "survived",
+      "title": "今天不洗澡",
+      "video": null,
+      "image": "assets/images/endings/survived.webp",
+      "all": [
+        {
+          "state": "progress",
+          "operator": ">=",
+          "value": 4
+        },
+        {
+          "state": "danger",
+          "operator": "<=",
+          "value": 7
+        }
+      ],
+      "description": "你躲在衣柜最深处的一堆旧毛衣里，只露出两只耳朵。人类放弃了搜索，说明天再洗。明天的事明天再说——今天不洗澡。"
+    },
+    {
+      "id": "bath",
+      "title": "泡泡之巅",
+      "video": null,
+      "image": "assets/images/endings/bath.webp",
+      "all": [],
+      "description": "泡泡在你的头顶堆成一座小山。水是温的，毛巾是软的，人类的表情是得意的。你的表情是空的。你知道，有一些东西已经回不来了。"
+    }
+  ],
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  }
+}

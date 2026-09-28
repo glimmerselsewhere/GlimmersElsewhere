@@ -246,3 +246,26 @@ body.is-playing .app-shell { height: 100dvh; min-height: 0; overflow: hidden; }
 .world-card-art.has-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,30,.42) 0%, rgba(20,14,30,.06) 34%, rgba(20,14,30,.30) 100%); }
 .world-card-art.has-cover .world-orbit { display: none; }
 .world-card-art.has-cover .world-number { z-index: 4; background: rgba(20,14,30,.42); backdrop-filter: blur(4px); }
+
+/* P1: threshold milestone card */
+.outcome-milestone { margin-top: 10px; }
+.milestone-card { padding: 12px 14px; border: 1px solid #d9b96a; border-radius: 14px; background: linear-gradient(135deg, #fff5d6, #f3e2b1); box-shadow: 0 6px 14px rgba(126,99,48,.12); }
+.milestone-card small { display: block; color: #8a6b2f; font-size: 9px; font-weight: 800; letter-spacing: .14em; }
+.milestone-card strong { display: block; margin: 3px 0 5px; color: #4c3a15; font-size: 14px; }
+.milestone-card p { margin: 0; color: #6f5b33; font-size: 12px; line-height: 1.5; }
+.milestone-card img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; margin-top: 8px; }
+
+/* P1: hero reveal for important choices */
+.visual-stage.is-hero { box-shadow: 0 0 0 3px rgba(232,199,106,.75), 0 18px 36px rgba(126,99,48,.28); }
+.visual-stage.is-hero .scene-image { animation: heroReveal .6s cubic-bezier(.2,.9,.25,1) both; }
+@keyframes heroReveal { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+.result-hero-flash { animation: heroFlash .85s ease both !important; }
+@keyframes heroFlash { 0% { opacity: .95; } 55% { opacity: .2; } 100% { opacity: 0; } }
+
+/* P1: collection box on the ending view */
+.collection-box { margin-top: 16px; padding: 13px 15px; border: 1px dashed rgba(73,54,100,.28); border-radius: 16px; background: rgba(255,255,255,.55); }
+.collection-box small { display: block; color: #7a6b85; font-size: 9px; font-weight: 800; letter-spacing: .14em; }
+.collection-box strong { display: block; margin: 3px 0 8px; font-size: 13px; color: #3f3247; }
+.collection-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.collection-grid span { display: grid; place-items: center; min-width: 26px; height: 26px; padding: 0 4px; border-radius: 8px; background: rgba(63,43,118,.1); color: #9a8aa8; font-size: 11px; font-weight: 800; }
+.collection-grid span.is-got { background: linear-gradient(135deg, #f2d383, #e0b45c); color: #4b3a12; box-shadow: 0 3px 8px rgba(126,99,48,.2); }

@@ -92,7 +92,8 @@
             "appetite": 2,
             "respect": 3
           },
-          "text": "冰粥端上来时还在冒冷气，舀一勺能看见霜米在碗里慢慢化开。巨龙翻了个身，把洞口又堆高了一点霜米，算是续费。"
+          "text": "冰粥端上来时还在冒冷气，舀一勺能看见霜米在碗里慢慢化开。巨龙翻了个身，把洞口又堆高了一点霜米，算是续费。",
+          "impact": "hero"
         },
         "frost-crisp": {
           "image": "assets/images/dishes/frost-dragon-frost-crisp.webp",
@@ -101,7 +102,18 @@
             "appetite": 3,
             "respect": 1
           },
-          "text": "糖片对着光看是透明的，咬下去咔嚓一声，凉气从喉咙一路跑到尾巴尖。巨龙被咔嚓声吵醒，看了一眼，又满意地睡回去了。"
+          "text": "糖片对着光看是透明的，咬下去咔嚓一声，凉气从喉咙一路跑到尾巴尖。巨龙被咔嚓声吵醒，看了一眼，又满意地睡回去了。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "糖片对着光看是透明的，咬下去咔嚓一声，凉气从喉咙一路跑到尾巴尖。巨龙被咔嚓声吵醒，看了一眼，又满意地睡回去了。"
+            },
+            {
+              "weight": 1,
+              "text": "糖片比想象中更脆，裂开的声音惊起了一窝雪雀。巨龙翻了个身，把洞口的霜米又堆高了一截。"
+            }
+          ]
         },
         "frost-sashimi": {
           "image": "assets/images/dishes/frost-dragon-frost-sashimi.webp",
@@ -110,7 +122,8 @@
             "appetite": 3,
             "respect": 2
           },
-          "text": "薄切的冻肉在雪莓汁里泛着粉光，入口即化，凉而不冰。你在图鉴上认真写了一行：感谢今日份的龙。"
+          "text": "薄切的冻肉在雪莓汁里泛着粉光，入口即化，凉而不冰。你在图鉴上认真写了一行：感谢今日份的龙。",
+          "impact": "hero"
         }
       }
     },
@@ -152,7 +165,8 @@
             "appetite": 3,
             "respect": 2
           },
-          "text": "奶盖在茶面上浮成一小朵云，喝的时候先碰到凉的甜，再碰到热的茶。云绵羊在旁边看着，耳朵愉快地抖了抖。"
+          "text": "奶盖在茶面上浮成一小朵云，喝的时候先碰到凉的甜，再碰到热的茶。云绵羊在旁边看着，耳朵愉快地抖了抖。",
+          "impact": "hero"
         },
         "cloud-roll": {
           "image": "assets/images/dishes/cloud-sheep-cloud-roll.webp",
@@ -161,7 +175,8 @@
             "appetite": 2,
             "respect": 2
           },
-          "text": "云卷切面是一圈一圈的白色绒毛，咬下去先脆后绵，甜得很轻。你把第一卷放回了云绵羊面前的盘子里。"
+          "text": "云卷切面是一圈一圈的白色绒毛，咬下去先脆后绵，甜得很轻。你把第一卷放回了云绵羊面前的盘子里。",
+          "impact": "hero"
         },
         "cloud-soup": {
           "image": "assets/images/dishes/cloud-sheep-cloud-soup.webp",
@@ -170,7 +185,8 @@
             "appetite": 2,
             "respect": 3
           },
-          "text": "浓汤表面的云绒会跟着勺子慢慢旋开，喝完整个人都暖乎乎的。云绵羊喝完自己那一碗，咩了一声，表示明年还来。"
+          "text": "浓汤表面的云绒会跟着勺子慢慢旋开，喝完整个人都暖乎乎的。云绵羊喝完自己那一碗，咩了一声，表示明年还来。",
+          "impact": "hero"
         }
       }
     },
@@ -212,7 +228,8 @@
             "appetite": 3,
             "respect": 1
           },
-          "text": "奶酪在壳口咕嘟咕嘟鼓起泡，拉丝能拉到一个手掌那么长。蜗牛探出头检查了自己的壳，表示焗得很均匀。"
+          "text": "奶酪在壳口咕嘟咕嘟鼓起泡，拉丝能拉到一个手掌那么长。蜗牛探出头检查了自己的壳，表示焗得很均匀。",
+          "impact": "hero"
         },
         "lava-soup": {
           "image": "assets/images/dishes/lava-snail-lava-soup.webp",
@@ -221,7 +238,8 @@
             "appetite": 3,
             "respect": 2
           },
-          "text": "浓汤是漂亮的橙红色，喝下去从喉咙暖到脚底，还带一点矿物的咸香。你给蜗牛的壳擦得锃亮作为回礼。"
+          "text": "浓汤是漂亮的橙红色，喝下去从喉咙暖到脚底，还带一点矿物的咸香。你给蜗牛的壳擦得锃亮作为回礼。",
+          "impact": "hero"
         },
         "lava-pudding": {
           "image": "assets/images/dishes/lava-snail-lava-pudding.webp",
@@ -230,7 +248,18 @@
             "appetite": 2,
             "respect": 2
           },
-          "text": "敲开焦糖壳的一瞬间，流心顺着缺口慢慢淌下来，像一小道安静的岩浆。蜗牛盯着流心看了很久，似乎也想来一勺。"
+          "text": "敲开焦糖壳的一瞬间，流心顺着缺口慢慢淌下来，像一小道安静的岩浆。蜗牛盯着流心看了很久，似乎也想来一勺。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "敲开焦糖壳的一瞬间，流心顺着缺口慢慢淌下来，像一小道安静的岩浆。蜗牛盯着流心看了很久，似乎也想来一勺。"
+            },
+            {
+              "weight": 1,
+              "text": "焦糖壳裂开时冒出一小股甜烟。蜗牛把头缩回去又伸出来，这是它今天第三次改变主意。"
+            }
+          ]
         }
       }
     },
@@ -272,7 +301,8 @@
             "appetite": 2,
             "respect": 2
           },
-          "text": "果冻在盘子里微微发亮，像把一小片夜空盛了出来。水母在旁边的水盆里闪了一下，像是在签名。"
+          "text": "果冻在盘子里微微发亮，像把一小片夜空盛了出来。水母在旁边的水盆里闪了一下，像是在签名。",
+          "impact": "hero"
         },
         "night-noodles": {
           "image": "assets/images/dishes/starlight-jelly-night-noodles.webp",
@@ -281,7 +311,18 @@
             "appetite": 3,
             "respect": 1
           },
-          "text": "关掉灯之后，整碗面泛着温柔的蓝光，挑起来还会拖出一条光丝。你决定以后晚餐都关灯吃。"
+          "text": "关掉灯之后，整碗面泛着温柔的蓝光，挑起来还会拖出一条光丝。你决定以后晚餐都关灯吃。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "关掉灯之后，整碗面泛着温柔的蓝光，挑起来还会拖出一条光丝。你决定以后晚餐都关灯吃。"
+            },
+            {
+              "weight": 1,
+              "text": "面条亮起来的瞬间，水母在旁边的水盆里鼓了一下掌。你决定假装没看见。"
+            }
+          ]
         },
         "star-soda": {
           "image": "assets/images/dishes/starlight-jelly-star-soda.webp",
@@ -290,7 +331,8 @@
             "appetite": 3,
             "respect": 2
           },
-          "text": "星屑在气泡里一颗颗上浮，撞到杯壁又弹开，喝一口会在舌尖啪地炸开一点甜。水母看着杯子，似乎觉得自己的果冻很有出息。"
+          "text": "星屑在气泡里一颗颗上浮，撞到杯壁又弹开，喝一口会在舌尖啪地炸开一点甜。水母看着杯子，似乎觉得自己的果冻很有出息。",
+          "impact": "hero"
         }
       }
     },
@@ -332,7 +374,8 @@
             "appetite": 3,
             "respect": 2
           },
-          "text": "厚片烤到边缘焦亮，咬下去先是咸，然后蜜味才慢慢追上来。蜜菇鹿低头闻了闻锅，满意地打了个响鼻。"
+          "text": "厚片烤到边缘焦亮，咬下去先是咸，然后蜜味才慢慢追上来。蜜菇鹿低头闻了闻锅，满意地打了个响鼻。",
+          "impact": "hero"
         },
         "deer-stew": {
           "image": "assets/images/dishes/honey-deer-deer-stew.webp",
@@ -341,7 +384,18 @@
             "appetite": 2,
             "respect": 3
           },
-          "text": "炖菜的汤色是深深的琥珀色，蔬菜吸饱了蜜香，甜咸平衡得刚刚好。鹿把整朵蜜菇留给了你，自己喝汤。"
+          "text": "炖菜的汤色是深深的琥珀色，蔬菜吸饱了蜜香，甜咸平衡得刚刚好。鹿把整朵蜜菇留给了你，自己喝汤。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "炖菜的汤色是深深的琥珀色，蔬菜吸饱了蜜香，甜咸平衡得刚刚好。鹿把整朵蜜菇留给了你，自己喝汤。"
+            },
+            {
+              "weight": 1,
+              "text": "炖菜炖到一半时，蜜菇鹿自己凑过来闻了闻，然后满意地打了个响鼻。你知道这锅稳了。"
+            }
+          ]
         },
         "honey-candy": {
           "image": "assets/images/dishes/honey-deer-honey-candy.webp",
@@ -350,7 +404,8 @@
             "appetite": 2,
             "respect": 2
           },
-          "text": "琥珀糖对着光看能看见里面细小的菇纹，含在嘴里会慢慢化出一整片森林的味道。你把第一颗糖放在了鹿角旁边。"
+          "text": "琥珀糖对着光看能看见里面细小的菇纹，含在嘴里会慢慢化出一整片森林的味道。你把第一颗糖放在了鹿角旁边。",
+          "impact": "hero"
         }
       }
     }
@@ -434,6 +489,32 @@
       "title": "谢食材木牌信物",
       "glb": "assets/models/thanks-leaf.glb",
       "preview": "assets/models/thanks-leaf-source.webp"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "wonder-8",
+      "state": "wonder",
+      "at": 8,
+      "eyebrow": "THRESHOLD",
+      "title": "后厨开始传阅你的笔记",
+      "text": "连最挑剔的长老都翻看了你的食材记录——他们想照着做。"
+    },
+    {
+      "id": "appetite-8",
+      "state": "appetite",
+      "at": 8,
+      "eyebrow": "THRESHOLD",
+      "title": "客人开始在门外排队",
+      "text": "香气翻过了古堡的墙，湖对岸的人也闻到了。"
+    },
+    {
+      "id": "respect-8",
+      "state": "respect",
+      "at": 8,
+      "eyebrow": "THRESHOLD",
+      "title": "食材开始主动来找你",
+      "text": "有一只云绵羊蹲在门口，看起来像是自愿的。"
     }
   ]
 }

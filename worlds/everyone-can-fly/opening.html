@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;font-family:"PingFang SC",system-ui,sans-serif;background:#0f2233;color:#fff}
+    main{position:relative;width:100%;height:100%;overflow:hidden;background:linear-gradient(180deg,#123049 0 46%,#1c4a5c 46% 68%,#20515a 68%)}
+    .sun{position:absolute;left:74%;top:16%;width:78px;height:78px;border-radius:50%;background:radial-gradient(circle,#ffe1a3,#f5a94c);box-shadow:0 0 60px rgba(255,200,120,.55);animation:sink 4s ease-in-out both}
+    .peaks{position:absolute;left:-10%;right:-10%;bottom:26%;height:36%;background:linear-gradient(160deg,transparent 42%,#12384a 43% 72%,transparent 73%),linear-gradient(200deg,transparent 30%,#0e2f3f 31% 66%,transparent 67%);opacity:.95}
+    .water{position:absolute;left:0;right:0;bottom:0;height:26%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.10) 0 26px,transparent 27px 64px),#123c4c}
+    .cat{position:absolute;z-index:3;left:50%;bottom:30%;width:96px;height:74px;transform:translateX(-50%);animation:hop 2.6s ease-in-out infinite alternate}
+    .cat .body{position:absolute;inset:14px 0 0;border-radius:52% 52% 44% 44%;background:#e79a4d;box-shadow:inset 0 -8px rgba(120,66,28,.22)}
+    .cat .ear{position:absolute;top:0;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:22px solid #e79a4d}
+    .cat .ear.l{left:6px;transform:rotate(-12deg)}.cat .ear.r{right:6px;transform:rotate(12deg)}
+    .trail i{position:absolute;left:50%;bottom:34%;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);animation:rise 2.2s ease-in infinite}
+    .trail i:nth-child(1){margin-left:-38px}.trail i:nth-child(2){margin-left:0;animation-delay:.7s}.trail i:nth-child(3){margin-left:34px;animation-delay:1.4s}
+    .copy{position:absolute;z-index:4;left:24px;right:24px;top:30px}.copy p{margin:0;color:#f7d582;font:800 10px/1 monospace;letter-spacing:.18em}
+    .copy h1{margin:9px 0 12px;font:900 42px/1.1 "Songti SC",serif}.copy span{display:block;color:rgba(255,255,255,.8);font-size:14px;line-height:1.85}.copy strong{color:#ffe6a8}
+    @keyframes hop{to{transform:translate(-50%,-26px)}}@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.5)}35%{opacity:.9}100%{opacity:0;transform:translateY(-58px) scale(1.5)}}@keyframes sink{to{transform:translateY(26px)}}
+  </style>
+</head>
+<body><main>
+  <div class="sun"></div><div class="peaks"></div>
+  <div class="trail"><i></i><i></i><i></i></div>
+  <div class="cat"><span class="ear l"></span><span class="ear r"></span><span class="body"></span></div>
+  <div class="water"></div>
+  <div class="copy"><p>WORLD 06</p><h1>中国猫能飞</h1><span>六点整，打卡下班。</span><span>家在江对面，晚饭六点半。</span><span><strong>今天，飞回去。</strong></span></div>
+</main>
+<script>
+(function(){
+  var lang = new URLSearchParams(location.search).get('lang') || 'en';
+  var d = lang === 'zh' ? {
+    h1: '中国猫能飞', l1: '六点整，打卡下班。', l2: '家在江对面，晚饭六点半。', strong: '今天，飞回去。'
+  } : {
+    h1: 'Chinese Cats Can Fly', l1: "Six o'clock. The punch clock beeps.", l2: 'Home is across the river; dinner is at six-thirty.', strong: 'Tonight, you fly home.'
+  };
+  var h1 = document.querySelector('.copy h1'); if (h1) h1.textContent = d.h1;
+  var spans = document.querySelectorAll('.copy span');
+  if (spans[0]) spans[0].textContent = d.l1;
+  if (spans[1]) spans[1].textContent = d.l2;
+  var strong = document.querySelector('.copy strong'); if (strong) strong.textContent = d.strong;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+})();
+</script>
+</body>
+</html>

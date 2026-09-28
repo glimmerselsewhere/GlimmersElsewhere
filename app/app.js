@@ -9,6 +9,8 @@ let state = {};
 let choiceLocked = false;
 let soundEnabled = true;
 let musicPath = "";
+let shownMilestones = new Set();
+const COLLECTION_KEY = "glimmers-collection-v1";
 let lang = "en";                 // default language: English
 let uiText = null;               // platform UI strings for the active language
 
@@ -396,6 +398,7 @@ async function enterWorldFromCatalog(configPath) {
 
 function resetGame() {
   sceneIndex = 0;
+  shownMilestones = new Set();
   state = { ...(content().initialState || {}) };
   renderMeters();
 }
@@ -536,6 +539,103 @@ function labelStaticDom() {
   if (choices) choices.setAttribute("aria-label", lang === "en" ? "Choose an action" : "选择动作");
 }
 
+/* ---------- P1: outcome resolution (tiers + weighted variants) ---------- */
+function pickWeighted(variants) {
+  const total = variants.reduce((sum, item) => sum + (Number(item.weight) || 1), 0);
+  let roll = Math.random() * total;
+  for (const item of variants) {
+    roll -= Number(item.weight) || 1;
+    if (roll <= 0) return item;
+  }
+  return variants[variants.length - 1];
+}
+
+function meetsMins(mins) {
+  return Object.entries(mins || {}).every(([key, value]) => (state[key] || 0) >= Number(value));
+}
+
+function resolveOutcome(scene, actionId) {
+  const base = (scene.outcomes || {})[actionId] || {};
+  let resolved = base;
+  if (Array.isArray(base.tiers) && base.tiers.length) {
+    resolved = base.tiers.find(tier => meetsMins(tier.min)) || base.tiers[base.tiers.length - 1];
+  }
+  if (Array.isArray(resolved.variants) && resolved.variants.length) {
+    const picked = pickWeighted(resolved.variants);
+    resolved = { ...resolved, ...picked };
+  }
+  return resolved;
+}
+
+/* ---------- P1: milestones (threshold feedback during a run) ---------- */
+function checkMilestone() {
+  for (const milestone of content().milestones || []) {
+    if (shownMilestones.has(milestone.id)) continue;
+    if ((state[milestone.state] || 0) >= Number(milestone.at)) {
+      shownMilestones.add(milestone.id);
+      return milestone;
+    }
+  }
+  return null;
+}
+
+function milestoneMarkup(milestone) {
+  if (!milestone) return "";
+  return `<div class="milestone-card">
+    <small>${escapeHtml(milestone.eyebrow || (lang === "en" ? "THRESHOLD" : "状态变化"))}</small>
+    <strong>${escapeHtml(milestone.title || "")}</strong>
+    <p>${escapeHtml(milestone.text || "")}</p>
+    ${milestone.image ? `<img src="${escapeHtml(worldAsset(milestone.image))}" alt="">` : ""}
+  </div>`;
+}
+
+/* ---------- P1: collection (persists in localStorage, works on static hosting) ---------- */
+function loadCollection() {
+  try { return JSON.parse(localStorage.getItem(COLLECTION_KEY)) || {}; } catch (_) { return {}; }
+}
+function saveCollection(collection) { localStorage.setItem(COLLECTION_KEY, JSON.stringify(collection)); }
+function recordChoice(worldId, sceneId, actionId) {
+  const collection = loadCollection();
+  const world = collection[worldId] = collection[worldId] || { actions: [], endings: [] };
+  const key = `${sceneId}:${actionId}`;
+  if (!world.actions.includes(key)) { world.actions.push(key); saveCollection(collection); }
+}
+function recordEnding(worldId, endingId) {
+  const collection = loadCollection();
+  const world = collection[worldId] = collection[worldId] || { actions: [], endings: [] };
+  if (!world.endings.includes(endingId)) { world.endings.push(endingId); saveCollection(collection); }
+}
+function collectionMarkup(worldId) {
+  const scenes = content().scenes || [];
+  // count per-scene actions, or world-level actions when scenes don't define their own
+  const perScene = scenes.reduce((sum, scene) => sum + (scene.actions || []).length, 0);
+  const total = perScene || (content().actions || []).length * scenes.length;
+  const endings = content().endings || [];
+  const mine = (loadCollection()[worldId] || { actions: [], endings: [] });
+  const actionKeys = new Set(mine.actions);
+  const endingIds = new Set(mine.endings);
+  if (!total && !endings.length) return "";
+  const sceneActions = perScene
+    ? (content().scenes || []).flatMap(scene => (scene.actions || []).map(action => ({ ...action, sceneId: scene.id })))
+    : (content().scenes || []).flatMap(scene => (content().actions || []).map(action => ({ ...action, sceneId: scene.id })));
+  const chips = sceneActions.map((action, index) => {
+    const got = actionKeys.has(`${action.sceneId}:${action.id}`);
+    const icon = lang === "en"
+      ? (action.icon && /^[A-Za-z0-9]$/.test(action.icon) ? action.icon : String.fromCharCode(65 + (index % 26)))
+      : (action.icon || "✦");
+    return `<span class="${got ? "is-got" : ""}" title="${escapeHtml(action.name || action.id)}">${got ? escapeHtml(icon) : "?"}</span>`;
+  });
+  const endingChips = endings.map(ending => {
+    const got = endingIds.has(ending.id);
+    return `<span class="${got ? "is-got" : ""}" title="${escapeHtml(got ? ending.title : (lang === "en" ? "Locked ending" : "未解锁结局"))}">${got ? "★" : "☆"}</span>`;
+  });
+  return `<div class="collection-box">
+    <div><small>${escapeHtml(lang === "en" ? "COLLECTION" : "图鉴")}</small>
+    <strong>${mine.actions.length}/${total} ${escapeHtml(lang === "en" ? "actions" : "个动作")} · ${mine.endings.length}/${endings.length} ${escapeHtml(lang === "en" ? "endings" : "个结局")}</strong></div>
+    <div class="collection-grid">${chips.join("")}${endingChips.join("")}</div>
+  </div>`;
+}
+
 function renderMeters() {
   const definitions = content().states || Object.keys(state).map((id, index) => ({ id, label: id, color: index ? "#6d9e75" : "#d8654c", max: 14 }));
   $("meters").style.gridTemplateColumns = `repeat(${Math.min(3, definitions.length)}, minmax(0, 1fr))`;
@@ -546,6 +646,7 @@ function renderMeters() {
 function renderScene() {
   const current = content();
   const scene = current.scenes[sceneIndex];
+  $("visualStage").classList.remove("is-hero");
   const actions = scene.actions || current.actions || [];
   choiceLocked = false;
   $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")}`;
@@ -619,7 +720,8 @@ function renderOutcomeImage(scene, outcome) {
 function resolveChoice(actionId) {
   const current = content();
   const scene = current.scenes[sceneIndex];
-  const outcome = scene.outcomes[actionId];
+  const outcome = resolveOutcome(scene, actionId);
+  recordChoice(world.id, scene.id, actionId);
   for (const definition of current.states || []) {
     state[definition.id] = (state[definition.id] || 0) + (outcome.stateChanges?.[definition.id] ?? outcome[definition.id] ?? 0);
   }
@@ -627,12 +729,19 @@ function resolveChoice(actionId) {
   renderOutcomeImage(scene, outcome);
   $("resultFlash").hidden = false;
   $("resultFlash").classList.remove("result-flash");
+  $("visualStage").classList.toggle("is-hero", outcome.impact === "hero");
   void $("resultFlash").offsetWidth;
   $("resultFlash").classList.add("result-flash");
+  if (outcome.impact === "hero") {
+    $("resultFlash").classList.remove("result-hero-flash");
+    void $("resultFlash").offsetWidth;
+    $("resultFlash").classList.add("result-hero-flash");
+  }
   setTimeout(() => { $("resultFlash").hidden = true; }, 600);
   $("choicePanel").hidden = true;
   $("outcomePanel").hidden = false;
   $("outcomeText").textContent = outcome.text;
+  $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
   const chips = [];
   for (const definition of current.states || []) {
     const delta = outcome.stateChanges?.[definition.id] ?? outcome[definition.id] ?? 0;
@@ -701,6 +810,8 @@ function showEnding() {
   }
   const keepsake = content().keepsakes?.find(item => item.endingId === ending.id) || content().keepsakes?.[0] || world.keepsakes?.find(item => item.endingId === ending.id) || world.keepsakes?.[0];
   $("keepsakeBox").hidden = !keepsake;
+  recordEnding(world.id, ending.id);
+  $("collectionBox").innerHTML = collectionMarkup(world.id);
   showView("endingView");
   if (keepsake) {
     const glbUrl = worldAsset(keepsake.glb);

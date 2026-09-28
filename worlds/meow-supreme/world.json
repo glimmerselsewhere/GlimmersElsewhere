@@ -110,12 +110,28 @@
       "description": "刚换过的猫砂平整得过分，像是在等待第一道爪印。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/litter-claw-result.webp",
-          "stateChanges": {
-            "fear": 2,
-            "respect": 1
-          },
-          "text": "你刨出了今日第一座山。几粒猫砂越过盆沿，人类回来后会立刻发现你的巡视成果。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-litter-heavy.webp",
+              "stateChanges": {
+                "fear": 2,
+                "respect": 1
+              },
+              "text": "你刨出了今日第一座山。几粒猫砂越过盆沿，人类回来后会立刻发现你的巡视成果。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/litter-claw-result.webp",
+              "stateChanges": {
+                "fear": 2,
+                "respect": 1
+              },
+              "text": "你刨出了今日第一座山。几粒猫砂越过盆沿，人类回来后会立刻发现你的巡视成果。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/litter-bite-result.webp",
@@ -144,12 +160,28 @@
       "description": "一只普通的半杯水停在桌边，杯壁反射着一点很可疑的光。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/cup-claw-result.webp",
-          "stateChanges": {
-            "fear": 3,
-            "respect": 0
-          },
-          "text": "你的爪尖轻轻一拨，杯底划过木桌，半杯水明显晃了起来。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-cup-heavy.webp",
+              "stateChanges": {
+                "fear": 3,
+                "respect": 0
+              },
+              "text": "你的爪尖轻轻一拨，杯底划过木桌，半杯水明显晃了起来。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/cup-claw-result.webp",
+              "stateChanges": {
+                "fear": 3,
+                "respect": 0
+              },
+              "text": "你的爪尖轻轻一拨，杯底划过木桌，半杯水明显晃了起来。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/cup-bite-result.webp",
@@ -178,12 +210,28 @@
       "description": "花瓶安静地立在窄柜上，三枝小花随着空气轻轻晃动，引起了你的注意。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/vase-claw-result.webp",
-          "stateChanges": {
-            "fear": 3,
-            "respect": 0
-          },
-          "text": "你拨了一下晃动的花枝。花瓶跟着倾斜，又在最后一刻停住。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-vase-heavy.webp",
+              "stateChanges": {
+                "fear": 3,
+                "respect": 0
+              },
+              "text": "你拨了一下晃动的花枝。花瓶跟着倾斜，又在最后一刻停住。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/vase-claw-result.webp",
+              "stateChanges": {
+                "fear": 3,
+                "respect": 0
+              },
+              "text": "你拨了一下晃动的花枝。花瓶跟着倾斜，又在最后一刻停住。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/vase-bite-result.webp",
@@ -212,12 +260,28 @@
       "description": "柔软、宽阔，而且人类刚说过不许抓——没有比这更明确的邀请。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/sofa-claw-result.webp",
-          "stateChanges": {
-            "fear": 2,
-            "respect": 1
-          },
-          "text": "爪尖划过布面，留下三道利落的新痕迹。人类回来后一眼就能看见。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-sofa-heavy.webp",
+              "stateChanges": {
+                "fear": 2,
+                "respect": 1
+              },
+              "text": "爪尖划过布面，留下三道利落的新痕迹。人类回来后一眼就能看见。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/sofa-claw-result.webp",
+              "stateChanges": {
+                "fear": 2,
+                "respect": 1
+              },
+              "text": "爪尖划过布面，留下三道利落的新痕迹。人类回来后一眼就能看见。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/sofa-bite-result.webp",
@@ -246,12 +310,28 @@
       "description": "壁橱没有关严。一条黑暗的门缝，正在假装自己不值得调查。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/wardrobe-claw-result.webp",
-          "stateChanges": {
-            "fear": 2,
-            "respect": 1
-          },
-          "text": "你将爪尖探进门缝，柜门缓缓打开，里面只是一件垂下来的黑外套。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-wardrobe-heavy.webp",
+              "stateChanges": {
+                "fear": 2,
+                "respect": 1
+              },
+              "text": "你将爪尖探进门缝，柜门缓缓打开，里面只是一件垂下来的黑外套。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/wardrobe-claw-result.webp",
+              "stateChanges": {
+                "fear": 2,
+                "respect": 1
+              },
+              "text": "你将爪尖探进门缝，柜门缓缓打开，里面只是一件垂下来的黑外套。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/wardrobe-bite-result.webp",
@@ -280,12 +360,28 @@
       "description": "一根已经拔掉的旧充电线垂在墙角，末端随着风轻轻晃动。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/cord-claw-result.webp",
-          "stateChanges": {
-            "fear": 1,
-            "respect": 1
-          },
-          "text": "你一爪按住晃动的线头。它不再摆动，你也暂时失去了追逐的兴趣。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-cord-heavy.webp",
+              "stateChanges": {
+                "fear": 1,
+                "respect": 1
+              },
+              "text": "你一爪按住晃动的线头。它不再摆动，你也暂时失去了追逐的兴趣。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/cord-claw-result.webp",
+              "stateChanges": {
+                "fear": 1,
+                "respect": 1
+              },
+              "text": "你一爪按住晃动的线头。它不再摆动，你也暂时失去了追逐的兴趣。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/cord-bite-result.webp",
@@ -314,12 +410,28 @@
       "description": "门开了。那只负责开罐头、摸脑袋，也会突然剪指甲的手伸到你面前。",
       "outcomes": {
         "claw": {
-          "image": "assets/images/scenes/hand-claw-result.webp",
-          "stateChanges": {
-            "fear": 1,
-            "respect": 0
-          },
-          "text": "你把爪垫按在人类掌心，没有伸出指甲，对方还是谨慎地停住了动作。"
+          "tiers": [
+            {
+              "min": {
+                "fear": 5
+              },
+              "image": "assets/images/scenes/ms-hand-heavy.webp",
+              "stateChanges": {
+                "fear": 1,
+                "respect": 0
+              },
+              "text": "你把爪垫按在人类掌心，没有伸出指甲，对方还是谨慎地停住了动作。——但这一次，整间屋子都听见了。"
+            },
+            {
+              "min": {},
+              "image": "assets/images/scenes/hand-claw-result.webp",
+              "stateChanges": {
+                "fear": 1,
+                "respect": 0
+              },
+              "text": "你把爪垫按在人类掌心，没有伸出指甲，对方还是谨慎地停住了动作。"
+            }
+          ]
         },
         "bite": {
           "image": "assets/images/scenes/hand-bite-result.webp",
@@ -406,5 +518,25 @@
   ],
   "cover": {
     "default": "assets/cover/cover.webp"
-  }
+  },
+  "milestones": [
+    {
+      "id": "fear-4",
+      "state": "fear",
+      "at": 4,
+      "eyebrow": "THRESHOLD",
+      "title": "人类开始藏东西了",
+      "text": "桌上的易碎品正在一间一间消失。你的威慑起作用了——这是猫的胜利，也是人类的求生本能。",
+      "image": "assets/images/scenes/ms-fear-threshold.webp"
+    },
+    {
+      "id": "respect-4",
+      "state": "respect",
+      "at": 4,
+      "eyebrow": "THRESHOLD",
+      "title": "人类主动加餐了",
+      "text": "猫粮碗被重新填满，旁边还多了一小碟冻干。你什么都没做，只是蹭了蹭——但这已经够了。",
+      "image": "assets/images/scenes/ms-respect-threshold.webp"
+    }
+  ]
 }

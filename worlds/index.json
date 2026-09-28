@@ -55,6 +55,22 @@
       "titleEn": "Meowchelin Isekai Kitchen",
       "subtitleEn": "Western-fantasy cooking adventure",
       "descriptionEn": "A cat chef wanders a western-fantasy world where every monster can become dinner."
+    },
+    {
+      "id": "everyone-can-fly",
+      "config": "everyone-can-fly/world.json",
+      "status": "ready",
+      "titleEn": "Chinese Cats Can Fly"
+    },
+    {
+      "id": "wall-street-cat",
+      "config": "wall-street-cat/world.json",
+      "status": "ready"
+    },
+    {
+      "id": "bath-escape",
+      "config": "bath-escape/world.json",
+      "status": "ready"
     }
   ]
 }

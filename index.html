@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5eee1">
   <title>异境拾光 · Glimmers of Elsewhere</title>
-  <link rel="stylesheet" href="app/style.css?v=4">
+  <link rel="stylesheet" href="app/style.css?v=5">
 </head>
 <body>
   <main id="app" class="app-shell" aria-live="polite">
@@ -74,6 +74,7 @@
       <div id="choicePanel" class="choice-panel" aria-label="选择动作"></div>
       <section id="outcomePanel" class="outcome-panel" hidden>
         <p id="outcomeText"></p>
+        <div id="outcomeMilestone" class="outcome-milestone"></div>
         <div id="deltaChips" class="delta-chips"></div>
         <button id="continueButton" type="button">继续看下去 <b>→</b></button>
       </section>
@@ -105,6 +106,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4.2-4.2M12 14 7.8 9.8M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
+        <div id="collectionBox"></div>
         <button id="replayButton" type="button">再玩一次</button>
       </article>
     </section>
@@ -132,7 +134,7 @@
       </section>
     </div>
   </main>
-  <script src="app/app.js?v=9"></script>
+  <script src="app/app.js?v=10"></script>
   <script type="module" src="app/keepsake-viewer.js?v=1"></script>
 </body>
 </html>

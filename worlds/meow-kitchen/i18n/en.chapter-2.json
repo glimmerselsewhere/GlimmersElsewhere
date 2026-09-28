@@ -206,5 +206,22 @@
     {
       "title": "Ingredient-Thanks Wooden Plaque"
     }
+  ],
+  "milestones": [
+    {
+      "id": "wonder-8",
+      "title": "The kitchen passes around your notes",
+      "text": "Even the pickiest elder reads your ingredient log - and wants to cook from it."
+    },
+    {
+      "id": "appetite-8",
+      "title": "A queue forms outside",
+      "text": "The smell climbed over the castle wall and reached the far shore."
+    },
+    {
+      "id": "respect-8",
+      "title": "Ingredients come to you now",
+      "text": "A cloud sheep sits at the door, and it looks entirely voluntary."
+    }
   ]
 }

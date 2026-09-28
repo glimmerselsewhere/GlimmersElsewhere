@@ -1,0 +1,252 @@
+{
+  "title": "Wall Street Meowgnate",
+  "shortTitle": "Wall Street",
+  "subtitle": "Three choices, only one makes money",
+  "description": "A suited cat walks into the New York Feline Exchange. Seven trading days, twenty-one fictional stocks, and every question has exactly one profitable option.",
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Enter the exchange",
+    "continueButton": "Next candle",
+    "finalContinueButton": "Market close",
+    "replayButton": "Trade another day"
+  },
+  "catalog": {
+    "eyebrow": "A sixth glimmer has woken up",
+    "headline": "The cat's face is the market.",
+    "description": "Three choices, only one makes money. Pick right for coin eyes, pick wrong for dead-fish eyes.",
+    "cardDescription": "A suited cat enters the New York Feline Exchange. Every question has one profitable answer, and your cat's face tells the story.",
+    "cardIcon": "Stock",
+    "cardLabel": "WORLD 06",
+    "actionSummary": "Pick stocks · Faces · Rich or broke"
+  },
+  "states": [
+    {
+      "label": "Cat Coins",
+      "description": "How much you earned today"
+    },
+    {
+      "label": "Chill",
+      "description": "Your cat's heart rate"
+    }
+  ],
+  "actions": [
+    {
+      "name": "Press the trade key",
+      "plain": "Start",
+      "icon": "Go"
+    }
+  ],
+  "scenes": [
+    {
+      "chapter": "Opening",
+      "title": "The opening bell",
+      "description": "9:00 AM at the New York Feline Exchange. An orange tabby cat in a suit walks in with a briefcase, a trading screen full of red and green arrows, and five thousand cat coins.",
+      "actions": [
+        {
+          "name": "Press the trade key",
+          "hint": "Today's goal: don't go broke"
+        }
+      ],
+      "outcomes": {
+        "start": {
+          "text": "The cat opens its terminal, ears standing like antennas. The screen flashes: today's cat coins will not sit idle."
+        }
+      }
+    },
+    {
+      "chapter": "Round 1",
+      "title": "Battery revolution",
+      "description": "A flash alert: \"Meowsla Motors to announce a new battery with 500km range.\" Every cat on the floor just perked up.",
+      "actions": [
+        {
+          "name": "All-in Meowsla Motors",
+          "hint": "Battery range doubled"
+        },
+        {
+          "name": "All-in CanCo",
+          "hint": "Cats always need food"
+        },
+        {
+          "name": "All-in Scratchpost Realty",
+          "hint": "Real estate looks stable"
+        }
+      ],
+      "outcomes": {
+        "mosla": {
+          "text": "The battery launch sends the whole floor into a frenzy. Meowsla hits the ceiling limit. Your cat's eyes have turned into two glowing gold coins, and drool is pooling on the keyboard."
+        },
+        "can": {
+          "text": "CanCo stayed flat. Your cat yawns for a full three seconds and squeezes out one bored tear."
+        },
+        "reit": {
+          "text": "Scratchpost Realty just flash-crashed. Your cat's pupils dilate, its face crumples into a wet ball of yarn, and the screen shows one thick red candle."
+        }
+      }
+    },
+    {
+      "chapter": "Round 2",
+      "title": "Tech panic",
+      "description": "Flash alerts are raining: \"Yarn Bio earnings blow up, the entire tech sector is deep red.\" The cat next to you quietly shrinks its screen.",
+      "actions": [
+        {
+          "name": "Run into CanCo for safety",
+          "hint": "In a panic, cats buy cat food"
+        },
+        {
+          "name": "Buy the dip on Yarn Bio",
+          "hint": "It's fallen so far, it must bounce"
+        },
+        {
+          "name": "Buy Laser Labs",
+          "hint": "Tech is the future"
+        }
+      ],
+      "outcomes": {
+        "can2": {
+          "text": "Everyone pours into defensive consumer stocks. CanCo goes up while tech burns. Your cat narrows its eyes and the corners of its mouth curl up — this is a cat's victory smile."
+        },
+        "bio2": {
+          "text": "Yarn Bio keeps falling, straight through the floor. Your cat's gaze starts to wander, pupils reflecting a green waterfall, mouth slightly open and forgotten."
+        },
+        "laser": {
+          "text": "Laser Labs fell too. Your cat tilts its head sideways, as if considering whether to scratch that red line off the screen with its paw."
+        }
+      }
+    },
+    {
+      "chapter": "Round 3",
+      "title": "The mystery whale",
+      "description": "You spot a cat in sunglasses making a call in the corner. After it hangs up, huge buy orders for CanCo start flooding the tape.",
+      "actions": [
+        {
+          "name": "Follow the whale into CanCo",
+          "hint": "Follow the big money"
+        },
+        {
+          "name": "Buy Calico Holdings",
+          "hint": "Calico sounds cuter"
+        },
+        {
+          "name": "Buy Sunbeam Energy",
+          "hint": "Nice weather today"
+        }
+      ],
+      "outcomes": {
+        "can3": {
+          "text": "The sunglasses cat turns out to be the Tuna Tycoon. CanCo gets taken over and the stock jumps. Your cat lies flat on the desk, both paws clutching the terminal, eyes turned into two enlarged gold coin symbols."
+        },
+        "calico": {
+          "text": "Calico Holdings issues a profit warning. Your cat's ears instantly flatten into two airplane wings and its whole face stretches into a bitter melon shape."
+        },
+        "sun": {
+          "text": "It suddenly got cloudy. Sunbeam Energy dips slightly, and your cat sneezes and sniffles."
+        }
+      }
+    },
+    {
+      "chapter": "Round 4",
+      "title": "Rate hike fears",
+      "description": "The FedCat chair clears its throat: \"We cannot rule out that at some future point... possibly... consider...\" Before the word \"hike\" is even finished, the whole board is already red.",
+      "actions": [
+        {
+          "name": "Sell everything, buy bond funds",
+          "hint": "The FedCat decides"
+        },
+        {
+          "name": "Double down on Scratchpost Realty",
+          "hint": "A dip is a buying opportunity"
+        },
+        {
+          "name": "Buy Cardboard Logistics",
+          "hint": "Logistics should be safe"
+        }
+      ],
+      "outcomes": {
+        "bond": {
+          "text": "The bond fund ticks up a single point. It's not much, but on a day when everything is red, your cat smiles the smile of a cat that has seen through worldly illusions."
+        },
+        "reit4": {
+          "text": "Real estate hits the floor limit. Your cat's body slowly slides off the chair until only two paws hang from the edge of the desk, eyes showing nothing but white."
+        },
+        "box": {
+          "text": "Logistics gets hit too. Your cat curls up on its chair like a flattened cardboard box."
+        }
+      }
+    },
+    {
+      "chapter": "Round 5",
+      "title": "The sunglasses cat's note",
+      "description": "The sunglasses cat walks past your desk and slips a note under your keyboard. The note shows a drawing of a cardboard box and an upward arrow. It doesn't look back.",
+      "actions": [
+        {
+          "name": "Trust the cat, all-in Cardboard Logistics",
+          "hint": "Box + arrow = up"
+        },
+        {
+          "name": "Don't trust it, buy Churu Financial",
+          "hint": "Churu never goes out of style"
+        },
+        {
+          "name": "Call the police",
+          "hint": "This is insider trading"
+        }
+      ],
+      "outcomes": {
+        "box5": {
+          "text": "The Tuna Tycoon announces a premium acquisition of Cardboard Logistics. The stock explodes upward. Your cat tapes the note to its screen and its eyes narrow into two victorious arcs."
+        },
+        "fin": {
+          "text": "Churu Financial stays perfectly flat. Your cat stares at the note with the box and the arrow, and its entire face sags two centimeters from the corners of its mouth downward."
+        },
+        "police": {
+          "text": "The police cat arrives, and the sunglasses cat disappears into the crowd. You didn't make or lose money, but you earn the title of \"Justice Cat.\" Your cat puts on a tiny police hat."
+        }
+      }
+    },
+    {
+      "chapter": "Final round",
+      "title": "Five minutes to close",
+      "description": "Only five minutes left on the clock. You still have some cat coins, and one thing you can do: go all-in on one stock, or convert everything to cash.",
+      "actions": [
+        {
+          "name": "All-in Meowsla Motors",
+          "hint": "One last strike"
+        },
+        {
+          "name": "All-in Yarn Bio",
+          "hint": "It has to bounce this time"
+        },
+        {
+          "name": "All-in cash",
+          "hint": "Staying alive matters most"
+        }
+      ],
+      "outcomes": {
+        "mosla6": {
+          "text": "New battery mass production confirmed. Meowsla hits the ceiling in the final minute. Your cat literally flies off its chair, eyes spinning into two vortexes of cash."
+        },
+        "bio6": {
+          "text": "Yarn Bio announces delisting in the last minute. Your cat's face turns from pink to grey, from grey to transparent, and finally into a stationary cat-shaped outline."
+        },
+        "cash": {
+          "text": "You convert everything to cash. Your cat hugs its wallet, curls into a ball, and shows two alert eyes. Not rich, but at least it's not eating cat treats for dinner tonight."
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "title": "Filthy Rich · Coin Eyes Fully Open",
+      "description": "Every stock you picked went up. Cats on the floor started calling you \"The Orange Buffett.\" When you walk out, a crowd of cats follows you shouting \"Big bro, take me with you!\" Your face has become two giant spinning gold coins."
+    },
+    {
+      "title": "Steady Cat · Alive Is Enough",
+      "description": "You didn't get rich, and you didn't go broke. You sit on the bench outside the exchange, take a can of cat food from your briefcase, and quietly eat it. Today's market is over."
+    },
+    {
+      "title": "Bankrupt · Cat-Shaped Outline",
+      "description": "You got escorted out. The security cat says: \"Don't come back tomorrow.\" You sit on the steps for a long time, watching cats go in and out. Then you stand up, dust off your suit, and walk toward the cat treat factory. Tomorrow you still have to work."
+    }
+  ],
+  "keepsakes": []
+}

@@ -1,0 +1,247 @@
+{
+  "title": "Chinese Cats Can Fly",
+  "shortTitle": "Chinese Cats Can Fly",
+  "subtitle": "A kung-fu commute home",
+  "description": "A cat clocks out at six and has to fly home before dinner goes cold. Canal, bamboo grove, city wall, rooftops, the last hundred metres - each stretch only answers to one kung-fu move, and the wrong one is a very public wipe-out.",
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Open the window",
+    "continueButton": "Keep going",
+    "finalContinueButton": "Land",
+    "replayButton": "Fly again"
+  },
+  "catalog": {
+    "eyebrow": "A sixth glimmer has woken up",
+    "headline": "Work's over. Fly home.",
+    "description": "A cat clocks out at six and has to fly home before dinner goes cold.",
+    "cardDescription": "Canal, bamboo, city wall, rooftops, the last hundred metres. Each stretch answers to one kung-fu move - the wrong one is a public wipe-out.",
+    "cardIcon": "Fly",
+    "actionSummary": "Kung fu · Wipe-outs · Dinner"
+  },
+  "states": [
+    {
+      "label": "Kung fu",
+      "description": "How many moves you got right"
+    },
+    {
+      "label": "Wipe-outs",
+      "description": "How many times you made a scene"
+    }
+  ],
+  "actions": [
+    {
+      "name": "Water Stride",
+      "plain": "Water"
+    },
+    {
+      "name": "Cloud Ladder",
+      "plain": "Cloud"
+    },
+    {
+      "name": "Gecko Wall Climb",
+      "plain": "Wall"
+    },
+    {
+      "name": "Weightless Tile Step",
+      "plain": "Tile"
+    }
+  ],
+  "scenes": [
+    {
+      "chapter": "Clock out",
+      "title": "Six o'clock. Work's over.",
+      "description": "The punch clock beeps once. Home is across the river and dinner is at six-thirty. You push the window open - tonight you fly.",
+      "actions": [
+        {
+          "name": "Hop onto the sill",
+          "plain": "Take off",
+          "hint": "One flick of the tail and you're up"
+        }
+      ],
+      "outcomes": {
+        "take-off": {
+          "text": "You step onto the sill and the wind lifts your fur. First stretch is the canal - water is faster than road."
+        }
+      }
+    },
+    {
+      "chapter": "Stage one",
+      "title": "Crossing the canal: water moves faster",
+      "description": "The canal is glassy still, with a row of stone posts down the middle. Twenty yards away, the far bank is already waving at you.",
+      "actions": [
+        {
+          "name": "Water Stride",
+          "plain": "Water Stride",
+          "hint": "Tap across the surface"
+        },
+        {
+          "name": "Gecko Wall Climb",
+          "plain": "Wall Climb",
+          "hint": "Hug a wall - but there isn't one here"
+        },
+        {
+          "name": "Cloud Ladder",
+          "plain": "Cloud Ladder",
+          "hint": "Launch yourself straight up"
+        }
+      ],
+      "outcomes": {
+        "water-stride": {
+          "text": "Seven taps on the water skin and you're on the far bank. Not a wet hair."
+        },
+        "wall-climb": {
+          "text": "You latch onto a bridge post and slide into the water, tail and all. Good news: you can swim."
+        },
+        "cloud-ladder": {
+          "text": "You shoot up beautifully, then land back where you started. The far bank is still twenty yards away."
+        }
+      }
+    },
+    {
+      "chapter": "Stage two",
+      "title": "The bamboo grove: the stalks spring back",
+      "description": "A whole grove of bamboo, swaying together in the wind. From the tallest tips you can just see the way home.",
+      "actions": [
+        {
+          "name": "Cloud Ladder",
+          "plain": "Cloud Ladder",
+          "hint": "Chain the push-offs, tip to tip"
+        },
+        {
+          "name": "Water Stride",
+          "plain": "Water Stride",
+          "hint": "There is no water here"
+        },
+        {
+          "name": "Wave Step",
+          "plain": "Wave Step",
+          "hint": "It needs ripples to stand on"
+        }
+      ],
+      "outcomes": {
+        "cloud-ladder": {
+          "text": "Three bamboo tips, three pushes, and you're over the whole grove - scaring up a flock of birds on the way."
+        },
+        "water-stride": {
+          "text": "You kick at open ground. There's no water, only soil. Face first."
+        },
+        "wave-step": {
+          "text": "You look for ripples in mid-air, find nothing, and wedge yourself between two stalks."
+        }
+      }
+    },
+    {
+      "chapter": "Stage three",
+      "title": "The old city wall: one vertical problem",
+      "description": "The wall is high, grass sprouting from the brick seams. Going around costs half an hour; going up is much faster.",
+      "actions": [
+        {
+          "name": "Gecko Wall Climb",
+          "plain": "Wall Climb",
+          "hint": "Claw into the brick seams"
+        },
+        {
+          "name": "Water Stride",
+          "plain": "Water Stride",
+          "hint": "This is a wall, not water"
+        },
+        {
+          "name": "Weightless Tile Step",
+          "plain": "Tile Step",
+          "hint": "No tiles up there either"
+        }
+      ],
+      "outcomes": {
+        "wall-climb": {
+          "text": "Claws into the seams, one storey at a time. Sixty feet of wall, twenty seconds flat."
+        },
+        "water-stride": {
+          "text": "You search the wall for water, find a puddle at its foot, and step in two inches deep. Entire paw, filthy."
+        },
+        "tile-step": {
+          "text": "You make the top, hit one loose brick, and slide all the way back down with a clatter."
+        }
+      }
+    },
+    {
+      "chapter": "Stage four",
+      "title": "The rooftops: this is cat territory",
+      "description": "A run of old houses joined together - tiles, laundry lines, cat paths. All of it is your home ground.",
+      "actions": [
+        {
+          "name": "Weightless Tile Step",
+          "plain": "Tile Step",
+          "hint": "Skim across the tiles"
+        },
+        {
+          "name": "Gecko Wall Climb",
+          "plain": "Wall Climb",
+          "hint": "Take the building's side"
+        },
+        {
+          "name": "Cloud Ladder",
+          "plain": "Cloud Ladder",
+          "hint": "A big vertical push"
+        }
+      ],
+      "outcomes": {
+        "tile-step": {
+          "text": "Two faint prints on the tiles, and not one person in the block disturbed."
+        },
+        "wall-climb": {
+          "text": "The wall climbs fine, but the gap between the two buildings isn't crossable. You hang in mid-air for a long, awkward while."
+        },
+        "cloud-ladder": {
+          "text": "You go up, then straight into someone's laundry line. Shirt, socks and cat, all tangled in the air."
+        }
+      }
+    },
+    {
+      "chapter": "Final stretch",
+      "title": "The last hundred metres: home is right below",
+      "description": "Your balcony light is on and dinner smells all the way up to the sixth floor. A hundred metres, straight down.",
+      "actions": [
+        {
+          "name": "Cat Landing",
+          "plain": "Cat Landing",
+          "hint": "Nothing at all - you were born a cat"
+        },
+        {
+          "name": "Water Stride",
+          "plain": "Water Stride",
+          "hint": "The ground below is concrete"
+        },
+        {
+          "name": "Cloud Ladder",
+          "plain": "Cloud Ladder",
+          "hint": "One last big push upward"
+        }
+      ],
+      "outcomes": {
+        "cat-landing": {
+          "text": "You relax everything and land on all four paws. Nobody can learn this move."
+        },
+        "water-stride": {
+          "text": "You look for a splash of water on the concrete and land hard on your backside. Someone upstairs opens a window."
+        },
+        "cloud-ladder": {
+          "text": "You shoot up three storeys and hook onto a higher laundry line. Dinner smells like it's below you."
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "title": "Dinner is still hot",
+      "description": "Six twenty-nine. You land on your own balcony without a single fall. The soup just reached the table. The human looks up and says: how did you get here so fast?"
+    },
+    {
+      "title": "The late kung-fu master",
+      "description": "You made it home, half soaked. Dinner is still warm. The human hands you a towel and you pretend it was rain."
+    },
+    {
+      "title": "Practice again tomorrow",
+      "description": "After the last wipe-out you took the last bus. Dinner was cold and the human was watching TV. You didn't fly today - tomorrow, though."
+    }
+  ]
+}
