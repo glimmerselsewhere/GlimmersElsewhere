@@ -1,0 +1,1435 @@
+{
+  "id": "nine-lives-academy",
+  "title": "九命猫魔法学院",
+  "shortTitle": "九命学院",
+  "subtitle": "魔法学院 · 猫咪成长模拟器",
+  "description": "一只普通家猫被月蛾送进九命猫魔法学院。抽天赋、学火水雷三系魔法、闯地下城、见巨龙、史莱姆、独角兽、狮鹫和魔王，最后决定自己成为大魔导士还是猫神。",
+  "mode": "life",
+  "lifeTurnLimit": 30,
+  "lifespanMax": 30,
+  "lifespanUnit": 1,
+  "lifeTalentPicks": 1,
+  "lifeTalentShow": 3,
+  "realmState": "magic",
+  "lifeRealms": [
+    {
+      "min": 0,
+      "label": "魔法学徒"
+    },
+    {
+      "min": 8,
+      "label": "正式魔法师"
+    },
+    {
+      "min": 16,
+      "label": "大魔法师"
+    },
+    {
+      "min": 24,
+      "label": "魔导士"
+    },
+    {
+      "min": 32,
+      "label": "大魔导士"
+    },
+    {
+      "min": 40,
+      "label": "猫神"
+    }
+  ],
+  "music": "assets/audio/academy.mp3",
+  "musicVolume": 0.12,
+  "assetBase": "worlds/nine-lives-academy/",
+  "endingVideo": null,
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "踏进学院",
+    "continueButton": "继续学年",
+    "finalContinueButton": "迎接毕业",
+    "replayButton": "再读九命"
+  },
+  "catalog": {
+    "eyebrow": "第九片异境微光已经苏醒",
+    "headline": "猫的九条命，是一条魔法成长线。",
+    "description": "抽取天赋，经历三十个魔法事件，从魔法学徒一路走到大魔导士或猫神。",
+    "cardDescription": "火、水、雷、地下城、巨龙、金币、史莱姆、骷髅兵、独角兽、狮鹫、双头鹰、奇美拉、勇士、牧师、精灵、矮人、魔王和女巫都在这里。",
+    "cardIcon": "✦",
+    "cardLabel": "WORLD 09",
+    "cardGradient": [
+      "#8b5cf6",
+      "#4c1d95",
+      "#1e1b4b"
+    ],
+    "cardAccent": "#fde68a",
+    "actionSummary": "抽天赋 · 学魔法 · 遇怪物"
+  },
+  "initialState": {
+    "age": 0,
+    "magic": 0,
+    "courage": 0,
+    "curiosity": 0,
+    "lifespan": 30,
+    "fish": 3
+  },
+  "states": [
+    {
+      "id": "magic",
+      "label": "魔力",
+      "description": "0魔法学徒 8正式魔法师 16大魔法师 24魔导士 32大魔导士 40猫神",
+      "color": "#8b5cf6",
+      "chipBackground": "#ede9fe",
+      "max": 100
+    },
+    {
+      "id": "courage",
+      "label": "勇气",
+      "description": "面对巨龙、魔王和雷魔法时的胆量",
+      "color": "#f97316",
+      "chipBackground": "#ffedd5",
+      "max": 30
+    },
+    {
+      "id": "curiosity",
+      "label": "好奇",
+      "description": "翻开书、走进迷宫、追问咒语的冲动",
+      "color": "#22c55e",
+      "chipBackground": "#dcfce7",
+      "max": 30
+    },
+    {
+      "id": "fish",
+      "label": "鱼干",
+      "description": "猫的干粮、礼物和交易货币",
+      "color": "#eab308",
+      "chipBackground": "#fef9c3",
+      "max": 30
+    }
+  ],
+  "talents": [
+    {
+      "id": "star-whiskers",
+      "name": "星须",
+      "rarity": 0,
+      "description": "魔力+3，好奇+2",
+      "effect": {
+        "magic": 3,
+        "curiosity": 2
+      }
+    },
+    {
+      "id": "brave-paw",
+      "name": "勇爪",
+      "rarity": 0,
+      "description": "勇气+3",
+      "effect": {
+        "courage": 3
+      }
+    },
+    {
+      "id": "nine-lives",
+      "name": "九命",
+      "rarity": 1,
+      "description": "魔力+1，鱼干+2",
+      "effect": {
+        "magic": 1,
+        "fish": 2
+      }
+    },
+    {
+      "id": "sun-napper",
+      "name": "日光猫",
+      "rarity": 0,
+      "description": "魔力+2，勇气+1",
+      "effect": {
+        "magic": 2,
+        "courage": 1
+      }
+    },
+    {
+      "id": "book-sniffer",
+      "name": "书香猫",
+      "rarity": 0,
+      "description": "好奇+3，魔力+1",
+      "effect": {
+        "curiosity": 3,
+        "magic": 1
+      }
+    },
+    {
+      "id": "gold-finder",
+      "name": "拾金币",
+      "rarity": 1,
+      "description": "鱼干+3，勇气+1",
+      "effect": {
+        "fish": 3,
+        "courage": 1
+      }
+    },
+    {
+      "id": "storm-tail",
+      "name": "雷尾",
+      "rarity": 1,
+      "description": "魔力+2，勇气+2",
+      "effect": {
+        "magic": 2,
+        "courage": 2
+      }
+    },
+    {
+      "id": "water-paw",
+      "name": "水爪",
+      "rarity": 0,
+      "description": "魔力+2，好奇+1",
+      "effect": {
+        "magic": 2,
+        "curiosity": 1
+      }
+    },
+    {
+      "id": "fire-whisker",
+      "name": "火须",
+      "rarity": 1,
+      "description": "魔力+3，勇气+1",
+      "effect": {
+        "magic": 3,
+        "courage": 1
+      }
+    },
+    {
+      "id": "moon-walker",
+      "name": "月行者",
+      "rarity": 2,
+      "description": "魔力+2，好奇+2，鱼干+1",
+      "effect": {
+        "magic": 2,
+        "curiosity": 2,
+        "fish": 1
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "magic-8",
+      "state": "magic",
+      "at": 8,
+      "eyebrow": "RANK UP",
+      "title": "正式魔法师",
+      "text": "你的第一道咒语终于不再需要打哈欠前摇。"
+    },
+    {
+      "id": "magic-16",
+      "state": "magic",
+      "at": 16,
+      "eyebrow": "RANK UP",
+      "title": "大魔法师",
+      "text": "塔顶的窗子会为你留一盏灯。"
+    },
+    {
+      "id": "magic-24",
+      "state": "magic",
+      "at": 24,
+      "eyebrow": "RANK UP",
+      "title": "魔导士",
+      "text": "你能同时维持三个魔法，其中一个只是用来烤鱼。"
+    },
+    {
+      "id": "magic-32",
+      "state": "magic",
+      "at": 32,
+      "eyebrow": "RANK UP",
+      "title": "大魔导士",
+      "text": "星辰开始参考你的课程表。"
+    },
+    {
+      "id": "magic-40",
+      "state": "magic",
+      "at": 40,
+      "eyebrow": "RANK UP",
+      "title": "猫神",
+      "text": "全天下的小鱼干同时朝你眨了一下眼。"
+    }
+  ],
+  "lifeDefaultImage": "assets/images/events/letter-moth.webp",
+  "events": [
+    {
+      "id": "letter-moth",
+      "title": "月蛾送来的录取信",
+      "event": "一只月蛾停在窗台上，翅膀上压着一封会发光的信。信封的火漆印是一只猫爪。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "follow",
+          "text": "跟着月蛾走",
+          "hint": "夜色里有路",
+          "effect": {
+            "courage": 2,
+            "magic": 1,
+            "curiosity": 1
+          },
+          "result": "你跟着月蛾穿过夜色，走廊尽头的门自己开了。",
+          "image": "assets/images/events/results/letter-moth-follow.webp"
+        },
+        {
+          "id": "sniff",
+          "text": "先闻一闻信纸",
+          "hint": "确认一下味道",
+          "effect": {
+            "curiosity": 2,
+            "magic": 1
+          },
+          "result": "信纸有鱼干和星尘的味道。你把味道记进了鼻子。",
+          "image": "assets/images/events/results/letter-moth-sniff.webp"
+        }
+      ],
+      "image": "assets/images/events/letter-moth.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "wand-shop",
+      "title": "魔杖店",
+      "event": "店主猫把三根魔杖摆在你面前，每根都在轻轻发抖。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "ember",
+          "text": "选炭火杖",
+          "hint": "它最热",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "杖芯里有一根火蜥蜴的胡须，指尖立刻冒出暖光。",
+          "image": "assets/images/events/results/wand-shop-ember.webp"
+        },
+        {
+          "id": "tide",
+          "text": "选潮汐杖",
+          "hint": "它最安静",
+          "effect": {
+            "magic": 2,
+            "curiosity": 2
+          },
+          "result": "杖身像一段退潮后的浮木，挥动时带出一圈水纹。",
+          "image": "assets/images/events/results/wand-shop-tide.webp"
+        }
+      ],
+      "image": "assets/images/events/wand-shop.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "crystal-ball",
+      "title": "水晶球",
+      "event": "占卜课的水晶球比你的头还大，里面有一团没成形的雾。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "gaze",
+          "text": "盯着看",
+          "hint": "雾里会有东西",
+          "effect": {
+            "magic": 2,
+            "curiosity": 2
+          },
+          "result": "球里先浮出一尾鱼，然后是你的九条尾巴。",
+          "image": "assets/images/events/results/crystal-ball-gaze.webp"
+        },
+        {
+          "id": "paw",
+          "text": "用爪子按住",
+          "hint": "直接一点",
+          "effect": {
+            "courage": 2,
+            "magic": 1
+          },
+          "result": "你把爪子按上去，球里下了一场很小的雨。",
+          "image": "assets/images/events/results/crystal-ball-paw.webp"
+        }
+      ],
+      "image": "assets/images/events/crystal-ball.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "fire-class",
+      "title": "火焰魔法",
+      "event": "教授把一支蜡烛立在讲台上，让它自己学会燃烧。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "ignite",
+          "text": "点燃它",
+          "hint": "标准答案",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "火焰绕成环，你的胡须被烤得微微发卷。",
+          "image": "assets/images/events/results/fire-class-ignite.webp"
+        },
+        {
+          "id": "warm-paws",
+          "text": "把火压成暖垫",
+          "hint": "猫的做法",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "fish": 1
+          },
+          "result": "你把火苗压成一团暖垫，顺便烤了一条小鱼干。",
+          "image": "assets/images/events/results/fire-class-warm-paws.webp"
+        }
+      ],
+      "image": "assets/images/events/fire-class.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "water-class",
+      "title": "水魔法",
+      "event": "庭院里的喷泉突然停了，教授说这是最好的上课时机。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "bubble",
+          "text": "做一个水泡",
+          "hint": "把学院装进去",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "水泡里装着整座学院的倒影，你用爪子把它推成一颗珍珠。",
+          "image": "assets/images/events/results/water-class-bubble.webp"
+        },
+        {
+          "id": "stream",
+          "text": "引一条水线",
+          "hint": "让水自己走",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "水线绕过讲台，精准地灌进花盆，教授点了点头。",
+          "image": "assets/images/events/results/water-class-stream.webp"
+        }
+      ],
+      "image": "assets/images/events/water-class.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "lightning-tower",
+      "title": "雷魔法",
+      "event": "雷塔的顶层永远有一颗雷在等你，它看起来像一颗会跳的豆子。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "spark",
+          "text": "让它落在尾巴尖",
+          "hint": "只要一点点",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "雷光落在你的尾巴尖，像有人轻轻弹了一下琴弦。",
+          "image": "assets/images/events/results/lightning-tower-spark.webp"
+        },
+        {
+          "id": "absorb",
+          "text": "把它含进喉咙",
+          "hint": "试试新的储能方式",
+          "effect": {
+            "magic": 4,
+            "courage": 1
+          },
+          "result": "你把雷光含进喉咙，再吐出一粒很小的星星。",
+          "image": "assets/images/events/results/lightning-tower-absorb.webp"
+        }
+      ],
+      "image": "assets/images/events/lightning-tower.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dungeon-training",
+      "title": "地下城训练",
+      "event": "训练地下城的石门后面有一条很长的回廊，墙上的火把正在打瞌睡。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "sneak",
+          "text": "贴着影子走",
+          "hint": "别吵醒火把",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "你贴着墙影走完了整条回廊，骷髅兵没抬头。",
+          "image": "assets/images/events/results/dungeon-training-sneak.webp"
+        },
+        {
+          "id": "charge",
+          "text": "直接冲进去",
+          "hint": "猫也可以很猛",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "你冲进石门，把一排木桶撞成会发光的碎片。",
+          "image": "assets/images/events/results/dungeon-training-charge.webp"
+        }
+      ],
+      "image": "assets/images/events/dungeon-training.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dragon-lair",
+      "title": "巨龙巢穴",
+      "event": "一条老龙趴在金币山上，鼻息把尘埃吹成小小的星云。",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "bargain",
+          "text": "和它谈一笔交易",
+          "hint": "猫也需要零花钱",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "fish": 2
+          },
+          "result": "巨龙用尾尖推给你三块金币，还留下一片暖鳞。",
+          "image": "assets/images/events/results/dragon-lair-bargain.webp"
+        },
+        {
+          "id": "observe",
+          "text": "先观察它的呼吸",
+          "hint": "龙也有节奏",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "你看懂了龙的呼吸节律，像一锅慢慢开的汤。",
+          "image": "assets/images/events/results/dragon-lair-observe.webp"
+        }
+      ],
+      "image": "assets/images/events/dragon-lair.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "coin-vault",
+      "title": "金币库",
+      "event": "会计猫把一整袋金币倒在你面前，请你在三秒内数清。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "count",
+          "text": "用耳朵数回声",
+          "hint": "金币会说话",
+          "effect": {
+            "magic": 1,
+            "curiosity": 3
+          },
+          "result": "金币的回声告诉你哪一块是假的。",
+          "image": "assets/images/events/results/coin-vault-count.webp"
+        },
+        {
+          "id": "stack",
+          "text": "把它们叠成塔",
+          "hint": "结构更重要",
+          "effect": {
+            "courage": 2,
+            "magic": 2
+          },
+          "result": "你把金币叠成一座塔，塔尖自动指向出口。",
+          "image": "assets/images/events/results/coin-vault-stack.webp"
+        }
+      ],
+      "image": "assets/images/events/coin-vault.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "slime-battle",
+      "title": "史莱姆战斗",
+      "event": "三只果冻色的史莱姆围成一圈，看起来不太凶，只是很黏。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "freeze",
+          "text": "把它们冻住",
+          "hint": "果冻更好吃",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "史莱姆冻成一颗果冻，你的爪子在上面留下三个印。",
+          "image": "assets/images/events/results/slime-battle-freeze.webp"
+        },
+        {
+          "id": "bounce",
+          "text": "把它们弹回去",
+          "hint": "猫也弹",
+          "effect": {
+            "courage": 3,
+            "curiosity": 1
+          },
+          "result": "你把它弹回天花板，它变成了一盏很黏的灯。",
+          "image": "assets/images/events/results/slime-battle-bounce.webp"
+        }
+      ],
+      "image": "assets/images/events/slime-battle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "skeleton-crypt",
+      "title": "骷髅兵",
+      "event": "地下墓穴的骷髅兵排成两列，骨头缝里漏出很细的光。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "holy-light",
+          "text": "用圣光排好队",
+          "hint": "礼貌一点",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "圣光把骨头排成一支安静的仪仗队。",
+          "image": "assets/images/events/results/skeleton-crypt-holy-light.webp"
+        },
+        {
+          "id": "bone-trick",
+          "text": "换两根骨头",
+          "hint": "它们会自己拼",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "你把两根骨头换位置，骷髅兵开始给自己拼拼图。",
+          "image": "assets/images/events/results/skeleton-crypt-bone-trick.webp"
+        }
+      ],
+      "image": "assets/images/events/skeleton-crypt.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "unicorn-grove",
+      "title": "独角兽",
+      "event": "独角兽站在月光下，角上落着三粒星屑。",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "approach",
+          "text": "慢慢走近",
+          "hint": "别吓它",
+          "effect": {
+            "courage": 2,
+            "magic": 2
+          },
+          "result": "独角兽低下头，让你闻了闻它额上的光。",
+          "image": "assets/images/events/results/unicorn-grove-approach.webp"
+        },
+        {
+          "id": "meditate",
+          "text": "在树下数光",
+          "hint": "安静也是魔法",
+          "effect": {
+            "magic": 3,
+            "curiosity": 1
+          },
+          "result": "你在树下数光了三遍，角上的星屑落进你的毛里。",
+          "image": "assets/images/events/results/unicorn-grove-meditate.webp"
+        }
+      ],
+      "image": "assets/images/events/unicorn-grove.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "griffin-tower",
+      "title": "狮鹫",
+      "event": "狮鹫在塔顶整理羽毛，风被它的翅膀切成两层。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "ride",
+          "text": "抓住它的羽毛",
+          "hint": "飞一下",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "你抓住了狮鹫的羽毛，风把你的耳朵吹成两只小旗。",
+          "image": "assets/images/events/results/griffin-tower-ride.webp"
+        },
+        {
+          "id": "feed",
+          "text": "分它一块鱼干",
+          "hint": "交个朋友",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "fish": 2
+          },
+          "result": "你分了一块鱼干，它把最亮的一根羽毛留给你。",
+          "image": "assets/images/events/results/griffin-tower-feed.webp"
+        }
+      ],
+      "image": "assets/images/events/griffin-tower.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "double-eagle",
+      "title": "双头鹰信使",
+      "event": "双头鹰落在窗台上，两个头分别说了半句话。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "decode",
+          "text": "把两半拼起来",
+          "hint": "信总要完整",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "两个头分别说了半句话，你在心里把它们拼完整。",
+          "image": "assets/images/events/results/double-eagle-decode.webp"
+        },
+        {
+          "id": "reply",
+          "text": "用爪印回信",
+          "hint": "正式一点",
+          "effect": {
+            "courage": 2,
+            "magic": 1
+          },
+          "result": "你用爪印回了一封信，鹰把信卷成很正式的一卷。",
+          "image": "assets/images/events/results/double-eagle-reply.webp"
+        }
+      ],
+      "image": "assets/images/events/double-eagle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "chimera-maze",
+      "title": "奇美拉迷宫",
+      "event": "奇美拉的三个头分别在三个岔路口打哈欠。",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "outwit",
+          "text": "把三个头分开",
+          "hint": "它们会迷路",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "你把三个头引向三个方向，自己走第四条路。",
+          "image": "assets/images/events/results/chimera-maze-outwit.webp"
+        },
+        {
+          "id": "calm",
+          "text": "把尾巴垂下来",
+          "hint": "装作第五个头",
+          "effect": {
+            "magic": 2,
+            "courage": 3
+          },
+          "result": "你把尾巴垂下来，奇美拉以为你是它的第五个头。",
+          "image": "assets/images/events/results/chimera-maze-calm.webp"
+        }
+      ],
+      "image": "assets/images/events/chimera-maze.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "warrior-friend",
+      "title": "勇士伙伴",
+      "event": "一个背着木剑的勇士在训练场等你，护腕上缝着一枚猫爪扣。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "spar",
+          "text": "和他对练",
+          "hint": "木剑很轻",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "木剑和爪子同时停在半空，你们互相认了对方。",
+          "image": "assets/images/events/results/warrior-friend-spar.webp"
+        },
+        {
+          "id": "share-fish",
+          "text": "分他一块鱼干",
+          "hint": "伙伴从吃开始",
+          "effect": {
+            "courage": 1,
+            "fish": -1,
+            "magic": 2
+          },
+          "result": "勇士咬了一口鱼干，从此把你写进了冒险契约。",
+          "image": "assets/images/events/results/warrior-friend-share-fish.webp"
+        }
+      ],
+      "image": "assets/images/events/warrior-friend.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "priest-heal",
+      "title": "牧师治疗",
+      "event": "牧师猫把圣水滴在你的爪垫上，水面浮出一圈很小的十字。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "prayer",
+          "text": "跟着祈祷",
+          "hint": "安静一点",
+          "effect": {
+            "magic": 2,
+            "courage": 2
+          },
+          "result": "光从你的伤口流过去，像一条很暖的小河。",
+          "image": "assets/images/events/results/priest-heal-prayer.webp"
+        },
+        {
+          "id": "rest",
+          "text": "在祭坛边睡十分钟",
+          "hint": "猫的恢复法",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "fish": 1
+          },
+          "result": "你在祭坛边睡了十分钟，醒来时伤口已经合上。",
+          "image": "assets/images/events/results/priest-heal-rest.webp"
+        }
+      ],
+      "image": "assets/images/events/priest-heal.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "elf-library",
+      "title": "精灵图书馆",
+      "event": "精灵管理员递给你一本会自己呼吸的书，书页在等你翻开。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "read",
+          "text": "读下去",
+          "hint": "书会带你走",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "书页自己翻到你最需要的那一行。",
+          "image": "assets/images/events/results/elf-library-read.webp"
+        },
+        {
+          "id": "borrow",
+          "text": "把它借走",
+          "hint": "回宿舍慢慢看",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "精灵把一本薄书递给你，说“别折角”。你折了一个很小的角。",
+          "image": "assets/images/events/results/elf-library-borrow.webp"
+        }
+      ],
+      "image": "assets/images/events/elf-library.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dwarf-forge",
+      "title": "矮人锻造",
+      "event": "矮人工匠把一块符文铁放在砧上，火星像一群跳蚤。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "forge",
+          "text": "帮忙锻造",
+          "hint": "猫也能抡锤",
+          "effect": {
+            "magic": 2,
+            "courage": 3
+          },
+          "result": "锤声和火星同时落地，你的爪垫学会了不怕热。",
+          "image": "assets/images/events/results/dwarf-forge-forge.webp"
+        },
+        {
+          "id": "inspect",
+          "text": "检查符文",
+          "hint": "第三个笔画歪了",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "你看出符文的第三个笔画画歪了，矮人愣住。",
+          "image": "assets/images/events/results/dwarf-forge-inspect.webp"
+        }
+      ],
+      "image": "assets/images/events/dwarf-forge.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "scroll-riddle",
+      "title": "卷轴谜题",
+      "event": "一张古卷摊在桌上，末尾的字在躲你的视线。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "solve",
+          "text": "直接解开",
+          "hint": "谜底在尾音",
+          "effect": {
+            "magic": 3,
+            "curiosity": 3
+          },
+          "result": "最后一个字亮起来，卷轴把自己卷成一根小杖。",
+          "image": "assets/images/events/results/scroll-riddle-solve.webp"
+        },
+        {
+          "id": "copy",
+          "text": "先抄一遍",
+          "hint": "手比脑快",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "你抄下整段咒文，笔迹比原文更像猫爪印。",
+          "image": "assets/images/events/results/scroll-riddle-copy.webp"
+        }
+      ],
+      "image": "assets/images/events/scroll-riddle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "incantation",
+      "title": "吟唱咒语",
+      "event": "咒语课要求你把一串古老的音节唱成一句完整的话。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "chant",
+          "text": "按原调唱",
+          "hint": "标准唱法",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "你的喉咙里滚出一串很低的咕噜，咒语成形了。",
+          "image": "assets/images/events/results/incantation-chant.webp"
+        },
+        {
+          "id": "improvise",
+          "text": "改成摇篮曲",
+          "hint": "猫更有经验",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "你把咒语唱成了摇篮曲，教室里的椅子都睡着了。",
+          "image": "assets/images/events/results/incantation-improvise.webp"
+        }
+      ],
+      "image": "assets/images/events/incantation.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "magic-circle",
+      "title": "魔法阵",
+      "event": "地板上有一圈没画完的魔法阵，缺口正好在你脚边。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "draw",
+          "text": "用粉笔补完",
+          "hint": "补上缺口",
+          "effect": {
+            "magic": 3,
+            "curiosity": 1
+          },
+          "result": "粉笔线在你爪下变成一条会呼吸的河。",
+          "image": "assets/images/events/results/magic-circle-draw.webp"
+        },
+        {
+          "id": "activate",
+          "text": "直接站进去激活",
+          "hint": "先试再说",
+          "effect": {
+            "magic": 2,
+            "courage": 3
+          },
+          "result": "圆环亮起时，你正好站在正中央。",
+          "image": "assets/images/events/results/magic-circle-activate.webp"
+        }
+      ],
+      "image": "assets/images/events/magic-circle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "cat-church",
+      "title": "猫咪教会",
+      "event": "教会穹顶挂着一盏鱼形吊灯，烛火都朝同一个方向弯。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "pray",
+          "text": "在长椅上祈祷",
+          "hint": "感谢小鱼干",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "烛火朝你弯了一下，像在点头。",
+          "image": "assets/images/events/results/cat-church-pray.webp"
+        },
+        {
+          "id": "nap",
+          "text": "在长椅下睡觉",
+          "hint": "这也是修行",
+          "effect": {
+            "magic": 1,
+            "curiosity": 1,
+            "fish": 1
+          },
+          "result": "你在长椅下睡着，梦里有九条鱼排成环。",
+          "image": "assets/images/events/results/cat-church-nap.webp"
+        }
+      ],
+      "image": "assets/images/events/cat-church.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "adventurer-guild",
+      "title": "猫险者公会",
+      "event": "公会大厅的任务板上钉着一张只有猫能看懂的地图。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "quest",
+          "text": "领取任务",
+          "hint": "去地下城",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "你领了任务，榜上的名字自动变成你的爪印。",
+          "image": "assets/images/events/results/adventurer-guild-quest.webp"
+        },
+        {
+          "id": "recruit",
+          "text": "招募伙伴",
+          "hint": "人多好办事",
+          "effect": {
+            "courage": 1,
+            "curiosity": 2,
+            "fish": 1
+          },
+          "result": "你把一枚金币放在桌角，队伍里多了一个愿意听你话的勇士。",
+          "image": "assets/images/events/results/adventurer-guild-recruit.webp"
+        }
+      ],
+      "image": "assets/images/events/adventurer-guild.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "academy-festival",
+      "title": "学院祭",
+      "event": "学院祭的夜空被三十个漂浮的灯笼照亮，每个灯笼里都有一句没写完的愿望。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "perform",
+          "text": "上台表演",
+          "hint": "放一场雷光烟花",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "你把雷光变成了烟花，观众席响起一片猫叫。",
+          "image": "assets/images/events/results/academy-festival-perform.webp"
+        },
+        {
+          "id": "judge",
+          "text": "当评委",
+          "hint": "每个摊位都要看",
+          "effect": {
+            "magic": 1,
+            "curiosity": 3
+          },
+          "result": "你给每个摊位都打了满分，除了那个把鱼干做成香水的。",
+          "image": "assets/images/events/results/academy-festival-judge.webp"
+        }
+      ],
+      "image": "assets/images/events/academy-festival.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "thieves-guild",
+      "title": "盗贼工会",
+      "event": "盗贼工会的门后没有灯，只有一排很整齐的影子。",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "stealth",
+          "text": "从影子走到影子",
+          "hint": "别出声",
+          "effect": {
+            "courage": 2,
+            "curiosity": 3
+          },
+          "result": "你从影子走到影子，像一根线穿过针眼。",
+          "image": "assets/images/events/results/thieves-guild-stealth.webp"
+        },
+        {
+          "id": "lockpick",
+          "text": "开一把锁",
+          "hint": "锁会说话",
+          "effect": {
+            "magic": 2,
+            "courage": 2
+          },
+          "result": "锁芯弹开的声音很轻，轻得像一次眨眼。",
+          "image": "assets/images/events/results/thieves-guild-lockpick.webp"
+        }
+      ],
+      "image": "assets/images/events/thieves-guild.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "archer-training",
+      "title": "弓箭手训练",
+      "event": "靶场上的稻草人被换成了会移动的猫形木桩。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "aim",
+          "text": "直接瞄准",
+          "hint": "先到落点",
+          "effect": {
+            "magic": 2,
+            "courage": 2
+          },
+          "result": "箭飞出去时，你已经在落点等着它。",
+          "image": "assets/images/events/results/archer-training-aim.webp"
+        },
+        {
+          "id": "tracking",
+          "text": "观察草叶",
+          "hint": "风有方向",
+          "effect": {
+            "magic": 1,
+            "curiosity": 3
+          },
+          "result": "你从草叶的方向看出靶子会往哪边晃。",
+          "image": "assets/images/events/results/archer-training-tracking.webp"
+        }
+      ],
+      "image": "assets/images/events/archer-training.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "rogue-sneak",
+      "title": "盗贼潜行",
+      "event": "夜巡的守卫猫拿着一盏很亮的灯，影子却很短。",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "shadow",
+          "text": "藏进自己的影子",
+          "hint": "影子有点挤",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "你把自己藏进自己的影子里，影子有点挤。",
+          "image": "assets/images/events/results/rogue-sneak-shadow.webp"
+        },
+        {
+          "id": "distract",
+          "text": "抛一枚金币",
+          "hint": "让声音先走",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "你抛出一枚金币，所有目光都跟着它滚了一圈。",
+          "image": "assets/images/events/results/rogue-sneak-distract.webp"
+        }
+      ],
+      "image": "assets/images/events/rogue-sneak.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "demon-king",
+      "title": "魔王",
+      "event": "魔王坐在黑曜石王座上，手里的权杖顶端是一颗很小的猫眼。",
+      "rarity": 3,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "face",
+          "text": "面对他",
+          "hint": "猫不躲",
+          "effect": {
+            "magic": 3,
+            "courage": 3
+          },
+          "result": "魔王俯下身，把王座让出一小块给你坐。",
+          "image": "assets/images/events/results/demon-king-face.webp"
+        },
+        {
+          "id": "befriend",
+          "text": "和他交朋友",
+          "hint": "先请他吃鱼干",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "fish": 2
+          },
+          "result": "魔王闻了闻你的鱼干，说“原来这就是猫的权杖”。",
+          "image": "assets/images/events/results/demon-king-befriend.webp"
+        }
+      ],
+      "image": "assets/images/events/demon-king.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "witch-bargain",
+      "title": "女巫契约",
+      "event": "女巫把一张羊皮契约摊开，末尾留了一个猫爪形的空位。",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "bargain",
+          "text": "讨价还价",
+          "hint": "改成三条鱼干",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "女巫把契约改成了三条鱼干和一根胡须。",
+          "image": "assets/images/events/results/witch-bargain-bargain.webp"
+        },
+        {
+          "id": "refuse",
+          "text": "拒绝签字",
+          "hint": "爪子更重要",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "你把爪子收回来，女巫第一次露出笑。",
+          "image": "assets/images/events/results/witch-bargain-refuse.webp"
+        }
+      ],
+      "image": "assets/images/events/witch-bargain.webp",
+      "timeCost": 1
+    }
+  ],
+  "endings": [
+    {
+      "id": "cat-god",
+      "title": "猫神 · 全天下的小鱼干",
+      "description": "你成为掌管全天下小鱼干的猫神。第一道神旨：每只猫睡前都应该得到一条热鱼干。",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 40
+        },
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 12
+        },
+        {
+          "state": "curiosity",
+          "operator": ">=",
+          "value": 12
+        },
+        {
+          "state": "fish",
+          "operator": ">=",
+          "value": 12
+        }
+      ],
+      "image": "assets/images/endings/cat-god.webp",
+      "video": "assets/videos/cat-god-ending-v1.mp4"
+    },
+    {
+      "id": "grand-magus",
+      "title": "大魔导士 · 星穹讲师",
+      "description": "你在星穹下开课，讲义是一根会发光的胡须。",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 32
+        },
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "image": "assets/images/endings/grand-magus.webp",
+      "video": "assets/videos/grand-magus-ending-v1.mp4"
+    },
+    {
+      "id": "archmage",
+      "title": "大魔法师 · 塔顶之光",
+      "description": "你把塔顶的灯改成了一颗小太阳，专门用来晒猫。",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 16
+        }
+      ],
+      "image": "assets/images/endings/archmage.webp",
+      "video": "assets/videos/archmage-ending-v1.mp4"
+    },
+    {
+      "id": "wandering-mage",
+      "title": "流浪魔导士 · 九命旅人",
+      "description": "你带着魔杖和鱼干离开学院，地图上每个猫爪印都是你的驿站。",
+      "all": [
+        {
+          "state": "curiosity",
+          "operator": ">=",
+          "value": 18
+        }
+      ],
+      "image": "assets/images/endings/wandering-mage.webp",
+      "video": "assets/videos/wandering-mage-ending-v1.mp4"
+    },
+    {
+      "id": "academy-librarian",
+      "title": "学院图书猫",
+      "description": "你接管了精灵图书馆，所有书都学会了在你睡觉时自动归架。",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "image": "assets/images/endings/academy-librarian.webp",
+      "video": "assets/videos/academy-librarian-ending-v1.mp4"
+    },
+    {
+      "id": "sleepy-cat",
+      "title": "懒睡猫",
+      "description": "你没有成为大魔导士，但你在学院祭的暖炉边睡得非常成功。",
+      "all": [],
+      "image": "assets/images/endings/sleepy-cat.webp",
+      "video": "assets/videos/sleepy-cat-ending-v1.mp4"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "cat-god-fish",
+      "endingId": "cat-god",
+      "title": "猫神小鱼令牌",
+      "glb": "assets/models/cat-god-fish.glb",
+      "preview": "assets/models/cat-god-fish-source.webp"
+    },
+    {
+      "id": "grand-magus-whisker",
+      "endingId": "grand-magus",
+      "title": "星穹胡杖",
+      "glb": "assets/models/grand-magus-whisker.glb",
+      "preview": "assets/models/grand-magus-whisker-source.webp"
+    },
+    {
+      "id": "archmage-sun-lamp",
+      "endingId": "archmage",
+      "title": "塔顶小太阳",
+      "glb": "assets/models/archmage-sun-lamp.glb",
+      "preview": "assets/models/archmage-sun-lamp-source.webp"
+    },
+    {
+      "id": "wandering-map",
+      "endingId": "wandering-mage",
+      "title": "九命旅图",
+      "glb": "assets/models/wandering-map.glb",
+      "preview": "assets/models/wandering-map-source.webp"
+    },
+    {
+      "id": "librarian-book",
+      "endingId": "academy-librarian",
+      "title": "自动归架书",
+      "glb": "assets/models/librarian-book.glb",
+      "preview": "assets/models/librarian-book-source.webp"
+    },
+    {
+      "id": "sleepy-pillow",
+      "endingId": "sleepy-cat",
+      "title": "祭典暖枕",
+      "glb": "assets/models/sleepy-pillow.glb",
+      "preview": "assets/models/sleepy-pillow-source.webp"
+    }
+  ]
+}

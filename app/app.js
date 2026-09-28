@@ -28,7 +28,10 @@ function setLang(next) {
   url.searchParams.set("lang", next);
   history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
   document.documentElement.lang = next === "zh" ? "zh-CN" : "en";
-  if (uiText) applyPlatformText();
+  if (uiText) {
+    applyPlatformText();
+    labelStaticDom();
+  }
   document.querySelectorAll(".lang-button").forEach(b => {
     b.textContent = next.toUpperCase();
     b.title = next === "en" ? "Switch to Chinese" : "切换到英文";
@@ -613,7 +616,6 @@ function labelStaticDom() {
   set("#sceneMissing", lang === "en" ? "Scene image could not load" : "场景图片暂时没有加载出来");
   set(".ending-card .eyebrow", t("endingEyebrow"));
   document.querySelectorAll('[data-i18n]').forEach(el => { const v = t(el.dataset.i18n); if (typeof v === "string") el.textContent = v; });
-  set("#meters", "");
   const meters = document.getElementById("meters");
   if (meters) meters.setAttribute("aria-label", t("waterLabel"));
   const stage = document.getElementById("visualStage");
@@ -729,6 +731,7 @@ let lifeTurn = 0;
 let lifeEventHistory = [];
 let lifeTalentIds = [];
 let queuedLifeEvent = null;
+let lifeFinalTrialShown = false;
 
 /* ---------- condition parser ----------
    Grammar:  expr := andExpr ( "|" andExpr )*
@@ -877,6 +880,7 @@ function startLifeSim() {
   lifeTurn = 0;
   lifeEventHistory = [];
   queuedLifeEvent = null;
+  lifeFinalTrialShown = false;
   state = { ...(content().initialState || {}) };
   for (const talentId of lifeTalentIds) {
     const talent = (content().talents || []).find(t => t.id === talentId);
@@ -902,9 +906,11 @@ const LIFE_REALMS = [
 ];
 
 function lifeRealm() {
-  const v = state.cultivation || 0;
-  let realm = LIFE_REALMS[0];
-  for (const r of LIFE_REALMS) {
+  const realmState = content().realmState || "cultivation";
+  const v = state[realmState] || 0;
+  const realms = content().lifeRealms || LIFE_REALMS;
+  let realm = realms[0];
+  for (const r of realms) {
     if (v >= r.min) realm = r;
   }
   return realm;
@@ -930,6 +936,10 @@ function renderLifeEvent() {
   // The hard safety valve is 50 time units (500 years). "lifespan" is the
   // cumulative maximum age, not remaining HP, so events can no longer loop forever.
   if (age >= hardLimit || age >= totalLifespan || lifeTurn >= turnLimit) {
+    if (current.finalTrial && !lifeFinalTrialShown) {
+      showLifeFinalTrial();
+      return;
+    }
     showEnding();
     return;
   }
@@ -1020,6 +1030,53 @@ function renderLifeEvent() {
     preloadImage(choice.image);
   }
   if (choices.length < 2) queueNextLifeEvent();
+}
+
+function showLifeFinalTrial() {
+  const current = content();
+  const trial = current.finalTrial;
+  lifeFinalTrialShown = true;
+  const chanceState = trial.chanceState || "cultivation";
+  const chanceValue = Math.max(0, Math.min(100, Number(state[chanceState] || 0)));
+  const chancePercent = Math.round(chanceValue);
+  const success = Math.random() * 100 < chanceValue;
+  state.tribulationPassed = success ? 1 : 0;
+
+  $("sceneChapter").textContent = lang === "en" ? "FINAL TRIAL" : "最终试炼";
+  $("sceneTitle").textContent = lang === "en" ? trial.titleEn || trial.title : trial.title;
+  $("sceneDescription").textContent = (lang === "en" ? trial.eventEn || trial.event : trial.event)
+    .replace("{chance}", `${chancePercent}%`);
+  $("outcomePanel").hidden = true;
+  $("choicePanel").hidden = false;
+  $("choicePanel").innerHTML = `
+    <button class="choice-button" type="button" data-life-final-trial>
+      <span class="choice-icon">${escapeHtml(lang === "en" ? "⚡" : "雷")}</span>
+      <span><strong>${escapeHtml(lang === "en" ? trial.buttonEn || trial.button : trial.button)}</strong><small>${escapeHtml(lang === "en" ? `Success chance: ${chancePercent}%` : `成功率：${chancePercent}%`)}</small></span>
+      <b>›</b>
+    </button>
+  `;
+  const image = $("sceneImage");
+  image.hidden = false;
+  $("sceneMissing").hidden = true;
+  image.src = worldAsset(trial.image);
+  image.alt = trial.title;
+
+  $("choicePanel").querySelector("[data-life-final-trial]").addEventListener("click", () => {
+    const resultImage = success ? trial.successImage : trial.failureImage;
+    const resultText = success
+      ? (lang === "en" ? trial.successEn || trial.success : trial.success)
+      : (lang === "en" ? trial.failureEn || trial.failure : trial.failure);
+    $("choicePanel").hidden = true;
+    $("outcomePanel").hidden = false;
+    $("outcomeText").textContent = resultText;
+    $("outcomeMilestone").innerHTML = "";
+    $("deltaChips").innerHTML = `<span>${escapeHtml(lang === "en" ? `Trial ${success ? "passed" : "failed"} · ${chancePercent}% chance` : `试炼${success ? "成功" : "失败"} · ${chancePercent}% 概率`)}</span>`;
+    $("continueButton").innerHTML = `${escapeHtml(worldUi("finalContinueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
+    if (resultImage) {
+      image.src = worldAsset(resultImage);
+      image.alt = trial.title;
+    }
+  });
 }
 
 function lifeDeltaMarkup(effect = {}) {

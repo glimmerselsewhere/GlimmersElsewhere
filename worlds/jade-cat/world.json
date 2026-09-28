@@ -7,6 +7,21 @@
   "mode": "life",
   "lifeTurnLimit": 50,
   "lifeTalentPicks": 1,
+  "finalTrial": {
+    "title": "九霄雷劫",
+    "titleEn": "Nine-Sky Thunder Tribulation",
+    "event": "天雷已经落进云海。你的修为将雷劫成功率推到 {chance}。长老说，猫不需要躲，只需要把自己的尾巴立得很直。",
+    "eventEn": "Heavenly lightning has entered the cloud sea. Your cultivation pushes the tribulation success chance to {chance}. The elder says a cat does not hide; it only stands its tail up straight.",
+    "button": "正面迎雷",
+    "buttonEn": "Face the lightning",
+    "image": "assets/images/events/final-thunder.webp",
+    "successImage": "assets/images/events/final-thunder-success.webp",
+    "failureImage": "assets/images/events/final-thunder-failure.webp",
+    "success": "雷光落进你的毛发，却像一场暖雨。玉佩亮起，云海在你脚下让路。仙门开了。",
+    "successEn": "The lightning lands in your fur like warm rain. The jade pendant flares, the cloud sea parts beneath your paws, and the immortal gate opens.",
+    "failure": "雷光把你弹回山门。你没有受伤，只是尾巴炸成了一把蒲公英。仙门今天不开了。",
+    "failureEn": "The lightning bounces you back to the mountain gate. You are unhurt, but your tail has exploded into a dandelion. The immortal gate will not open today."
+  },
   "music": "assets/audio/immortal-cat.mp3",
   "musicVolume": 0.1,
   "assetBase": "worlds/jade-cat/",
@@ -1456,12 +1471,6 @@
       "title": "万猫仙王",
       "video": "assets/videos/immortal-king-ending-v1.mp4",
       "image": "assets/images/endings/immortal-king.webp",
-      "chance": {
-        "state": "cultivation",
-        "from": 50,
-        "to": 100,
-        "min": 0.15
-      },
       "all": [
         {
           "state": "cultivation",
@@ -1472,6 +1481,11 @@
           "state": "morality",
           "operator": ">=",
           "value": 8
+        },
+        {
+          "state": "tribulationPassed",
+          "operator": ">=",
+          "value": 1
         }
       ],
       "description": "大乘圆满，道心也经得住诱惑。你在万猫注视下登临仙王之位。第一道仙旨：宗门每日加一顿夜宵。"
