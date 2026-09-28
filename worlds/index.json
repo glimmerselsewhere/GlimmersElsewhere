@@ -76,6 +76,11 @@
       "id": "wall-street-cat",
       "config": "wall-street-cat/world.json",
       "status": "ready"
+    },
+    {
+      "id": "nine-lives-academy",
+      "config": "nine-lives-academy/world.json",
+      "status": "ready"
     }
   ]
 }

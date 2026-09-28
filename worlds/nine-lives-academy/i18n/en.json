@@ -1,0 +1,1435 @@
+{
+  "id": "nine-lives-academy",
+  "title": "Nine Lives Academy",
+  "shortTitle": "Nine Lives",
+  "subtitle": "Magic Academy · A Cat Life Simulator",
+  "description": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. Draw talents, study fire, water, and lightning, explore dungeons, meet dragons, slimes, unicorns, griffins, and a demon king, then choose between Grand Magus and Cat God.",
+  "mode": "life",
+  "lifeTurnLimit": 30,
+  "lifespanMax": 30,
+  "lifespanUnit": 1,
+  "lifeTalentPicks": 1,
+  "lifeTalentShow": 3,
+  "realmState": "magic",
+  "lifeRealms": [
+    {
+      "min": 0,
+      "label": "Magic Apprentice"
+    },
+    {
+      "min": 8,
+      "label": "Formal Mage"
+    },
+    {
+      "min": 16,
+      "label": "Archmage"
+    },
+    {
+      "min": 24,
+      "label": "Magus"
+    },
+    {
+      "min": 32,
+      "label": "Grand Magus"
+    },
+    {
+      "min": 40,
+      "label": "Cat God"
+    }
+  ],
+  "music": "assets/audio/academy.mp3",
+  "musicVolume": 0.12,
+  "assetBase": "worlds/nine-lives-academy/",
+  "endingVideo": null,
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
+  },
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Enter the academy",
+    "continueButton": "Continue",
+    "finalContinueButton": "Graduate",
+    "replayButton": "Live nine lives again"
+  },
+  "catalog": {
+    "eyebrow": "A ninth glimmer has awakened",
+    "headline": "A cat's nine lives become one magical path.",
+    "description": "Draw talents, survive thirty magical events, and rise from Magic Apprentice to Grand Magus or Cat God.",
+    "cardDescription": "Fire, water, lightning, dungeons, dragons, coins, slimes, skeletons, unicorns, griffins, double-headed eagles, chimeras, warriors, priests, elves, dwarves, a demon king, and a witch all appear.",
+    "cardIcon": "✦",
+    "cardLabel": "WORLD 09",
+    "cardGradient": [
+      "#8b5cf6",
+      "#4c1d95",
+      "#1e1b4b"
+    ],
+    "cardAccent": "#fde68a",
+    "actionSummary": "Draw talents · Learn magic · Meet monsters"
+  },
+  "initialState": {
+    "age": 0,
+    "magic": 0,
+    "courage": 0,
+    "curiosity": 0,
+    "lifespan": 30,
+    "fish": 3
+  },
+  "states": [
+    {
+      "id": "magic",
+      "label": "Magic",
+      "description": "0 Apprentice, 8 Formal Mage, 16 Archmage, 24 Magus, 32 Grand Magus, 40 Cat God",
+      "color": "#8b5cf6",
+      "chipBackground": "#ede9fe",
+      "max": 100
+    },
+    {
+      "id": "courage",
+      "label": "Courage",
+      "description": "Bravery before dragons, demon kings, and lightning",
+      "color": "#f97316",
+      "chipBackground": "#ffedd5",
+      "max": 30
+    },
+    {
+      "id": "curiosity",
+      "label": "Curiosity",
+      "description": "The urge to open books, enter mazes, and question spells",
+      "color": "#22c55e",
+      "chipBackground": "#dcfce7",
+      "max": 30
+    },
+    {
+      "id": "fish",
+      "label": "Dried Fish",
+      "description": "Cat food, gift, and currency",
+      "color": "#eab308",
+      "chipBackground": "#fef9c3",
+      "max": 30
+    }
+  ],
+  "talents": [
+    {
+      "id": "star-whiskers",
+      "name": "Star Whiskers",
+      "rarity": 0,
+      "description": "Magic +3, Curiosity +2",
+      "effect": {
+        "magic": 3,
+        "curiosity": 2
+      }
+    },
+    {
+      "id": "brave-paw",
+      "name": "Brave Paw",
+      "rarity": 0,
+      "description": "Courage +3",
+      "effect": {
+        "courage": 3
+      }
+    },
+    {
+      "id": "nine-lives",
+      "name": "Nine Lives",
+      "rarity": 1,
+      "description": "Magic +1, Dried Fish +2",
+      "effect": {
+        "magic": 1,
+        "fish": 2
+      }
+    },
+    {
+      "id": "sun-napper",
+      "name": "Sun Napper",
+      "rarity": 0,
+      "description": "Magic +2, Courage +1",
+      "effect": {
+        "magic": 2,
+        "courage": 1
+      }
+    },
+    {
+      "id": "book-sniffer",
+      "name": "Book Sniffer",
+      "rarity": 0,
+      "description": "Curiosity +3, Magic +1",
+      "effect": {
+        "curiosity": 3,
+        "magic": 1
+      }
+    },
+    {
+      "id": "gold-finder",
+      "name": "Coin Finder",
+      "rarity": 1,
+      "description": "Dried Fish +3, Courage +1",
+      "effect": {
+        "fish": 3,
+        "courage": 1
+      }
+    },
+    {
+      "id": "storm-tail",
+      "name": "Storm Tail",
+      "rarity": 1,
+      "description": "Magic +2, Courage +2",
+      "effect": {
+        "magic": 2,
+        "courage": 2
+      }
+    },
+    {
+      "id": "water-paw",
+      "name": "Water Paw",
+      "rarity": 0,
+      "description": "Magic +2, Curiosity +1",
+      "effect": {
+        "magic": 2,
+        "curiosity": 1
+      }
+    },
+    {
+      "id": "fire-whisker",
+      "name": "Fire Whisker",
+      "rarity": 1,
+      "description": "Magic +3, Courage +1",
+      "effect": {
+        "magic": 3,
+        "courage": 1
+      }
+    },
+    {
+      "id": "moon-walker",
+      "name": "Moon Walker",
+      "rarity": 2,
+      "description": "Magic +2, Curiosity +2, Dried Fish +1",
+      "effect": {
+        "magic": 2,
+        "curiosity": 2,
+        "fish": 1
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "magic-8",
+      "state": "magic",
+      "at": 8,
+      "eyebrow": "RANK UP",
+      "title": "Formal Mage",
+      "text": "Your first spell no longer needs a yawn as a wind-up."
+    },
+    {
+      "id": "magic-16",
+      "state": "magic",
+      "at": 16,
+      "eyebrow": "RANK UP",
+      "title": "Archmage",
+      "text": "The tower window now leaves a lamp lit for you."
+    },
+    {
+      "id": "magic-24",
+      "state": "magic",
+      "at": 24,
+      "eyebrow": "RANK UP",
+      "title": "Magus",
+      "text": "You can hold three spells at once; one is only for roasting fish."
+    },
+    {
+      "id": "magic-32",
+      "state": "magic",
+      "at": 32,
+      "eyebrow": "RANK UP",
+      "title": "Grand Magus",
+      "text": "The stars begin consulting your class schedule."
+    },
+    {
+      "id": "magic-40",
+      "state": "magic",
+      "at": 40,
+      "eyebrow": "RANK UP",
+      "title": "Cat God",
+      "text": "Every dried fish in the world blinks at you at once."
+    }
+  ],
+  "lifeDefaultImage": "assets/images/events/letter-moth.webp",
+  "events": [
+    {
+      "id": "letter-moth",
+      "title": "The Admission Moth",
+      "event": "A moonmoth lands on the windowsill carrying a glowing letter sealed with a cat-paw stamp.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "follow",
+          "text": "Follow the moth",
+          "hint": "There is a path in the dark",
+          "effect": {
+            "courage": 2,
+            "magic": 1,
+            "curiosity": 1
+          },
+          "result": "You follow the moth through the dark, and the door at the end of the corridor opens by itself.",
+          "image": "assets/images/events/results/letter-moth-follow.webp"
+        },
+        {
+          "id": "sniff",
+          "text": "Sniff the letter first",
+          "hint": "Confirm the smell",
+          "effect": {
+            "curiosity": 2,
+            "magic": 1
+          },
+          "result": "The letter smells like dried fish and stardust. You memorize the scent.",
+          "image": "assets/images/events/results/letter-moth-sniff.webp"
+        }
+      ],
+      "image": "assets/images/events/letter-moth.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "wand-shop",
+      "title": "The Wand Shop",
+      "event": "The shopkeeper cat places three trembling wands on the counter.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "ember",
+          "text": "Choose the ember wand",
+          "hint": "It is the warmest",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "A fire-salamander whisker runs through the core, and warm light immediately rises from your fingertip.",
+          "image": "assets/images/events/results/wand-shop-ember.webp"
+        },
+        {
+          "id": "tide",
+          "text": "Choose the tide wand",
+          "hint": "It is the quietest",
+          "effect": {
+            "magic": 2,
+            "curiosity": 2
+          },
+          "result": "The shaft looks like driftwood after low tide, and each swing leaves a ring of water.",
+          "image": "assets/images/events/results/wand-shop-tide.webp"
+        }
+      ],
+      "image": "assets/images/events/wand-shop.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "crystal-ball",
+      "title": "The Crystal Ball",
+      "event": "The divination crystal is larger than your head and full of unformed mist.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "gaze",
+          "text": "Gaze into it",
+          "hint": "Something is in the mist",
+          "effect": {
+            "magic": 2,
+            "curiosity": 2
+          },
+          "result": "A fish appears first, then your nine tails.",
+          "image": "assets/images/events/results/crystal-ball-gaze.webp"
+        },
+        {
+          "id": "paw",
+          "text": "Press it with a paw",
+          "hint": "Be direct",
+          "effect": {
+            "courage": 2,
+            "magic": 1
+          },
+          "result": "You press your paw against it, and a tiny rain falls inside the sphere.",
+          "image": "assets/images/events/results/crystal-ball-paw.webp"
+        }
+      ],
+      "image": "assets/images/events/crystal-ball.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "fire-class",
+      "title": "Fire Magic",
+      "event": "The professor stands a candle on the desk and asks it to learn how to burn.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "ignite",
+          "text": "Ignite it",
+          "hint": "The standard answer",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "The flame curls into a ring and slightly crisps your whiskers.",
+          "image": "assets/images/events/results/fire-class-ignite.webp"
+        },
+        {
+          "id": "warm-paws",
+          "text": "Press it into a warm cushion",
+          "hint": "The cat way",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "fish": 1
+          },
+          "result": "You press the flame into a warm cushion and roast a dried fish beside it.",
+          "image": "assets/images/events/results/fire-class-warm-paws.webp"
+        }
+      ],
+      "image": "assets/images/events/fire-class.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "water-class",
+      "title": "Water Magic",
+      "event": "The courtyard fountain stops, and the professor calls it the perfect teaching moment.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "bubble",
+          "text": "Make a bubble",
+          "hint": "Put the academy inside",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "A bubble holds the whole academy's reflection, and you nudge it into a pearl.",
+          "image": "assets/images/events/results/water-class-bubble.webp"
+        },
+        {
+          "id": "stream",
+          "text": "Guide a stream",
+          "hint": "Let water walk",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "The stream curves around the desk and pours exactly into the flowerpot; the professor nods.",
+          "image": "assets/images/events/results/water-class-stream.webp"
+        }
+      ],
+      "image": "assets/images/events/water-class.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "lightning-tower",
+      "title": "Lightning Magic",
+      "event": "A waiting thunderbolt at the top of the tower looks like a jumping bean.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "spark",
+          "text": "Let it land on your tail",
+          "hint": "Only a little",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "The bolt lands on your tail like someone gently plucking a string.",
+          "image": "assets/images/events/results/lightning-tower-spark.webp"
+        },
+        {
+          "id": "absorb",
+          "text": "Swallow it",
+          "hint": "Try a new storage method",
+          "effect": {
+            "magic": 4,
+            "courage": 1
+          },
+          "result": "You hold the lightning in your throat and breathe out a tiny star.",
+          "image": "assets/images/events/results/lightning-tower-absorb.webp"
+        }
+      ],
+      "image": "assets/images/events/lightning-tower.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dungeon-training",
+      "title": "Dungeon Training",
+      "event": "Behind the training dungeon's stone door, torches doze along a long corridor.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "sneak",
+          "text": "Walk beside the shadows",
+          "hint": "Do not wake the torches",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "You finish the corridor beside the wall shadows; the skeleton soldiers never look up.",
+          "image": "assets/images/events/results/dungeon-training-sneak.webp"
+        },
+        {
+          "id": "charge",
+          "text": "Charge in",
+          "hint": "Cats can be bold",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "You charge through the door and knock a row of barrels into glowing shards.",
+          "image": "assets/images/events/results/dungeon-training-charge.webp"
+        }
+      ],
+      "image": "assets/images/events/dungeon-training.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dragon-lair",
+      "title": "The Dragon Lair",
+      "event": "An old dragon lies on a hill of coins, breathing dust into tiny nebulae.",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "bargain",
+          "text": "Bargain with it",
+          "hint": "Cats need pocket money",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "fish": 2
+          },
+          "result": "The dragon pushes three coins toward you with its tail and leaves behind a warm scale.",
+          "image": "assets/images/events/results/dragon-lair-bargain.webp"
+        },
+        {
+          "id": "observe",
+          "text": "Observe its breathing",
+          "hint": "Even dragons have rhythm",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "You understand the dragon's breathing rhythm, like a pot slowly coming to a boil.",
+          "image": "assets/images/events/results/dragon-lair-observe.webp"
+        }
+      ],
+      "image": "assets/images/events/dragon-lair.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "coin-vault",
+      "title": "The Coin Vault",
+      "event": "The accountant cat pours out a bag of coins and asks you to count them in three seconds.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "count",
+          "text": "Count by echo",
+          "hint": "Coins speak",
+          "effect": {
+            "magic": 1,
+            "curiosity": 3
+          },
+          "result": "The coins' echoes tell you which one is fake.",
+          "image": "assets/images/events/results/coin-vault-count.webp"
+        },
+        {
+          "id": "stack",
+          "text": "Stack them into a tower",
+          "hint": "Structure matters",
+          "effect": {
+            "courage": 2,
+            "magic": 2
+          },
+          "result": "You stack the coins into a tower, and its tip points to the exit.",
+          "image": "assets/images/events/results/coin-vault-stack.webp"
+        }
+      ],
+      "image": "assets/images/events/coin-vault.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "slime-battle",
+      "title": "Slime Battle",
+      "event": "Three jelly-colored slimes form a circle; they are sticky rather than scary.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "freeze",
+          "text": "Freeze them",
+          "hint": "Jelly is better cold",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "The slimes freeze into jelly, and your paw leaves three prints on the surface.",
+          "image": "assets/images/events/results/slime-battle-freeze.webp"
+        },
+        {
+          "id": "bounce",
+          "text": "Bounce them back",
+          "hint": "Cats bounce too",
+          "effect": {
+            "courage": 3,
+            "curiosity": 1
+          },
+          "result": "You bounce one to the ceiling, and it becomes a very sticky lamp.",
+          "image": "assets/images/events/results/slime-battle-bounce.webp"
+        }
+      ],
+      "image": "assets/images/events/slime-battle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "skeleton-crypt",
+      "title": "Skeleton Soldiers",
+      "event": "Skeleton soldiers line the crypt, thin light leaking between their bones.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "holy-light",
+          "text": "Use holy light",
+          "hint": "Be polite",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "Holy light arranges the bones into a quiet honor guard.",
+          "image": "assets/images/events/results/skeleton-crypt-holy-light.webp"
+        },
+        {
+          "id": "bone-trick",
+          "text": "Swap two bones",
+          "hint": "They will reassemble",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "You swap two bones, and the skeleton starts solving itself like a puzzle.",
+          "image": "assets/images/events/results/skeleton-crypt-bone-trick.webp"
+        }
+      ],
+      "image": "assets/images/events/skeleton-crypt.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "unicorn-grove",
+      "title": "The Unicorn Grove",
+      "event": "A unicorn stands in moonlight with three specks of stardust on its horn.",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "approach",
+          "text": "Approach slowly",
+          "hint": "Do not startle it",
+          "effect": {
+            "courage": 2,
+            "magic": 2
+          },
+          "result": "The unicorn lowers its head and lets you sniff the light on its forehead.",
+          "image": "assets/images/events/results/unicorn-grove-approach.webp"
+        },
+        {
+          "id": "meditate",
+          "text": "Count the light under the tree",
+          "hint": "Quiet is magic too",
+          "effect": {
+            "magic": 3,
+            "curiosity": 1
+          },
+          "result": "You count the light three times, and stardust from the horn falls into your fur.",
+          "image": "assets/images/events/results/unicorn-grove-meditate.webp"
+        }
+      ],
+      "image": "assets/images/events/unicorn-grove.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "griffin-tower",
+      "title": "The Griffin Tower",
+      "event": "A griffin preens on the tower, slicing the wind into two layers with its wings.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "ride",
+          "text": "Grab its feathers",
+          "hint": "Fly a little",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "You grab the griffin's feathers, and the wind turns your ears into two small flags.",
+          "image": "assets/images/events/results/griffin-tower-ride.webp"
+        },
+        {
+          "id": "feed",
+          "text": "Share a dried fish",
+          "hint": "Make a friend",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "fish": 2
+          },
+          "result": "You share a dried fish, and it leaves you its brightest feather.",
+          "image": "assets/images/events/results/griffin-tower-feed.webp"
+        }
+      ],
+      "image": "assets/images/events/griffin-tower.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "double-eagle",
+      "title": "The Double-Headed Eagle",
+      "event": "A double-headed eagle lands on the sill, each head speaking half a sentence.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "decode",
+          "text": "Join the halves",
+          "hint": "A message should be whole",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "Each head says half a sentence, and you join them in your mind.",
+          "image": "assets/images/events/results/double-eagle-decode.webp"
+        },
+        {
+          "id": "reply",
+          "text": "Reply with paw prints",
+          "hint": "Be formal",
+          "effect": {
+            "courage": 2,
+            "magic": 1
+          },
+          "result": "You reply with paw prints, and the eagle rolls the letter into a very official scroll.",
+          "image": "assets/images/events/results/double-eagle-reply.webp"
+        }
+      ],
+      "image": "assets/images/events/double-eagle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "chimera-maze",
+      "title": "The Chimera Maze",
+      "event": "The chimera's three heads yawn at three separate forks in the maze.",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "outwit",
+          "text": "Split the heads",
+          "hint": "They will get lost",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "You lure the three heads in three directions and take the fourth path.",
+          "image": "assets/images/events/results/chimera-maze-outwit.webp"
+        },
+        {
+          "id": "calm",
+          "text": "Lower your tail",
+          "hint": "Pretend to be the fifth head",
+          "effect": {
+            "magic": 2,
+            "courage": 3
+          },
+          "result": "You lower your tail, and the chimera thinks you are its fifth head.",
+          "image": "assets/images/events/results/chimera-maze-calm.webp"
+        }
+      ],
+      "image": "assets/images/events/chimera-maze.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "warrior-friend",
+      "title": "The Warrior Companion",
+      "event": "A warrior with a wooden sword waits in the training yard, a cat-paw button sewn onto the bracer.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "spar",
+          "text": "Spar with him",
+          "hint": "The wooden sword is light",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "The wooden sword and your paw stop midair; you recognize each other.",
+          "image": "assets/images/events/results/warrior-friend-spar.webp"
+        },
+        {
+          "id": "share-fish",
+          "text": "Share a dried fish",
+          "hint": "Partnership starts with food",
+          "effect": {
+            "courage": 1,
+            "fish": -1,
+            "magic": 2
+          },
+          "result": "The warrior bites the dried fish and writes you into the adventure contract.",
+          "image": "assets/images/events/results/warrior-friend-share-fish.webp"
+        }
+      ],
+      "image": "assets/images/events/warrior-friend.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "priest-heal",
+      "title": "The Priest's Healing",
+      "event": "A priest cat drips holy water onto your paw pad, and a tiny cross forms on the surface.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "prayer",
+          "text": "Join the prayer",
+          "hint": "Be quiet",
+          "effect": {
+            "magic": 2,
+            "courage": 2
+          },
+          "result": "Light flows over your wound like a very warm little river.",
+          "image": "assets/images/events/results/priest-heal-prayer.webp"
+        },
+        {
+          "id": "rest",
+          "text": "Sleep by the altar",
+          "hint": "The cat's recovery method",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "fish": 1
+          },
+          "result": "You sleep beside the altar for ten minutes and wake up healed.",
+          "image": "assets/images/events/results/priest-heal-rest.webp"
+        }
+      ],
+      "image": "assets/images/events/priest-heal.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "elf-library",
+      "title": "The Elf Library",
+      "event": "The elf librarian hands you a breathing book whose pages wait for you.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "read",
+          "text": "Keep reading",
+          "hint": "The book will lead you",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "The pages turn themselves to the line you need most.",
+          "image": "assets/images/events/results/elf-library-read.webp"
+        },
+        {
+          "id": "borrow",
+          "text": "Borrow it",
+          "hint": "Read it in the dorm",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "The elf hands you a slim book and says, 'Do not fold the corner.' You fold a very small one.",
+          "image": "assets/images/events/results/elf-library-borrow.webp"
+        }
+      ],
+      "image": "assets/images/events/elf-library.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dwarf-forge",
+      "title": "The Dwarf Forge",
+      "event": "A dwarf smith lays rune-iron on the anvil, sparks jumping like fleas.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "forge",
+          "text": "Help forge",
+          "hint": "Cats can hammer",
+          "effect": {
+            "magic": 2,
+            "courage": 3
+          },
+          "result": "Hammer and sparks land together; your paw pads learn not to fear heat.",
+          "image": "assets/images/events/results/dwarf-forge-forge.webp"
+        },
+        {
+          "id": "inspect",
+          "text": "Inspect the runes",
+          "hint": "The third stroke is crooked",
+          "effect": {
+            "magic": 3,
+            "curiosity": 2
+          },
+          "result": "You notice the third rune stroke is crooked, and the dwarf freezes.",
+          "image": "assets/images/events/results/dwarf-forge-inspect.webp"
+        }
+      ],
+      "image": "assets/images/events/dwarf-forge.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "scroll-riddle",
+      "title": "The Scroll Riddle",
+      "event": "An old scroll lies open, its final word dodging your gaze.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "solve",
+          "text": "Solve it directly",
+          "hint": "The answer is in the last sound",
+          "effect": {
+            "magic": 3,
+            "curiosity": 3
+          },
+          "result": "The final word lights up, and the scroll rolls itself into a small staff.",
+          "image": "assets/images/events/results/scroll-riddle-solve.webp"
+        },
+        {
+          "id": "copy",
+          "text": "Copy it first",
+          "hint": "Hand faster than mind",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "You copy the whole incantation, and your handwriting looks more like paw prints than the original.",
+          "image": "assets/images/events/results/scroll-riddle-copy.webp"
+        }
+      ],
+      "image": "assets/images/events/scroll-riddle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "incantation",
+      "title": "The Incantation",
+      "event": "Spell class asks you to sing ancient syllables into one complete sentence.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "chant",
+          "text": "Chant it correctly",
+          "hint": "The standard melody",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "A low purr rolls from your throat, and the spell takes shape.",
+          "image": "assets/images/events/results/incantation-chant.webp"
+        },
+        {
+          "id": "improvise",
+          "text": "Turn it into a lullaby",
+          "hint": "Cats know sleep",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "You turn the spell into a lullaby, and every chair in the classroom falls asleep.",
+          "image": "assets/images/events/results/incantation-improvise.webp"
+        }
+      ],
+      "image": "assets/images/events/incantation.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "magic-circle",
+      "title": "The Magic Circle",
+      "event": "An unfinished magic circle covers the floor, its gap right beside your foot.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "draw",
+          "text": "Finish it with chalk",
+          "hint": "Close the gap",
+          "effect": {
+            "magic": 3,
+            "curiosity": 1
+          },
+          "result": "The chalk line becomes a breathing river under your paw.",
+          "image": "assets/images/events/results/magic-circle-draw.webp"
+        },
+        {
+          "id": "activate",
+          "text": "Step in and activate it",
+          "hint": "Try it now",
+          "effect": {
+            "magic": 2,
+            "courage": 3
+          },
+          "result": "The ring lights up while you stand exactly at its center.",
+          "image": "assets/images/events/results/magic-circle-activate.webp"
+        }
+      ],
+      "image": "assets/images/events/magic-circle.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "cat-church",
+      "title": "The Cat Church",
+      "event": "A fish-shaped chandelier hangs in the church, every candle bending in the same direction.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "pray",
+          "text": "Pray on the pew",
+          "hint": "Thank the dried fish",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "The candles bend toward you as if nodding.",
+          "image": "assets/images/events/results/cat-church-pray.webp"
+        },
+        {
+          "id": "nap",
+          "text": "Nap under the pew",
+          "hint": "This is also practice",
+          "effect": {
+            "magic": 1,
+            "curiosity": 1,
+            "fish": 1
+          },
+          "result": "You fall asleep beneath the pew and dream of nine fish in a ring.",
+          "image": "assets/images/events/results/cat-church-nap.webp"
+        }
+      ],
+      "image": "assets/images/events/cat-church.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "adventurer-guild",
+      "title": "The Cat Adventurers' Guild",
+      "event": "A map only cats can read is pinned to the guild's job board.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "quest",
+          "text": "Accept a quest",
+          "hint": "Go to the dungeon",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "You accept a quest, and the board replaces the name with your paw print.",
+          "image": "assets/images/events/results/adventurer-guild-quest.webp"
+        },
+        {
+          "id": "recruit",
+          "text": "Recruit companions",
+          "hint": "More paws are better",
+          "effect": {
+            "courage": 1,
+            "curiosity": 2,
+            "fish": 1
+          },
+          "result": "You set a coin on the table corner, and a warrior who listens to you joins the party.",
+          "image": "assets/images/events/results/adventurer-guild-recruit.webp"
+        }
+      ],
+      "image": "assets/images/events/adventurer-guild.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "academy-festival",
+      "title": "The Academy Festival",
+      "event": "Thirty floating lanterns light the festival night, each holding an unfinished wish.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "perform",
+          "text": "Perform on stage",
+          "hint": "Make lightning fireworks",
+          "effect": {
+            "magic": 3,
+            "courage": 2
+          },
+          "result": "You turn lightning into fireworks, and the audience bursts into catcalls.",
+          "image": "assets/images/events/results/academy-festival-perform.webp"
+        },
+        {
+          "id": "judge",
+          "text": "Be a judge",
+          "hint": "Visit every stall",
+          "effect": {
+            "magic": 1,
+            "curiosity": 3
+          },
+          "result": "You give every stall full marks except the one that turned dried fish into perfume.",
+          "image": "assets/images/events/results/academy-festival-judge.webp"
+        }
+      ],
+      "image": "assets/images/events/academy-festival.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "thieves-guild",
+      "title": "The Thieves' Guild",
+      "event": "Behind the thieves' guild door there is no light, only a neat row of shadows.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "stealth",
+          "text": "Move from shadow to shadow",
+          "hint": "Stay silent",
+          "effect": {
+            "courage": 2,
+            "curiosity": 3
+          },
+          "result": "You move from shadow to shadow like thread through a needle.",
+          "image": "assets/images/events/results/thieves-guild-stealth.webp"
+        },
+        {
+          "id": "lockpick",
+          "text": "Pick a lock",
+          "hint": "Locks speak",
+          "effect": {
+            "magic": 2,
+            "courage": 2
+          },
+          "result": "The lock clicks open as softly as a blink.",
+          "image": "assets/images/events/results/thieves-guild-lockpick.webp"
+        }
+      ],
+      "image": "assets/images/events/thieves-guild.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "archer-training",
+      "title": "Archer Training",
+      "event": "The range replaces its scarecrows with moving cat-shaped posts.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "aim",
+          "text": "Aim directly",
+          "hint": "Arrive before the arrow",
+          "effect": {
+            "magic": 2,
+            "courage": 2
+          },
+          "result": "When the arrow flies, you are already waiting at the landing point.",
+          "image": "assets/images/events/results/archer-training-aim.webp"
+        },
+        {
+          "id": "tracking",
+          "text": "Read the grass",
+          "hint": "The wind has a direction",
+          "effect": {
+            "magic": 1,
+            "curiosity": 3
+          },
+          "result": "The grass tells you which way the target will sway.",
+          "image": "assets/images/events/results/archer-training-tracking.webp"
+        }
+      ],
+      "image": "assets/images/events/archer-training.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "rogue-sneak",
+      "title": "Rogue Sneaking",
+      "event": "The night guard carries a bright lamp, but its shadow is very short.",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "shadow",
+          "text": "Hide in your own shadow",
+          "hint": "The shadow is crowded",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "You hide inside your own shadow; it is a little crowded.",
+          "image": "assets/images/events/results/rogue-sneak-shadow.webp"
+        },
+        {
+          "id": "distract",
+          "text": "Toss a coin",
+          "hint": "Let sound go first",
+          "effect": {
+            "magic": 2,
+            "courage": 1
+          },
+          "result": "You toss a coin, and every gaze follows it around once.",
+          "image": "assets/images/events/results/rogue-sneak-distract.webp"
+        }
+      ],
+      "image": "assets/images/events/rogue-sneak.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "demon-king",
+      "title": "The Demon King",
+      "event": "The demon king sits on an obsidian throne, a tiny cat eye set into the top of the scepter.",
+      "rarity": 3,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "face",
+          "text": "Face him",
+          "hint": "Cats do not hide",
+          "effect": {
+            "magic": 3,
+            "courage": 3
+          },
+          "result": "The demon king leans down and offers you a small corner of the throne.",
+          "image": "assets/images/events/results/demon-king-face.webp"
+        },
+        {
+          "id": "befriend",
+          "text": "Befriend him",
+          "hint": "Offer dried fish first",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "fish": 2
+          },
+          "result": "The demon king sniffs your dried fish and says, 'So this is a cat's scepter.'",
+          "image": "assets/images/events/results/demon-king-befriend.webp"
+        }
+      ],
+      "image": "assets/images/events/demon-king.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "witch-bargain",
+      "title": "The Witch's Bargain",
+      "event": "A witch spreads a parchment contract with a cat-paw-shaped space at the bottom.",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 30,
+      "choices": [
+        {
+          "id": "bargain",
+          "text": "Bargain",
+          "hint": "Change it to three fish",
+          "effect": {
+            "magic": 3,
+            "courage": 1
+          },
+          "result": "The witch rewrites the contract as three dried fish and one whisker.",
+          "image": "assets/images/events/results/witch-bargain-bargain.webp"
+        },
+        {
+          "id": "refuse",
+          "text": "Refuse to sign",
+          "hint": "The paw matters more",
+          "effect": {
+            "courage": 3,
+            "magic": 1
+          },
+          "result": "You pull your paw back, and the witch smiles for the first time.",
+          "image": "assets/images/events/results/witch-bargain-refuse.webp"
+        }
+      ],
+      "image": "assets/images/events/witch-bargain.webp",
+      "timeCost": 1
+    }
+  ],
+  "endings": [
+    {
+      "id": "cat-god",
+      "title": "Cat God · All the Dried Fish in the World",
+      "description": "You become the Cat God who keeps every dried fish in the world. First decree: every cat deserves one warm fish before sleep.",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 40
+        },
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 12
+        },
+        {
+          "state": "curiosity",
+          "operator": ">=",
+          "value": 12
+        },
+        {
+          "state": "fish",
+          "operator": ">=",
+          "value": 12
+        }
+      ],
+      "image": "assets/images/endings/cat-god.webp",
+      "video": "assets/videos/cat-god-ending-v1.mp4"
+    },
+    {
+      "id": "grand-magus",
+      "title": "Grand Magus · Star Dome Lecturer",
+      "description": "You lecture beneath the star dome, your syllabus a single glowing whisker.",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 32
+        },
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "image": "assets/images/endings/grand-magus.webp",
+      "video": "assets/videos/grand-magus-ending-v1.mp4"
+    },
+    {
+      "id": "archmage",
+      "title": "Archmage · Light of the Tower",
+      "description": "You turn the tower lamp into a small sun dedicated to warming cats.",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 16
+        }
+      ],
+      "image": "assets/images/endings/archmage.webp",
+      "video": "assets/videos/archmage-ending-v1.mp4"
+    },
+    {
+      "id": "wandering-mage",
+      "title": "Wandering Magus · Nine-Lives Traveler",
+      "description": "You leave with a wand and dried fish; every paw print on the map becomes your waypoint.",
+      "all": [
+        {
+          "state": "curiosity",
+          "operator": ">=",
+          "value": 18
+        }
+      ],
+      "image": "assets/images/endings/wandering-mage.webp",
+      "video": "assets/videos/wandering-mage-ending-v1.mp4"
+    },
+    {
+      "id": "academy-librarian",
+      "title": "Academy Librarian Cat",
+      "description": "You take over the elf library, where every book learns to shelve itself while you sleep.",
+      "all": [
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "image": "assets/images/endings/academy-librarian.webp",
+      "video": "assets/videos/academy-librarian-ending-v1.mp4"
+    },
+    {
+      "id": "sleepy-cat",
+      "title": "Sleepy Cat",
+      "description": "You did not become a Grand Magus, but you sleep extremely successfully beside the festival stove.",
+      "all": [],
+      "image": "assets/images/endings/sleepy-cat.webp",
+      "video": "assets/videos/sleepy-cat-ending-v1.mp4"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "cat-god-fish",
+      "endingId": "cat-god",
+      "title": "Cat God Fish Token",
+      "glb": "assets/models/cat-god-fish.glb",
+      "preview": "assets/models/cat-god-fish-source.webp"
+    },
+    {
+      "id": "grand-magus-whisker",
+      "endingId": "grand-magus",
+      "title": "Star Dome Whisker Staff",
+      "glb": "assets/models/grand-magus-whisker.glb",
+      "preview": "assets/models/grand-magus-whisker-source.webp"
+    },
+    {
+      "id": "archmage-sun-lamp",
+      "endingId": "archmage",
+      "title": "Tower Mini Sun",
+      "glb": "assets/models/archmage-sun-lamp.glb",
+      "preview": "assets/models/archmage-sun-lamp-source.webp"
+    },
+    {
+      "id": "wandering-map",
+      "endingId": "wandering-mage",
+      "title": "Nine-Lives Travel Map",
+      "glb": "assets/models/wandering-map.glb",
+      "preview": "assets/models/wandering-map-source.webp"
+    },
+    {
+      "id": "librarian-book",
+      "endingId": "academy-librarian",
+      "title": "Self-Shelving Book",
+      "glb": "assets/models/librarian-book.glb",
+      "preview": "assets/models/librarian-book-source.webp"
+    },
+    {
+      "id": "sleepy-pillow",
+      "endingId": "sleepy-cat",
+      "title": "Festival Warm Pillow",
+      "glb": "assets/models/sleepy-pillow.glb",
+      "preview": "assets/models/sleepy-pillow-source.webp"
+    }
+  ]
+}
