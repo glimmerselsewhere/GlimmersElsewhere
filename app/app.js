@@ -53,17 +53,6 @@ function mergeText(base, over) {
   return (typeof over === "string" && over.trim()) ? over : base;
 }
 
-async function loadTextOverrideDirect(baseFolder, name) {
-  if (lang !== "en") return null;
-  /* baseFolder is the world (or platform) folder; overrides always live in <folder>i18n/ */
-  const url = baseFolder.endsWith("i18n/") ? `${baseFolder}${name}` : `${baseFolder}i18n/${name}`;
-  try {
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch (_) { return null; }
-}
-
 async function loadTextOverride(baseFolder, name) {
   if (lang !== "en") return null;
   return prefetchTextOverride(baseFolder, name);
@@ -376,48 +365,6 @@ async function loadCatalog() {
         },
       };
     }
-    const worldOver = await loadTextOverride(folder, "en.json");
-    return { ...entry, config: configPath, world: mergeText(rawWorld, worldOver) };
-  }));
-  if (!worldEntries.length) throw new Error("异界目录为空");
-  renderCatalog(catalog);
-}
-
-async function loadCatalogDirect() {
-  await loadPlatformText();
-  const response = await fetch("worlds/index.json?v=1", { cache: "no-store" });
-  if (!response.ok) throw new Error("无法载入异界目录");
-  const catalog = await response.json();
-  // entries flagged hidden are kept in the repo but stay off the catalogue
-  const entries = (Array.isArray(catalog.worlds) ? catalog.worlds : []).filter(entry => !entry.hidden);
-  worldEntries = await Promise.all(entries.map(async entry => {
-    if (entry.status === "coming-soon" || (!entry.config && !entry.launchUrl)) {
-      return {
-        ...entry,
-        config: null,
-        world: {
-          ...entry,
-          assetBase: entry.assetBase || `worlds/${entry.id}/`,
-          status: entry.status || "coming-soon",
-        },
-      };
-    }
-    if (!entry.config && entry.launchUrl) {
-      return {
-        ...entry,
-        config: null,
-        world: {
-          ...entry,
-          assetBase: entry.assetBase || `worlds/${entry.id}/`,
-          status: entry.status || "ready",
-        },
-      };
-    }
-    const configPath = entry.config.startsWith("worlds/") ? entry.config : `worlds/${entry.config}`;
-    const configResponse = await fetch(configPath, { cache: "no-store" });
-    if (!configResponse.ok) throw new Error(`异界配置不存在：${configPath}`);
-    const rawWorld = await configResponse.json();
-    const folder = rawWorld.assetBase || `worlds/${rawWorld.id}/`;
     const worldOver = await loadTextOverride(folder, "en.json");
     return { ...entry, config: configPath, world: mergeText(rawWorld, worldOver) };
   }));
@@ -1029,10 +976,10 @@ function renderLifeEvent() {
   if (choices.length >= 2) {
     // interactive event: show choices
     $("choicePanel").innerHTML = choices.map((choice, index) => `
-      <button class="choice-button" type="button" data-life-choice="${escapeHtml(choice.id || index)}">
+      <button class="choice-button${choice.cost && (state.fish || 0) < choice.cost ? " is-unaffordable" : ""}" type="button" data-life-choice="${escapeHtml(choice.id || index)}" ${choice.cost && (state.fish || 0) < choice.cost ? "disabled" : ""}>
         <span class="choice-icon">${String.fromCharCode(65 + index)}</span>
-        <span><strong>${escapeHtml(choice.text)}</strong><small>${escapeHtml(choice.hint || "")}</small></span>
-        <b>›</b>
+        <span><strong>${escapeHtml(choice.text)}</strong><small>${escapeHtml(choice.hint || "")}${choice.cost ? ` · ${escapeHtml(lang === "en" ? `Cost 🐟${choice.cost}` : `需要🐟${choice.cost}`)}` : ""}</small></span>
+        ${choice.cost ? `<b>🐟${choice.cost}</b>` : "<b>›</b>"}
       </button>
     `).join("");
     $("choicePanel").querySelectorAll("[data-life-choice]").forEach(button => {
@@ -1078,8 +1025,7 @@ function renderLifeEvent() {
 function lifeDeltaMarkup(effect = {}) {
   const definitions = content().states || [];
   const extras = [
-    { key: "lifespan", label: lang === "en" ? "Lifespan" : "寿元", color: "#76b7cd", background: "#dff2f7" },
-    { key: "fish", label: lang === "en" ? "Fish" : "鱼干", color: "#c78a3b", background: "#f7e7cc" }
+    { key: "lifespan", label: lang === "en" ? "Lifespan" : "寿元", color: "#76b7cd", background: "#dff2f7" }
   ];
   const chips = [];
   for (const definition of [...definitions, ...extras]) {
@@ -1107,6 +1053,7 @@ function resolveLifeChoice(event, choice) {
   if (cost > 0) state.fish = (state.fish || 0) - cost;
   // apply choice effects
   const appliedEffect = applyLifeEffect(choice.effect);
+  if (cost > 0) appliedEffect.fish = (appliedEffect.fish || 0) - cost;
   // follow branch if present
   if (choice.branch) {
     const branchEvent = (content().events || []).find(e => e.id === choice.branch);
@@ -1229,13 +1176,12 @@ function lifeSummaryMarkup() {
     ? `Age ${ageYears}/${lifespanYears} years`
     : `年龄 ${ageYears}/${lifespanYears} 年`;
   const talents = (content().talents || []).filter(t => lifeTalentIds.includes(t.id)).map(t => t.name);
-  const fish = state.fish ?? 0;
   const realm = lifeRealm();
   const realmLabel = lang === "en" ? realm.en : realm.label;
   return `<div class="life-summary">
     <small>${escapeHtml(lang === "en" ? "LIFE SUMMARY" : "猫生总结")}</small>
     <p><strong>${escapeHtml(realmLabel)}</strong> · ${escapeHtml(lines)}</p>
-    <p>${escapeHtml(turns)} · ${escapeHtml(events)} · ${escapeHtml(lang === "en" ? `Fish: ${fish}` : `鱼干: ${fish}`)}</p>
+    <p>${escapeHtml(turns)} · ${escapeHtml(events)}</p>
     ${talents.length ? `<p class="talent-badges">${talents.map(t => `<span>${escapeHtml(t)}</span>`).join("")}</p>` : ""}
   </div>`;
 }
@@ -1442,7 +1388,9 @@ function showEnding() {
     : content().endings.find(endingMatches) || content().endings.at(-1);
   $("endingTitle").textContent = ending.title;
   $("endingDescription").textContent = ending.description;
-  $("finalStats").innerHTML = (content().states || []).map(definition => `<span>${definition.label} <b>${state[definition.id] || 0}</b></span>`).join("") + (world?.mode === "life" ? lifeSummaryMarkup() : "");
+  const finalStats = $("finalStats");
+  finalStats.classList.toggle("is-life", world?.mode === "life");
+  finalStats.innerHTML = (content().states || []).map(definition => `<span>${definition.label} <b>${state[definition.id] || 0}</b></span>`).join("") + (world?.mode === "life" ? lifeSummaryMarkup() : "");
   const video = $("endingVideo");
   const image = $("endingImage");
   const endingVideo = ending.video || world.endingVideo;
