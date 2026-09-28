@@ -528,6 +528,7 @@ function enterWorld() {
   showView("introView");
   renderLevelSelect();
   setWorldMusic(world.music);
+  preloadFirstPlayableScene();
 }
 
 function showOpeningFallback() {
@@ -803,11 +804,16 @@ function drawLifeEvent() {
 }
 
 function preloadLifeEventImage(event) {
-  const image = event?.image || content().lifeDefaultImage;
-  if (!image) return;
+  if (!event) return;
+  preloadImage(event.image || content().lifeDefaultImage);
+  for (const choice of event.choices || []) preloadImage(choice.image);
+}
+
+function preloadImage(relativePath) {
+  if (!relativePath) return;
   const preload = new Image();
   preload.decoding = "async";
-  preload.src = worldAsset(image);
+  preload.src = worldAsset(relativePath);
 }
 
 function queueNextLifeEvent() {
@@ -986,10 +992,7 @@ function renderLifeEvent() {
 
   renderMeters();
   for (const choice of event.choices || []) {
-    if (!choice.image) continue;
-    const preload = new Image();
-    preload.decoding = "async";
-    preload.src = worldAsset(choice.image);
+    preloadImage(choice.image);
   }
   if (choices.length < 2) queueNextLifeEvent();
 }
@@ -1226,12 +1229,36 @@ function preloadOutcomeImages(scene) {
       }
     }
     for (const candidate of candidates) {
-      if (!candidate.image) continue;
-      const preload = new Image();
-      preload.decoding = "async";
-      preload.src = worldAsset(candidate.image);
+      preloadImage(candidate.image);
     }
   });
+}
+
+function preloadScene(scene) {
+  if (!scene) return;
+  preloadImage(scene.image);
+  preloadOutcomeImages(scene);
+}
+
+function firstPlayableScene() {
+  if (world?.mode === "life") return null;
+  const source = world?.levels?.length ? world.levels[0] : world;
+  return source?.scenes?.[0] || null;
+}
+
+function preloadFirstPlayableScene() {
+  if (world?.mode === "life") {
+    preloadLifeEventImage(world.events?.[0]);
+    return;
+  }
+  preloadScene(firstPlayableScene());
+}
+
+function preloadNextScene() {
+  const current = content();
+  const nextScene = current.scenes?.[sceneIndex + 1];
+  if (!nextScene) return;
+  preloadScene(nextScene);
 }
 
 function renderOutcomeImage(scene, outcome) {
@@ -1282,6 +1309,7 @@ function resolveChoice(actionId) {
   if (!chips.length) chips.push(`<span>${escapeHtml(t("noChange"))}</span>`);
   $("deltaChips").innerHTML = chips.join("");
   $("continueButton").innerHTML = sceneIndex === current.scenes.length - 1 ? `${escapeHtml(worldUi("finalContinueButton", uiText.finalContinueButton))} <b>→</b>` : `${escapeHtml(worldUi("continueButton", uiText.continueButton))} <b>→</b>`;
+  preloadNextScene();
 }
 
 function continueJourney() {
