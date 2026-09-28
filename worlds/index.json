@@ -71,6 +71,11 @@
       "id": "bath-escape",
       "config": "bath-escape/world.json",
       "status": "ready"
+    },
+    {
+      "id": "cat-fishing",
+      "config": "cat-fishing/world.json",
+      "status": "ready"
     }
   ]
 }
