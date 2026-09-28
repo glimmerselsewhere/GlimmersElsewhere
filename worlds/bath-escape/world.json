@@ -4,7 +4,8 @@
   "shortTitle": "今天不洗澡",
   "subtitle": "猫的洗澡大逃亡",
   "description": "人类拿着毛巾和沐浴露向你走来。你要用猫的全部智慧和本能，在一个个藏身点之间做出选择，躲开那些看似安全的陷阱，直到逃到屋顶——或者被塞进浴缸。",
-  "music": null,
+  "music": "assets/audio/furry-little-outlaw.mp3",
+  "musicVolume": 0.12,
   "assetBase": "worlds/bath-escape/",
   "endingVideo": null,
   "opening": {

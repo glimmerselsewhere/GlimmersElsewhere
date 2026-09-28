@@ -4,7 +4,8 @@
   "shortTitle": "猫猫钓鱼",
   "subtitle": "静静等一竿，好奇下一竿",
   "description": "一个午后，一只猫，一根竹竿。每一竿都不知道会钓上来什么——也许是小鲫鱼，也许是月光锦鲤。",
-  "music": null,
+  "music": "assets/audio/marmalades-pond-day.mp3",
+  "musicVolume": 0.12,
   "assetBase": "worlds/cat-fishing/",
   "cover": {
     "default": "assets/cover/cover.webp"

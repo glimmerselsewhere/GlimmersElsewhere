@@ -4,7 +4,8 @@
   "shortTitle": "华尔街大亨",
   "subtitle": "三个选项，只有一个挣钱",
   "description": "一只穿西装的橘猫走进纽约猫交所。七个交易日、二十一只虚构股票，每道题只有一个选项是赚钱的——你的猫会做出什么表情？",
-  "music": null,
+  "music": "assets/audio/the-tuna-futures-cat.mp3",
+  "musicVolume": 0.12,
   "assetBase": "worlds/wall-street-cat/",
   "endingVideo": null,
   "opening": {

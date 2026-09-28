@@ -70,6 +70,14 @@
       "color": "#5f9e78",
       "chipBackground": "#dcf0e2",
       "max": 30
+    },
+    {
+      "id": "fish",
+      "label": "鱼干",
+      "description": "随身干粮，也可以和商猫交易",
+      "color": "#c78a3b",
+      "chipBackground": "#f7e7cc",
+      "max": 20
     }
   ],
   "talents": [
@@ -227,7 +235,8 @@
           "effect": {
             "cultivation": 1
           },
-          "image": "assets/images/events/results/prologue-bite.webp"
+          "image": "assets/images/events/results/prologue-bite.webp",
+          "result": "玉佩在你舌尖变得微温，阳台的光忽然像水一样退开。仙鹤满意地点头：它认下这只猫了。"
         },
         {
           "id": "paw",
@@ -237,7 +246,8 @@
             "cultivation": 1,
             "fish": 1
           },
-          "image": "assets/images/events/results/prologue-paw.webp"
+          "image": "assets/images/events/results/prologue-paw.webp",
+          "result": "你谨慎地嗅了两下，玉佩散出青草和晨露的味道。仙鹤等住了，尾巴轻轻扫着地面。"
         },
         {
           "id": "ignore",
@@ -246,7 +256,8 @@
           "effect": {
             "belly": 1
           },
-          "image": "assets/images/events/results/prologue-ignore.webp"
+          "image": "assets/images/events/results/prologue-ignore.webp",
+          "result": "你把头埋回爪子里继续晒太阳。仙鹤没有生气，只是把玉佩留在原地，等你改变主意。"
         }
       ]
     },
@@ -270,7 +281,8 @@
           "effect": {
             "cultivation": 2
           },
-          "image": "assets/images/events/results/awakening-trust.webp"
+          "image": "assets/images/events/results/awakening-trust.webp",
+          "result": "你跟在仙鹤身后踩上云路，风把耳朵吹得向后翻。青玉宗的山门在云层尽头慢慢亮起来。"
         },
         {
           "id": "look-down",
@@ -280,7 +292,8 @@
             "cultivation": 1,
             "belly": 1
           },
-          "image": "assets/images/events/results/awakening-look-down.webp"
+          "image": "assets/images/events/results/awakening-look-down.webp",
+          "result": "你低头看见群山像叠在一起的青色屋瓦。腿有点软，但玉佩稳稳托住了你。"
         },
         {
           "id": "spit-out",
@@ -290,7 +303,8 @@
             "belly": 1,
             "morality": -1
           },
-          "image": "assets/images/events/results/awakening-spit-out.webp"
+          "image": "assets/images/events/results/awakening-spit-out.webp",
+          "result": "你刚想张嘴，玉佩就贴住舌尖不放。仙鹤回头看了你一眼：这只猫还有反悔的机会吗？"
         }
       ]
     },
@@ -311,7 +325,8 @@
             "cultivation": 2,
             "morality": 1
           },
-          "image": "assets/images/events/results/sect-gate-sword.webp"
+          "image": "assets/images/events/results/sect-gate-sword.webp",
+          "result": "你在剑坪的木牌上按下爪印，远处的剑架轻轻响了一声。长老说：从今天起，你算剑坪的编外猫。"
         },
         {
           "id": "alchemy",
@@ -322,7 +337,8 @@
             "belly": 2,
             "morality": 1
           },
-          "image": "assets/images/events/results/sect-gate-alchemy.webp"
+          "image": "assets/images/events/results/sect-gate-alchemy.webp",
+          "result": "丹房的热气立刻裹住你的胡须，甜、苦、焦三种味道轮流出现。师兄给你留了一个靠窗的小垫子。"
         },
         {
           "id": "steal",
@@ -332,7 +348,8 @@
             "belly": 3,
             "morality": -1
           },
-          "image": "assets/images/events/results/sect-gate-steal.webp"
+          "image": "assets/images/events/results/sect-gate-steal.webp",
+          "result": "你溜进灵果园，踩着草叶一路无声。守园师兄只看见枝叶晃动，没发现爪边已经多了两颗灵果。"
         }
       ],
       "minTurn": 3,
@@ -357,7 +374,8 @@
           "effect": {
             "cultivation": 1
           },
-          "image": "assets/images/events/results/morning-drill-serious.webp"
+          "image": "assets/images/events/results/morning-drill-serious.webp",
+          "result": "你把最后一排的动作做完整，尾巴虽然慢了半拍，剑坪的风却开始绕着你的爪尖转。"
         },
         {
           "id": "sleep",
@@ -366,7 +384,8 @@
           "effect": {
             "belly": 1
           },
-          "image": "assets/images/events/results/morning-drill-sleep.webp"
+          "image": "assets/images/events/results/morning-drill-sleep.webp",
+          "result": "你缩在队伍末尾睡了一觉，梦见自己打出了一套漂亮剑法。醒来时，师兄们刚好收势。"
         },
         {
           "id": "imitate",
@@ -375,7 +394,8 @@
           "effect": {
             "cultivation": 1
           },
-          "image": "assets/images/events/results/morning-drill-imitate.webp"
+          "image": "assets/images/events/results/morning-drill-imitate.webp",
+          "result": "你盯着师兄尾巴的节奏摆动自己的尾巴，忽然懂了半式身法。猫的身体原来也能这么听话。"
         }
       ],
       "image": "assets/images/events/morning-drill.webp"
@@ -399,7 +419,8 @@
           "effect": {
             "cultivation": 2
           },
-          "image": "assets/images/events/results/library-cat-read.webp"
+          "image": "assets/images/events/results/library-cat-read.webp",
+          "result": "书页自己翻到一页猫爪图，那些线条像呼吸一样动起来。你不知不觉看入了神。"
         },
         {
           "id": "steal-book",
@@ -409,7 +430,8 @@
             "cultivation": 1,
             "morality": -1
           },
-          "image": "assets/images/events/results/library-cat-steal-book.webp"
+          "image": "assets/images/events/results/library-cat-steal-book.webp",
+          "result": "你叼起书往藏经阁外溜，守门师兄打了个哈欠。书在你嘴里轻轻发烫。"
         },
         {
           "id": "just-nap",
@@ -418,7 +440,8 @@
           "effect": {
             "belly": 1
           },
-          "image": "assets/images/events/results/library-cat-just-nap.webp"
+          "image": "assets/images/events/results/library-cat-just-nap.webp",
+          "result": "你把自己埋进书堆，灰尘在光柱里慢慢落下来。梦里有人在念猫功法。"
         }
       ],
       "image": "assets/images/events/library-cat.webp"
@@ -445,7 +468,8 @@
             "morality": 2,
             "fish": 1
           },
-          "image": "assets/images/events/results/kitchen-duty-cook-well.webp"
+          "image": "assets/images/events/results/kitchen-duty-cook-well.webp",
+          "result": "灵米蒸得松软，仙鹤在门口满意地拍了拍翅膀。锅边留给你的那一小勺，比平时更香。"
         },
         {
           "id": "taste-test",
@@ -455,14 +479,16 @@
             "belly": 3,
             "morality": 1
           },
-          "image": "assets/images/events/results/kitchen-duty-taste-test.webp"
+          "image": "assets/images/events/results/kitchen-duty-taste-test.webp",
+          "result": "你趁没人注意尝了三次，第四次终于确认咸淡正好。锅里的热气熏得胡须微微卷起。"
         },
         {
           "id": "burn-it",
           "text": "不小心烧糊了",
           "hint": "灵米好像有自己的脾气",
           "effect": {},
-          "image": "assets/images/events/results/kitchen-duty-burn-it.webp"
+          "image": "assets/images/events/results/kitchen-duty-burn-it.webp",
+          "result": "锅底传出焦味，灵米糊成一小块黑壳。仙鹤没有责备，只是默默多看了锅一眼。"
         }
       ],
       "image": "assets/images/events/kitchen-duty.webp"
@@ -481,7 +507,8 @@
           "text": "睡到自然醒",
           "hint": "灵雾被子很暖",
           "effect": {},
-          "image": "assets/images/events/results/nap-cloud-deep-sleep.webp"
+          "image": "assets/images/events/results/nap-cloud-deep-sleep.webp",
+          "result": "灵雾被子贴着你的背慢慢起伏。你醒来时，云台已经把阳光挪到了你的肚皮上。"
         },
         {
           "id": "cloud-sense",
@@ -490,7 +517,8 @@
           "effect": {
             "cultivation": 2
           },
-          "image": "assets/images/events/results/nap-cloud-cloud-sense.webp"
+          "image": "assets/images/events/results/nap-cloud-cloud-sense.webp",
+          "result": "半梦半醒间，云的流动变成一招缓慢剑势。你睡着睡着，尾巴先学会了。"
         }
       ],
       "image": "assets/images/events/nap-cloud.webp"
@@ -513,14 +541,16 @@
           "effect": {
             "cultivation": 1
           },
-          "image": "assets/images/events/results/chase-butterfly-catch.webp"
+          "image": "assets/images/events/results/chase-butterfly-catch.webp",
+          "result": "你终于扑到发光蝴蝶，它在你爪间散成一撮暖光。风替你顺了顺炸开的毛。"
         },
         {
           "id": "give-up",
           "text": "算了，回头看看风景",
           "hint": "山顶的视野很好",
           "effect": {},
-          "image": "assets/images/events/results/chase-butterfly-give-up.webp"
+          "image": "assets/images/events/results/chase-butterfly-give-up.webp",
+          "result": "你停在三座山头之外，回头看见云海翻涌。蝴蝶绕了一圈，像是替你带了个消息。"
         }
       ],
       "image": "assets/images/events/chase-butterfly.webp"
@@ -543,7 +573,8 @@
           "effect": {
             "belly": 1
           },
-          "image": "assets/images/events/results/pill-accident-endure.webp"
+          "image": "assets/images/events/results/pill-accident-endure.webp",
+          "result": "你绷直尾巴一声不吭，肚子里的灵气咕噜作响。路过的师兄以为你在深度修炼。"
         },
         {
           "id": "find-elder",
@@ -553,7 +584,8 @@
             "morality": 1,
             "belly": 1
           },
-          "image": "assets/images/events/results/pill-accident-find-elder.webp"
+          "image": "assets/images/events/results/pill-accident-find-elder.webp",
+          "result": "长老摸了摸你的肚子，笑着递来一碗温水。丹房的烟从窗缝里退了出去。"
         }
       ],
       "image": "assets/images/events/pill-accident.webp"
@@ -576,7 +608,8 @@
           "effect": {
             "belly": 1
           },
-          "image": "assets/images/events/results/festival-smell-all.webp"
+          "image": "assets/images/events/results/festival-smell-all.webp",
+          "result": "你从摊位前一路闻过去，鼻子记下了十七种药香。摊主们开始留意这只专业的猫。"
         },
         {
           "id": "enter-contest",
@@ -587,7 +620,8 @@
             "belly": 2,
             "fish": 1
           },
-          "image": "assets/images/events/results/festival-enter-contest.webp"
+          "image": "assets/images/events/results/festival-enter-contest.webp",
+          "result": "你坐上比赛垫，台下响起一片小声惊呼。第一炉丹的味道比你预想的更听话。"
         },
         {
           "id": "sneak-out",
@@ -597,7 +631,8 @@
             "belly": 3,
             "morality": -1
           },
-          "image": "assets/images/events/results/festival-sneak-out.webp"
+          "image": "assets/images/events/results/festival-sneak-out.webp",
+          "result": "你叼着一颗小丹丸溜到摊位后面，心跳得很快。丹丸在嘴里甜得像鱼干。"
         }
       ],
       "image": "assets/images/events/festival.webp"
@@ -622,7 +657,8 @@
             "cultivation": 2,
             "belly": -1
           },
-          "image": "assets/images/events/results/rain-cultivation-stand-rain.webp"
+          "image": "assets/images/events/results/rain-cultivation-stand-rain.webp",
+          "result": "雨水顺着毛尖落成一条细线，灵气在皮肤下微微发麻。整座山都陪着你安静下来。"
         },
         {
           "id": "shelter",
@@ -631,7 +667,8 @@
           "effect": {
             "cultivation": 1
           },
-          "image": "assets/images/events/results/rain-cultivation-shelter.webp"
+          "image": "assets/images/events/results/rain-cultivation-shelter.webp",
+          "result": "你坐在屋檐下听雨，呼吸慢慢和雨声对齐。屋里的师兄回头看了一眼，没有打扰你。"
         }
       ],
       "image": "assets/images/events/rain-cultivation.webp"
@@ -657,7 +694,8 @@
             "morality": 1,
             "fish": 1
           },
-          "image": "assets/images/events/results/gift-fish-accept-fish.webp"
+          "image": "assets/images/events/results/gift-fish-accept-fish.webp",
+          "result": "灵鱼在你口中微微发光，仙鹤满意地拍翅。它以后大概还会来找你。"
         },
         {
           "id": "share-crane",
@@ -667,7 +705,8 @@
             "belly": 1,
             "morality": 3
           },
-          "image": "assets/images/events/results/gift-fish-share-crane.webp"
+          "image": "assets/images/events/results/gift-fish-share-crane.webp",
+          "result": "你把鱼推回给仙鹤，它低头啄了一小口，眼睛弯成温和的弧线。你们都吃饱了一点。"
         }
       ],
       "image": "assets/images/events/gift-fish.webp"
@@ -690,7 +729,8 @@
           "effect": {
             "cultivation": 2
           },
-          "image": "assets/images/events/results/meditation-push-harder.webp"
+          "image": "assets/images/events/results/meditation-push-harder.webp",
+          "result": "冰晶爬上胡须，聚灵阵的光开始贴着你的脊背流动。你的呼吸声变得更慢、更沉。"
         },
         {
           "id": "open-eyes",
@@ -699,7 +739,8 @@
           "effect": {
             "cultivation": 1
           },
-          "image": "assets/images/events/results/meditation-open-eyes.webp"
+          "image": "assets/images/events/results/meditation-open-eyes.webp",
+          "result": "你睁开眼时，光阵刚好停转。一只飞虫停在你鼻尖，也没敢动。"
         }
       ],
       "image": "assets/images/events/meditation.webp"
@@ -722,7 +763,8 @@
           "effect": {
             "morality": 2
           },
-          "image": "assets/images/events/results/clean-cave-do-properly.webp"
+          "image": "assets/images/events/results/clean-cave-do-properly.webp",
+          "result": "山洞被你扫得干净，灰尘全数飞出门外。睡在里面的师兄醒来，以为自己换了个洞。"
         },
         {
           "id": "sweep-out",
@@ -731,7 +773,8 @@
           "effect": {
             "morality": -2
           },
-          "image": "assets/images/events/results/clean-cave-sweep-out.webp"
+          "image": "assets/images/events/results/clean-cave-sweep-out.webp",
+          "result": "灰云准确扑到师兄门口，又从他门缝里钻进去。你听到一声闷闷的咳嗽。"
         }
       ],
       "image": "assets/images/events/clean-cave.webp"
@@ -752,14 +795,16 @@
           "effect": {
             "cultivation": 2
           },
-          "image": "assets/images/events/results/night-watch-count-stars.webp"
+          "image": "assets/images/events/results/night-watch-count-stars.webp",
+          "result": "星星在你眼里连成一条细线。数到第九颗时，你忽然明白了一点天的走向。"
         },
         {
           "id": "watch-beasts",
           "text": "观察夜行灵兽",
           "hint": "它们在做什么",
           "effect": {},
-          "image": "assets/images/events/results/night-watch-watch-beasts.webp"
+          "image": "assets/images/events/results/night-watch-watch-beasts.webp",
+          "result": "夜行灵兽在林间错身而过，谁都没有惊动谁。你记下了它们的步法。"
         },
         {
           "id": "patrol",
@@ -768,7 +813,8 @@
           "effect": {
             "morality": 1
           },
-          "image": "assets/images/events/results/night-watch-patrol.webp"
+          "image": "assets/images/events/results/night-watch-patrol.webp",
+          "result": "你沿着山崖走完一整圈，把气味留在关键石头上。夜里巡逻的师兄朝你点了点头。"
         }
       ],
       "image": "assets/images/events/night-watch.webp"
@@ -788,7 +834,8 @@
             "cultivation": 2,
             "morality": 0
           },
-          "image": "assets/images/events/results/mouse-duel-fight.webp"
+          "image": "assets/images/events/results/mouse-duel-fight.webp",
+          "result": "猫剑和鼠剑在山路上相击，草叶断成两截。鼠剑仙后退半步，眼神第一次认真起来。"
         },
         {
           "id": "share-fish",
@@ -798,7 +845,8 @@
             "morality": 2,
             "belly": -1
           },
-          "image": "assets/images/events/results/mouse-duel-share-fish.webp"
+          "image": "assets/images/events/results/mouse-duel-share-fish.webp",
+          "result": "鼠剑仙愣住，接过小鱼干慢慢啃完，尾巴上的结自己松开了。他说下次山道让给你走。"
         },
         {
           "id": "play-dead",
@@ -807,7 +855,8 @@
           "effect": {
             "morality": -1
           },
-          "image": "assets/images/events/results/mouse-duel-play-dead.webp"
+          "image": "assets/images/events/results/mouse-duel-play-dead.webp",
+          "result": "你四脚朝天倒下，鼠剑仙围着你看了一圈，狐疑地用剑尖戳了戳你的爪垫。"
         }
       ],
       "minTurn": 4,
@@ -827,7 +876,8 @@
           "effect": {
             "cultivation": 2
           },
-          "image": "assets/images/events/results/secret-realm-open-enter-realm.webp"
+          "image": "assets/images/events/results/secret-realm-open-enter-realm.webp",
+          "result": "你钻进光门，眼前的石阶立刻旋转起来。门外的山风被完全隔开。"
         },
         {
           "id": "with-friends",
@@ -837,7 +887,8 @@
             "cultivation": 1,
             "morality": 2
           },
-          "image": "assets/images/events/results/secret-realm-open-with-friends.webp"
+          "image": "assets/images/events/results/secret-realm-open-with-friends.webp",
+          "result": "你叫上几只同门猫，大家尾巴贴尾巴走进光门。秘境的雾都不敢立刻合拢。"
         },
         {
           "id": "wait-outside",
@@ -846,7 +897,8 @@
           "effect": {
             "belly": 1
           },
-          "image": "assets/images/events/results/secret-realm-open-wait-outside.webp"
+          "image": "assets/images/events/results/secret-realm-open-wait-outside.webp",
+          "result": "你在光门外晒着月亮，听见里面传来远处的钟声。门的光慢慢稳住了。"
         }
       ],
       "minTurn": 5,
@@ -867,7 +919,8 @@
             "cultivation": 3,
             "belly": 1
           },
-          "image": "assets/images/events/results/spirit-fruit-ripe-refine-fruit.webp"
+          "image": "assets/images/events/results/spirit-fruit-ripe-refine-fruit.webp",
+          "result": "灵果在你腹中化开，一股暖流顺着经脉走到爪尖。枝头的叶子替你轻轻鼓掌。"
         },
         {
           "id": "eat-all",
@@ -877,7 +930,8 @@
             "belly": 5,
             "cultivation": 1
           },
-          "image": "assets/images/events/results/spirit-fruit-ripe-eat-all.webp"
+          "image": "assets/images/events/results/spirit-fruit-ripe-eat-all.webp",
+          "result": "你蘸着鱼泥把灵果吃完，肚皮立刻圆了一圈。修仙确实不能饿肚子。"
         },
         {
           "id": "share-fruit",
@@ -887,7 +941,8 @@
             "morality": 4,
             "cultivation": 1
           },
-          "image": "assets/images/events/results/spirit-fruit-ripe-share-fruit.webp"
+          "image": "assets/images/events/results/spirit-fruit-ripe-share-fruit.webp",
+          "result": "你把大半灵果分给受伤的同门，自己只留一小瓣。它的伤口肉眼可见地合拢了一些。"
         }
       ],
       "minTurn": 5,
@@ -907,7 +962,8 @@
             "morality": 4,
             "fish": 2
           },
-          "image": "assets/images/events/results/senior-injured-rescue.webp"
+          "image": "assets/images/events/results/senior-injured-rescue.webp",
+          "result": "师兄趴在你背上轻得意外，宝匣在侧面晃来晃去。你们一起往山门走，晚风把汗味吹散。"
         },
         {
           "id": "take-box",
@@ -917,7 +973,8 @@
             "cultivation": 3,
             "morality": -5
           },
-          "image": "assets/images/events/results/senior-injured-take-box.webp"
+          "image": "assets/images/events/results/senior-injured-take-box.webp",
+          "result": "宝匣的锁扣在你爪下弹开又合上。山路安静得过分，只有你的心跳在响。"
         },
         {
           "id": "call-help",
@@ -926,7 +983,8 @@
           "effect": {
             "morality": 3
           },
-          "image": "assets/images/events/results/senior-injured-call-help.webp"
+          "image": "assets/images/events/results/senior-injured-call-help.webp",
+          "result": "信符冲上天空，炸出一朵青色信号。师兄靠在树根上，终于松了口气。"
         }
       ],
       "minTurn": 4,
@@ -947,14 +1005,16 @@
             "cultivation": 3,
             "belly": 1
           },
-          "image": "assets/images/events/results/rare-herb-climb.webp"
+          "image": "assets/images/events/results/rare-herb-climb.webp",
+          "result": "你贴着岩壁下滑，风从爪垫缝里穿过。九叶灵芝在你眼前微微发光。"
         },
         {
           "id": "wait-fall",
           "text": "等它自己掉下来",
           "hint": "佛系修仙",
           "effect": {},
-          "image": "assets/images/events/results/rare-herb-wait-fall.webp"
+          "image": "assets/images/events/results/rare-herb-wait-fall.webp",
+          "result": "你等了半个时辰，风终于把一片叶子吹下来。整株灵芝稳稳不动，像在考验你的耐心。"
         }
       ],
       "minTurn": 4,
@@ -979,7 +1039,8 @@
           "effect": {
             "cultivation": 3
           },
-          "image": "assets/images/events/results/dream-master-take-key.webp"
+          "image": "assets/images/events/results/dream-master-take-key.webp",
+          "result": "钥匙落进爪心时还在发温。你握紧它，梦的边缘亮起一道细门。"
         },
         {
           "id": "ask-question",
@@ -989,7 +1050,8 @@
             "cultivation": 2,
             "morality": 2
           },
-          "image": "assets/images/events/results/dream-master-ask-question.webp"
+          "image": "assets/images/events/results/dream-master-ask-question.webp",
+          "result": "白发仙人被你问得笑了。他说：好问题，比钥匙更值钱。"
         }
       ],
       "image": "assets/images/events/dream-master.webp"
@@ -1009,7 +1071,8 @@
             "belly": 1
           },
           "cost": 2,
-          "image": "assets/images/events/results/merchant-cat-buy-pill.webp"
+          "image": "assets/images/events/results/merchant-cat-buy-pill.webp",
+          "result": "醒神丹入口即化，你的耳朵瞬间竖直，整条山路都清晰起来。商猫迅速收好鱼干。"
         },
         {
           "id": "buy-charm",
@@ -1017,7 +1080,8 @@
           "hint": "气运+2",
           "effect": {},
           "cost": 2,
-          "image": "assets/images/events/results/merchant-cat-buy-charm.webp"
+          "image": "assets/images/events/results/merchant-cat-buy-charm.webp",
+          "result": "平安符贴在胸前微微发热，像一小块晒过的石头。商猫郑重地朝你拱手。"
         },
         {
           "id": "no-buy",
@@ -1028,7 +1092,8 @@
             "morality": 1
           },
           "cost": 0,
-          "image": "assets/images/events/results/merchant-cat-no-buy.webp"
+          "image": "assets/images/events/results/merchant-cat-no-buy.webp",
+          "result": "你从摊位前走开，鱼干袋仍保持厚度。商猫在你背后小声说：这猫很冷静。"
         }
       ],
       "minTurn": 4,
@@ -1051,7 +1116,8 @@
             "morality": 1,
             "fish": 2
           },
-          "image": "assets/images/events/results/dragon-invite-accept-dragon.webp"
+          "image": "assets/images/events/results/dragon-invite-accept-dragon.webp",
+          "result": "龙爪把你托上云桌，食物的香气把整片天空都压低。银龙低头等你入席。"
         },
         {
           "id": "refuse-dragon",
@@ -1061,7 +1127,8 @@
             "morality": 2,
             "cultivation": 1
           },
-          "image": "assets/images/events/results/dragon-invite-refuse-dragon.webp"
+          "image": "assets/images/events/results/dragon-invite-refuse-dragon.webp",
+          "result": "你朝银龙行了一个猫礼，转身回到山道。龙尾在你身后轻轻摆了一下，算是告别。"
         }
       ],
       "minTurn": 8,
@@ -1083,7 +1150,8 @@
             "cultivation": 3,
             "lifespan": -2
           },
-          "image": "assets/images/events/results/thunder-trial-face-thunder.webp"
+          "image": "assets/images/events/results/thunder-trial-face-thunder.webp",
+          "result": "雷光劈在你毛尖上炸开，你四爪仍扣住地面。雷声过后，山道上只留下几缕焦味。"
         },
         {
           "id": "shield-others",
@@ -1093,7 +1161,8 @@
             "morality": 4,
             "cultivation": 2
           },
-          "image": "assets/images/events/results/thunder-trial-shield-others.webp"
+          "image": "assets/images/events/results/thunder-trial-shield-others.webp",
+          "result": "你把同门猫护在身后，雷光绕着你的背脊散开。他们的眼睛里全是你竖起的毛。"
         },
         {
           "id": "dark-jade",
@@ -1104,7 +1173,8 @@
             "morality": -4,
             "lifespan": -2
           },
-          "image": "assets/images/events/results/thunder-trial-dark-jade.webp"
+          "image": "assets/images/events/results/thunder-trial-dark-jade.webp",
+          "result": "玉佩里的暗纹亮起，雷光被引向旁边一块岩石。你听见远处有猫轻轻吸了一口气。"
         }
       ],
       "minTurn": 10,
@@ -1130,7 +1200,8 @@
             "cultivation": 3,
             "morality": 1
           },
-          "image": "assets/images/events/results/ancient-ruin-touch-statue.webp"
+          "image": "assets/images/events/results/ancient-ruin-touch-statue.webp",
+          "result": "石猫的眼睛缓缓转向你，爪下石台轻轻一震。尘土落下，像一场很旧的欢迎。"
         },
         {
           "id": "search-around",
@@ -1140,7 +1211,8 @@
             "cultivation": 2,
             "belly": 2
           },
-          "image": "assets/images/events/results/ancient-ruin-search-around.webp"
+          "image": "assets/images/events/results/ancient-ruin-search-around.webp",
+          "result": "你在碎片下找到一枚猫爪印铜片，边缘还留着微弱灵光。遗迹像在等人读懂它。"
         }
       ],
       "image": "assets/images/events/ancient-ruin.webp"
@@ -1148,12 +1220,13 @@
     {
       "id": "time-fruit",
       "timeCost": 10,
-      "event": "你吃了一颗时光果。你在原地站了一百年，但感觉只有一秒。",
+  "event": "你吃了一颗时光果。它先把一百年补进你的寿元，再让你在原地站了一百年，感觉只有一秒。",
       "title": "时光果",
       "rarity": 2,
-      "effect": {
-        "cultivation": 3,
-        "belly": 1
+  "effect": {
+    "cultivation": 3,
+    "belly": 1,
+    "lifespan": 10
       },
       "minTurn": 9,
       "maxTurn": 20,
@@ -1167,7 +1240,8 @@
             "belly": 1,
             "lifespan": 3
           },
-          "image": "assets/images/events/results/time-fruit-eat-slowly.webp"
+          "image": "assets/images/events/results/time-fruit-eat-slowly.webp",
+      "result": "甜味还没散，山上的藤蔓已经绿了又黄。果子补上的百年寿元，刚好接住这段流逝。"
         },
         {
           "id": "share-time",
@@ -1178,7 +1252,8 @@
             "cultivation": 2,
             "lifespan": 3
           },
-          "image": "assets/images/events/results/time-fruit-share-time.webp"
+          "image": "assets/images/events/results/time-fruit-share-time.webp",
+      "result": "同门咬下果肉时同时愣住，彼此都看见了对方变长的影子。百年寿元被你们分掉，谁也没有被时间推到终点。"
         }
       ],
       "image": "assets/images/events/time-fruit.webp"
@@ -1203,7 +1278,8 @@
             "morality": 2,
             "cultivation": 2
           },
-          "image": "assets/images/events/results/nine-tail-teach-hunt.webp"
+          "image": "assets/images/events/results/nine-tail-teach-hunt.webp",
+          "result": "你示范了如何假装不在意，九尾灵狐学得极快。它回头时，尾巴已经整齐了。"
         },
         {
           "id": "ask-magic",
@@ -1212,7 +1288,8 @@
           "effect": {
             "cultivation": 3
           },
-          "image": "assets/images/events/results/nine-tail-ask-magic.webp"
+          "image": "assets/images/events/results/nine-tail-ask-magic.webp",
+          "result": "灵狐抬爪画出半道符，光点在你眼前散成梅花。它说你比一般猫有礼。"
         }
       ],
       "image": "assets/images/events/nine-tail.webp"
@@ -1240,7 +1317,8 @@
             "morality": 2,
             "lifespan": 3
           },
-          "image": "assets/images/events/results/immortal-cat-legacy-kneel.webp"
+          "image": "assets/images/events/results/immortal-cat-legacy-kneel.webp",
+          "result": "你伏低身体拜了三下，石碑上的爪印亮起。洞里的风忽然温暖起来。"
         },
         {
           "id": "read-carefully",
@@ -1251,7 +1329,8 @@
             "morality": 3,
             "lifespan": 3
           },
-          "image": "assets/images/events/results/immortal-cat-legacy-read-carefully.webp"
+          "image": "assets/images/events/results/immortal-cat-legacy-read-carefully.webp",
+          "result": "你把那四个字读了很多遍，肚子里咕噜一声。石碑轻轻震了一下，像是笑了。"
         }
       ],
       "image": "assets/images/events/immortal-cat-legacy.webp"
@@ -1275,7 +1354,8 @@
             "cultivation": 4,
             "lifespan": 2
           },
-          "image": "assets/images/events/results/heaven-gift-accept-light.webp"
+          "image": "assets/images/events/results/heaven-gift-accept-light.webp",
+          "result": "金光从头顶穿到尾巴尖，你忍不住打了一个嗝。云层裂开的地方正好对准你。"
         },
         {
           "id": "dodge",
@@ -1285,7 +1365,8 @@
             "cultivation": 2,
             "lifespan": 2
           },
-          "image": "assets/images/events/results/heaven-gift-dodge.webp"
+          "image": "assets/images/events/results/heaven-gift-dodge.webp",
+          "result": "你侧身闪开，金光落在旁边的石头上，把苔藓照得发亮。仙鹤在你头顶盘旋了一圈。"
         }
       ],
       "image": "assets/images/events/heaven-gift.webp"
@@ -1311,7 +1392,8 @@
             "morality": 4,
             "lifespan": 2
           },
-          "image": "assets/images/events/results/all-cats-meet-bow.webp"
+          "image": "assets/images/events/results/all-cats-meet-bow.webp",
+          "result": "你伏下前爪行礼，云海上的万猫虚影同时低头。整片天地安静了一瞬。"
         },
         {
           "id": "wink-back",
@@ -1322,7 +1404,8 @@
             "morality": 2,
             "lifespan": 2
           },
-          "image": "assets/images/events/results/all-cats-meet-wink-back.webp"
+          "image": "assets/images/events/results/all-cats-meet-wink-back.webp",
+          "result": "那只眨眼的猫又眨了一下，云海随之轻轻晃动。你们之间好像达成了一种默契。"
         }
       ],
       "image": "assets/images/events/all-cats-meet.webp"
@@ -1349,7 +1432,8 @@
             "belly": 2,
             "lifespan": 2
           },
-          "image": "assets/images/events/results/samsara-pond-look-longer.webp"
+          "image": "assets/images/events/results/samsara-pond-look-longer.webp",
+          "result": "水里的懒猫翻了个身，阳光也跟着移动。你忽然想起家里的窗台有多暖。"
         },
         {
           "id": "turn-away",
@@ -1359,7 +1443,8 @@
             "cultivation": 3,
             "lifespan": 2
           },
-          "image": "assets/images/events/results/samsara-pond-turn-away.webp"
+          "image": "assets/images/events/results/samsara-pond-turn-away.webp",
+          "result": "你转身离开水面，前方的石阶在雾里显现。轮回池的水安静下来。"
         }
       ],
       "image": "assets/images/events/samsara-pond.webp"

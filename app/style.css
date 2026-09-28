@@ -165,6 +165,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .choice-button strong { display: block; font-size: 14px; }.choice-button small { color: var(--muted); font-size: 10px; }
 .choice-button > b { color: var(--gold); font-size: 16px; }
 .choice-button:disabled { opacity: .5; }
+.choice-button.is-unaffordable { border-color: rgba(216,101,76,.3); background: rgba(255,244,240,.82); }
+.choice-button.is-unaffordable b { color: #b7492f; }
 .outcome-panel { padding: 15px; border: 1px solid rgba(74,55,93,.12); border-radius: 18px; background: rgba(255,255,255,.72); box-shadow: 0 8px 18px rgba(47,34,53,.08); }
 .outcome-panel > p { min-height: 40px; max-height: none; overflow: visible; white-space: pre-line; margin: 0; font-size: 13px; line-height: 1.55; scrollbar-width: thin; }
 .delta-chips { display: flex; gap: 8px; margin-top: 10px; }
@@ -183,7 +185,11 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .ending-card h2 { margin: 7px 0 9px; font: 900 29px/1.18 "Songti SC", serif; }
 .ending-card > p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .final-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 17px 0; }
-.final-stats span { display: flex; justify-content: space-between; padding: 11px 13px; border-radius: 13px; background: #f0e8db; font-size: 12px; }.final-stats b { font-size: 17px; }
+.final-stats span { display: flex; justify-content: space-between; align-items: center; min-width: 0; padding: 11px 10px; border-radius: 13px; background: #f0e8db; font-size: 12px; }.final-stats b { font-size: 17px; }
+.final-stats.is-life { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.life-summary { grid-column: 1 / -1; padding: 12px 13px; border: 1px solid #dccdaa; border-radius: 15px; background: #fff5e0; }
+.life-summary small { display: block; color: #8a6f39; font: 800 9px/1 ui-monospace, monospace; letter-spacing: .14em; }
+.life-summary p { margin: 5px 0 0; color: #63564a; font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
 /* keepsake row: thumbnail + title + icon-only download */
 .keepsake { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid #dcbf79; border-radius: 17px; background: linear-gradient(135deg, #fff4ce, #f2dfad); }
 .keepsake-open { display: flex; align-items: center; gap: 12px; flex: 1 1 auto; min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
