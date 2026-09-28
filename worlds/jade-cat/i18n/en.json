@@ -516,10 +516,10 @@
       "title": "Merchant cat",
       "event": "A merchant cat appears at the gate, selling strange things.",
       "choices": [
-        {
-          "text": "Buy a clarity pill",
-          "hint": "Cultivation+2",
-          "result": "The pill dissolves instantly; your ears stand straight and the road becomes clear. The merchant cat pockets your fish."
+    {
+      "text": "Buy a full vial of clarity pills",
+      "hint": "Powerful: Cultivation+5, Belly+2",
+      "result": "You swallow the vial in three doses. Ears, whiskers, and tail tip all glow. The merchant cat counts five dried fish and hands you the vial cap: worth it."
         },
         {
           "text": "Buy a safety charm",
