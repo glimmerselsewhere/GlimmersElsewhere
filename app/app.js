@@ -123,6 +123,7 @@ const STRINGS = {
     ksLoading: "Loading the 3D model…",
     soundLabel: "Toggle sound",
     sceneProgressHint: "Scene",
+    creatorEntry: "Creator studio",
     noChange: "No change",
   },
   zh: {
@@ -158,6 +159,7 @@ const STRINGS = {
     ksLoading: "正在载入 3D 模型…",
     soundLabel: "切换声音",
     sceneProgressHint: "进度",
+    creatorEntry: "设计关卡",
     noChange: "没有状态变化",
   },
 };
@@ -274,6 +276,7 @@ async function loadPlatformText() {
     choiceFallback: "选择这个选项",
     soundLabel: "切换声音",
     catalog: { eyebrow: "", headline: "", description: "" },
+    creatorEntry: "设计关卡",
   }, over || {});
 }
 
@@ -282,7 +285,8 @@ async function loadCatalog() {
   const response = await fetch("worlds/index.json?v=1", { cache: "no-store" });
   if (!response.ok) throw new Error("无法载入异界目录");
   const catalog = await response.json();
-  const entries = Array.isArray(catalog.worlds) ? catalog.worlds : [];
+  // entries flagged hidden are kept in the repo but stay off the catalogue
+  const entries = (Array.isArray(catalog.worlds) ? catalog.worlds : []).filter(entry => !entry.hidden);
   worldEntries = await Promise.all(entries.map(async entry => {
     if (entry.status === "coming-soon" || (!entry.config && !entry.launchUrl)) {
       return {
@@ -327,6 +331,8 @@ function applyPlatformText() {
   $("catalogHeadline").textContent = platform.headline || "每一片异境，都有一场自己的游戏。";
   $("catalogDescription").textContent = platform.description || "选择一个世界，进入一段属于它的故事。";
   $("catalogNote").textContent = uiText.catalogNote;
+  const creatorEntry = document.querySelector("#creatorEntry");
+  if (creatorEntry) creatorEntry.textContent = t("creatorEntry");
 }
 
 function renderCatalog(catalog) {

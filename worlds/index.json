@@ -55,14 +55,6 @@
       "titleEn": "Meowchelin Isekai Kitchen",
       "subtitleEn": "Western-fantasy cooking adventure",
       "descriptionEn": "A cat chef wanders a western-fantasy world where every monster can become dinner."
-    },
-    {
-      "id": "dragon-table",
-      "config": "dragon-table/world.json",
-      "status": "ready",
-      "titleEn": "Dragon Table",
-      "subtitleEn": "Eavesdrop, then guess the dish",
-      "descriptionEn": "A lone cat diner overhears the kitchen and guesses four dishes by ear."
     }
   ]
 }
