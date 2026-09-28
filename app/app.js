@@ -71,6 +71,16 @@ function showView(id) {
   window.scrollTo(0, 0);
 }
 
+function maybeShuffleActions(actions) {
+  if (!Array.isArray(actions) || actions.length < 2 || world?.shuffleActions === false) return actions;
+  const shuffled = [...actions];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function updateSoundButtons() {
   [$('catalogSound'), $('soundToggle')].forEach(button => {
     button.setAttribute("aria-label", t("soundLabel"));
@@ -108,6 +118,8 @@ const STRINGS = {
     sceneN: (n) => `Scene ${n}`,
     scoreLabel: "Correct",
     enterWorld: "Enter this world",
+    shareWorld: "Share this world",
+    shareCopied: "Link copied",
     comingSoon: "In development",
     exploring: "Explore this world",
     enterChapter: "Enter chapter →",
@@ -144,6 +156,8 @@ const STRINGS = {
     sceneN: (n) => `第 ${n} 幕`,
     scoreLabel: "答对",
     enterWorld: "进入这个世界",
+    shareWorld: "分享这个世界",
+    shareCopied: "链接已复制",
     comingSoon: "开发中",
     exploring: "探索这个异界",
     enterChapter: "进入篇章　→",
@@ -347,6 +361,30 @@ function renderCatalog(catalog) {
   $("worldCards").querySelectorAll("[data-world-launch]").forEach(button => {
     button.addEventListener("click", () => { window.location.href = button.dataset.worldLaunch; });
   });
+  $("worldCards").querySelectorAll("[data-world-share]").forEach(button => {
+    button.addEventListener("click", async () => {
+      const url = button.dataset.worldShare;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: document.title, url });
+        } else {
+          await navigator.clipboard.writeText(url);
+          const original = button.textContent;
+          button.textContent = "✓";
+          button.title = t("shareCopied");
+          window.setTimeout(() => { button.textContent = original; button.title = t("shareWorld"); }, 1200);
+        }
+      } catch (_) { /* user cancelled the native share sheet */ }
+    });
+  });
+}
+
+function worldShareUrl(entry) {
+  const url = new URL(location.href);
+  url.search = "";
+  url.searchParams.set("lang", lang);
+  url.searchParams.set("world", entry.id);
+  return url.href;
 }
 
 function worldCardMarkup(entry, index) {
@@ -359,7 +397,7 @@ function worldCardMarkup(entry, index) {
   const gradient = (catalog.cardGradient || ["#8172c3", "#44346e", "#28203f"]).join(", ");
   const accent = catalog.cardAccent || "#f7d582";
   const icon = catalog.cardIcon || "✦";
-  const label = catalog.cardLabel || `WORLD ${String(index + 1).padStart(2, "0")}`;
+  const label = `WORLD ${String(index + 1).padStart(2, "0")}`;
   const actionSummary = (useEn && catalog.actionSummary) || (item.actions || []).map(action => action.plain || action.name).join(" · ");
   const coverRel = (item.cover && item.cover[useEn ? "en" : "zh"]) || item.cover?.default || item.coverImage || item.assets?.cover;
   const cover = coverRel ? `${item.assetBase || `worlds/${item.id}/`}${coverRel}` : "";
@@ -374,6 +412,7 @@ function worldCardMarkup(entry, index) {
     <div class="world-card-art${cover ? " has-cover" : ""}" style="--world-gradient:${gradient};--world-accent:${escapeHtml(accent)}" aria-hidden="true">
       ${cover ? `<img class="world-cover" src="${escapeHtml(cover)}" alt="" loading="lazy">` : ""}
       <span class="world-number">${escapeHtml(label)}</span>
+      ${comingSoon ? "" : `<button class="world-share" type="button" data-world-share="${escapeHtml(worldShareUrl(entry))}" title="${escapeHtml(t("shareWorld"))}" aria-label="${escapeHtml(t("shareWorld"))}">⇗</button>`}
       <div class="world-orbit"><i>${escapeHtml(icon)}</i></div>
       <span class="spark spark-a">✦</span><span class="spark spark-b">✧</span><span class="spark spark-c">✦</span>
     </div>
@@ -489,18 +528,25 @@ function showOpeningFallback() {
   fallback.hidden = false;
 }
 
-function setWorldMusic(relativePath) {
+function playMusicPath(nextPath, volume = 0.12) {
   const music = $("worldMusic");
-  const nextPath = relativePath ? worldAsset(relativePath) : "";
   if (nextPath === musicPath && !music.paused) return;
   music.pause();
   music.currentTime = 0;
   musicPath = nextPath;
   music.src = nextPath;
   music.loop = true;
-  music.volume = Number.isFinite(Number(world?.musicVolume)) ? Number(world.musicVolume) : 0.12;
+  music.volume = Number.isFinite(Number(volume)) ? Number(volume) : 0.12;
   music.muted = !soundEnabled;
   if (soundEnabled && nextPath) music.play().catch(() => {});
+}
+
+function setWorldMusic(relativePath) {
+  playMusicPath(relativePath ? worldAsset(relativePath) : "", world?.musicVolume);
+}
+
+function setCatalogMusic() {
+  playMusicPath("worlds/meow-supreme/assets/audio/curious-patrol.mp3", 0.1);
 }
 
 function stopWorldMusic() {
@@ -518,16 +564,13 @@ function startJourney() {
 }
 
 function goCatalog() {
-  const music = $("worldMusic");
-  music.pause();
-  music.currentTime = 0;
-  musicPath = "";
   showView("catalogView");
   // resolve relative to the deployed folder so this also works under a
   // GitHub Pages project subpath (e.g. /GlimmersElsewhere/)
   const back = new URL(location.pathname.replace(/[^/]*$/, ""), location.origin);
   back.searchParams.set("lang", lang);
   history.replaceState({}, "", `${back.pathname}${back.search}`);
+  setCatalogMusic();
 }
 
 function labelStaticDom() {
@@ -889,7 +932,7 @@ function renderLifeEvent() {
   $("outcomePanel").hidden = true;
   $("choicePanel").hidden = false;
 
-  const choices = event.choices || [];
+  const choices = maybeShuffleActions(event.choices || []);
   if (choices.length >= 2) {
     // interactive event: show choices
     $("choicePanel").innerHTML = choices.map((choice, index) => `
@@ -933,6 +976,12 @@ function renderLifeEvent() {
   }
 
   renderMeters();
+  for (const choice of event.choices || []) {
+    if (!choice.image) continue;
+    const preload = new Image();
+    preload.decoding = "async";
+    preload.src = worldAsset(choice.image);
+  }
   if (choices.length < 2) queueNextLifeEvent();
 }
 
@@ -998,6 +1047,13 @@ function resolveLifeChoice(event, choice) {
   $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
   $("deltaChips").innerHTML = lifeDeltaMarkup(appliedEffect);
   $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
+  if (choice.image) {
+    const img = $("sceneImage");
+    img.hidden = false;
+    $("sceneMissing").hidden = true;
+    img.src = worldAsset(choice.image);
+    img.alt = `${event.event || event.title || ""} ${choice.text || ""}`;
+  }
   renderMeters();
   queueNextLifeEvent();
 }
@@ -1105,7 +1161,7 @@ function renderScene() {
   const current = content();
   const scene = current.scenes[sceneIndex];
   $("visualStage").classList.remove("is-hero");
-  const actions = scene.actions || current.actions || [];
+  const actions = maybeShuffleActions(scene.actions || current.actions || []);
   choiceLocked = false;
   $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")}`;
   $("sceneChapter").textContent = scene.chapter;
@@ -1154,9 +1210,18 @@ function renderSceneImage(scene) {
 
 function preloadOutcomeImages(scene) {
   Object.values(scene.outcomes || {}).forEach(outcome => {
-    if (!outcome.image) return;
-    const preload = new Image();
-    preload.src = worldAsset(outcome.image);
+    const candidates = [outcome, ...(outcome.variants || [])];
+    if (outcome.tiers) {
+      for (const tier of Object.values(outcome.tiers)) {
+        candidates.push(...(Array.isArray(tier) ? tier : [tier]));
+      }
+    }
+    for (const candidate of candidates) {
+      if (!candidate.image) continue;
+      const preload = new Image();
+      preload.decoding = "async";
+      preload.src = worldAsset(candidate.image);
+    }
   });
 }
 
@@ -1296,7 +1361,7 @@ function showEnding() {
   $("collectionBox").innerHTML = collectionMarkup(world.id);
   showView("endingView");
   if (keepsake) {
-    const glbUrl = worldAsset(keepsake.glb);
+    const glbUrl = `${worldAsset(keepsake.glb)}?v=20260928`;
     $("keepsakeTitle").textContent = keepsake.title;
     $("keepsakeDownload").href = glbUrl;
     $("ksDownload").href = glbUrl;
@@ -1352,10 +1417,14 @@ async function init() {
       // catalogue keeps showing the previous language after toggling inside a world
       await loadPlatformText();
       await loadCatalog();
-      if (configPath) { await loadWorld(configPath); enterWorld(); } else { showView("catalogView"); }
+    if (configPath) { await loadWorld(configPath); enterWorld(); } else { showView("catalogView"); setCatalogMusic(); }
     }));
     document.querySelectorAll("[data-back-catalog]").forEach(button => button.addEventListener("click", goCatalog));
     updateSoundButtons();
+    setCatalogMusic();
+    const requestedWorldId = new URLSearchParams(location.search).get("world");
+    const requestedEntry = requestedWorldId && worldEntries.find(entry => entry.id === requestedWorldId);
+    if (requestedEntry?.config) await enterWorldFromCatalog(requestedEntry.config);
   } catch (error) {
     document.body.innerHTML = `<main style="max-width:480px;margin:80px auto;padding:24px;font-family:system-ui"><h1>异境暂时没有打开</h1><p>${error.message}</p></main>`;
   }

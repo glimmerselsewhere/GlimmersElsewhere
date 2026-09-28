@@ -8,11 +8,8 @@
   "assetBase": "worlds/wall-street-cat/",
   "endingVideo": null,
   "opening": {
-    "mode": "html",
-    "html": "opening.html",
-    "video": null,
-    "poster": null,
-    "image": null
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",
@@ -85,7 +82,7 @@
       ],
       "outcomes": {
         "start": {
-          "image": "assets/images/scenes/opening.webp",
+          "image": "assets/images/outcomes/opening-start.webp",
           "stateChanges": {
             "money": 0,
             "chill": 1
@@ -126,7 +123,7 @@
       ],
       "outcomes": {
         "mosla": {
-          "image": "assets/images/reactions/big-win.webp",
+          "image": "assets/images/outcomes/ev-mosla.webp",
           "stateChanges": {
             "money": 2,
             "chill": 1
@@ -134,7 +131,7 @@
           "text": "电池发布会引爆全场，喵斯拉电动直接封涨停。你的猫脸上浮现出了两个金色的硬币眼，口水流到了键盘上。"
         },
         "can": {
-          "image": "assets/images/reactions/mild-lose.webp",
+          "image": "assets/images/outcomes/ev-can.webp",
           "stateChanges": {
             "money": -1,
             "chill": 0
@@ -142,7 +139,7 @@
           "text": "罐头集团今天平盘。你的猫打了一个长达三秒的哈欠，眼角挤出一滴无聊的泪。"
         },
         "reit": {
-          "image": "assets/images/reactions/big-lose.webp",
+          "image": "assets/images/outcomes/ev-reit.webp",
           "stateChanges": {
             "money": -2,
             "chill": -1
@@ -183,7 +180,7 @@
       ],
       "outcomes": {
         "can2": {
-          "image": "assets/images/reactions/big-win.webp",
+          "image": "assets/images/outcomes/tech-can2.webp",
           "stateChanges": {
             "money": 2,
             "chill": 2
@@ -191,7 +188,7 @@
           "text": "所有人都涌入防御性的罐头板块。罐头集团逆势上涨，你的猫眯起了眼睛，嘴角微微上扬——这是猫的胜利微笑。"
         },
         "bio2": {
-          "image": "assets/images/reactions/big-lose.webp",
+          "image": "assets/images/outcomes/tech-bio2.webp",
           "stateChanges": {
             "money": -2,
             "chill": -1
@@ -199,7 +196,7 @@
           "text": "毛线生物继续跌，跌穿了地板。你的猫的视线开始涣散，瞳孔里映出一片绿色的瀑布，嘴微微张开，忘了合上。"
         },
         "laser": {
-          "image": "assets/images/reactions/mild-lose.webp",
+          "image": "assets/images/outcomes/tech-laser.webp",
           "stateChanges": {
             "money": -1,
             "chill": 0
@@ -240,7 +237,7 @@
       ],
       "outcomes": {
         "can3": {
-          "image": "assets/images/reactions/big-win.webp",
+          "image": "assets/images/outcomes/whale-can3.webp",
           "stateChanges": {
             "money": 3,
             "chill": 0
@@ -248,7 +245,7 @@
           "text": "墨镜猫原来是金枪鱼大亨。罐头集团被举牌，股价直接跳涨。你的猫趴在桌上，两只爪子紧紧抱着终端，眼睛变成了两个放大的金币符号。"
         },
         "calico": {
-          "image": "assets/images/reactions/big-lose.webp",
+          "image": "assets/images/outcomes/whale-calico.webp",
           "stateChanges": {
             "money": -2,
             "chill": -1
@@ -256,7 +253,7 @@
           "text": "三花控股发布了下调盈利预期的公告。你的猫耳朵瞬间变成了两片飞机，整张脸拉成了苦瓜形状。"
         },
         "sun": {
-          "image": "assets/images/reactions/mild-lose.webp",
+          "image": "assets/images/outcomes/whale-sun.webp",
           "stateChanges": {
             "money": -1,
             "chill": 1
@@ -297,7 +294,7 @@
       ],
       "outcomes": {
         "bond": {
-          "image": "assets/images/reactions/big-win.webp",
+          "image": "assets/images/outcomes/rate-bond.webp",
           "stateChanges": {
             "money": 2,
             "chill": 3
@@ -305,7 +302,7 @@
           "text": "债券基金稳稳地涨了一个点。虽然只涨了那么一点，但在满屏飘红的日子里，你的猫露出了看破红尘的微笑。"
         },
         "reit4": {
-          "image": "assets/images/reactions/big-lose.webp",
+          "image": "assets/images/outcomes/rate-reit4.webp",
           "stateChanges": {
             "money": -3,
             "chill": -2
@@ -313,7 +310,7 @@
           "text": "地产板块直接跌停。你的猫的身体从椅子上慢慢滑了下去，只剩两只爪子挂在桌沿上，眼睛里只剩下了白色。"
         },
         "box": {
-          "image": "assets/images/reactions/mild-lose.webp",
+          "image": "assets/images/outcomes/rate-box.webp",
           "stateChanges": {
             "money": -1,
             "chill": 0
@@ -354,7 +351,7 @@
       ],
       "outcomes": {
         "box5": {
-          "image": "assets/images/reactions/big-win.webp",
+          "image": "assets/images/outcomes/tip-box5.webp",
           "stateChanges": {
             "money": 3,
             "chill": 0
@@ -362,7 +359,7 @@
           "text": "纸箱物流被金枪鱼大亨溢价收购的消息公布了。股价暴涨。你的猫把那张纸条贴在屏幕上，眼睛眯成了一条胜利的弧线。"
         },
         "fin": {
-          "image": "assets/images/reactions/big-lose.webp",
+          "image": "assets/images/outcomes/tip-fin.webp",
           "stateChanges": {
             "money": -2,
             "chill": -1
@@ -370,7 +367,7 @@
           "text": "猫条金融横盘不动。你的猫看着纸条上那只纸箱和箭头，整张脸从嘴角往下垂了两厘米。"
         },
         "police": {
-          "image": "assets/images/reactions/mild-lose.webp",
+          "image": "assets/images/outcomes/tip-police.webp",
           "stateChanges": {
             "money": 0,
             "chill": 3
@@ -411,7 +408,7 @@
       ],
       "outcomes": {
         "mosla6": {
-          "image": "assets/images/reactions/big-win.webp",
+          "image": "assets/images/outcomes/final-mosla6.webp",
           "stateChanges": {
             "money": 3,
             "chill": -1
@@ -419,7 +416,7 @@
           "text": "新电池量产成功。喵斯拉电动在最后一分钟封板涨停。你的猫整个人（整只猫）飞了起来，眼睛变成两个旋转的钞票漩涡。"
         },
         "bio6": {
-          "image": "assets/images/reactions/big-lose.webp",
+          "image": "assets/images/outcomes/final-bio6.webp",
           "stateChanges": {
             "money": -3,
             "chill": -2
@@ -427,7 +424,7 @@
           "text": "毛线生物在收盘前最后一分钟宣布退市。你的猫脸从粉色变成了灰色，从灰色变成了透明，最后变成了一个静止的猫形轮廓。"
         },
         "cash": {
-          "image": "assets/images/reactions/mild-lose.webp",
+          "image": "assets/images/outcomes/final-cash.webp",
           "stateChanges": {
             "money": 1,
             "chill": 3
@@ -441,7 +438,7 @@
     {
       "id": "tycoon",
       "title": "富可敌国 · 金币眼全开",
-      "video": null,
+      "video": "assets/videos/tycoon-ending-v1.mp4",
       "image": "assets/images/reactions/big-win.webp",
       "all": [
         {
@@ -455,7 +452,7 @@
     {
       "id": "steady",
       "title": "稳健猫 · 活着就好",
-      "video": null,
+      "video": "assets/videos/steady-ending-v1.mp4",
       "image": "assets/images/reactions/mild-lose.webp",
       "all": [
         {
@@ -469,7 +466,7 @@
     {
       "id": "broke",
       "title": "破产 · 猫形轮廓",
-      "video": null,
+      "video": "assets/videos/broke-ending-v1.mp4",
       "image": "assets/images/reactions/big-lose.webp",
       "all": [],
       "description": "你被请出了交易所。门口保安猫说：「明天别来了。」你在台阶上坐了很久，看着来来往往的猫。然后你站起来，拍拍西装上的灰，往猫条工厂的方向走去。明天还是得打工的。"
@@ -477,5 +474,28 @@
   ],
   "cover": {
     "default": "assets/cover/cover.webp"
-  }
+  },
+  "keepsakes": [
+    {
+      "id": "wall-tycoon-gold-coin",
+      "endingId": "tycoon",
+      "title": "金币眼纪念币",
+      "glb": "assets/models/wall-tycoon-gold-coin.glb",
+      "preview": "assets/models/wall-tycoon-gold-coin-source.webp"
+    },
+    {
+      "id": "wall-steady-lifebuoy",
+      "endingId": "steady",
+      "title": "市场救生圈",
+      "glb": "assets/models/wall-steady-lifebuoy.glb",
+      "preview": "assets/models/wall-steady-lifebuoy-source.webp"
+    },
+    {
+      "id": "wall-broke-empty-wallet",
+      "endingId": "broke",
+      "title": "空钱包",
+      "glb": "assets/models/wall-broke-empty-wallet.glb",
+      "preview": "assets/models/wall-broke-empty-wallet-source.webp"
+    }
+  ]
 }

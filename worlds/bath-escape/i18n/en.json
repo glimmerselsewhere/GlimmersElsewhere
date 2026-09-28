@@ -110,5 +110,10 @@
      "description": "You're curled up deep inside a pile of old sweaters in the closet, only two ears and two bright eyes visible. The human gives up the search and says 'tomorrow, then.' Tomorrow is tomorrow's problem — not today."},
     {"title": "Bubble Crown",
      "description": "Bubbles pile on top of your head like a small mountain. The water is warm, the towel is soft, and the human looks very pleased. Your expression is blank. You know that some things can never be undone."}
+  ],
+  "keepsakes": [
+    {"title": "Rooftop Feather Pass"},
+    {"title": "Survivor Towel Loop"},
+    {"title": "Bubble Crown"}
   ]
 }

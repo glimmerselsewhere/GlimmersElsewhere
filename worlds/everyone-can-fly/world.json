@@ -11,11 +11,8 @@
     "default": "assets/cover/cover.webp"
   },
   "opening": {
-    "mode": "html",
-    "html": "opening.html",
-    "video": null,
-    "poster": null,
-    "image": null
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",
@@ -106,7 +103,7 @@
       ],
       "outcomes": {
         "take-off": {
-          "image": "assets/images/scenes/01-clockout.webp",
+          "image": "assets/images/outcomes/clock-out-take-off.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 0
@@ -147,7 +144,7 @@
       ],
       "outcomes": {
         "water-stride": {
-          "image": "assets/images/scenes/02-canal.webp",
+          "image": "assets/images/outcomes/canal-water-stride.webp",
           "stateChanges": {
             "qinggong": 1,
             "mishap": 0
@@ -155,7 +152,7 @@
           "text": "脚尖在水皮上点了七下，人已经到对岸。鞋没湿。"
         },
         "wall-climb": {
-          "image": "assets/images/scenes/02-canal.webp",
+          "image": "assets/images/outcomes/canal-wall-climb.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -163,7 +160,7 @@
           "text": "你抱住一根桥桩滑进水里，尾巴全湿了。好消息：你会游泳。"
         },
         "cloud-ladder": {
-          "image": "assets/images/scenes/02-canal.webp",
+          "image": "assets/images/outcomes/canal-cloud-ladder.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -204,7 +201,7 @@
       ],
       "outcomes": {
         "cloud-ladder": {
-          "image": "assets/images/scenes/03-bamboo.webp",
+          "image": "assets/images/outcomes/bamboo-cloud-ladder.webp",
           "stateChanges": {
             "qinggong": 1,
             "mishap": 0
@@ -212,7 +209,7 @@
           "text": "三根竹梢，三次借力，你从竹林顶上飞过去，还顺手惊起一群鸟。"
         },
         "water-stride": {
-          "image": "assets/images/scenes/03-bamboo.webp",
+          "image": "assets/images/outcomes/bamboo-water-stride.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -220,7 +217,7 @@
           "text": "你朝空地一蹬——没有水，只有土。脸先着地。"
         },
         "wave-step": {
-          "image": "assets/images/scenes/03-bamboo.webp",
+          "image": "assets/images/outcomes/bamboo-wave-step.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -261,7 +258,7 @@
       ],
       "outcomes": {
         "wall-climb": {
-          "image": "assets/images/scenes/04-citywall.webp",
+          "image": "assets/images/outcomes/city-wall-wall-climb.webp",
           "stateChanges": {
             "qinggong": 1,
             "mishap": 0
@@ -269,7 +266,7 @@
           "text": "爪尖扣住砖缝，一竖一竖往上蹭，六十步的墙，你用了二十秒。"
         },
         "water-stride": {
-          "image": "assets/images/scenes/04-citywall.webp",
+          "image": "assets/images/outcomes/city-wall-water-stride.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -277,7 +274,7 @@
           "text": "你在墙根找水，找到一滩积水，踩进去两寸。整只爪子泥了。"
         },
         "tile-step": {
-          "image": "assets/images/scenes/04-citywall.webp",
+          "image": "assets/images/outcomes/city-wall-tile-step.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -318,7 +315,7 @@
       ],
       "outcomes": {
         "tile-step": {
-          "image": "assets/images/scenes/05-rooftops.webp",
+          "image": "assets/images/outcomes/rooftops-tile-step.webp",
           "stateChanges": {
             "qinggong": 1,
             "mishap": 0
@@ -326,7 +323,7 @@
           "text": "你在瓦上只留了浅浅两点，一整片屋顶没惊动任何一个人。"
         },
         "wall-climb": {
-          "image": "assets/images/scenes/05-rooftops.webp",
+          "image": "assets/images/outcomes/rooftops-wall-climb.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -334,7 +331,7 @@
           "text": "侧面爬得动，可是两层楼之间的空档跨不过去，你悬在半空晃了很久。"
         },
         "cloud-ladder": {
-          "image": "assets/images/scenes/05-rooftops.webp",
+          "image": "assets/images/outcomes/rooftops-cloud-ladder.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -375,7 +372,7 @@
       ],
       "outcomes": {
         "cat-landing": {
-          "image": "assets/images/scenes/06-last100.webp",
+          "image": "assets/images/outcomes/last-100-cat-landing.webp",
           "stateChanges": {
             "qinggong": 1,
             "mishap": 0
@@ -383,7 +380,7 @@
           "text": "你松了劲，四只爪子稳稳落在阳台上。这一招谁都学不会。"
         },
         "water-stride": {
-          "image": "assets/images/scenes/06-last100.webp",
+          "image": "assets/images/outcomes/last-100-water-stride.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -391,7 +388,7 @@
           "text": "你在水泥地上找水花，摔了个屁股蹲。楼上有人开窗看了一眼。"
         },
         "cloud-ladder": {
-          "image": "assets/images/scenes/06-last100.webp",
+          "image": "assets/images/outcomes/last-100-cloud-ladder.webp",
           "stateChanges": {
             "qinggong": 0,
             "mishap": 1
@@ -439,5 +436,28 @@
       "description": "最后一次翻车之后你搭了末班公交。到家时汤凉了，人类正在看电视。今天没飞成——明天再练。"
     }
   ],
-  "musicVolume": 0.12
+  "musicVolume": 0.12,
+  "keepsakes": [
+    {
+      "id": "perfect-warm-bowl-medal",
+      "endingId": "perfect",
+      "title": "热饭碗勋章",
+      "glb": "assets/models/perfect-warm-bowl-medal.glb",
+      "preview": "assets/models/perfect-warm-bowl-medal-source.webp"
+    },
+    {
+      "id": "late-rain-badge",
+      "endingId": "late",
+      "title": "雨落迟到徽章",
+      "glb": "assets/models/late-rain-badge.glb",
+      "preview": "assets/models/late-rain-badge-source.webp"
+    },
+    {
+      "id": "give-up-bus-pass",
+      "endingId": "give-up",
+      "title": "末班车票",
+      "glb": "assets/models/give-up-bus-pass.glb",
+      "preview": "assets/models/give-up-bus-pass-source.webp"
+    }
+  ]
 }

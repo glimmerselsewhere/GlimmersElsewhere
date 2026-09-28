@@ -248,5 +248,9 @@
       "description": "You got escorted out. The security cat says: \"Don't come back tomorrow.\" You sit on the steps for a long time, watching cats go in and out. Then you stand up, dust off your suit, and walk toward the cat treat factory. Tomorrow you still have to work."
     }
   ],
-  "keepsakes": []
+  "keepsakes": [
+    {"title": "Coin-Eye Commemorative Coin"},
+    {"title": "Market Lifebuoy"},
+    {"title": "Empty Wallet"}
+  ]
 }

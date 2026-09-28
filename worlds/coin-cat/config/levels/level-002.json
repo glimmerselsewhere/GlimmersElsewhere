@@ -19,5 +19,21 @@
     "config/cases/11-animal-figure.json",
     "config/cases/12-animal-chubby-courage.json",
     "config/cases/13-animal-check-cards.json"
+  ],
+  "keepsakes": [
+    {
+      "id": "actor-golden-paw-award",
+      "endingId": "success",
+      "title": "金爪奖",
+      "glb": "assets/models/actor-golden-paw-award.glb",
+      "preview": "assets/models/actor-golden-paw-award-source.webp"
+    },
+    {
+      "id": "actor-rehearsal-slate",
+      "endingId": "failure",
+      "title": "排练板",
+      "glb": "assets/models/actor-rehearsal-slate.glb",
+      "preview": "assets/models/actor-rehearsal-slate-source.webp"
+    }
   ]
 }

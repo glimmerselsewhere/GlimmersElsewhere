@@ -8,10 +8,8 @@
   "musicVolume": 0.1,
   "assetBase": "worlds/coin-cat/",
   "opening": {
-    "mode": "html",
-    "html": null,
-    "video": null,
-    "poster": null
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",
