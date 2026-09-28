@@ -13,6 +13,8 @@ let shownMilestones = new Set();
 const COLLECTION_KEY = "glimmers-collection-v1";
 let lang = "en";                 // default language: English
 let uiText = null;               // platform UI strings for the active language
+const textOverrideCache = new Map();
+let catalogSourcePromise = null;
 
 function requestedLang() {
   const urlLang = new URLSearchParams(location.search).get("lang");
@@ -51,7 +53,7 @@ function mergeText(base, over) {
   return (typeof over === "string" && over.trim()) ? over : base;
 }
 
-async function loadTextOverride(baseFolder, name) {
+async function loadTextOverrideDirect(baseFolder, name) {
   if (lang !== "en") return null;
   /* baseFolder is the world (or platform) folder; overrides always live in <folder>i18n/ */
   const url = baseFolder.endsWith("i18n/") ? `${baseFolder}${name}` : `${baseFolder}i18n/${name}`;
@@ -60,6 +62,29 @@ async function loadTextOverride(baseFolder, name) {
     if (!res.ok) return null;
     return await res.json();
   } catch (_) { return null; }
+}
+
+async function loadTextOverride(baseFolder, name) {
+  if (lang !== "en") return null;
+  return prefetchTextOverride(baseFolder, name);
+}
+
+function textOverrideUrl(baseFolder, name) {
+  return baseFolder.endsWith("i18n/") ? `${baseFolder}${name}` : `${baseFolder}i18n/${name}`;
+}
+
+function prefetchTextOverride(baseFolder, name) {
+  const url = textOverrideUrl(baseFolder, name);
+  if (!textOverrideCache.has(url)) {
+    textOverrideCache.set(url, fetch(url, { cache: "no-store" })
+      .then(res => res.ok ? res.json() : null)
+      .catch(() => null));
+  }
+  return textOverrideCache.get(url);
+}
+
+function nextPaint() {
+  return new Promise(resolve => requestAnimationFrame(() => window.setTimeout(resolve, 0)));
 }
 
 function showView(id) {
@@ -305,7 +330,60 @@ async function loadPlatformText() {
   }, over || {});
 }
 
+function prefetchCatalogSource() {
+  if (!catalogSourcePromise) {
+    catalogSourcePromise = (async () => {
+      const response = await fetch("worlds/index.json?v=1", { cache: "no-store" });
+      if (!response.ok) throw new Error("无法载入异界目录");
+      const catalog = await response.json();
+      const entries = (Array.isArray(catalog.worlds) ? catalog.worlds : []).filter(entry => !entry.hidden);
+      const rawEntries = await Promise.all(entries.map(async entry => {
+        if (entry.status === "coming-soon" || (!entry.config && !entry.launchUrl)) {
+          return { entry, configPath: null, rawWorld: null, folder: null };
+        }
+        if (!entry.config && entry.launchUrl) {
+          return { entry, configPath: null, rawWorld: null, folder: null };
+        }
+        const configPath = entry.config.startsWith("worlds/") ? entry.config : `worlds/${entry.config}`;
+        const configResponse = await fetch(configPath, { cache: "no-store" });
+        if (!configResponse.ok) throw new Error(`异界配置不存在：${configPath}`);
+        const rawWorld = await configResponse.json();
+        const folder = rawWorld.assetBase || `worlds/${rawWorld.id}/`;
+        prefetchTextOverride(folder, "en.json");
+        return { entry, configPath, rawWorld, folder };
+      }));
+      prefetchTextOverride("", "en.json");
+      return { catalog, rawEntries };
+    })();
+  }
+  return catalogSourcePromise;
+}
+
 async function loadCatalog() {
+  const sourcePromise = prefetchCatalogSource();
+  await loadPlatformText();
+  const { catalog, rawEntries } = await sourcePromise;
+  worldEntries = await Promise.all(rawEntries.map(async rawEntry => {
+    const { entry, configPath, rawWorld, folder } = rawEntry;
+    if (!configPath) {
+      return {
+        ...entry,
+        config: null,
+        world: {
+          ...entry,
+          assetBase: entry.assetBase || `worlds/${entry.id}/`,
+          status: entry.status || (entry.launchUrl ? "ready" : "coming-soon"),
+        },
+      };
+    }
+    const worldOver = await loadTextOverride(folder, "en.json");
+    return { ...entry, config: configPath, world: mergeText(rawWorld, worldOver) };
+  }));
+  if (!worldEntries.length) throw new Error("异界目录为空");
+  renderCatalog(catalog);
+}
+
+async function loadCatalogDirect() {
   await loadPlatformText();
   const response = await fetch("worlds/index.json?v=1", { cache: "no-store" });
   if (!response.ok) throw new Error("无法载入异界目录");
@@ -1443,10 +1521,17 @@ async function init() {
     }
 
     showView("languageView");
+    // Start the slow network work while the player is still choosing a language.
+    prefetchCatalogSource();
     document.querySelectorAll("[data-language-select]").forEach(button => {
       button.addEventListener("click", async () => {
         button.disabled = true;
+        button.classList.add("is-loading");
+        button.setAttribute("aria-busy", "true");
+        $("languageLoading").hidden = false;
         try {
+          // Paint the loading state before any network await blocks the turn.
+          await nextPaint();
           // Keep the first play() inside the click's user-activation window.
           await bootPlayer(button.dataset.languageSelect);
         } catch (error) {
