@@ -269,3 +269,24 @@ body.is-playing .app-shell { height: 100dvh; min-height: 0; overflow: hidden; }
 .collection-grid { display: flex; flex-wrap: wrap; gap: 6px; }
 .collection-grid span { display: grid; place-items: center; min-width: 26px; height: 26px; padding: 0 4px; border-radius: 8px; background: rgba(63,43,118,.1); color: #9a8aa8; font-size: 11px; font-weight: 800; }
 .collection-grid span.is-got { background: linear-gradient(135deg, #f2d383, #e0b45c); color: #4b3a12; box-shadow: 0 3px 8px rgba(126,99,48,.2); }
+
+/* talent selection card */
+.talent-card { position: relative; }
+.talent-card .talent-check { display: none; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 20px; color: #4ade80; }
+.talent-card.is-selected { border-color: #4ade80 !important; background: rgba(74,222,128,.12) !important; }
+.talent-card.is-selected .talent-check { display: block; }
+.talent-rarity { padding: 3px 8px; border-radius: 6px; font-size: 8px !important; letter-spacing: .1em; }
+.rarity-0 { color: #aaa; background: rgba(170,170,170,.15); }
+.rarity-1 { color: #60a5fa; background: rgba(96,165,250,.15); }
+.rarity-2 { color: #c084fc; background: rgba(192,132,252,.15); }
+.rarity-3 { color: #fb923c; background: rgba(251,146,60,.15); }
+
+.talent-confirm { grid-column: 1 / -1; width: 100%; padding: 16px; border: 0; border-radius: 16px; color: #fff; background: rgba(107,75,185,.5); font-weight: 800; font-size: 15px; cursor: pointer; transition: all .2s; }
+.talent-confirm:disabled { opacity: .5; cursor: not-allowed; }
+.talent-confirm.is-ready { background: #6b4bb9; box-shadow: 0 8px 20px rgba(63,43,118,.35); }
+.talent-confirm.is-full { animation: shake .3s; }
+@keyframes shake { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+/* talent badges in life summary */
+.talent-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.talent-badges span { padding: 4px 10px; border-radius: 8px; background: rgba(245,217,138,.2); color: #e0b96b; font-size: 10px; font-weight: 700; }

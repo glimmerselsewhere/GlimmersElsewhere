@@ -727,29 +727,44 @@ function drawLifeEvent() {
   // filter by turn stage, include/exclude and not-already-seen
   const available = allEvents.filter(event => {
     if (lifeEventHistory.includes(event.id)) return false;
-    if (event.minTurn !== undefined && lifeTurn + 1 < event.minTurn) return false;
-    if (event.maxTurn !== undefined && lifeTurn + 1 > event.maxTurn) return false;
+    if (event.minTurn !== undefined && lifeTurn < event.minTurn) return false;
+    if (event.maxTurn !== undefined && lifeTurn > event.maxTurn) return false;
     if (event.include && !checkLifeCondition(event.include)) return false;
     if (event.exclude && checkLifeCondition(event.exclude)) return false;
     return true;
   });
-  if (!available.length) return allEvents[0] || null;
+  if (!available.length) return null;
+  const luckyPaw = lifeTalentIds.includes("lucky-paw");
+  const weights = luckyPaw
+    ? { 0: 6, 1: 6, 2: 5, 3: 4 }
+    : LIFE_RARITY_WEIGHT;
   // weighted pick by rarity
-  const total = available.reduce((sum, e) => sum + (LIFE_RARITY_WEIGHT[e.rarity || 0] || 5), 0);
+  const total = available.reduce((sum, e) => sum + (weights[e.rarity || 0] || 5), 0);
   let roll = Math.random() * total;
   for (const event of available) {
-    roll -= LIFE_RARITY_WEIGHT[event.rarity || 0] || 5;
+    roll -= weights[event.rarity || 0] || 5;
     if (roll <= 0) return event;
   }
   return available[available.length - 1];
+}
+
+function applyLifeEffect(effect = {}) {
+  const applied = {};
+  const spiritRoot = lifeTalentIds.includes("spirit-root");
+  for (const [key, rawValue] of Object.entries(effect)) {
+    let value = Number(rawValue) || 0;
+    if (key === "cultivation" && value > 0 && spiritRoot) value *= 2;
+    state[key] = (state[key] || 0) + value;
+    applied[key] = value;
+  }
+  clampLifeState();
+  return applied;
 }
 
 /* ---------- life-sim flow ---------- */
 function startLifeSim() {
   lifeTurn = 0;
   lifeEventHistory = [];
-  lifeTalentIds = [];
-  // apply talent effects to state
   state = { ...(content().initialState || {}) };
   for (const talentId of lifeTalentIds) {
     const talent = (content().talents || []).find(t => t.id === talentId);
@@ -759,38 +774,86 @@ function startLifeSim() {
       }
     }
   }
+  clampLifeState();
   showView("gameView");
   renderLifeEvent();
 }
 
+const LIFE_REALMS = [
+  { min: 0, label: "凡猫", en: "Mortal Cat" },
+  { min: 8, label: "炼气", en: "Qi Refining" },
+  { min: 16, label: "筑基", en: "Foundation" },
+  { min: 24, label: "金丹", en: "Golden Core" },
+  { min: 32, label: "元婴", en: "Nascent Soul" },
+  { min: 40, label: "化神", en: "Spirit Transform" },
+  { min: 50, label: "大乘", en: "Mahayana" },
+];
+
+function lifeRealm() {
+  const v = state.cultivation || 0;
+  let realm = LIFE_REALMS[0];
+  for (const r of LIFE_REALMS) {
+    if (v >= r.min) realm = r;
+  }
+  return realm;
+}
+
+function clampLifeState() {
+  const maxLifespan = content().lifespanMax || 50;
+  state.age = Math.max(0, Math.min(maxLifespan, Number(state.age || 0)));
+  state.lifespan = Math.max(0, Math.min(maxLifespan, Number(state.lifespan || 0)));
+  for (const def of content().states || []) {
+    if (def.max) state[def.id] = Math.min(Math.max(0, state[def.id] || 0), def.max);
+  }
+  state.fish = Math.min(Math.max(0, state.fish || 0), 99);
+}
+
 function renderLifeEvent() {
+  clampLifeState();
   const current = content();
-  const maxTurns = current.lifeTurns || 10;
-  lifeTurn++;
-  if (lifeTurn > maxTurns || (state.lifespan || 0) <= 0) {
+  const hardLimit = current.lifespanMax || 50;
+  const turnLimit = current.lifeTurnLimit || hardLimit;
+  const age = Number(state.age || 0);
+  const totalLifespan = Number(state.lifespan || 0);
+  // The hard safety valve is 50 time units (500 years). "lifespan" is the
+  // cumulative maximum age, not remaining HP, so events can no longer loop forever.
+  if (age >= hardLimit || age >= totalLifespan || lifeTurn >= turnLimit) {
     showEnding();
     return;
   }
-  // decrement lifespan
-  state.lifespan = (state.lifespan || 0) - 1;
 
+  lifeTurn++;
   const event = drawLifeEvent();
   if (!event) { showEnding(); return; }
   lifeEventHistory.push(event.id);
 
-  // apply event effects immediately
-  if (event.effect) {
-    for (const [key, value] of Object.entries(event.effect)) {
-      state[key] = (state[key] || 0) + value;
-    }
-  }
+  // One event is one narrative beat. timeCost is measured in 10-year units;
+  // 0 means this beat happens in the same year as the previous one.
+  const timeCost = Number(event.timeCost ?? 1);
+  state.age = Math.max(0, Number(state.age || 0) + timeCost);
+  applyLifeEffect(event.effect);
 
   const stageNames = current.lifeStages || ["幼猫", "入门", "筑基", "金丹", "元婴", "化神", "渡劫"];
-  const stageIndex = Math.min(Math.floor((lifeTurn - 1) / (maxTurns / stageNames.length)), stageNames.length - 1);
+  const totalExpected = hardLimit;
+  const stageIndex = Math.min(Math.floor((state.age || 0) / (totalExpected / stageNames.length)), stageNames.length - 1);
+  void stageIndex; // kept for future stage labels; event gating remains turn-based
 
   choiceLocked = false;
-  $("sceneProgress").textContent = `${String(lifeTurn).padStart(2, "0")} / ${String(maxTurns).padStart(2, "0")}`;
-  $("sceneChapter").textContent = lang === "en" ? `Turn ${lifeTurn}` : `第 ${lifeTurn} 回`;
+  $("sceneChapter").textContent = lang === "en"
+    ? `Event ${lifeTurn}${timeCost === 0 ? " · same year" : ""}`
+    : `事件 ${lifeTurn}${timeCost === 0 ? " · 同一年" : ""}`;
+  // talent badge + fish counter
+  const talentNames = (content().talents || []).filter(t => lifeTalentIds.includes(t.id)).map(t => t.name);
+  const fish = state.fish ?? 0;
+  $("worldMiniTitle").textContent = talentNames.length ? `${world.shortTitle} · ${talentNames.join(" / ")}` : world.shortTitle;
+  const realm = lifeRealm();
+  const realmLabel = lang === "en" ? realm.en : realm.label;
+  const unit = content().lifespanUnit || 10;
+  const ageYears = Math.round((state.age || 0) * unit);
+  const lifespanYears = Math.round((state.lifespan || 0) * unit);
+  $("sceneProgress").textContent = (lang === "en"
+    ? `${realmLabel} · Age ${ageYears}/${lifespanYears}y`
+    : `${realmLabel} · 年龄 ${ageYears}/${lifespanYears}年`) + (fish ? ` · 🐟${fish}` : "");
   $("sceneTitle").textContent = event.title || event.event || "";
   $("sceneDescription").textContent = event.event || event.description || "";
   $("outcomePanel").hidden = true;
@@ -842,33 +905,49 @@ function renderLifeEvent() {
   renderMeters();
 }
 
-function resolveLifeChoice(event, choice) {
-  // apply choice effects
-  if (choice.effect) {
-    for (const [key, value] of Object.entries(choice.effect)) {
-      state[key] = (state[key] || 0) + value;
-    }
+function lifeDeltaMarkup(effect = {}) {
+  const definitions = content().states || [];
+  const extras = [
+    { key: "lifespan", label: lang === "en" ? "Lifespan" : "寿元", color: "#76b7cd", background: "#dff2f7" },
+    { key: "fish", label: lang === "en" ? "Fish" : "鱼干", color: "#c78a3b", background: "#f7e7cc" }
+  ];
+  const chips = [];
+  for (const definition of [...definitions, ...extras]) {
+    const value = Number(effect[definition.id || definition.key] || 0);
+    if (!value) continue;
+    chips.push(`<span style="color:${definition.color};background:${definition.chipBackground || definition.background || '#eee'}">${definition.label} ${value > 0 ? '+' : ''}${value}</span>`);
   }
+  return chips.join("");
+}
+
+function resolveLifeChoice(event, choice) {
+  // check fish cost
+  const cost = choice.cost || 0;
+  if (cost > 0 && (state.fish || 0) < cost) {
+    // not enough fish: show a message
+    $("choicePanel").hidden = true;
+    $("outcomePanel").hidden = false;
+    $("outcomeText").textContent = lang === "en" ? "Not enough fish." : "鱼干不够。";
+    $("outcomeMilestone").innerHTML = "";
+    $("deltaChips").innerHTML = "";
+    $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
+    return;
+  }
+  if (cost > 0) state.fish = (state.fish || 0) - cost;
+  // apply choice effects
+  const appliedEffect = applyLifeEffect(choice.effect);
   // follow branch if present
   if (choice.branch) {
     const branchEvent = (content().events || []).find(e => e.id === choice.branch);
     if (branchEvent) {
       lifeEventHistory.push(branchEvent.id);
-      if (branchEvent.effect) {
-        for (const [key, value] of Object.entries(branchEvent.effect)) {
-          state[key] = (state[key] || 0) + value;
-        }
-      }
+      applyLifeEffect(branchEvent.effect);
       // show branch as outcome
       $("choicePanel").hidden = true;
       $("outcomePanel").hidden = false;
       $("outcomeText").textContent = branchEvent.event || branchEvent.result || "";
       $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
-      $("deltaChips").innerHTML = Object.entries(choice.effect || {}).map(([key, value]) => {
-        const def = (content().states || []).find(s => s.id === key);
-        if (def && value) return `<span style="color:${def.color};background:${def.chipBackground || '#eee'}">${def.label} ${value > 0 ? '+' : ''}${value}</span>`;
-        return "";
-      }).join("");
+      $("deltaChips").innerHTML = lifeDeltaMarkup(appliedEffect);
       $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
       renderMeters();
       if (branchEvent.image) {
@@ -884,11 +963,7 @@ function resolveLifeChoice(event, choice) {
   $("outcomePanel").hidden = false;
   $("outcomeText").textContent = choice.result || choice.text || "";
   $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
-  $("deltaChips").innerHTML = Object.entries(choice.effect || {}).map(([key, value]) => {
-    const def = (content().states || []).find(s => s.id === key);
-    if (def && value) return `<span style="color:${def.color};background:${def.chipBackground || '#eee'}">${def.label} ${value > 0 ? '+' : ''}${value}</span>`;
-    return "";
-  }).join("");
+  $("deltaChips").innerHTML = lifeDeltaMarkup(appliedEffect);
   $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
   renderMeters();
 }
@@ -897,37 +972,68 @@ function resolveLifeChoice(event, choice) {
 function showTalentSelect() {
   const talents = content().talents || [];
   if (!talents.length) { startLifeSim(); return; }
-  // draw 6 random talents
   const shuffled = [...talents].sort(() => Math.random() - 0.5);
-  const options = shuffled.slice(0, Math.min(6, shuffled.length));
-  const maxPicks = content().lifeTalentPicks || 3;
+  const showCount = content().lifeTalentShow || 3;
+  const options = shuffled.slice(0, Math.min(showCount, shuffled.length));
+  const maxPicks = content().lifeTalentPicks || 1;
 
   showView("introView");
   $("openingFallback").hidden = true;
   $("openingImage").hidden = true;
   $("openingVideo").hidden = true;
   $("levelSelect").hidden = false;
-  $("levelSelectTitle").textContent = lang === "en" ? "Pick 3 talents" : "选择 3 个天赋";
+  $("levelSelectTitle").textContent = lang === "en" ? "Choose your talent" : "选择你的天赋";
   $("beginJourney").hidden = true;
+
+  const RARITY_LABEL = { 0: "WHITE", 1: "BLUE", 2: "PURPLE", 3: "ORANGE" };
   $("levelCards").innerHTML = options.map(talent => `
-    <button class="level-card" type="button" data-talent="${escapeHtml(talent.id)}">
-      <span>${escapeHtml(talent.rarity === 3 ? "★ORANGE" : talent.rarity === 2 ? "★PURPLE" : talent.rarity === 1 ? "★BLUE" : "★WHITE")}</span>
+    <button class="level-card talent-card" type="button" data-talent="${escapeHtml(talent.id)}">
+      <span class="talent-rarity rarity-${talent.rarity || 0}">${RARITY_LABEL[talent.rarity || 0] || "WHITE"}</span>
       <strong>${escapeHtml(talent.name)}</strong>
       <small>${escapeHtml(talent.description || "")}</small>
+      <b class="talent-check">✓</b>
     </button>
-  `).join("");
+  `).join("") + `
+    <button id="talentConfirm" class="talent-confirm" type="button" disabled>
+      ${escapeHtml(lang === "en" ? `Confirm (0/${maxPicks})` : `确认 (0/${maxPicks})`)}
+    </button>
+  `;
 
   const picked = new Set();
+  const confirmBtn = $("talentConfirm");
+
+  function updateConfirm() {
+    const count = picked.size;
+    confirmBtn.disabled = count !== maxPicks;
+    confirmBtn.textContent = lang === "en"
+      ? count >= maxPicks ? `Start Life` : `Pick ${maxPicks - count} more`
+      : count >= maxPicks ? `开始猫生` : `还需选 ${maxPicks - count} 个`;
+    confirmBtn.classList.toggle("is-ready", count === maxPicks);
+  }
+
   $("levelCards").querySelectorAll("[data-talent]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.talent;
-      if (picked.has(id)) { picked.delete(id); btn.classList.remove("is-active"); }
-      else if (picked.size < maxPicks) { picked.add(id); btn.classList.add("is-active"); }
-      if (picked.size === maxPicks) {
-        lifeTalentIds = [...picked];
-        setTimeout(() => startLifeSim(), 400);
+      btn.setAttribute("aria-pressed", String(picked.has(id)));
+      if (picked.has(id)) {
+        picked.delete(id);
+        btn.classList.remove("is-selected");
+      } else if (picked.size < maxPicks) {
+        picked.add(id);
+        btn.classList.add("is-selected");
+      } else {
+        // full: flash the confirm button
+        confirmBtn.classList.add("is-full");
+        setTimeout(() => confirmBtn.classList.remove("is-full"), 300);
       }
+      updateConfirm();
     });
+  });
+
+  confirmBtn.addEventListener("click", () => {
+    if (picked.size !== maxPicks) return;
+    lifeTalentIds = [...picked];
+    startLifeSim();
   });
 }
 
@@ -935,13 +1041,22 @@ function showTalentSelect() {
 function lifeSummaryMarkup() {
   const attrs = content().states || [];
   const lines = attrs.map(def => `${def.label}: ${state[def.id] || 0}`).join(" · ");
-  const turns = lang === "en" ? `${lifeTurn} turns` : `${lifeTurn} 回合`;
-  const events = lang === "en" ? `${lifeEventHistory.length} events` : `${lifeEventHistory.length} 个事件`;
+  const unit = content().lifespanUnit || 10;
+  const ageYears = Math.round((state.age || 0) * unit);
+  const lifespanYears = Math.round((state.lifespan || 0) * unit);
+  const turns = lang === "en" ? `${lifeTurn} events` : `${lifeTurn} 个事件`;
+  const events = lang === "en"
+    ? `Age ${ageYears}/${lifespanYears} years`
+    : `年龄 ${ageYears}/${lifespanYears} 年`;
   const talents = (content().talents || []).filter(t => lifeTalentIds.includes(t.id)).map(t => t.name);
+  const fish = state.fish ?? 0;
+  const realm = lifeRealm();
+  const realmLabel = lang === "en" ? realm.en : realm.label;
   return `<div class="life-summary">
     <small>${escapeHtml(lang === "en" ? "LIFE SUMMARY" : "猫生总结")}</small>
-    <p>${escapeHtml(lines)}</p>
-    <p>${escapeHtml(turns)} · ${escapeHtml(events)}${talents.length ? " · " + escapeHtml(talents.join(" / ")) : ""}</p>
+    <p><strong>${escapeHtml(realmLabel)}</strong> · ${escapeHtml(lines)}</p>
+    <p>${escapeHtml(turns)} · ${escapeHtml(events)} · ${escapeHtml(lang === "en" ? `Fish: ${fish}` : `鱼干: ${fish}`)}</p>
+    ${talents.length ? `<p class="talent-badges">${talents.map(t => `<span>${escapeHtml(t)}</span>`).join("")}</p>` : ""}
   </div>`;
 }
 
@@ -1086,8 +1201,31 @@ function endingMatches(ending) {
   return (ending.all || []).every(compareCondition);
 }
 
+function endingChance(ending) {
+  const chance = ending.chance;
+  if (!chance) return 1;
+  const value = state[chance.state] || 0;
+  const from = Number(chance.from ?? 0);
+  const to = Number(chance.to ?? 100);
+  const min = Math.max(0, Math.min(1, Number(chance.min ?? 0)));
+  const progress = Math.max(0, Math.min(1, (value - from) / Math.max(1, to - from)));
+  return min + (1 - min) * progress;
+}
+
+function chooseLifeEnding() {
+  const endings = content().endings || [];
+  const eligible = endings.filter(endingMatches);
+  // Probabilistic endings are checked once at settlement. This keeps the late
+  // game tense: Mahayana is possible, but 100 cultivation makes ascension certain.
+  const luckyEnding = eligible.find(ending => ending.chance && Math.random() < endingChance(ending));
+  if (luckyEnding) return luckyEnding;
+  return eligible.find(ending => !ending.chance) || endings.at(-1);
+}
+
 function showEnding() {
-  const ending = content().endings.find(endingMatches) || content().endings.at(-1);
+  const ending = world?.mode === "life"
+    ? chooseLifeEnding()
+    : content().endings.find(endingMatches) || content().endings.at(-1);
   $("endingTitle").textContent = ending.title;
   $("endingDescription").textContent = ending.description;
   $("finalStats").innerHTML = (content().states || []).map(definition => `<span>${definition.label} <b>${state[definition.id] || 0}</b></span>`).join("") + (world?.mode === "life" ? lifeSummaryMarkup() : "");

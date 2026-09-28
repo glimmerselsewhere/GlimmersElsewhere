@@ -1,8 +1,8 @@
 {
   "title": "Jade Cat Ascension",
   "shortTitle": "Jade Cat Ascension",
-  "subtitle": "Cat Life Restart · Cultivation Simulator",
-  "description": "A jade pendant sends a house cat into a cultivation world. Draw talents, experience random events, and let cultivation, body, belly, luck, morality and lifespan decide what immortal you become.",
+  "subtitle": "Cat Life Simulator · 10-year units · 500-year cap",
+  "description": "A jade pendant sends a house cat into a cultivation world. Draw three talents, choose one, and let random events, cultivation, belly, morality, age and cumulative lifespan decide your ending.",
   "ui": {
     "backToCatalog": "← Worlds",
     "introButton": "Step onto the path",
@@ -12,127 +12,115 @@
   },
   "catalog": {
     "eyebrow": "A third glimmer has woken up",
-    "cardDescription": "Cat life restart: draw talents, random cultivation events, attributes decide the ending. You can't die - you just become an unexpected immortal.",
+    "cardDescription": "Cat life restart: draw three talents, choose one, then meet random cultivation events. Age, attributes and choices decide whether you ascend, guard the mountain, or return to a sunny balcony.",
     "cardIcon": "Jade",
     "actionSummary": "Draw talents · Random events · Attribute endings"
   },
   "states": [
     {
       "label": "Cultivation",
-      "description": "Mastery of spirit energy and spells"
-    },
-    {
-      "label": "Body",
-      "description": "Physical foundation"
+      "description": "Mortal → Qi Refining → Foundation → Golden Core → Nascent Soul → Spirit Transformation → Mahayana; 100 makes ascension certain"
     },
     {
       "label": "Belly",
       "description": "All the spirit fruit and pills eaten"
     },
     {
-      "label": "Luck",
-      "description": "How much fate favors you"
-    },
-    {
       "label": "Morality",
       "description": "The cat heart you kept"
-    },
-    {
-      "label": "Lifespan",
-      "description": "Turns remaining"
     }
   ],
   "talents": [
-    {
-      "name": "Glutton",
-      "description": "Belly+2, Body+1, Cultivation-1"
-    },
-    {
-      "name": "Night Walker",
-      "description": "Luck+2, Body+1"
-    },
-    {
-      "name": "Kind Heart",
-      "description": "Morality+2, Luck+1"
-    },
-    {
-      "name": "Sword Bone",
-      "description": "Cultivation+2, Body+2"
-    },
-    {
-      "name": "Heaven Root",
-      "description": "Cultivation+3, Luck+2"
-    },
-    {
-      "name": "Chosen Cat",
-      "description": "All attributes +1"
-    }
+    { "name": "Glutton", "description": "Belly +3 · start with 3 dried fish" },
+    { "name": "Night Walker", "description": "Lifespan +20 years · Cultivation +2" },
+    { "name": "Kind Heart", "description": "Morality +4 · kind events notice you" },
+    { "name": "Lucky Paw", "description": "Cultivation +4 · rare events appear more often" },
+    { "name": "Sword Bone", "description": "Cultivation +5 · Morality -2" },
+    { "name": "Heaven Root", "description": "Cultivation +8 · positive cultivation gains are doubled" },
+    { "name": "Long Life", "description": "Lifespan +50 years" },
+    { "name": "Chosen Cat", "description": "Cultivation +8 · Morality +4 · Lifespan +30 years · 2 dried fish" },
+    { "name": "Reincarnated", "description": "Cultivation +3 · Morality +6 · 5 dried fish" },
+    { "name": "Wild Cat King", "description": "Cultivation +3 · Belly +2 · Lifespan +10 years" }
   ],
   "milestones": [
     {
       "id": "cult-5",
       "title": "Spirit energy enters the body",
-      "text": "Your meridians start absorbing spirit energy on their own. You cultivate even while sleeping."
+      "text": "Your meridians start absorbing spirit energy on their own."
     },
     {
       "id": "belly-8",
       "title": "Too fat to fly",
-      "text": "You tried the wind-riding technique. The wind said you're too heavy."
+      "text": "You tried wind-riding. The wind said you're too heavy."
     },
     {
       "id": "morality-neg",
       "title": "Dark energy grows",
-      "text": "A dark vein surfaces on your jade pendant. Only you can see it."
-    },
-    {
-      "id": "luck-8",
-      "title": "Favored by heaven",
-      "text": "You can't take a step without stepping on a spirit herb. The elders suspect you've opened a heaven eye."
+      "text": "A dark vein surfaces on your jade pendant."
     }
   ],
   "events": [
     {
-      "id": "awakening",
-      "title": "The pendant wakes up",
-      "event": "In an afternoon room, an old jade pendant suddenly glows. You reach out one paw and the whole world flips.",
+      "id": "prologue",
+      "title": "The Crane's Choice",
+      "event": "You are an ordinary orange tabby, curled on a sixth-floor balcony. A crane dives from the clouds and lands in front of you. It says you carry a faint trace of spirit root. The crane places a glowing jade pendant by your paw: 'Hold it, and it will take you where you need to go.'",
       "choices": [
         {
-          "text": "Reach out and touch it",
-          "hint": "A paw of destiny"
+          "text": "Bite the pendant",
+          "hint": "Take it and go"
         },
         {
           "text": "Sniff it first",
           "hint": "A cautious cat"
         },
         {
-          "text": "Bat it away",
-          "hint": "What is this thing"
+          "text": "Ignore it, keep sunbathing",
+          "hint": "Cat principles"
+        }
+      ]
+    },
+    {
+      "id": "awakening",
+      "title": "The Pendant Lifts You",
+      "event": "The pendant grows warm in your mouth. The light intensifies — the balcony railing is gone, the AC unit is gone. You're standing on a cloud, the crane leading the way to a place called 'Jade Sect.'",
+      "choices": [
+        {
+          "text": "Follow the crane",
+          "hint": "Already committed"
+        },
+        {
+          "text": "Look down",
+          "hint": "Mountains below"
+        },
+        {
+          "text": "Try to spit it out",
+          "hint": "Second thoughts"
         }
       ]
     },
     {
       "id": "sect-gate",
-      "title": "The gate takes cats",
-      "event": "You land in front of the Jade Sect gate above a sea of clouds. The elder is choosing new disciples.",
+      "title": "Jade Sect Takes You In",
+      "event": "The crane sets you down at the Jade Sect gate. A white-bearded elder studies you and says: 'This cat has spirit root. Start as an outer disciple.' He gives you a wooden tag with your name and a number.",
       "choices": [
         {
           "text": "Choose the sword terrace",
-          "hint": "Head-on"
+          "hint": "Pick a discipline"
         },
         {
           "text": "Choose the pill room",
-          "hint": "Study the furnace"
+          "hint": "You can smell things"
         },
         {
-          "text": "Sneak to the spirit orchard",
-          "hint": "The fruit looks too sweet"
+          "text": "Sneak to the spirit orchard first",
+          "hint": "Numbers can wait"
         }
       ]
     },
     {
       "id": "morning-drill",
       "title": "Morning drill",
-      "event": "Senior brothers line up to practice. You line up at the end and copy their movements.",
+      "event": "First day as a disciple. Senior brothers line up to practice. You line up at the end — the wooden tag still hangs from your neck.",
       "choices": [
         {
           "text": "Practice seriously",
@@ -332,7 +320,7 @@
     {
       "id": "mouse-duel",
       "title": "Mouse swordsman",
-      "event": "A rogue mouse-swordsman blocks the way. His tail is tied in a nervous knot.",
+      "event": "You're on an errand for the sect when a rogue mouse-swordsman blocks the mountain path. His tail is tied in a nervous knot.",
       "choices": [
         {
           "text": "Fight",
@@ -598,27 +586,49 @@
     {
       "id": "immortal-king",
       "title": "Immortal King of Ten Thousand Cats",
-      "description": "Your cultivation runs through heaven and earth, and your heart holds against every temptation. You ascend as king. First decree: one extra midnight meal every day."
+      "description": "Mahayana is only the threshold. The closer your cultivation is to 100, the more likely the cloud sea opens. First decree: one extra midnight meal every day."
     },
     {
       "id": "evil-immortal",
       "title": "Free and Wicked Cat Immortal",
-      "description": "You cut through shortcuts and became a rogue immortal. The sect posted a notice: valuable boxes should be fitted with cat locks."
+      "description": "You took shortcuts and tricks through the trial. The sect posted a notice: valuable boxes should be fitted with cat locks."
     },
     {
       "id": "fat-guardian",
       "title": "The Chubby Guardian Cat",
-      "description": "Your belly took the last ray of lightning. You became the most popular guardian cat: daily duty is guarding the spirit orchard and tasting the harvest."
+      "description": "Your belly took the last ray of lightning. Daily duty: guarding the spirit orchard and tasting the harvest."
     },
     {
-      "id": "lucky-immortal",
-      "title": "Child of Fortune",
-      "description": "You didn't try, but every step landed exactly right. Fate said: this cat is under my protection."
+      "id": "sunny-balcony",
+      "title": "Back to the Sunny Balcony",
+      "description": "You never became an immortal, but you remember the best patch of sunlight. The crane says you can return any time. You say: after a nap."
     },
     {
-      "id": "ordinary-immortal",
-      "title": "Carefree Cat Immortal",
-      "description": "You lived steadily and became an ordinary, comfortable immortal. Cloud seas, sunshine and dried fish are already enough."
+      "id": "wandering-cat",
+      "title": "The Wandering Cat",
+      "description": "Your cat life ends without ascension and without a balcony. You roam freely, just strong enough to leap between rooftops."
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "immortal-king-seal",
+      "title": "Ten-Thousand-Cat Jade Seal"
+    },
+    {
+      "id": "evil-immortal-charm",
+      "title": "Obsidian Rogue-Cat Charm"
+    },
+    {
+      "id": "fat-guardian-bowl",
+      "title": "Guardian Cat's Round Bowl"
+    },
+    {
+      "id": "sunny-balcony-pendant",
+      "title": "Warm Balcony Jade"
+    },
+    {
+      "id": "wandering-cat-compass",
+      "title": "Wandering Cat Compass"
     }
   ]
 }
