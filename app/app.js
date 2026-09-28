@@ -400,6 +400,7 @@ function resetGame() {
   sceneIndex = 0;
   lifeTurn = 0;
   lifeEventHistory = [];
+  queuedLifeEvent = null;
   lifeTalentIds = [];
   shownMilestones = new Set();
   state = { ...(content().initialState || {}) };
@@ -649,6 +650,7 @@ function collectionMarkup(worldId) {
 let lifeTurn = 0;
 let lifeEventHistory = [];
 let lifeTalentIds = [];
+let queuedLifeEvent = null;
 
 /* ---------- condition parser ----------
    Grammar:  expr := andExpr ( "|" andExpr )*
@@ -748,6 +750,32 @@ function drawLifeEvent() {
   return available[available.length - 1];
 }
 
+function preloadLifeEventImage(event) {
+  const image = event?.image || content().lifeDefaultImage;
+  if (!image) return;
+  const preload = new Image();
+  preload.decoding = "async";
+  preload.src = worldAsset(image);
+}
+
+function queueNextLifeEvent() {
+  queuedLifeEvent = null;
+  const current = content();
+  const hardLimit = current.lifespanMax || 50;
+  const turnLimit = current.lifeTurnLimit || hardLimit;
+  const age = Number(state.age || 0);
+  const totalLifespan = Number(state.lifespan || 0);
+  if (age >= hardLimit || age >= totalLifespan || lifeTurn + 1 > turnLimit) return;
+
+  // Draw the next random event while the player reads the outcome, then start
+  // its image immediately. renderLifeEvent() consumes this exact event next.
+  const originalTurn = lifeTurn;
+  lifeTurn++;
+  queuedLifeEvent = drawLifeEvent();
+  lifeTurn = originalTurn;
+  preloadLifeEventImage(queuedLifeEvent);
+}
+
 function applyLifeEffect(effect = {}) {
   const applied = {};
   const spiritRoot = lifeTalentIds.includes("spirit-root");
@@ -765,6 +793,7 @@ function applyLifeEffect(effect = {}) {
 function startLifeSim() {
   lifeTurn = 0;
   lifeEventHistory = [];
+  queuedLifeEvent = null;
   state = { ...(content().initialState || {}) };
   for (const talentId of lifeTalentIds) {
     const talent = (content().talents || []).find(t => t.id === talentId);
@@ -823,7 +852,8 @@ function renderLifeEvent() {
   }
 
   lifeTurn++;
-  const event = drawLifeEvent();
+  const event = queuedLifeEvent || drawLifeEvent();
+  queuedLifeEvent = null;
   if (!event) { showEnding(); return; }
   lifeEventHistory.push(event.id);
 
@@ -903,6 +933,7 @@ function renderLifeEvent() {
   }
 
   renderMeters();
+  if (choices.length < 2) queueNextLifeEvent();
 }
 
 function lifeDeltaMarkup(effect = {}) {
@@ -931,6 +962,7 @@ function resolveLifeChoice(event, choice) {
     $("outcomeMilestone").innerHTML = "";
     $("deltaChips").innerHTML = "";
     $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
+    queueNextLifeEvent();
     return;
   }
   if (cost > 0) state.fish = (state.fish || 0) - cost;
@@ -955,6 +987,7 @@ function resolveLifeChoice(event, choice) {
         img.hidden = false; $("sceneMissing").hidden = true;
         img.src = worldAsset(branchEvent.image);
       }
+      queueNextLifeEvent();
       return;
     }
   }
@@ -966,6 +999,7 @@ function resolveLifeChoice(event, choice) {
   $("deltaChips").innerHTML = lifeDeltaMarkup(appliedEffect);
   $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
   renderMeters();
+  queueNextLifeEvent();
 }
 
 /* ---------- talent selection ---------- */
