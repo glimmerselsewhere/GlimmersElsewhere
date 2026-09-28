@@ -101,6 +101,18 @@ function toggleSound() {
   updateSoundButtons();
 }
 
+function installAudioUnlock() {
+  const unlock = () => {
+    updateSoundButtons();
+    document.removeEventListener("click", unlock);
+    document.removeEventListener("keydown", unlock);
+  };
+  // Browsers block audio that starts during the initial page load. The first
+  // real click or keypress unlocks it; this avoids requiring a language toggle.
+  document.addEventListener("click", unlock);
+  document.addEventListener("keydown", unlock);
+}
+
 const STRINGS = {
   en: {
     quizHint: "Look at the picture and answer",
@@ -1421,6 +1433,7 @@ async function init() {
     }));
     document.querySelectorAll("[data-back-catalog]").forEach(button => button.addEventListener("click", goCatalog));
     updateSoundButtons();
+    installAudioUnlock();
     setCatalogMusic();
     const requestedWorldId = new URLSearchParams(location.search).get("world");
     const requestedEntry = requestedWorldId && worldEntries.find(entry => entry.id === requestedWorldId);
