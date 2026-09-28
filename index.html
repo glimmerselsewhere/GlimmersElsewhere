@@ -5,10 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5eee1">
   <title>异境拾光 · Glimmers of Elsewhere</title>
-  <link rel="stylesheet" href="app/style.css?v=5">
+  <link rel="stylesheet" href="app/style.css?v=6">
 </head>
 <body>
   <main id="app" class="app-shell" aria-live="polite">
+    <section id="languageView" class="language-view" hidden>
+      <div class="language-orb" aria-hidden="true"><i></i><i></i><b>✦</b></div>
+      <p class="eyebrow">GLIMMERS OF ELSEWHERE</p>
+      <h2>异境拾光</h2>
+      <p class="language-subtitle">Choose your language · 选择语言</p>
+      <div class="language-buttons">
+        <button type="button" data-language-select="en">
+          <strong>English</strong>
+          <small>Enter in English</small>
+        </button>
+        <button type="button" data-language-select="zh">
+          <strong>中文</strong>
+          <small>进入中文世界</small>
+        </button>
+      </div>
+    </section>
+
     <section id="catalogView" class="catalog-view">
       <header class="brand-header">
         <div class="brand-mark" aria-hidden="true"><i></i><i></i><b>✦</b></div>
@@ -134,7 +151,7 @@
       </section>
     </div>
   </main>
-  <script src="app/app.js?v=13"></script>
+  <script src="app/app.js?v=14"></script>
   <script type="module" src="app/keepsake-viewer.js?v=2"></script>
 </body>
 </html>
