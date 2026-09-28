@@ -398,6 +398,9 @@ async function enterWorldFromCatalog(configPath) {
 
 function resetGame() {
   sceneIndex = 0;
+  lifeTurn = 0;
+  lifeEventHistory = [];
+  lifeTalentIds = [];
   shownMilestones = new Set();
   state = { ...(content().initialState || {}) };
   renderMeters();
@@ -508,6 +511,7 @@ function stopWorldMusic() {
 
 function startJourney() {
   if (world?.levels?.length) return;
+  if (world?.mode === "life") { showTalentSelect(); return; }
   showView("gameView");
   renderScene();
 }
@@ -636,6 +640,309 @@ function collectionMarkup(worldId) {
   </div>`;
 }
 
+
+/* ============================================================
+   LIFE-SIM ENGINE (mode: "life")
+   Random events, talents, branching, lifespan, achievements.
+   ============================================================ */
+
+let lifeTurn = 0;
+let lifeEventHistory = [];
+let lifeTalentIds = [];
+
+/* ---------- condition parser ----------
+   Grammar:  expr := andExpr ( "|" andExpr )*
+             andExpr := primary ( "&" primary )*
+             primary := "(" expr ")" | comparison
+             comparison := IDENT OP NUMBER
+   Ops: >=, <=, >, <, =, ==
+---------------------------------------------------------------- */
+function parseConditionTokens(input) {
+  const tokens = [];
+  let i = 0;
+  while (i < input.length) {
+    const c = input[i];
+    if (c === " " || c === "\t") { i++; continue; }
+    if (c === "(" || c === ")" || c === "|" || c === "&") { tokens.push(c); i++; continue; }
+    if (c === ">" || c === "<") {
+      if (input[i + 1] === "=") { tokens.push(">="); i += 2; }
+      else { tokens.push(c); i++; }
+      continue;
+    }
+    if (c === "!" && input[i + 1] === "=") { tokens.push("!="); i += 2; continue; }
+    if (c === "=") { tokens.push("=="); i++; continue; }
+    // identifier or number
+    let j = i;
+    while (j < input.length && ![" ", "\t", "(", ")", "|", "&", ">", "<", "="].includes(input[j])) j++;
+    tokens.push(input.slice(i, j));
+    i = j;
+  }
+  return tokens;
+}
+
+function checkLifeCondition(condition) {
+  if (!condition) return true;
+  const tokens = parseConditionTokens(condition);
+  let pos = 0;
+
+  function peek() { return tokens[pos]; }
+  function next() { return tokens[pos++]; }
+  function parseExpr() {
+    let result = parseAnd();
+    while (peek() === "|") { next(); result = parseAnd() || result; }
+    return result;
+  }
+  function parseAnd() {
+    let result = parsePrimary();
+    while (peek() === "&") { next(); result = parsePrimary() && result; }
+    return result;
+  }
+  function parsePrimary() {
+    if (peek() === "(") { next(); const v = parseExpr(); if (peek() === ")") next(); return v; }
+    return parseComparison();
+  }
+  function parseComparison() {
+    const ident = next();
+    const op = next();
+    const value = parseFloat(next());
+    const left = state[ident] || 0;
+    switch (op) {
+      case ">=": return left >= value;
+      case "<=": return left <= value;
+      case ">":  return left > value;
+      case "<":  return left < value;
+      case "==": return left === value;
+      case "!=": return left !== value;
+      default: return false;
+    }
+  }
+  return parseExpr();
+}
+
+/* ---------- weighted event drawing ---------- */
+const LIFE_RARITY_WEIGHT = { 0: 10, 1: 5, 2: 2, 3: 1 };
+
+function drawLifeEvent() {
+  const allEvents = content().events || [];
+  // filter by include/exclude and not-already-seen
+  const available = allEvents.filter(event => {
+    if (lifeEventHistory.includes(event.id)) return false;
+    if (event.include && !checkLifeCondition(event.include)) return false;
+    if (event.exclude && checkLifeCondition(event.exclude)) return false;
+    return true;
+  });
+  if (!available.length) return allEvents[0] || null;
+  // weighted pick by rarity
+  const total = available.reduce((sum, e) => sum + (LIFE_RARITY_WEIGHT[e.rarity || 0] || 5), 0);
+  let roll = Math.random() * total;
+  for (const event of available) {
+    roll -= LIFE_RARITY_WEIGHT[event.rarity || 0] || 5;
+    if (roll <= 0) return event;
+  }
+  return available[available.length - 1];
+}
+
+/* ---------- life-sim flow ---------- */
+function startLifeSim() {
+  lifeTurn = 0;
+  lifeEventHistory = [];
+  lifeTalentIds = [];
+  // apply talent effects to state
+  state = { ...(content().initialState || {}) };
+  for (const talentId of lifeTalentIds) {
+    const talent = (content().talents || []).find(t => t.id === talentId);
+    if (talent?.effect) {
+      for (const [key, value] of Object.entries(talent.effect)) {
+        state[key] = (state[key] || 0) + value;
+      }
+    }
+  }
+  showView("gameView");
+  renderLifeEvent();
+}
+
+function renderLifeEvent() {
+  const current = content();
+  const maxTurns = current.lifeTurns || 10;
+  lifeTurn++;
+  if (lifeTurn > maxTurns || (state.lifespan || 0) <= 0) {
+    showEnding();
+    return;
+  }
+  // decrement lifespan
+  state.lifespan = (state.lifespan || 0) - 1;
+
+  const event = drawLifeEvent();
+  if (!event) { showEnding(); return; }
+  lifeEventHistory.push(event.id);
+
+  // apply event effects immediately
+  if (event.effect) {
+    for (const [key, value] of Object.entries(event.effect)) {
+      state[key] = (state[key] || 0) + value;
+    }
+  }
+
+  const stageNames = current.lifeStages || ["幼猫", "入门", "筑基", "金丹", "元婴", "化神", "渡劫"];
+  const stageIndex = Math.min(Math.floor((lifeTurn - 1) / (maxTurns / stageNames.length)), stageNames.length - 1);
+
+  choiceLocked = false;
+  $("sceneProgress").textContent = `${String(lifeTurn).padStart(2, "0")} / ${String(maxTurns).padStart(2, "0")}`;
+  $("sceneChapter").textContent = lang === "en" ? `Turn ${lifeTurn}` : `第 ${lifeTurn} 回`;
+  $("sceneTitle").textContent = event.title || event.event || "";
+  $("sceneDescription").textContent = event.event || event.description || "";
+  $("outcomePanel").hidden = true;
+  $("choicePanel").hidden = false;
+
+  const choices = event.choices || [];
+  if (choices.length >= 2) {
+    // interactive event: show choices
+    $("choicePanel").innerHTML = choices.map((choice, index) => `
+      <button class="choice-button" type="button" data-life-choice="${escapeHtml(choice.id || index)}">
+        <span class="choice-icon">${String.fromCharCode(65 + index)}</span>
+        <span><strong>${escapeHtml(choice.text)}</strong><small>${escapeHtml(choice.hint || "")}</small></span>
+        <b>›</b>
+      </button>
+    `).join("");
+    $("choicePanel").querySelectorAll("[data-life-choice]").forEach(button => {
+      button.addEventListener("click", () => {
+        if (choiceLocked) return;
+        choiceLocked = true;
+        const choice = choices.find(c => (c.id || String(choices.indexOf(c))) === button.dataset.lifeChoice) || choices[0];
+        resolveLifeChoice(event, choice);
+      });
+    });
+  } else {
+    // non-interactive event: just continue
+    $("choicePanel").innerHTML = `<button class="choice-button" type="button" data-life-next>
+      <span class="choice-icon">${escapeHtml(lang === "en" ? "→" : "继")}</span>
+      <span><strong>${escapeHtml(lang === "en" ? "Continue" : "继续")}</strong></span>
+      <b>›</b>
+    </button>`;
+    $("choicePanel").querySelector("[data-life-next]").addEventListener("click", () => {
+      renderLifeEvent();
+    });
+  }
+
+  // render image
+  const image = event.image || current.lifeDefaultImage;
+  if (image) {
+    const img = $("sceneImage");
+    img.hidden = false;
+    $("sceneMissing").hidden = true;
+    img.src = worldAsset(image);
+    img.alt = event.event || event.title || "";
+  } else {
+    $("sceneImage").hidden = true;
+    $("sceneMissing").hidden = false;
+  }
+
+  renderMeters();
+}
+
+function resolveLifeChoice(event, choice) {
+  // apply choice effects
+  if (choice.effect) {
+    for (const [key, value] of Object.entries(choice.effect)) {
+      state[key] = (state[key] || 0) + value;
+    }
+  }
+  // follow branch if present
+  if (choice.branch) {
+    const branchEvent = (content().events || []).find(e => e.id === choice.branch);
+    if (branchEvent) {
+      lifeEventHistory.push(branchEvent.id);
+      if (branchEvent.effect) {
+        for (const [key, value] of Object.entries(branchEvent.effect)) {
+          state[key] = (state[key] || 0) + value;
+        }
+      }
+      // show branch as outcome
+      $("choicePanel").hidden = true;
+      $("outcomePanel").hidden = false;
+      $("outcomeText").textContent = branchEvent.event || branchEvent.result || "";
+      $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
+      $("deltaChips").innerHTML = Object.entries(choice.effect || {}).map(([key, value]) => {
+        const def = (content().states || []).find(s => s.id === key);
+        if (def && value) return `<span style="color:${def.color};background:${def.chipBackground || '#eee'}">${def.label} ${value > 0 ? '+' : ''}${value}</span>`;
+        return "";
+      }).join("");
+      $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
+      renderMeters();
+      if (branchEvent.image) {
+        const img = $("sceneImage");
+        img.hidden = false; $("sceneMissing").hidden = true;
+        img.src = worldAsset(branchEvent.image);
+      }
+      return;
+    }
+  }
+  // no branch: show result and continue
+  $("choicePanel").hidden = true;
+  $("outcomePanel").hidden = false;
+  $("outcomeText").textContent = choice.result || choice.text || "";
+  $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
+  $("deltaChips").innerHTML = Object.entries(choice.effect || {}).map(([key, value]) => {
+    const def = (content().states || []).find(s => s.id === key);
+    if (def && value) return `<span style="color:${def.color};background:${def.chipBackground || '#eee'}">${def.label} ${value > 0 ? '+' : ''}${value}</span>`;
+    return "";
+  }).join("");
+  $("continueButton").innerHTML = `${escapeHtml(worldUi("continueButton", lang === "en" ? "Continue" : "继续"))} <b>→</b>`;
+  renderMeters();
+}
+
+/* ---------- talent selection ---------- */
+function showTalentSelect() {
+  const talents = content().talents || [];
+  if (!talents.length) { startLifeSim(); return; }
+  // draw 6 random talents
+  const shuffled = [...talents].sort(() => Math.random() - 0.5);
+  const options = shuffled.slice(0, Math.min(6, shuffled.length));
+  const maxPicks = content().lifeTalentPicks || 3;
+
+  showView("introView");
+  $("openingFallback").hidden = true;
+  $("openingImage").hidden = true;
+  $("openingVideo").hidden = true;
+  $("levelSelect").hidden = false;
+  $("levelSelectTitle").textContent = lang === "en" ? "Pick 3 talents" : "选择 3 个天赋";
+  $("beginJourney").hidden = true;
+  $("levelCards").innerHTML = options.map(talent => `
+    <button class="level-card" type="button" data-talent="${escapeHtml(talent.id)}">
+      <span>${escapeHtml(talent.rarity === 3 ? "★ORANGE" : talent.rarity === 2 ? "★PURPLE" : talent.rarity === 1 ? "★BLUE" : "★WHITE")}</span>
+      <strong>${escapeHtml(talent.name)}</strong>
+      <small>${escapeHtml(talent.description || "")}</small>
+    </button>
+  `).join("");
+
+  const picked = new Set();
+  $("levelCards").querySelectorAll("[data-talent]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.talent;
+      if (picked.has(id)) { picked.delete(id); btn.classList.remove("is-active"); }
+      else if (picked.size < maxPicks) { picked.add(id); btn.classList.add("is-active"); }
+      if (picked.size === maxPicks) {
+        lifeTalentIds = [...picked];
+        setTimeout(() => startLifeSim(), 400);
+      }
+    });
+  });
+}
+
+/* ---------- life summary ---------- */
+function lifeSummaryMarkup() {
+  const attrs = content().states || [];
+  const lines = attrs.map(def => `${def.label}: ${state[def.id] || 0}`).join(" · ");
+  const turns = lang === "en" ? `${lifeTurn} turns` : `${lifeTurn} 回合`;
+  const events = lang === "en" ? `${lifeEventHistory.length} events` : `${lifeEventHistory.length} 个事件`;
+  const talents = (content().talents || []).filter(t => lifeTalentIds.includes(t.id)).map(t => t.name);
+  return `<div class="life-summary">
+    <small>${escapeHtml(lang === "en" ? "LIFE SUMMARY" : "猫生总结")}</small>
+    <p>${escapeHtml(lines)}</p>
+    <p>${escapeHtml(turns)} · ${escapeHtml(events)}${talents.length ? " · " + escapeHtml(talents.join(" / ")) : ""}</p>
+  </div>`;
+}
+
 function renderMeters() {
   const definitions = content().states || Object.keys(state).map((id, index) => ({ id, label: id, color: index ? "#6d9e75" : "#d8654c", max: 14 }));
   $("meters").style.gridTemplateColumns = `repeat(${Math.min(3, definitions.length)}, minmax(0, 1fr))`;
@@ -753,6 +1060,7 @@ function resolveChoice(actionId) {
 }
 
 function continueJourney() {
+  if (world?.mode === "life") { renderLifeEvent(); return; }
   if (sceneIndex >= content().scenes.length - 1) {
     showEnding();
   } else {
@@ -780,7 +1088,7 @@ function showEnding() {
   const ending = content().endings.find(endingMatches) || content().endings.at(-1);
   $("endingTitle").textContent = ending.title;
   $("endingDescription").textContent = ending.description;
-  $("finalStats").innerHTML = (content().states || []).map(definition => `<span>${definition.label} <b>${state[definition.id] || 0}</b></span>`).join("");
+  $("finalStats").innerHTML = (content().states || []).map(definition => `<span>${definition.label} <b>${state[definition.id] || 0}</b></span>`).join("") + (world?.mode === "life" ? lifeSummaryMarkup() : "");
   const video = $("endingVideo");
   const image = $("endingImage");
   const endingVideo = ending.video || world.endingVideo;

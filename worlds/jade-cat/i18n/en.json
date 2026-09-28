@@ -1,138 +1,390 @@
 {
   "title": "Jade Cat Ascension",
   "shortTitle": "Jade Cat Ascension",
-  "subtitle": "A hungry cat's hot-blooded cultivation story",
-  "description": "An old jade pendant drops a house cat into a cultivation world. Cultivation, belly and morality together decide what kind of immortal it turns into.",
+  "subtitle": "Cat Life Restart · Cultivation Simulator",
+  "description": "A jade pendant sends a house cat into a cultivation world. Draw talents, experience random events, and let cultivation, body, belly, luck, morality and lifespan decide what immortal you become.",
   "ui": {
     "backToCatalog": "← Worlds",
     "introButton": "Step onto the path",
-    "continueButton": "Walk on",
+    "continueButton": "Continue",
     "finalContinueButton": "Meet your fate",
-    "replayButton": "Walk the path again"
+    "replayButton": "Live again"
   },
   "catalog": {
     "eyebrow": "A third glimmer has woken up",
-    "cardDescription": "A house cat touches a jade pendant by accident and lands in a cultivation world. Nothing here can kill you - it only decides how unexpectedly you become an immortal.",
+    "cardDescription": "Cat life restart: draw talents, random cultivation events, attributes decide the ending. You can't die - you just become an unexpected immortal.",
     "cardIcon": "Jade",
-    "actionSummary": "Cultivation · Belly · Morality"
+    "actionSummary": "Draw talents · Random events · Attribute endings"
   },
   "states": [
-    { "label": "Cultivation", "description": "How much of the world's spirit energy and spellcraft you've grasped" },
-    { "label": "Belly", "description": "All the spirit fruit and pills eaten along the way" },
-    { "label": "Morality", "description": "The cat heart you kept whenever temptation showed up" }
+    {
+      "label": "Cultivation",
+      "description": "Mastery of spirit energy and spells"
+    },
+    {
+      "label": "Body",
+      "description": "Physical foundation"
+    },
+    {
+      "label": "Belly",
+      "description": "All the spirit fruit and pills eaten"
+    },
+    {
+      "label": "Luck",
+      "description": "How much fate favors you"
+    },
+    {
+      "label": "Morality",
+      "description": "The cat heart you kept"
+    },
+    {
+      "label": "Lifespan",
+      "description": "Turns remaining"
+    }
   ],
-  "actions": [
-    { "name": "Sit down and cultivate", "plain": "Cultivate" },
-    { "name": "Eat first, ask later", "plain": "Eat" },
-    { "name": "Guard the cat heart", "plain": "Guard" }
+  "talents": [
+    {
+      "name": "Glutton",
+      "description": "Belly+2, Body+1, Cultivation-1"
+    },
+    {
+      "name": "Night Walker",
+      "description": "Luck+2, Body+1"
+    },
+    {
+      "name": "Kind Heart",
+      "description": "Morality+2, Luck+1"
+    },
+    {
+      "name": "Sword Bone",
+      "description": "Cultivation+2, Body+2"
+    },
+    {
+      "name": "Heaven Root",
+      "description": "Cultivation+3, Luck+2"
+    },
+    {
+      "name": "Chosen Cat",
+      "description": "All attributes +1"
+    }
   ],
-  "scenes": [
+  "milestones": [
     {
-      "chapter": "Origin",
-      "title": "The pendant woke up, and so did the cat",
-      "description": "In an afternoon room, an old jade pendant suddenly starts to glow. You reach out one paw to touch it and the whole world flips over - this journey is going to start no matter what.",
-      "actions": [ { "name": "Reach out and touch the pendant", "plain": "Touch", "hint": "A pawprint of destiny" } ],
-      "outcomes": {
-        "touch": { "text": "The pendant turns to clear light and sets you down in front of the Jade Sect gate, above a sea of clouds. The path begins here; this step will never change your final standing." }
-      }
+      "id": "cult-5",
+      "title": "Spirit energy enters the body",
+      "text": "Your meridians start absorbing spirit energy on their own. You cultivate even while sleeping."
     },
     {
-      "chapter": "Trial one",
-      "title": "The gate only takes cats with a fate",
-      "description": "The elder lets you pick any entry trial. The sword terrace, the pill room and the spirit array all light up at once, and a sweet smell drifts over from the spirit orchard.",
-      "actions": [
-        { "name": "Swing the little wooden sword", "plain": "Sword", "hint": "Take the sword terrace head-on" },
-        { "name": "Crawl into the pill room", "plain": "Alchemy", "hint": "Study the glowing furnace" },
-        { "name": "Sit down in the spirit array", "plain": "Absorb", "hint": "Breathe quietly for a full round" },
-        { "name": "Sneak off for a spirit fruit", "plain": "Steal fruit", "hint": "The fruit really does look too sweet" }
-      ],
-      "outcomes": {
-        "sword": { "text": "The wooden sword is taller than you, but you pounce at its tassel three hundred times and accidentally invent a swift cat style." },
-        "alchemy": { "text": "You guard the furnace beautifully and only taste-test one round finished pill. The elder decides to look the other way." },
-        "absorb": { "text": "Spirit energy pours up your whiskers into your meridians. You yawn once, and your cultivation takes a solid step up anyway." },
-        "steal-fruit": { "text": "The fruit melts the moment it's in your mouth and your belly rounds out at once. The orchard crane writes your name in a little book." }
-      }
+      "id": "belly-8",
+      "title": "Too fat to fly",
+      "text": "You tried the wind-riding technique. The wind said you're too heavy."
     },
     {
-      "chapter": "Trouble on the road",
-      "title": "A rogue mouse-swordsman blocks the way",
-      "description": "The mouse-swordsman draws his blade and demands your jade pendant. He looks fierce, but his tail has tied itself in a knot from nerves.",
-      "actions": [
-        { "name": "Meet the mouse blade head-on", "plain": "Duel", "hint": "Use the cat sword you just learned" },
-        { "name": "Offer him a dried fish", "plain": "Make peace", "hint": "Maybe a rogue cultivator is just hungry" },
-        { "name": "Pretend a sect elder is behind him", "plain": "Trick", "hint": "Slip past while he turns" }
-      ],
-      "outcomes": {
-        "duel": { "text": "You catch the tip of his blade between two paw pads. The mouse is astonished, then concedes that this was a fair match." },
-        "share": { "text": "The mouse-swordsman finishes the dried fish, drops the claim on your pendant, and quietly tells you where the secret realm opens." },
-        "trick": { "text": "The moment he looks back, you're already far away. Nobody gets hurt, but the move clearly wasn't a bright one." }
-      }
+      "id": "morality-neg",
+      "title": "Dark energy grows",
+      "text": "A dark vein surfaces on your jade pendant. Only you can see it."
     },
     {
-      "chapter": "The realm opens",
-      "title": "An unclaimed realm opens under the moon",
-      "description": "A spinning gate of light appears in the mountain wall. There might be an immortal's legacy inside - or just three hundred years of lost stairways.",
-      "actions": [
-        { "name": "Dive straight into the realm", "plain": "Enter", "hint": "Fortune never waits for cats" },
-        { "name": "Wait and go in with your sect", "plain": "Escort", "hint": "Safer to enter together" },
-        { "name": "Sit outside and enjoy the moon", "plain": "Wait outside", "hint": "Even cultivators should know their limits" }
-      ],
-      "outcomes": {
-        "enter": { "text": "You chase a thread of spirit light through three illusions in a row and come out carrying one wisp of pure immortal energy." },
-        "escort": { "text": "You look after each other in there. There aren't many treasures, but every cat comes out whole." },
-        "leave": { "text": "You don't take the risk. Waiting at the gate, you run into the kitchen disciple bringing midnight snacks. Peace is its own kind of fortune." }
-      }
+      "id": "luck-8",
+      "title": "Favored by heaven",
+      "text": "You can't take a step without stepping on a spirit herb. The elders suspect you've opened a heaven eye."
+    }
+  ],
+  "events": [
+    {
+      "id": "awakening",
+      "title": "The pendant wakes up",
+      "event": "In an afternoon room, an old jade pendant suddenly glows. You reach out one paw and the whole world flips."
     },
     {
-      "chapter": "A question of heart",
-      "title": "An injured senior guards a treasure box",
-      "description": "Your senior has collapsed beside the stone steps and asks you to carry the box back to the sect. It's overflowing with spirit light, and there is nobody else nearby.",
-      "actions": [
-        { "name": "Carry both your senior and the box", "plain": "Rescue", "hint": "Bring them back together" },
-        { "name": "Take the box and go alone", "plain": "Take it", "hint": "Nobody would know what happened here" },
-        { "name": "Send up a signal talisman", "plain": "Signal", "hint": "Stay and keep watch" }
-      ],
-      "outcomes": {
-        "rescue": { "text": "You drag a senior heavier than yourself all the way up the mountain. The box is intact and your heart is clearer than before." },
-        "take": { "text": "The secret art in the box sends your cultivation soaring, but a dark vein quietly surfaces on your pendant. The elder later rescues your senior; nobody dies." },
-        "signal": { "text": "The elder arrives quickly. You kept the box and your senior safe, and you took nothing that wasn't yours." }
-      }
+      "id": "sect-gate",
+      "title": "The gate takes cats",
+      "event": "You land in front of the Jade Sect gate above a sea of clouds. The elder is choosing new disciples.",
+      "choices": [
+        {
+          "text": "Choose the sword terrace",
+          "hint": "Head-on"
+        },
+        {
+          "text": "Choose the pill room",
+          "hint": "Study the furnace"
+        },
+        {
+          "text": "Sneak to the spirit orchard",
+          "hint": "The fruit looks too sweet"
+        }
+      ]
     },
     {
-      "chapter": "The last night",
-      "title": "One ten-thousand-year spirit fruit before the tribulation",
-      "description": "The fruit can raise your cultivation, or be mashed into three days' worth of fruit paste. Whatever you choose now, the lightning will remember your shape.",
-      "actions": [
-        { "name": "Refine the whole fruit", "plain": "Refine", "hint": "Draw the spirit energy into your meridians" },
-        { "name": "Eat it all with fish paste", "plain": "Feast", "hint": "Nobody should face tribulation hungry" },
-        { "name": "Share it with an injured friend", "plain": "Share", "hint": "Keep only one small slice for yourself" }
-      ],
-      "outcomes": {
-        "refine": { "text": "The fruit becomes a golden current of spirit energy. Your cultivation reaches the threshold of tribulation, and little sparks run along the tips of your whiskers." },
-        "feast": { "text": "You eat until you're perfectly content and roll over, round, at dawn. The spirit energy is all there - most of it just went to your belly." },
-        "share-fruit": { "text": "Your friend heals completely and the whole pride stands guard for you. You didn't get the most energy, but you got the steadiest heart." }
-      }
+      "id": "morning-drill",
+      "title": "Morning drill",
+      "event": "Senior brothers line up to practice. You line up at the end and copy their movements."
     },
     {
-      "chapter": "Ascension",
-      "title": "Nine layers of thundercloud over Jade Cat Peak",
-      "description": "The tribulation roars, but it will never hurt you. It only reflects the cultivation, belly and morality you've built up - and hands down the immortal seat that fits you best.",
-      "actions": [
-        { "name": "Walk into the lightning head-on", "plain": "Face the thunder", "hint": "Trust the strength you built all the way here" },
-        { "name": "Shield your sect with your heart", "plain": "Guard", "hint": "Block the bolt falling toward the gate" },
-        { "name": "Wake the dark vein in the pendant", "plain": "Dark jade", "hint": "Swallow the lightning with a shortcut" }
-      ],
-      "outcomes": {
-        "face-thunder": { "text": "You leap into the light, tail drawing a gold arc. When the thunder fades, the immortal gate opens slowly." },
-        "guard-dao": { "text": "You draw the bolt away into the sea of clouds and the whole gate comes through untouched. The wish of every cat holds your path up." },
-        "dark-jade": { "text": "The dark vein swallows the thunder. You aren't hurt - but the path you step onto no longer answers to the sect." }
-      }
+      "id": "library-cat",
+      "title": "Library encounter",
+      "event": "You sneak into the archive and find an unnamed manual in the far corner. The cover has a cat on it."
+    },
+    {
+      "id": "kitchen-duty",
+      "title": "Kitchen duty",
+      "event": "It's your turn to help cook. The crane says the spirit rice should be softer than yesterday."
+    },
+    {
+      "id": "nap-cloud",
+      "title": "Cloud nap",
+      "event": "You slept on the cloud terrace all afternoon. When you woke, someone had tucked a thin spirit-mist blanket over you."
+    },
+    {
+      "id": "chase-butterfly",
+      "title": "Chasing a butterfly",
+      "event": "A glowing butterfly flies past. You chased it across three mountain peaks."
+    },
+    {
+      "id": "pill-accident",
+      "title": "Accidental pill",
+      "event": "You accidentally ate an unfinished pill. Your stomach rumbled for a whole hour."
+    },
+    {
+      "id": "festival",
+      "title": "Pill festival",
+      "event": "The sect holds an elixir fair. You crouch in the corner and sniff them one by one."
+    },
+    {
+      "id": "rain-cultivation",
+      "title": "Cultivating in the rain",
+      "event": "It rains. Other cats hide; you stand in it and cultivate. There's spirit energy in the rain."
+    },
+    {
+      "id": "gift-fish",
+      "title": "Crane's gift",
+      "event": "A crane drops a spirit fish in front of you. It looks deliberate."
+    },
+    {
+      "id": "meditation",
+      "title": "Meditation",
+      "event": "You sit in the spirit array. After an hour you open your eyes and find thin ice on your whiskers."
+    },
+    {
+      "id": "clean-cave",
+      "title": "Cave cleaning",
+      "event": "It's your turn to clean the cave. You swept all the dust to your senior brother's door."
+    },
+    {
+      "id": "night-watch",
+      "title": "Night watch",
+      "event": "It's your turn to keep watch. The moonlight is bright and you see three night spirit beasts you've never seen before."
+    },
+    {
+      "id": "mouse-duel",
+      "title": "Mouse swordsman",
+      "event": "A rogue mouse-swordsman blocks the way. His tail is tied in a nervous knot.",
+      "choices": [
+        {
+          "text": "Fight",
+          "hint": "Use cat sword"
+        },
+        {
+          "text": "Share a dried fish",
+          "hint": "Maybe he's just hungry"
+        },
+        {
+          "text": "Play dead",
+          "hint": "Cat's special move"
+        }
+      ]
+    },
+    {
+      "id": "secret-realm-open",
+      "title": "Secret realm opens",
+      "event": "A spinning gate of light appears in the mountain wall.",
+      "choices": [
+        {
+          "text": "Dive in immediately",
+          "hint": "Fortune doesn't wait"
+        },
+        {
+          "text": "Bring friends",
+          "hint": "Safer together"
+        },
+        {
+          "text": "Stay outside and moon-bathe",
+          "hint": "Know your limits"
+        }
+      ]
+    },
+    {
+      "id": "spirit-fruit-ripe",
+      "title": "The fruit tempts",
+      "event": "The only ten-thousand-year spirit fruit is ripe, and the orchard crane is away.",
+      "choices": [
+        {
+          "text": "Refine it",
+          "hint": "Turn it into cultivation"
+        },
+        {
+          "text": "Eat it all with fish paste",
+          "hint": "Can't face tribulation hungry"
+        },
+        {
+          "text": "Share with an injured friend",
+          "hint": "Keep only a slice"
+        }
+      ]
+    },
+    {
+      "id": "senior-injured",
+      "title": "A test of heart",
+      "event": "Your senior collapsed by the stone steps, a glowing treasure box beside them.",
+      "choices": [
+        {
+          "text": "Carry both back",
+          "hint": "Together"
+        },
+        {
+          "text": "Take the box",
+          "hint": "Nobody saw"
+        },
+        {
+          "text": "Send a signal",
+          "hint": "Stay and watch"
+        }
+      ]
+    },
+    {
+      "id": "rare-herb",
+      "title": "Cliff-side ginseng",
+      "event": "You spot a nine-leaf spirit ginseng on the cliff edge. The wind is strong.",
+      "choices": [
+        {
+          "text": "Climb down for it",
+          "hint": "Cat balance"
+        },
+        {
+          "text": "Wait for it to fall",
+          "hint": "Zen cultivation"
+        }
+      ]
+    },
+    {
+      "id": "dream-master",
+      "title": "Dream transmission",
+      "event": "You meet a white-haired immortal in a dream. He hands you a key."
+    },
+    {
+      "id": "merchant-cat",
+      "title": "Merchant cat",
+      "event": "A merchant cat appears at the gate, selling strange things.",
+      "choices": [
+        {
+          "text": "Buy a clarity pill",
+          "hint": "Cultivation+2"
+        },
+        {
+          "text": "Buy a safety charm",
+          "hint": "Luck+2"
+        },
+        {
+          "text": "Buy nothing",
+          "hint": "Save the fish"
+        }
+      ]
+    },
+    {
+      "id": "dragon-invite",
+      "title": "The dragon's invitation",
+      "event": "A silver dragon circles above the castle and looks down at you. It says it wants to invite you to dinner.",
+      "choices": [
+        {
+          "text": "Accept",
+          "hint": "Dragon food must be amazing"
+        },
+        {
+          "text": "Decline politely",
+          "hint": "Cats have dignity"
+        }
+      ]
+    },
+    {
+      "id": "thunder-trial",
+      "title": "Early tribulation",
+      "event": "Heavenly thunder falls, three hundred years ahead of schedule.",
+      "choices": [
+        {
+          "text": "Face it head-on",
+          "hint": "Take the lightning"
+        },
+        {
+          "text": "Shield your sect",
+          "hint": "Protect others"
+        },
+        {
+          "text": "Use the dark vein",
+          "hint": "Take a shortcut"
+        }
+      ]
+    },
+    {
+      "id": "ancient-ruin",
+      "title": "Ancient cat ruins",
+      "event": "You find a cat statue in an abandoned immortal palace. Its eyes are moving."
+    },
+    {
+      "id": "time-fruit",
+      "title": "Time fruit",
+      "event": "You ate a time fruit. You stood in place for a hundred years, but it felt like one second."
+    },
+    {
+      "id": "nine-tail",
+      "title": "The fox asks",
+      "event": "A nine-tailed spirit fox asks you to teach it cat hunting techniques. You taught it 'pretend not to care'."
+    },
+    {
+      "id": "immortal-cat-legacy",
+      "title": "The immortal cat's last words",
+      "event": "Deep in a cave you find a stone tablet. The last cat who ascended left one sentence: 'Remember to eat enough.'"
+    },
+    {
+      "id": "heaven-gift",
+      "title": "Heaven's gift",
+      "event": "A golden light falls from the sky and lands on you. You burp."
+    },
+    {
+      "id": "all-cats-meet",
+      "title": "The ten-thousand-cat assembly",
+      "event": "Every cat who ever ascended is watching you from the cloud sea. One of them winks."
+    },
+    {
+      "id": "samsara-pond",
+      "title": "The samsara pond",
+      "event": "You see your past life at the reincarnation pond: a lazy house cat lying in the best patch of sunlight."
     }
   ],
   "endings": [
-    { "title": "Immortal King of Ten Thousand Cats", "description": "Your cultivation runs through heaven and earth, and your heart holds against every temptation. You ascend as king under the eyes of ten thousand cats - and your first decree is: one extra midnight meal at the sect, every day." },
-    { "title": "Free and Wicked Cat Immortal", "description": "You cut through the tribulation with shortcuts and tricks and became a rogue immortal who comes and goes without a trace. The sect didn't chase you - they just put up a notice at the gate: valuable boxes should be fitted with cat locks." },
-    { "title": "The Chubby Guardian Cat", "description": "Your belly took the last ray of lightning for you. You never flew very high, but you became the most popular guardian cat in the Jade Sect: your daily duty is watching the spirit orchard and tasting the harvest." },
-    { "title": "Carefree Cat Immortal", "description": "You walked through the tribulation steadily and became an ordinary, comfortable cat immortal. No need to rule the heavens, no need to hold the great Dao - cloud seas, sunshine and dried fish are already enough." }
+    {
+      "id": "immortal-king",
+      "title": "Immortal King of Ten Thousand Cats",
+      "description": "Your cultivation runs through heaven and earth, and your heart holds against every temptation. You ascend as king. First decree: one extra midnight meal every day."
+    },
+    {
+      "id": "evil-immortal",
+      "title": "Free and Wicked Cat Immortal",
+      "description": "You cut through shortcuts and became a rogue immortal. The sect posted a notice: valuable boxes should be fitted with cat locks."
+    },
+    {
+      "id": "fat-guardian",
+      "title": "The Chubby Guardian Cat",
+      "description": "Your belly took the last ray of lightning. You became the most popular guardian cat: daily duty is guarding the spirit orchard and tasting the harvest."
+    },
+    {
+      "id": "lucky-immortal",
+      "title": "Child of Fortune",
+      "description": "You didn't try, but every step landed exactly right. Fate said: this cat is under my protection."
+    },
+    {
+      "id": "ordinary-immortal",
+      "title": "Carefree Cat Immortal",
+      "description": "You lived steadily and became an ordinary, comfortable immortal. Cloud seas, sunshine and dried fish are already enough."
+    }
   ]
 }
