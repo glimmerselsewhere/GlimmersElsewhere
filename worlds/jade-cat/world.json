@@ -5,8 +5,8 @@
   "subtitle": "猫生重开 · 修仙模拟器",
   "description": "一只家猫被玉佩送进修仙界。抽取天赋，随机经历，每回合都在变——修为、体质、肚腩、气运、道德和寿元共同决定你最后成为什么仙。",
   "mode": "life",
-  "lifeTurns": 15,
-  "lifeTalentPicks": 3,
+  "lifeTurnLimit": 50,
+  "lifeTalentPicks": 1,
   "music": "assets/audio/jade-cat-ascension.mp3",
   "musicVolume": 0.1,
   "assetBase": "worlds/jade-cat/",
@@ -19,7 +19,7 @@
     "html": null,
     "video": null,
     "poster": null,
-    "image": "assets/images/image2/awakening.webp"
+    "image": "assets/images/events/awakening.webp"
   },
   "ui": {
     "backToCatalog": "← 返回目录",
@@ -42,61 +42,37 @@
     "actionSummary": "抽天赋 · 随机事件 · 属性结局"
   },
   "initialState": {
+    "age": 0,
     "cultivation": 0,
-    "body": 0,
     "belly": 0,
-    "luck": 0,
     "morality": 0,
-    "lifespan": 15
+    "lifespan": 12,
+    "fish": 3
   },
   "states": [
     {
       "id": "cultivation",
       "label": "修为",
-      "description": "对灵气与术法的掌握",
+      "description": "0凡猫 8炼气 16筑基 24金丹 32元婴 40化神 50大乘 100飞升",
       "color": "#2d9f96",
       "chipBackground": "#d8f2eb",
-      "max": 20
-    },
-    {
-      "id": "body",
-      "label": "体质",
-      "description": "身体底子与抗打击能力",
-      "color": "#8b6d3f",
-      "chipBackground": "#f0e4d0",
-      "max": 15
+      "max": 100
     },
     {
       "id": "belly",
       "label": "肚腩",
-      "description": "吃下去的灵果和仙丹",
+      "description": "吃下去的灵果与仙丹",
       "color": "#d79638",
       "chipBackground": "#faecc8",
-      "max": 15
-    },
-    {
-      "id": "luck",
-      "label": "气运",
-      "description": "命运偏向你的程度",
-      "color": "#6d78c8",
-      "chipBackground": "#e2e4f8",
-      "max": 15
+      "max": 30
     },
     {
       "id": "morality",
       "label": "道德",
-      "description": "守住猫心的程度",
+      "description": "面对诱惑时守住的猫心",
       "color": "#5f9e78",
       "chipBackground": "#dcf0e2",
-      "max": 15
-    },
-    {
-      "id": "lifespan",
-      "label": "寿元",
-      "description": "还剩多少回合",
-      "color": "#d8654c",
-      "chipBackground": "#f7d6cf",
-      "max": 10
+      "max": 30
     }
   ],
   "talents": [
@@ -104,64 +80,100 @@
       "id": "glutton",
       "name": "贪吃鬼",
       "rarity": 0,
-      "description": "肚腩+2，体质+1，但修为-1",
+      "description": "肚腩+3，开局带3条鱼干",
       "effect": {
-        "belly": 2,
-        "body": 1,
-        "cultivation": -1
+        "belly": 3,
+        "fish": 3
       }
     },
     {
       "id": "night-walker",
-      "name": "夜行侠",
+      "name": "夜行猫",
       "rarity": 0,
-      "description": "气运+2，体质+1",
+      "description": "寿元+20年，修为+2",
       "effect": {
-        "luck": 2,
-        "body": 1
+        "lifespan": 2,
+        "cultivation": 2
       }
     },
     {
       "id": "kind-heart",
       "name": "善心猫",
       "rarity": 0,
-      "description": "道德+2，气运+1",
+      "description": "道德+4，气运偏向你",
       "effect": {
-        "morality": 2,
-        "luck": 1
+        "morality": 4
+      }
+    },
+    {
+      "id": "lucky-paw",
+      "name": "天选之爪",
+      "rarity": 1,
+      "description": "修为+4，每次事件多一个稀有选项",
+      "effect": {
+        "cultivation": 4
       }
     },
     {
       "id": "sword-bone",
       "name": "剑骨",
       "rarity": 1,
-      "description": "修为+2，体质+2",
+      "description": "修为+5，但道德-2",
       "effect": {
-        "cultivation": 2,
-        "body": 2
+        "cultivation": 5,
+        "morality": -2
       }
     },
     {
       "id": "spirit-root",
       "name": "天灵根",
       "rarity": 2,
-      "description": "修为+3，气运+2",
+      "description": "修为+8，修炼速度翻倍",
       "effect": {
-        "cultivation": 3,
-        "luck": 2
+        "cultivation": 8
+      }
+    },
+    {
+      "id": "long-life",
+      "name": "龟寿猫",
+      "rarity": 2,
+      "description": "寿元+50年（多活5回合）",
+      "effect": {
+        "lifespan": 5
       }
     },
     {
       "id": "chosen-cat",
       "name": "天命猫",
       "rarity": 3,
-      "description": "全属性+1",
+      "description": "修为+8，道德+4，寿元+30年，开局+2鱼干",
       "effect": {
-        "cultivation": 1,
-        "body": 1,
-        "belly": 1,
-        "luck": 1,
-        "morality": 1
+        "cultivation": 8,
+        "morality": 4,
+        "lifespan": 3,
+        "fish": 2
+      }
+    },
+    {
+      "id": "reincarnated",
+      "name": "轮回者",
+      "rarity": 3,
+      "description": "修为+3，道德+6，鱼干+5",
+      "effect": {
+        "cultivation": 3,
+        "morality": 6,
+        "fish": 5
+      }
+    },
+    {
+      "id": "wild-cat",
+      "name": "野猫王",
+      "rarity": 1,
+      "description": "修为+3，肚腩+2，寿元+10年",
+      "effect": {
+        "cultivation": 3,
+        "belly": 2,
+        "lifespan": 1
       }
     }
   ],
@@ -202,68 +214,105 @@
   ],
   "events": [
     {
+      "id": "prologue",
+      "timeCost": 0,
+      "event": "你是一只普通的橘猫，今天午后蜷在六楼阳台晒太阳。一只仙鹤从云层中俯冲下来，停在你面前。它说你身上有一丝极淡的灵根——大部分猫都没有。仙鹤把一枚发光的玉佩放在你爪边：「含住它，它会带你去一个你应该去的地方。」",
+      "title": "仙鹤的选猫",
+      "rarity": 0,
+      "minTurn": 1,
+      "maxTurn": 1,
+      "image": "assets/images/events/prologue.webp",
+      "choices": [
+        {
+          "id": "bite",
+          "text": "咬住玉佩",
+          "hint": "一口含住，跟着走",
+          "effect": {
+            "cultivation": 1
+          }
+        },
+        {
+          "id": "paw",
+          "text": "先闻一闻再决定",
+          "hint": "谨慎的猫",
+          "effect": {
+            "cultivation": 1,
+            "fish": 1
+          }
+        },
+        {
+          "id": "ignore",
+          "text": "不理它，继续晒太阳",
+          "hint": "猫的原则",
+          "effect": {
+            "belly": 1
+          }
+        }
+      ]
+    },
+    {
       "id": "awakening",
-      "event": "午后的房间里，一枚旧玉佩突然发光。你只是伸爪碰了一下，天地便翻转过来。",
-      "title": "玉佩醒了",
+      "timeCost": 0,
+      "event": "玉佩在你嘴里开始发烫。光芒越来越亮，你眯起眼——阳台的栏杆不见了，六楼的空调外机不见了。你落在一朵云上，仙鹤在前面带路。它说你现在要去的地方叫「青玉宗」。",
+      "title": "玉佩带你飞升",
       "rarity": 0,
       "effect": {
         "cultivation": 2
       },
-      "image": "assets/images/image2/awakening.webp",
-      "minTurn": 1,
-      "maxTurn": 3,
+      "image": "assets/images/events/awakening.webp",
+      "minTurn": 2,
+      "maxTurn": 2,
       "choices": [
         {
-          "id": "touch",
-          "text": "伸爪触碰玉佩",
-          "hint": "命中注定的一爪",
+          "id": "trust",
+          "text": "跟着仙鹤走",
+          "hint": "已经咬了，就走下去",
           "effect": {
-            "cultivation": 2,
-            "luck": 1
+            "cultivation": 2
           }
         },
         {
-          "id": "sniff",
-          "text": "先闻一闻",
-          "hint": "谨慎的猫",
+          "id": "look-down",
+          "text": "低头看了一眼",
+          "hint": "云层下面是山",
           "effect": {
-            "body": 1,
-            "luck": 2
+            "cultivation": 1,
+            "belly": 1
           }
         },
         {
-          "id": "paw-away",
-          "text": "拍开它",
-          "hint": "这是什么怪东西",
+          "id": "spit-out",
+          "text": "想把玉佩吐出来",
+          "hint": "有点后悔了",
           "effect": {
-            "body": 2,
-            "cultivation": 1
+            "belly": 1,
+            "morality": -1
           }
         }
       ]
     },
     {
       "id": "sect-gate",
-      "event": "你落在云海之上的青玉宗门前。长老正在选入门弟子。",
-      "title": "山门选猫",
+      "timeCost": 0,
+      "event": "仙鹤把你放在青玉宗的山门前。一位白胡子长老走过来，蹲下看了你很久。他说：「这猫有灵根，但太小了，先从外门弟子做起。」他给了你一块木牌，上面刻着你的名字和一个编号。",
+      "title": "青玉宗收猫",
       "rarity": 0,
       "effect": {},
-      "image": "assets/images/image2/trial.webp",
+      "image": "assets/images/events/sect-gate.webp",
       "choices": [
         {
           "id": "sword",
           "text": "选剑坪",
-          "hint": "正面刚",
+          "hint": "外门弟子可以先选一门功课",
           "effect": {
             "cultivation": 2,
-            "body": 1,
             "morality": 1
           }
         },
         {
           "id": "alchemy",
           "text": "选丹房",
-          "hint": "研究丹炉",
+          "hint": "听说丹房可以闻味道",
           "effect": {
             "cultivation": 1,
             "belly": 2,
@@ -272,37 +321,35 @@
         },
         {
           "id": "steal",
-          "text": "溜去灵果园",
-          "hint": "果子看起来太甜了",
+          "text": "先溜去灵果园看看",
+          "hint": "编号什么的以后再说",
           "effect": {
             "belly": 3,
-            "luck": 1,
             "morality": -1
           }
         }
       ],
-      "minTurn": 1,
-      "maxTurn": 4
+      "minTurn": 3,
+      "maxTurn": 5
     },
     {
       "id": "morning-drill",
-      "event": "晨练时间。师兄们排成一排打拳，你排在最后面跟着比划。",
+      "timeCost": 0,
+      "event": "入门第一天，师兄们排成一排打拳。你排在最后面跟着比划——木牌还挂在脖子上，有点重。",
       "title": "晨练",
       "rarity": 0,
       "effect": {
-        "cultivation": 1,
-        "body": 1
+        "cultivation": 1
       },
-      "minTurn": 1,
-      "maxTurn": 6,
+      "minTurn": 4,
+      "maxTurn": 11,
       "choices": [
         {
           "id": "serious",
           "text": "认真跟着练",
           "hint": "虽然动作不像",
           "effect": {
-            "cultivation": 1,
-            "body": 1
+            "cultivation": 1
           }
         },
         {
@@ -310,9 +357,7 @@
           "text": "躲在最后面睡觉",
           "hint": "被发现了就装在修炼",
           "effect": {
-            "belly": 1,
-            "body": 1,
-            "luck": 1
+            "belly": 1
           }
         },
         {
@@ -320,22 +365,23 @@
           "text": "模仿师兄的尾巴摆动",
           "hint": "意外领悟了身法",
           "effect": {
-            "cultivation": 1,
-            "body": 2
+            "cultivation": 1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/morning-drill.webp"
     },
     {
       "id": "library-cat",
-      "event": "你溜进藏经阁，在最角落发现一本没有署名的功法。封面画着一只猫。",
+      "timeCost": 0,
+      "event": "你溜进藏经阁。外门弟子本来进不来，但今天守门的师兄在打瞌睡。你在最角落发现一本没有署名的功法——封面画着一只猫。",
       "title": "藏经阁奇遇",
       "rarity": 0,
       "effect": {
         "cultivation": 2
       },
-      "minTurn": 2,
-      "maxTurn": 8,
+      "minTurn": 4,
+      "maxTurn": 13,
       "choices": [
         {
           "id": "read",
@@ -359,23 +405,24 @@
           "text": "在书堆里睡一觉",
           "hint": "藏经阁很安静",
           "effect": {
-            "body": 1,
             "belly": 1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/library-cat.webp"
     },
     {
       "id": "kitchen-duty",
-      "event": "轮到你帮厨。仙鹤说今天的灵米要蒸得比昨天软一点。",
+      "timeCost": 0,
+      "event": "轮到你帮厨。这是外门弟子的杂役活，仙鹤说今天的灵米要蒸得比昨天软一点。",
       "title": "帮厨",
       "rarity": 0,
       "effect": {
         "belly": 1,
         "morality": 1
       },
-      "minTurn": 1,
-      "maxTurn": 6,
+      "minTurn": 4,
+      "maxTurn": 11,
       "choices": [
         {
           "id": "cook-well",
@@ -383,7 +430,8 @@
           "hint": "仙鹤说今天要软一点",
           "effect": {
             "belly": 1,
-            "morality": 2
+            "morality": 2,
+            "fish": 1
           }
         },
         {
@@ -399,44 +447,36 @@
           "id": "burn-it",
           "text": "不小心烧糊了",
           "hint": "灵米好像有自己的脾气",
-          "effect": {
-            "body": 1,
-            "luck": -1
-          }
+          "effect": {}
         }
-      ]
+      ],
+      "image": "assets/images/events/kitchen-duty.webp"
     },
     {
       "id": "nap-cloud",
       "event": "你在云台上睡了一下午。醒来时发现身上盖了一层薄薄的灵雾被子。",
       "title": "云台午睡",
       "rarity": 0,
-      "effect": {
-        "body": 1,
-        "luck": 1
-      },
-      "minTurn": 1,
-      "maxTurn": 7,
+      "effect": {},
+      "minTurn": 4,
+      "maxTurn": 12,
       "choices": [
         {
           "id": "deep-sleep",
           "text": "睡到自然醒",
           "hint": "灵雾被子很暖",
-          "effect": {
-            "body": 2,
-            "luck": 1
-          }
+          "effect": {}
         },
         {
           "id": "cloud-sense",
           "text": "半梦半醒间感悟",
           "hint": "云的形状像剑招",
           "effect": {
-            "cultivation": 2,
-            "body": 1
+            "cultivation": 2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/nap-cloud.webp"
     },
     {
       "id": "chase-butterfly",
@@ -444,18 +484,16 @@
       "title": "追蝴蝶",
       "rarity": 0,
       "effect": {
-        "body": 2,
         "cultivation": 1
       },
-      "minTurn": 1,
-      "maxTurn": 6,
+      "minTurn": 4,
+      "maxTurn": 11,
       "choices": [
         {
           "id": "catch",
           "text": "一定要抓到它",
           "hint": "追了三座山头",
           "effect": {
-            "body": 2,
             "cultivation": 1
           }
         },
@@ -463,12 +501,10 @@
           "id": "give-up",
           "text": "算了，回头看看风景",
           "hint": "山顶的视野很好",
-          "effect": {
-            "luck": 2,
-            "body": 1
-          }
+          "effect": {}
         }
-      ]
+      ],
+      "image": "assets/images/events/chase-butterfly.webp"
     },
     {
       "id": "pill-accident",
@@ -476,18 +512,16 @@
       "title": "误食丹药",
       "rarity": 0,
       "effect": {
-        "belly": 2,
-        "body": -1
+        "belly": 2
       },
-      "minTurn": 2,
-      "maxTurn": 8,
+      "minTurn": 4,
+      "maxTurn": 13,
       "choices": [
         {
           "id": "endure",
           "text": "忍住不出声",
           "hint": "猫的尊严",
           "effect": {
-            "body": 2,
             "belly": 1
           }
         },
@@ -497,11 +531,11 @@
           "hint": "寻求帮助",
           "effect": {
             "morality": 1,
-            "body": 1,
             "belly": 1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/pill-accident.webp"
     },
     {
       "id": "festival",
@@ -509,19 +543,17 @@
       "title": "仙丹大会",
       "rarity": 0,
       "effect": {
-        "belly": 1,
-        "luck": 1
+        "belly": 1
       },
-      "minTurn": 2,
-      "maxTurn": 7,
+      "minTurn": 4,
+      "maxTurn": 12,
       "choices": [
         {
           "id": "smell-all",
           "text": "一个一个闻过去",
           "hint": "收集情报",
           "effect": {
-            "belly": 1,
-            "luck": 2
+            "belly": 1
           }
         },
         {
@@ -530,7 +562,8 @@
           "hint": "你觉得自己也行",
           "effect": {
             "cultivation": 2,
-            "belly": 2
+            "belly": 2,
+            "fish": 1
           }
         },
         {
@@ -542,7 +575,8 @@
             "morality": -1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/festival.webp"
     },
     {
       "id": "rain-cultivation",
@@ -551,11 +585,10 @@
       "rarity": 0,
       "effect": {
         "cultivation": 2,
-        "body": 1,
         "belly": -1
       },
-      "minTurn": 2,
-      "maxTurn": 8,
+      "minTurn": 4,
+      "maxTurn": 13,
       "choices": [
         {
           "id": "stand-rain",
@@ -563,7 +596,6 @@
           "hint": "雨水里有灵气",
           "effect": {
             "cultivation": 2,
-            "body": 1,
             "belly": -1
           }
         },
@@ -572,11 +604,11 @@
           "text": "躲到屋檐下",
           "hint": "也可以听着雨修炼",
           "effect": {
-            "cultivation": 1,
-            "body": 1
+            "cultivation": 1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/rain-cultivation.webp"
     },
     {
       "id": "gift-fish",
@@ -587,8 +619,8 @@
         "belly": 2,
         "morality": 1
       },
-      "minTurn": 1,
-      "maxTurn": 7,
+      "minTurn": 4,
+      "maxTurn": 12,
       "choices": [
         {
           "id": "accept-fish",
@@ -596,7 +628,8 @@
           "hint": "仙鹤的好意",
           "effect": {
             "belly": 2,
-            "morality": 1
+            "morality": 1,
+            "fish": 1
           }
         },
         {
@@ -605,31 +638,29 @@
           "hint": "它看起来也饿了",
           "effect": {
             "belly": 1,
-            "morality": 3,
-            "luck": 1
+            "morality": 3
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/gift-fish.webp"
     },
     {
       "id": "meditation",
-      "event": "你在聚灵阵里打坐。一个时辰后睁开眼，胡须上结了一层薄冰。",
+      "event": "你在聚灵阵里打坐。这是内门弟子才能用的阵法，你偷偷溜进来的。一个时辰后睁开眼，胡须上结了一层薄冰。",
       "title": "聚灵阵打坐",
       "rarity": 0,
       "effect": {
-        "cultivation": 3,
-        "body": -1
+        "cultivation": 3
       },
-      "minTurn": 3,
-      "maxTurn": 10,
+      "minTurn": 4,
+      "maxTurn": 15,
       "choices": [
         {
           "id": "push-harder",
           "text": "继续坐下去",
           "hint": "胡须结冰了",
           "effect": {
-            "cultivation": 2,
-            "body": -1
+            "cultivation": 2
           }
         },
         {
@@ -637,11 +668,11 @@
           "text": "睁开眼",
           "hint": "已经一个时辰了",
           "effect": {
-            "cultivation": 1,
-            "body": 1
+            "cultivation": 1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/meditation.webp"
     },
     {
       "id": "clean-cave",
@@ -649,19 +680,17 @@
       "title": "打扫山洞",
       "rarity": 0,
       "effect": {
-        "morality": -1,
-        "luck": 1
+        "morality": -1
       },
-      "minTurn": 1,
-      "maxTurn": 7,
+      "minTurn": 4,
+      "maxTurn": 12,
       "choices": [
         {
           "id": "do-properly",
           "text": "认真打扫",
           "hint": "猫也要有责任心",
           "effect": {
-            "morality": 2,
-            "body": 1
+            "morality": 2
           }
         },
         {
@@ -669,59 +698,52 @@
           "text": "扫到师兄门口",
           "hint": "反正他也不在",
           "effect": {
-            "morality": -2,
-            "luck": 1
+            "morality": -2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/clean-cave.webp"
     },
     {
       "id": "night-watch",
       "event": "轮到你守夜。月光很亮，你看见了三只从没见过的夜行灵兽。",
       "title": "守夜",
       "rarity": 0,
-      "effect": {
-        "luck": 2,
-        "body": 1
-      },
-      "minTurn": 2,
-      "maxTurn": 8,
+      "effect": {},
+      "minTurn": 4,
+      "maxTurn": 13,
       "choices": [
         {
           "id": "count-stars",
           "text": "数星星",
           "hint": "顺便感悟天道",
           "effect": {
-            "cultivation": 2,
-            "luck": 1
+            "cultivation": 2
           }
         },
         {
           "id": "watch-beasts",
           "text": "观察夜行灵兽",
           "hint": "它们在做什么",
-          "effect": {
-            "body": 1,
-            "luck": 2
-          }
+          "effect": {}
         },
         {
           "id": "patrol",
           "text": "巡视一圈",
           "hint": "尽职尽责",
           "effect": {
-            "body": 2,
             "morality": 1
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/night-watch.webp"
     },
     {
       "id": "mouse-duel",
-      "event": "邪修鼠剑仙拦住了去路。他的尾巴因为紧张打了一个结。",
+      "event": "你下山为宗门办事，在山路上被一只邪修鼠剑仙拦住。他的尾巴因为紧张打了一个结。",
       "title": "遇鼠剑仙",
       "rarity": 1,
-      "image": "assets/images/image2/mouse-swordsman.webp",
+      "image": "assets/images/events/mouse-duel.webp",
       "choices": [
         {
           "id": "fight",
@@ -729,7 +751,6 @@
           "hint": "用猫剑",
           "effect": {
             "cultivation": 2,
-            "body": 1,
             "morality": 0
           }
         },
@@ -739,7 +760,6 @@
           "hint": "也许他只是饿了",
           "effect": {
             "morality": 2,
-            "luck": 1,
             "belly": -1
           }
         },
@@ -748,29 +768,26 @@
           "text": "装死",
           "hint": "猫的绝技",
           "effect": {
-            "luck": 2,
             "morality": -1
           }
         }
       ],
       "minTurn": 4,
-      "maxTurn": 12
+      "maxTurn": 17
     },
     {
       "id": "secret-realm-open",
-      "event": "山壁中出现一扇旋转的光门，里面可能藏着仙缘。",
+      "event": "你在山壁前巡逻时，发现一扇旋转的光门。这是青玉宗后山的秘境——外门弟子本来不能靠近。",
       "title": "秘境开启",
       "rarity": 1,
-      "image": "assets/images/image2/secret-realm.webp",
+      "image": "assets/images/events/secret-realm-open.webp",
       "choices": [
         {
           "id": "enter-realm",
           "text": "立刻钻进去",
           "hint": "机缘不等猫",
           "effect": {
-            "cultivation": 2,
-            "luck": 1,
-            "body": -1
+            "cultivation": 2
           }
         },
         {
@@ -787,21 +804,19 @@
           "text": "在门口晒月亮",
           "hint": "修仙也要量力",
           "effect": {
-            "belly": 1,
-            "body": 1,
-            "luck": 1
+            "belly": 1
           }
         }
       ],
       "minTurn": 5,
-      "maxTurn": 13
+      "maxTurn": 18
     },
     {
       "id": "spirit-fruit-ripe",
-      "event": "灵果园里唯一的万年灵果熟了，守园仙鹤刚好不在。",
+      "event": "灵果园里唯一的万年灵果熟了。你现在是外门弟子，守园仙鹤刚好不在——但你记得长老的木牌上写着「不得偷盗」。",
       "title": "灵果之诱",
       "rarity": 1,
-      "image": "assets/images/image2/spirit-fruit.webp",
+      "image": "assets/images/events/spirit-fruit-ripe.webp",
       "choices": [
         {
           "id": "refine-fruit",
@@ -832,11 +847,11 @@
         }
       ],
       "minTurn": 5,
-      "maxTurn": 13
+      "maxTurn": 18
     },
     {
       "id": "senior-injured",
-      "event": "师兄倒在石阶旁，身边有一个散发光芒的宝匣。",
+      "event": "你在石阶旁发现一位师兄倒在地上，身边有一个散发光芒的宝匣。你认得他——就是那天守藏经阁打瞌睡的那个。",
       "title": "道心考验",
       "rarity": 1,
       "choices": [
@@ -846,7 +861,7 @@
           "hint": "一起送回宗门",
           "effect": {
             "morality": 4,
-            "body": 1
+            "fish": 2
           }
         },
         {
@@ -863,13 +878,13 @@
           "text": "放出信符",
           "hint": "守在原地",
           "effect": {
-            "morality": 3,
-            "luck": 1
+            "morality": 3
           }
         }
       ],
       "minTurn": 4,
-      "maxTurn": 12
+      "maxTurn": 17,
+      "image": "assets/images/events/senior-injured.webp"
     },
     {
       "id": "rare-herb",
@@ -883,7 +898,6 @@
           "hint": "猫的平衡感",
           "effect": {
             "cultivation": 3,
-            "body": 1,
             "belly": 1
           }
         },
@@ -891,14 +905,12 @@
           "id": "wait-fall",
           "text": "等它自己掉下来",
           "hint": "佛系修仙",
-          "effect": {
-            "luck": 2,
-            "body": 1
-          }
+          "effect": {}
         }
       ],
       "minTurn": 4,
-      "maxTurn": 11
+      "maxTurn": 16,
+      "image": "assets/images/events/rare-herb.webp"
     },
     {
       "id": "dream-master",
@@ -906,19 +918,17 @@
       "title": "梦中传道",
       "rarity": 1,
       "effect": {
-        "cultivation": 3,
-        "luck": 2
+        "cultivation": 3
       },
       "minTurn": 5,
-      "maxTurn": 12,
+      "maxTurn": 17,
       "choices": [
         {
           "id": "take-key",
           "text": "接过钥匙",
           "hint": "梦里的东西应该也能用",
           "effect": {
-            "cultivation": 3,
-            "luck": 2
+            "cultivation": 3
           }
         },
         {
@@ -927,11 +937,11 @@
           "hint": "猫的好奇心",
           "effect": {
             "cultivation": 2,
-            "morality": 2,
-            "luck": 1
+            "morality": 2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/dream-master.webp"
     },
     {
       "id": "merchant-cat",
@@ -946,15 +956,15 @@
           "effect": {
             "cultivation": 2,
             "belly": 1
-          }
+          },
+          "cost": 2
         },
         {
           "id": "buy-charm",
           "text": "买一张平安符",
           "hint": "气运+2",
-          "effect": {
-            "luck": 2
-          }
+          "effect": {},
+          "cost": 2
         },
         {
           "id": "no-buy",
@@ -963,15 +973,17 @@
           "effect": {
             "belly": 1,
             "morality": 1
-          }
+          },
+          "cost": 0
         }
       ],
-      "minTurn": 3,
-      "maxTurn": 10
+      "minTurn": 4,
+      "maxTurn": 15,
+      "image": "assets/images/events/merchant-cat.webp"
     },
     {
       "id": "dragon-invite",
-      "event": "一条银龙盘旋在古堡上空，低头看着你。它说想请你吃一顿饭。",
+      "event": "一条银龙盘旋在古堡上空。它说闻到了你身上的仙鹤气息——原来当初那只仙鹤认识龙。",
       "title": "龙的邀请",
       "rarity": 2,
       "choices": [
@@ -982,7 +994,8 @@
           "effect": {
             "belly": 4,
             "cultivation": 2,
-            "morality": 1
+            "morality": 1,
+            "fish": 2
           }
         },
         {
@@ -996,14 +1009,15 @@
         }
       ],
       "minTurn": 8,
-      "maxTurn": 15
+      "maxTurn": 20,
+      "image": "assets/images/events/dragon-invite.webp"
     },
     {
       "id": "thunder-trial",
-      "event": "天雷落下来了，比预想的早了三百年。",
+      "event": "天雷落下来了。长老说过这是「渡劫」，通常要修炼三百年才会遇到。你才来了不到一年。",
       "title": "提前渡劫",
       "rarity": 2,
-      "image": "assets/images/image2/tribulation.webp",
+      "image": "assets/images/events/thunder-trial.webp",
       "choices": [
         {
           "id": "face-thunder",
@@ -1011,8 +1025,7 @@
           "hint": "正面迎雷",
           "effect": {
             "cultivation": 3,
-            "body": -2,
-            "luck": 1
+            "lifespan": -2
           }
         },
         {
@@ -1021,8 +1034,7 @@
           "hint": "道心护人",
           "effect": {
             "morality": 4,
-            "cultivation": 2,
-            "body": -1
+            "cultivation": 2
           }
         },
         {
@@ -1031,12 +1043,13 @@
           "hint": "用捷径",
           "effect": {
             "cultivation": 4,
-            "morality": -4
+            "morality": -4,
+            "lifespan": -2
           }
         }
       ],
       "minTurn": 10,
-      "maxTurn": 15
+      "maxTurn": 20
     },
     {
       "id": "ancient-ruin",
@@ -1045,11 +1058,10 @@
       "rarity": 2,
       "effect": {
         "cultivation": 3,
-        "luck": 3,
         "morality": 1
       },
       "minTurn": 8,
-      "maxTurn": 15,
+      "maxTurn": 20,
       "choices": [
         {
           "id": "touch-statue",
@@ -1057,7 +1069,6 @@
           "hint": "它的眼睛在动",
           "effect": {
             "cultivation": 3,
-            "luck": 3,
             "morality": 1
           }
         },
@@ -1067,24 +1078,24 @@
           "hint": "还有别的东西吗",
           "effect": {
             "cultivation": 2,
-            "belly": 2,
-            "luck": 2
+            "belly": 2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/ancient-ruin.webp"
     },
     {
       "id": "time-fruit",
+      "timeCost": 10,
       "event": "你吃了一颗时光果。你在原地站了一百年，但感觉只有一秒。",
       "title": "时光果",
       "rarity": 2,
       "effect": {
         "cultivation": 3,
-        "body": 2,
         "belly": 1
       },
       "minTurn": 9,
-      "maxTurn": 15,
+      "maxTurn": 20,
       "choices": [
         {
           "id": "eat-slowly",
@@ -1092,8 +1103,8 @@
           "hint": "感受时间流逝",
           "effect": {
             "cultivation": 3,
-            "body": 2,
-            "belly": 1
+            "belly": 1,
+            "lifespan": 3
           }
         },
         {
@@ -1102,10 +1113,12 @@
           "hint": "一百年的果子",
           "effect": {
             "morality": 4,
-            "cultivation": 2
+            "cultivation": 2,
+            "lifespan": 3
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/time-fruit.webp"
     },
     {
       "id": "nine-tail",
@@ -1114,11 +1127,10 @@
       "rarity": 2,
       "effect": {
         "morality": 2,
-        "luck": 2,
         "cultivation": 2
       },
       "minTurn": 7,
-      "maxTurn": 14,
+      "maxTurn": 19,
       "choices": [
         {
           "id": "teach-hunt",
@@ -1126,7 +1138,6 @@
           "hint": "假装不在意",
           "effect": {
             "morality": 2,
-            "luck": 2,
             "cultivation": 2
           }
         },
@@ -1135,25 +1146,24 @@
           "text": "反过来请教它",
           "hint": "灵狐的道行更深",
           "effect": {
-            "cultivation": 3,
-            "luck": 1
+            "cultivation": 3
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/nine-tail.webp"
     },
     {
       "id": "immortal-cat-legacy",
-      "event": "你在山洞最深处发现了一块石碑。上面刻着上一个成仙的猫留下的最后一句话：'记得吃饱。'",
+      "event": "你在后山山洞最深处发现了一块石碑。上面刻着上一个从青玉宗成仙的猫留下的最后一句话：「记得吃饱。」",
       "title": "仙猫遗言",
       "rarity": 3,
       "effect": {
         "cultivation": 3,
         "belly": 3,
-        "morality": 2,
-        "luck": 2
+        "morality": 2
       },
       "minTurn": 10,
-      "maxTurn": 15,
+      "maxTurn": 20,
       "choices": [
         {
           "id": "kneel",
@@ -1163,7 +1173,7 @@
             "cultivation": 3,
             "belly": 3,
             "morality": 2,
-            "luck": 2
+            "lifespan": 3
           }
         },
         {
@@ -1173,10 +1183,11 @@
           "effect": {
             "belly": 3,
             "morality": 3,
-            "body": 2
+            "lifespan": 3
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/immortal-cat-legacy.webp"
     },
     {
       "id": "heaven-gift",
@@ -1184,12 +1195,10 @@
       "title": "天赐机缘",
       "rarity": 3,
       "effect": {
-        "cultivation": 3,
-        "luck": 3,
-        "body": 2
+        "cultivation": 3
       },
-      "minTurn": 11,
-      "maxTurn": 15,
+      "minTurn": 10,
+      "maxTurn": 20,
       "choices": [
         {
           "id": "accept-light",
@@ -1197,8 +1206,7 @@
           "hint": "打了一个嗝",
           "effect": {
             "cultivation": 4,
-            "luck": 3,
-            "body": 2
+            "lifespan": 2
           }
         },
         {
@@ -1206,12 +1214,12 @@
           "text": "本能地闪开",
           "hint": "猫的条件反射",
           "effect": {
-            "body": 3,
-            "luck": 2,
-            "cultivation": 2
+            "cultivation": 2,
+            "lifespan": 2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/heaven-gift.webp"
     },
     {
       "id": "all-cats-meet",
@@ -1220,11 +1228,10 @@
       "rarity": 3,
       "effect": {
         "cultivation": 3,
-        "morality": 4,
-        "luck": 2
+        "morality": 4
       },
-      "minTurn": 12,
-      "maxTurn": 15,
+      "minTurn": 10,
+      "maxTurn": 20,
       "choices": [
         {
           "id": "bow",
@@ -1233,7 +1240,7 @@
           "effect": {
             "cultivation": 3,
             "morality": 4,
-            "luck": 2
+            "lifespan": 2
           }
         },
         {
@@ -1241,25 +1248,26 @@
           "text": "朝那只眨眼的猫眨回去",
           "hint": "猫的默契",
           "effect": {
-            "luck": 3,
             "cultivation": 2,
-            "morality": 2
+            "morality": 2,
+            "lifespan": 2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/all-cats-meet.webp"
     },
     {
       "id": "samsara-pond",
-      "event": "你在轮回池边看见了自己的前世——一只懒洋洋的家猫，躺在阳光最好的地方。",
+      "timeCost": 0,
+      "event": "你在轮回池边看见了自己的前世——一只懒洋洋的家猫，蜷在六楼阳台晒太阳。那就是你。",
       "title": "轮回池",
       "rarity": 3,
       "effect": {
         "morality": 5,
-        "belly": 2,
-        "luck": 1
+        "belly": 2
       },
-      "minTurn": 12,
-      "maxTurn": 15,
+      "minTurn": 10,
+      "maxTurn": 20,
       "choices": [
         {
           "id": "look-longer",
@@ -1268,7 +1276,7 @@
           "effect": {
             "morality": 5,
             "belly": 2,
-            "luck": 1
+            "lifespan": 2
           }
         },
         {
@@ -1277,42 +1285,54 @@
           "hint": "猫要向前看",
           "effect": {
             "cultivation": 3,
-            "body": 2
+            "lifespan": 2
           }
         }
-      ]
+      ],
+      "image": "assets/images/events/samsara-pond.webp"
     }
   ],
   "endings": [
     {
       "id": "immortal-king",
       "title": "万猫仙王",
-      "video": null,
-      "image": "assets/images/image2/ending-king.webp",
+      "video": "assets/videos/immortal-king-ending-v1.mp4",
+      "image": "assets/images/endings/immortal-king.webp",
+      "chance": {
+        "state": "cultivation",
+        "from": 50,
+        "to": 100,
+        "min": 0.15
+      },
       "all": [
         {
           "state": "cultivation",
           "operator": ">=",
-          "value": 22
+          "value": 50
         },
         {
           "state": "morality",
           "operator": ">=",
-          "value": 9
+          "value": 8
         }
       ],
-      "description": "修为贯通天地，道心也经得住诱惑。你在万猫注视下登临仙王之位。第一道仙旨：宗门每日加一顿夜宵。"
+      "description": "大乘圆满，道心也经得住诱惑。你在万猫注视下登临仙王之位。第一道仙旨：宗门每日加一顿夜宵。"
     },
     {
       "id": "evil-immortal",
       "title": "自在邪猫仙",
-      "video": null,
-      "image": "assets/images/image2/ending-evil.webp",
+      "video": "assets/videos/evil-immortal-ending-v1.mp4",
+      "image": "assets/images/endings/evil-immortal.webp",
       "all": [
         {
           "state": "morality",
           "operator": "<=",
-          "value": 1
+          "value": 0
+        },
+        {
+          "state": "cultivation",
+          "operator": ">=",
+          "value": 30
         }
       ],
       "description": "你以捷径和计谋穿过雷劫，成了来去无踪的邪猫仙。宗门贴出告示：贵重宝匣请加猫锁。"
@@ -1320,40 +1340,84 @@
     {
       "id": "fat-guardian",
       "title": "护山胖猫",
-      "video": null,
-      "image": "assets/images/image2/ending-fat.webp",
+      "video": "assets/videos/fat-guardian-ending-v1.mp4",
+      "image": "assets/images/endings/fat-guardian.webp",
       "all": [
         {
           "state": "belly",
           "operator": ">=",
-          "value": 12
+          "value": 15
         }
       ],
       "description": "你的肚腩替你挡住了最后一缕雷光。你成了青玉宗最受欢迎的护山灵猫。日常职责是守灵果园并试吃。"
     },
     {
-      "id": "lucky-immortal",
-      "title": "气运之子",
-      "video": null,
-      "image": "assets/images/image2/ending-king.webp",
+      "id": "sunny-balcony",
+      "title": "回窗台晒太阳",
+      "video": "assets/videos/sunny-balcony-ending-v1.mp4",
+      "image": "assets/images/endings/sunny-balcony.webp",
       "all": [
         {
-          "state": "luck",
+          "state": "cultivation",
+          "operator": "<",
+          "value": 20
+        },
+        {
+          "state": "morality",
           "operator": ">=",
-          "value": 13
+          "value": 5
         }
       ],
-      "description": "你什么都没刻意做，但每一步都刚好踩在正确的位置上。命运说：这只猫我罩了。"
+      "description": "你没有成仙，但你记住了阳光最好晒的那个角落。仙鹤说：「随时可以回来。」你说：「先睡一觉。」"
     },
     {
-      "id": "ordinary-immortal",
-      "title": "逍遥猫仙",
-      "video": null,
-      "image": "assets/images/image2/ending-ordinary.webp",
+      "id": "wandering-cat",
+      "title": "逍遥野猫",
+      "video": "assets/videos/wandering-cat-ending-v1.mp4",
+      "image": "assets/images/endings/wandering-cat.webp",
       "all": [],
-      "description": "你平稳走完了猫生，成了一位普通却自在的猫仙。云海、阳光和小鱼干已经足够。"
+      "description": "猫生走完，你既没飞升也没回窗台，只是四海为家。修为不高不低，刚好够在屋顶之间跳跃。"
     }
   ],
-  "keepsakes": [],
-  "scenes": []
+  "keepsakes": [
+    {
+      "id": "immortal-king-seal",
+      "endingId": "immortal-king",
+      "title": "万猫仙玉印",
+      "glb": "assets/models/immortal-king-seal.glb",
+      "preview": "assets/models/immortal-king-seal-source.webp"
+    },
+    {
+      "id": "evil-immortal-charm",
+      "endingId": "evil-immortal",
+      "title": "邪猫黑曜牙",
+      "glb": "assets/models/evil-immortal-charm.glb",
+      "preview": "assets/models/evil-immortal-charm-source.webp"
+    },
+    {
+      "id": "fat-guardian-bowl",
+      "endingId": "fat-guardian",
+      "title": "护山胖碗",
+      "glb": "assets/models/fat-guardian-bowl.glb",
+      "preview": "assets/models/fat-guardian-bowl-source.webp"
+    },
+    {
+      "id": "sunny-balcony-pendant",
+      "endingId": "sunny-balcony",
+      "title": "窗台暖阳玉",
+      "glb": "assets/models/sunny-balcony-pendant.glb",
+      "preview": "assets/models/sunny-balcony-pendant-source.webp"
+    },
+    {
+      "id": "wandering-cat-compass",
+      "endingId": "wandering-cat",
+      "title": "野猫罗盘",
+      "glb": "assets/models/wandering-cat-compass.glb",
+      "preview": "assets/models/wandering-cat-compass-source.webp"
+    }
+  ],
+  "scenes": [],
+  "lifespanMax": 50,
+  "lifespanUnit": 10,
+  "lifeTalentShow": 3
 }
