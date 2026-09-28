@@ -3,7 +3,7 @@
   "title": "华尔街大亨 · 颜艺交易所",
   "shortTitle": "华尔街大亨",
   "subtitle": "三个选项，只有一个挣钱",
-  "description": "一只穿西装的橘猫走进纽约猫交所。七个交易日、二十一只虚构股票，每道题只有一个选项是赚钱的——你的猫会做出什么表情？",
+  "description": "一只穿西装的橘猫走进纽约猫交所。七个交易瞬间、十八个选项，全部是猫世界的鲜鱼、罐头、鱼干、猫抓板、纸箱、猫薄荷和猫草公司。每道题只有一个选项是赚钱的——你的猫会做出什么表情？",
   "music": "assets/audio/the-tuna-futures-cat.mp3",
   "musicVolume": 0.12,
   "assetBase": "worlds/wall-street-cat/",
@@ -23,7 +23,7 @@
     "eyebrow": "第六片异境微光已经苏醒",
     "headline": "猫的脸上，写着今天的行情。",
     "description": "三个选项，只有一个挣钱。猜对了是金币眼，猜错了是死鱼眼。",
-    "cardDescription": "一只穿西装的橘猫走进纽约猫交所。每道题只有一个选项是赚钱的，你的猫会用颜艺告诉你答案。",
+    "cardDescription": "一只穿西装的橘猫走进纽约猫交所。所有公司都只做猫世界生意：捕鱼、罐头、鱼干、猫抓板、纸箱、猫薄荷和猫草。每道题只有一个选项是赚钱的，你的猫会用颜艺告诉你答案。",
     "cardIcon": "股",
     "cardLabel": "WORLD 06",
     "cardGradient": [
@@ -96,29 +96,29 @@
       "id": "ev",
       "chapter": "第一幕",
       "object": "ev",
-      "image": "assets/images/scenes/ev.webp",
-      "title": "电池革命",
-      "description": "交易屏上跳出一条快讯：\n「喵斯拉电动将发布新电池，续航五百公里。」\n整个交易层的猫都竖起了耳朵。",
+      "image": "assets/images/scenes/ev-v2.webp",
+      "title": "鲜鱼革命",
+      "description": "交易屏上跳出一条快讯：\n「大金枪鱼捕捞船队今早满舱归港。」\n整个交易层的猫都竖起了耳朵。",
       "actions": [
         {
           "id": "mosla",
-          "name": "全仓喵斯拉电动",
-          "plain": "全仓喵斯拉电动",
-          "hint": "新闻说电池续航翻倍",
+          "name": "全仓大金枪鱼捕捞船队",
+          "plain": "全仓大金枪鱼捕捞船队",
+          "hint": "新闻说满舱而归",
           "icon": "股"
         },
         {
           "id": "can",
-          "name": "全仓罐头集团",
-          "plain": "全仓罐头集团",
+          "name": "全仓罐罐吃鱼集团",
+          "plain": "全仓罐罐吃鱼集团",
           "hint": "不管怎么样，猫总要吃饭",
           "icon": "股"
         },
         {
           "id": "reit",
-          "name": "全仓猫抓板地产",
-          "plain": "全仓猫抓板地产",
-          "hint": "地产看起来稳",
+          "name": "全仓猫爪板城堡工坊",
+          "plain": "全仓猫爪板城堡工坊",
+          "hint": "猫抓板看起来很稳",
           "icon": "股"
         }
       ],
@@ -129,7 +129,7 @@
             "money": 2,
             "chill": 1
           },
-          "text": "电池发布会引爆全场，喵斯拉电动直接封涨停。你的猫脸上浮现出了两个金色的硬币眼，口水流到了键盘上。"
+          "text": "清晨渔汛确认，大金枪鱼捕捞船队直接封涨停。你的猫脸上浮现出了两个金色的硬币眼，口水流到了键盘上。"
         },
         "can": {
           "image": "assets/images/outcomes/ev-can.webp",
@@ -137,7 +137,7 @@
             "money": -1,
             "chill": 0
           },
-          "text": "罐头集团今天平盘。你的猫打了一个长达三秒的哈欠，眼角挤出一滴无聊的泪。"
+          "text": "罐罐吃鱼集团今天平盘。你的猫打了一个长达三秒的哈欠，眼角挤出一滴无聊的泪。"
         },
         "reit": {
           "image": "assets/images/outcomes/ev-reit.webp",
@@ -145,64 +145,64 @@
             "money": -2,
             "chill": -1
           },
-          "text": "猫抓板地产闪崩了。你的猫瞳孔放大，脸瞬间皱成了一团湿透的毛线球。屏幕上是一根又粗又红的阴线。"
+          "text": "猫爪板城堡工坊被新一批更便宜的剑麻卷抢走了订单。你的猫瞳孔放大，脸瞬间皱成了一团湿透的毛线球。屏幕上是一根又粗又红的阴线。"
         }
       }
     },
     {
-      "id": "tech",
+      "id": "catnip",
       "chapter": "第二幕",
-      "object": "tech",
-      "image": "assets/images/scenes/tech.webp",
-      "title": "科技股恐慌",
-      "description": "快讯弹窗像下雨一样：\n「毛线生物财报暴雷，科技板块全线飘绿。」\n旁边的猫开始偷偷把屏幕关小。",
+      "object": "catnip",
+      "image": "assets/images/scenes/catnip-panic.webp",
+      "title": "猫薄荷恐慌",
+      "description": "快讯弹窗像下雨一样：\n「猫薄荷田庄因为连日降雨减产，猫薄荷板块全线飘绿。」\n旁边的猫开始偷偷把屏幕关小。",
       "actions": [
         {
           "id": "can2",
-          "name": "跑进罐头集团避难",
-          "plain": "跑进罐头集团避难",
-          "hint": "恐慌时期，猫总会买猫粮",
+          "name": "跑进鱼干小食公司避难",
+          "plain": "跑进鱼干小食公司避难",
+          "hint": "恐慌时期，猫总会囤口粮",
           "icon": "股"
         },
         {
-          "id": "bio2",
-          "name": "抄底毛线生物",
-          "plain": "抄底毛线生物",
+          "id": "catnip2",
+          "name": "抄底猫薄荷田庄",
+          "plain": "抄底猫薄荷田庄",
           "hint": "跌这么多，该反弹了吧",
           "icon": "股"
         },
         {
           "id": "laser",
-          "name": "买激光笔实验室",
-          "plain": "买激光笔实验室",
-          "hint": "科技就是未来",
+          "name": "买羽毛逗棒工坊",
+          "plain": "买羽毛逗棒工坊",
+          "hint": "玩具总会有生意吧",
           "icon": "股"
         }
       ],
       "outcomes": {
         "can2": {
-          "image": "assets/images/outcomes/tech-can2.webp",
+          "image": "assets/images/outcomes/catnip-dried-fish.webp",
           "stateChanges": {
             "money": 2,
             "chill": 2
           },
-          "text": "所有人都涌入防御性的罐头板块。罐头集团逆势上涨，你的猫眯起了眼睛，嘴角微微上扬——这是猫的胜利微笑。"
+          "text": "猫薄荷越缺，猫越要囤口粮。鱼干小食公司逆势上涨，你的猫眯起了眼睛，嘴角微微上扬——这是猫的胜利微笑。"
         },
-        "bio2": {
-          "image": "assets/images/outcomes/tech-bio2.webp",
+        "catnip2": {
+          "image": "assets/images/outcomes/catnip-fields-dip.webp",
           "stateChanges": {
             "money": -2,
             "chill": -1
           },
-          "text": "毛线生物继续跌，跌穿了地板。你的猫的视线开始涣散，瞳孔里映出一片绿色的瀑布，嘴微微张开，忘了合上。"
+          "text": "猫薄荷田庄继续跌，跌穿了地板。你的猫的视线开始涣散，瞳孔里映出一片绿色的瀑布，嘴微微张开，忘了合上。"
         },
         "laser": {
-          "image": "assets/images/outcomes/tech-laser.webp",
+          "image": "assets/images/outcomes/catnip-feather-wand.webp",
           "stateChanges": {
             "money": -1,
             "chill": 0
           },
-          "text": "激光笔实验室也跟着跌了。你的猫歪了歪头，像在思考是不是该用爪子把那根红线挠掉。"
+          "text": "羽毛逗棒工坊也跟着跌了。你的猫歪了歪头，像在思考是不是该用爪子把那根红线挠掉。"
         }
       }
     },
@@ -212,27 +212,27 @@
       "object": "whale",
       "image": "assets/images/scenes/whale.webp",
       "title": "神秘大户",
-      "description": "你注意到一只戴着墨镜的猫在角落里打电话，语速极快。\n它挂掉电话之后，交易屏上出现了大量买入罐头集团的单子。",
+      "description": "你注意到一只戴着墨镜的猫在角落里打电话，语速极快。\n它挂掉电话之后，交易屏上出现了大量买入金枪鱼潮罐头厂的单子。",
       "actions": [
         {
           "id": "can3",
-          "name": "跟着神秘大户买罐头集团",
-          "plain": "跟着神秘大户买罐头集团",
+          "name": "跟着神秘大户买金枪鱼潮罐头厂",
+          "plain": "跟着神秘大户买金枪鱼潮罐头厂",
           "hint": "跟着大部队走",
           "icon": "股"
         },
         {
           "id": "calico",
-          "name": "买三花控股",
-          "plain": "买三花控股",
+          "name": "买三花鱼干小食集团",
+          "plain": "买三花鱼干小食集团",
           "hint": "三花听起来更可爱",
           "icon": "股"
         },
         {
           "id": "sun",
-          "name": "买晒太阳能源",
-          "plain": "买晒太阳能源",
-          "hint": "今天天气不错",
+          "name": "买纸箱城堡工坊",
+          "plain": "买纸箱城堡工坊",
+          "hint": "猫总爱纸箱",
           "icon": "股"
         }
       ],
@@ -243,7 +243,7 @@
             "money": 3,
             "chill": 0
           },
-          "text": "墨镜猫原来是金枪鱼大亨。罐头集团被举牌，股价直接跳涨。你的猫趴在桌上，两只爪子紧紧抱着终端，眼睛变成了两个放大的金币符号。"
+          "text": "墨镜猫原来是大金枪鱼猫爵。金枪鱼潮罐头厂被举牌，股价直接跳涨。你的猫趴在桌上，两只爪子紧紧抱着终端，眼睛变成了两个放大的金币符号。"
         },
         "calico": {
           "image": "assets/images/outcomes/whale-calico.webp",
@@ -251,7 +251,7 @@
             "money": -2,
             "chill": -1
           },
-          "text": "三花控股发布了下调盈利预期的公告。你的猫耳朵瞬间变成了两片飞机，整张脸拉成了苦瓜形状。"
+          "text": "三花鱼干小食集团发布了下调盈利预期的公告。你的猫耳朵瞬间变成了两片飞机，整张脸拉成了苦瓜形状。"
         },
         "sun": {
           "image": "assets/images/outcomes/whale-sun.webp",
@@ -259,7 +259,7 @@
             "money": -1,
             "chill": 1
           },
-          "text": "今天突然阴天了。晒太阳能源股价小幅走低，你的猫打了个喷嚏，吸了吸鼻子。"
+          "text": "纸箱城堡工坊被新一批加厚纸箱抢走热度。你的猫打了个喷嚏，吸了吸鼻子。"
         }
       }
     },
@@ -268,55 +268,55 @@
       "chapter": "第四幕",
       "object": "rate",
       "image": "assets/images/scenes/rate.webp",
-      "title": "加息传闻",
-      "description": "猫联储主席在发布会上清了清嗓子：\n「不排除在未来某个时点……可能……考虑……」\n「加息」两个字还没说完，交易屏已经全红了。",
+      "title": "口粮配给传闻",
+      "description": "九命猫口粮库的看守猫在发布会上清了清嗓子：\n「不排除在未来某个时点……可能……考虑……收紧小鱼干兑换。」\n话还没说完，交易屏已经全红了。",
       "actions": [
         {
-          "id": "bond",
-          "name": "卖掉所有股票，买债券基金",
-          "plain": "卖掉所有股票，买债券基金",
-          "hint": "猫联储说了算",
+          "id": "reserve",
+          "name": "卖掉所有股票，换猫粮储值罐",
+          "plain": "卖掉所有股票，换猫粮储值罐",
+          "hint": "先保证口粮",
           "icon": "股"
         },
         {
           "id": "reit4",
-          "name": "加仓猫抓板地产",
-          "plain": "加仓猫抓板地产",
+          "name": "加仓利爪地毯猫抓板",
+          "plain": "加仓利爪地毯猫抓板",
           "hint": "跌了就是机会",
           "icon": "股"
         },
         {
           "id": "box",
-          "name": "买纸箱物流",
-          "plain": "买纸箱物流",
-          "hint": "物流总不会受影响吧",
+          "name": "买银藤藤园",
+          "plain": "买银藤藤园",
+          "hint": "猫薄荷不行还有银藤",
           "icon": "股"
         }
       ],
       "outcomes": {
-        "bond": {
-          "image": "assets/images/outcomes/rate-bond.webp",
+        "reserve": {
+          "image": "assets/images/outcomes/ration-reserve-can.webp",
           "stateChanges": {
             "money": 2,
             "chill": 3
           },
-          "text": "债券基金稳稳地涨了一个点。虽然只涨了那么一点，但在满屏飘红的日子里，你的猫露出了看破红尘的微笑。"
+          "text": "猫粮储值罐稳稳地保住了价值。虽然只涨了那么一点，但在满屏飘红的日子里，你的猫露出了看破红尘的微笑。"
         },
         "reit4": {
-          "image": "assets/images/outcomes/rate-reit4.webp",
+          "image": "assets/images/outcomes/ration-scratchboard.webp",
           "stateChanges": {
             "money": -3,
             "chill": -2
           },
-          "text": "地产板块直接跌停。你的猫的身体从椅子上慢慢滑了下去，只剩两只爪子挂在桌沿上，眼睛里只剩下了白色。"
+          "text": "猫抓板板块直接跌停。你的猫的身体从椅子上慢慢滑了下去，只剩两只爪子挂在桌沿上，眼睛里只剩下了白色。"
         },
         "box": {
-          "image": "assets/images/outcomes/rate-box.webp",
+          "image": "assets/images/outcomes/ration-silvervine.webp",
           "stateChanges": {
             "money": -1,
             "chill": 0
           },
-          "text": "物流也跟着受了影响。你的猫缩在椅子上，像一团被压扁的纸箱。"
+          "text": "银藤藤园的藤叶被雨水泡软了。你的猫缩在椅子上，像一团被压扁的纸箱。"
         }
       }
     },
@@ -330,15 +330,15 @@
       "actions": [
         {
           "id": "box5",
-          "name": "信墨镜猫，全仓纸箱物流",
-          "plain": "信墨镜猫，全仓纸箱物流",
+          "name": "信墨镜猫，全仓纸箱王国工坊",
+          "plain": "信墨镜猫，全仓纸箱王国工坊",
           "hint": "纸条 + 箭头 = 涨",
           "icon": "股"
         },
         {
           "id": "fin",
-          "name": "不信，买猫条金融",
-          "plain": "不信，买猫条金融",
+          "name": "不信，买猫条酱小食工坊",
+          "plain": "不信，买猫条酱小食工坊",
           "hint": "猫条永远不会过时",
           "icon": "股"
         },
@@ -357,7 +357,7 @@
             "money": 3,
             "chill": 0
           },
-          "text": "纸箱物流被金枪鱼大亨溢价收购的消息公布了。股价暴涨。你的猫把那张纸条贴在屏幕上，眼睛眯成了一条胜利的弧线。"
+          "text": "纸箱王国工坊被大金枪鱼猫爵溢价收购的消息公布了。股价暴涨。你的猫把那张纸条贴在屏幕上，眼睛眯成了一条胜利的弧线。"
         },
         "fin": {
           "image": "assets/images/outcomes/tip-fin.webp",
@@ -365,7 +365,7 @@
             "money": -2,
             "chill": -1
           },
-          "text": "猫条金融横盘不动。你的猫看着纸条上那只纸箱和箭头，整张脸从嘴角往下垂了两厘米。"
+          "text": "猫条酱小食工坊横盘不动。你的猫看着纸条上那只纸箱和箭头，整张脸从嘴角往下垂了两厘米。"
         },
         "police": {
           "image": "assets/images/outcomes/tip-police.webp",
@@ -387,15 +387,15 @@
       "actions": [
         {
           "id": "mosla6",
-          "name": "全仓喵斯拉电动",
-          "plain": "全仓喵斯拉电动",
+          "name": "全仓月光老鼠牧场",
+          "plain": "全仓月光老鼠牧场",
           "hint": "最后一击",
           "icon": "股"
         },
         {
-          "id": "bio6",
-          "name": "全仓毛线生物",
-          "plain": "全仓毛线生物",
+          "id": "catgrass6",
+          "name": "全仓猫草农场",
+          "plain": "全仓猫草农场",
           "hint": "这次一定反弹",
           "icon": "股"
         },
@@ -409,20 +409,20 @@
       ],
       "outcomes": {
         "mosla6": {
-          "image": "assets/images/outcomes/final-mosla6.webp",
+          "image": "assets/images/outcomes/final-mice-ranch.webp",
           "stateChanges": {
             "money": 3,
             "chill": -1
           },
-          "text": "新电池量产成功。喵斯拉电动在最后一分钟封板涨停。你的猫整个人（整只猫）飞了起来，眼睛变成两个旋转的钞票漩涡。"
+          "text": "月光老鼠牧场宣布今晚大丰收。它在最后一分钟封板涨停。你的猫整个人（整只猫）飞了起来，眼睛变成两个旋转的钞票漩涡。"
         },
-        "bio6": {
-          "image": "assets/images/outcomes/final-bio6.webp",
+        "catgrass6": {
+          "image": "assets/images/outcomes/final-cat-grass.webp",
           "stateChanges": {
             "money": -3,
             "chill": -2
           },
-          "text": "毛线生物在收盘前最后一分钟宣布退市。你的猫脸从粉色变成了灰色，从灰色变成了透明，最后变成了一个静止的猫形轮廓。"
+          "text": "猫草农场在收盘前最后一分钟宣布歉收。你的猫脸从粉色变成了灰色，从灰色变成了透明，最后变成了一个静止的猫形轮廓。"
         },
         "cash": {
           "image": "assets/images/outcomes/final-cash.webp",
@@ -448,7 +448,7 @@
           "value": 10
         }
       ],
-      "description": "你买的每一只股都涨了。交易所的猫开始叫你「橘色巴菲特」。你走出门的时候，有一群猫跟在你后面喊「大哥带带我」。你的脸已经变成了两个巨大的旋转金币。"
+      "description": "你买的每一只股都涨了。交易所的猫开始叫你「橙毛预言家」。你走出门的时候，有一群猫跟在你后面喊「大哥带带我」。你的脸已经变成了两个巨大的旋转金币。"
     },
     {
       "id": "steady",
