@@ -1399,8 +1399,12 @@ function resolveChoice(actionId) {
   const scene = current.scenes[sceneIndex];
   const outcome = resolveOutcome(scene, actionId);
   recordChoice(world.id, scene.id, actionId);
-  for (const definition of current.states || []) {
-    state[definition.id] = (state[definition.id] || 0) + (outcome.stateChanges?.[definition.id] ?? outcome[definition.id] ?? 0);
+  for (const [key, value] of Object.entries(outcome.stateChanges || {})) {
+    state[key] = (state[key] || 0) + value;
+  }
+  if (world?.id === "stray-cat" && state.sick > 0) {
+    state.sick = Math.max(0, Number(state.sick || 0) - 1);
+    state.agility = Math.max(0, Number(state.agility || 0) - 1);
   }
   renderMeters();
   renderOutcomeImage(scene, outcome);
