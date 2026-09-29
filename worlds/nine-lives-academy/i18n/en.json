@@ -3,7 +3,7 @@
   "title": "Nine Lives Academy",
   "shortTitle": "Nine Lives",
   "subtitle": "Magic Academy · A Cat Life Simulator",
-  "description": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. Draw talents, study fire, water, and lightning, explore dungeons, meet dragons, slimes, unicorns, griffins, and a demon king, then choose between Grand Magus and Cat God.",
+  "description": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. All 33 events are life-path choices: what kind of magical cat will you become?",
   "mode": "life",
   "lifeTurnLimit": 30,
   "lifespanMax": 32,
@@ -58,8 +58,8 @@
   "catalog": {
     "eyebrow": "A ninth glimmer has awakened",
     "headline": "A cat's nine lives become one magical path.",
-    "description": "Draw talents, survive thirty magical events, and rise from Magic Apprentice to Grand Magus or Cat God.",
-    "cardDescription": "Fire, water, lightning, dungeons, dragons, coins, slimes, skeletons, unicorns, griffins, double-headed eagles, chimeras, warriors, priests, elves, dwarves, a demon king, and a witch all appear.",
+    "description": "Draw talents and face 33 magical decisions. Every event is a life-path choice, not a temporary small action.",
+    "cardDescription": "Fire, water, lightning, dungeons, dragons, coins, slimes, skeletons, unicorns, griffins, double-headed eagles, chimeras, warriors, priests, elves, dwarves, merchants, demon kings, and witches are all organized into clear life paths.",
     "cardIcon": "✦",
     "cardLabel": "WORLD 09",
     "cardGradient": [
@@ -261,15 +261,15 @@
     {
       "id": "letter-moth",
       "title": "The Admission Moth",
-      "event": "A moonmoth lands on the windowsill carrying a glowing letter sealed with a cat-paw stamp.",
+      "event": "A moonmoth brings an admission letter to the Nine Lives Academy. How will you answer it?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "follow",
-          "text": "Follow the moth",
-          "hint": "There is a path in the dark",
+          "text": "Accept and enter the academy",
+          "hint": "Begin your magical life",
           "effect": {
             "courage": 2,
             "magic": 1,
@@ -280,8 +280,8 @@
         },
         {
           "id": "sniff",
-          "text": "Sniff the letter first",
-          "hint": "Confirm the smell",
+          "text": "Verify whether the letter is real",
+          "hint": "Be cautious",
           "effect": {
             "curiosity": 2,
             "magic": 1
@@ -291,8 +291,8 @@
         },
         {
           "id": "paper-plane",
-          "text": "Fold the letter into a paper plane",
-          "hint": "Let it fly first",
+          "text": "Refuse and stay home",
+          "hint": "Keep an ordinary cat life",
           "effect": {
             "magic": 1,
             "courage": 1,
@@ -308,15 +308,15 @@
     {
       "id": "wand-shop",
       "title": "The Wand Shop",
-      "event": "The shopkeeper cat places three trembling wands on the counter.",
+      "event": "The three wands in the shop represent three different magical paths. Which one will you choose?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "ember",
-          "text": "Choose the ember wand",
-          "hint": "It is the warmest",
+          "text": "Choose the offensive path",
+          "hint": "Fire and destruction",
           "effect": {
             "magic": 3,
             "courage": 1
@@ -326,8 +326,8 @@
         },
         {
           "id": "tide",
-          "text": "Choose the tide wand",
-          "hint": "It is the quietest",
+          "text": "Choose the defensive path",
+          "hint": "Water and control",
           "effect": {
             "magic": 2,
             "curiosity": 2
@@ -337,8 +337,8 @@
         },
         {
           "id": "both",
-          "text": "Try both wands",
-          "hint": "Maybe you can have both",
+          "text": "Choose the dual path",
+          "hint": "Both sides",
           "effect": {
             "magic": 2,
             "curiosity": 3
@@ -353,15 +353,15 @@
     {
       "id": "crystal-ball",
       "title": "The Crystal Ball",
-      "event": "The divination crystal is larger than your head and full of unformed mist.",
+      "event": "The divination crystal asks what future you want to see. What do you choose?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "gaze",
-          "text": "Gaze into it",
-          "hint": "Something is in the mist",
+          "text": "See your own future",
+          "hint": "Understand your fate",
           "effect": {
             "magic": 2,
             "curiosity": 2
@@ -371,8 +371,8 @@
         },
         {
           "id": "paw",
-          "text": "Press it with a paw",
-          "hint": "Be direct",
+          "text": "See the academy's secret",
+          "hint": "Seek the truth",
           "effect": {
             "courage": 2,
             "magic": 1
@@ -382,8 +382,8 @@
         },
         {
           "id": "lift",
-          "text": "Lift it up",
-          "hint": "See how heavy it is",
+          "text": "Refuse the divination",
+          "hint": "Do not learn it early",
           "effect": {
             "courage": 2,
             "curiosity": 2,
@@ -399,15 +399,15 @@
     {
       "id": "fire-class",
       "title": "Fire Magic",
-      "event": "The professor stands a candle on the desk and asks it to learn how to burn.",
+      "event": "Fire class asks you to choose your fire path. What kind of fire cat will you become?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "ignite",
-          "text": "Ignite it",
-          "hint": "The standard answer",
+          "text": "Offensive fire mage",
+          "hint": "High burst",
           "effect": {
             "magic": 3,
             "courage": 2
@@ -417,8 +417,8 @@
         },
         {
           "id": "warm-paws",
-          "text": "Press it into a warm cushion",
-          "hint": "The cat way",
+          "text": "Domestic fire mage",
+          "hint": "Warmth and cooking",
           "effect": {
             "magic": 1,
             "courage": 1,
@@ -429,8 +429,8 @@
         },
         {
           "id": "blow-out",
-          "text": "Blow it out",
-          "hint": "Cats can put out fire too",
+          "text": "Delay specialization",
+          "hint": "Wait and see",
           "effect": {
             "magic": 1,
             "courage": 2
@@ -445,15 +445,15 @@
     {
       "id": "water-class",
       "title": "Water Magic",
-      "event": "The courtyard fountain stops, and the professor calls it the perfect teaching moment.",
+      "event": "Water class offers three directions. Which path will you take?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "bubble",
-          "text": "Make a bubble",
-          "hint": "Put the academy inside",
+          "text": "Water illusion",
+          "hint": "Create illusions",
           "effect": {
             "magic": 2,
             "curiosity": 3
@@ -463,8 +463,8 @@
         },
         {
           "id": "stream",
-          "text": "Guide a stream",
-          "hint": "Let water walk",
+          "text": "Water control",
+          "hint": "Precise guidance",
           "effect": {
             "magic": 3,
             "courage": 1
@@ -474,8 +474,8 @@
         },
         {
           "id": "mist",
-          "text": "Turn the water into mist",
-          "hint": "Change its form",
+          "text": "Water stealth",
+          "hint": "Become mist",
           "effect": {
             "magic": 2,
             "curiosity": 3
@@ -490,15 +490,15 @@
     {
       "id": "lightning-tower",
       "title": "Lightning Magic",
-      "event": "A waiting thunderbolt at the top of the tower looks like a jumping bean.",
+      "event": "The lightning tower asks how you will live with lightning. What will you become?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "spark",
-          "text": "Let it land on your tail",
-          "hint": "Only a little",
+          "text": "Lightning guide",
+          "hint": "Draw it away",
           "effect": {
             "magic": 3,
             "courage": 2
@@ -508,8 +508,8 @@
         },
         {
           "id": "absorb",
-          "text": "Swallow it",
-          "hint": "Try a new storage method",
+          "text": "Lightning storer",
+          "hint": "Hold it inside",
           "effect": {
             "magic": 4,
             "courage": 1
@@ -519,8 +519,8 @@
         },
         {
           "id": "tail-ground",
-          "text": "Catch it with your tail",
-          "hint": "Be a lightning rod",
+          "text": "Lightning absorber",
+          "hint": "Test it on yourself",
           "effect": {
             "magic": 3,
             "courage": 3
@@ -535,15 +535,15 @@
     {
       "id": "dungeon-training",
       "title": "Dungeon Training",
-      "event": "Behind the training dungeon's stone door, torches doze along a long corridor.",
+      "event": "Dungeon training is not just escape; it is a choice among three adventurer paths. Which one are you?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "sneak",
-          "text": "Walk beside the shadows",
-          "hint": "Do not wake the torches",
+          "text": "Stealth adventurer",
+          "hint": "Walk beside shadows",
           "effect": {
             "courage": 2,
             "curiosity": 2
@@ -553,8 +553,8 @@
         },
         {
           "id": "charge",
-          "text": "Charge in",
-          "hint": "Cats can be bold",
+          "text": "Frontline fighter",
+          "hint": "Charge in",
           "effect": {
             "courage": 3,
             "magic": 1
@@ -564,8 +564,8 @@
         },
         {
           "id": "count-torches",
-          "text": "Count the torches",
-          "hint": "Maybe one is slacking",
+          "text": "Scout",
+          "hint": "Count the torches",
           "effect": {
             "courage": 1,
             "curiosity": 3
@@ -580,15 +580,15 @@
     {
       "id": "dragon-lair",
       "title": "The Dragon Lair",
-      "event": "An old dragon lies on a hill of coins, breathing dust into tiny nebulae.",
+      "event": "The dragon lair is not only treasure; it is also three ways to relate to a stronger being. Which relationship do you choose?",
       "rarity": 2,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "bargain",
-          "text": "Bargain with it",
-          "hint": "Cats need pocket money",
+          "text": "Trade with the dragon",
+          "hint": "Negotiate as equals",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -599,8 +599,8 @@
         },
         {
           "id": "observe",
-          "text": "Observe its breathing",
-          "hint": "Even dragons have rhythm",
+          "text": "Study the dragon",
+          "hint": "Understand it first",
           "effect": {
             "magic": 3,
             "curiosity": 2
@@ -627,15 +627,15 @@
     {
       "id": "coin-vault",
       "title": "The Coin Vault",
-      "event": "The accountant cat pours out a bag of coins and asks you to count them in three seconds.",
+      "event": "The coin vault offers three paths: wealth, structure, and magic. How will you handle it?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "count",
-          "text": "Count by echo",
-          "hint": "Coins speak",
+          "text": "Count by perception",
+          "hint": "Listen to echoes",
           "effect": {
             "magic": 1,
             "curiosity": 3
@@ -645,8 +645,8 @@
         },
         {
           "id": "stack",
-          "text": "Stack them into a tower",
-          "hint": "Structure matters",
+          "text": "Manage by structure",
+          "hint": "Stack a tower",
           "effect": {
             "courage": 2,
             "magic": 2
@@ -656,8 +656,8 @@
         },
         {
           "id": "self-sort",
-          "text": "Let the coins sort themselves",
-          "hint": "Magic can tidy up",
+          "text": "Organize with magic",
+          "hint": "Let them sort themselves",
           "effect": {
             "magic": 2,
             "courage": 1,
@@ -673,15 +673,15 @@
     {
       "id": "slime-battle",
       "title": "Slime Battle",
-      "event": "Three jelly-colored slimes form a circle; they are sticky rather than scary.",
+      "event": "The slime battle asks whether you are a fighter, an athlete, or a diplomat. Which cat are you?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "freeze",
-          "text": "Freeze them",
-          "hint": "Jelly is better cold",
+          "text": "Fighter",
+          "hint": "Freeze it",
           "effect": {
             "magic": 3,
             "courage": 1
@@ -691,8 +691,8 @@
         },
         {
           "id": "bounce",
-          "text": "Bounce them back",
-          "hint": "Cats bounce too",
+          "text": "Athlete",
+          "hint": "Bounce it back",
           "effect": {
             "courage": 3,
             "curiosity": 1
@@ -702,8 +702,8 @@
         },
         {
           "id": "shake",
-          "text": "Shake its hand",
-          "hint": "Maybe it is friendly",
+          "text": "Diplomat",
+          "hint": "Shake its hand",
           "effect": {
             "courage": 2,
             "curiosity": 3,
@@ -719,15 +719,15 @@
     {
       "id": "skeleton-crypt",
       "title": "Skeleton Soldiers",
-      "event": "Skeleton soldiers line the crypt, thin light leaking between their bones.",
+      "event": "Before the skeleton soldiers are three paths: faith, puzzle, and art. Which one do you choose?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "holy-light",
-          "text": "Use holy light",
-          "hint": "Be polite",
+          "text": "Faith path",
+          "hint": "Holy light",
           "effect": {
             "magic": 3,
             "courage": 2
@@ -737,8 +737,8 @@
         },
         {
           "id": "bone-trick",
-          "text": "Swap two bones",
-          "hint": "They will reassemble",
+          "text": "Puzzle path",
+          "hint": "Swap bones",
           "effect": {
             "magic": 2,
             "curiosity": 3
@@ -748,8 +748,8 @@
         },
         {
           "id": "dance",
-          "text": "Dance for them",
-          "hint": "Bones understand rhythm",
+          "text": "Art path",
+          "hint": "Dance for them",
           "effect": {
             "courage": 2,
             "curiosity": 2,
@@ -765,15 +765,15 @@
     {
       "id": "unicorn-grove",
       "title": "The Unicorn Grove",
-      "event": "A unicorn stands in moonlight with three specks of stardust on its horn.",
+      "event": "The unicorn's stardust represents three values: closeness, meditation, and collection. Which do you choose?",
       "rarity": 2,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "approach",
-          "text": "Approach slowly",
-          "hint": "Do not startle it",
+          "text": "Grow close to magical creatures",
+          "hint": "Approach it",
           "effect": {
             "courage": 2,
             "magic": 2
@@ -783,8 +783,8 @@
         },
         {
           "id": "meditate",
-          "text": "Count the light under the tree",
-          "hint": "Quiet is magic too",
+          "text": "Meditation path",
+          "hint": "Count the light",
           "effect": {
             "magic": 3,
             "curiosity": 1
@@ -794,8 +794,8 @@
         },
         {
           "id": "pocket-starlight",
-          "text": "Pocket the stardust",
-          "hint": "Keep a little light",
+          "text": "Collection path",
+          "hint": "Pocket it",
           "effect": {
             "magic": 2,
             "curiosity": 3,
@@ -812,15 +812,15 @@
     {
       "id": "griffin-tower",
       "title": "The Griffin Tower",
-      "event": "A griffin preens on the tower, slicing the wind into two layers with its wings.",
+      "event": "The griffin tower asks you to choose your relationship with the sky: training, companionship, or exchange.",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "ride",
-          "text": "Grab its feathers",
-          "hint": "Fly a little",
+          "text": "Flight training",
+          "hint": "Grab the feathers",
           "effect": {
             "courage": 3,
             "magic": 1
@@ -830,8 +830,8 @@
         },
         {
           "id": "feed",
-          "text": "Share a dried fish",
-          "hint": "Make a friend",
+          "text": "Build companionship",
+          "hint": "Share fish",
           "effect": {
             "magic": 1,
             "courage": 1,
@@ -842,8 +842,8 @@
         },
         {
           "id": "give-feather",
-          "text": "Give it a feather",
-          "hint": "Exchange",
+          "text": "Exchange trust",
+          "hint": "Offer a feather",
           "effect": {
             "courage": 2,
             "curiosity": 1,
@@ -859,15 +859,15 @@
     {
       "id": "double-eagle",
       "title": "The Double-Headed Eagle",
-      "event": "A double-headed eagle lands on the sill, each head speaking half a sentence.",
+      "event": "The double-headed eagle brings a message that needs interpretation. What kind of communicator will you be?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "decode",
-          "text": "Join the halves",
-          "hint": "A message should be whole",
+          "text": "Interpreter",
+          "hint": "Join the halves",
           "effect": {
             "magic": 3,
             "curiosity": 2
@@ -877,8 +877,8 @@
         },
         {
           "id": "reply",
-          "text": "Reply with paw prints",
-          "hint": "Be formal",
+          "text": "Formal communicator",
+          "hint": "Reply with paw prints",
           "effect": {
             "courage": 2,
             "magic": 1
@@ -888,8 +888,8 @@
         },
         {
           "id": "two-letters",
-          "text": "Reply with two letters at once",
-          "hint": "Please both heads",
+          "text": "Coordinator",
+          "hint": "Answer both heads",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -905,15 +905,15 @@
     {
       "id": "chimera-maze",
       "title": "The Chimera Maze",
-      "event": "The chimera's three heads yawn at three separate forks in the maze.",
+      "event": "The chimera maze offers three responses: divide, disguise, or remain still. Which do you choose?",
       "rarity": 2,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "outwit",
-          "text": "Split the heads",
-          "hint": "They will get lost",
+          "text": "Divide and rule",
+          "hint": "Split the heads",
           "effect": {
             "magic": 3,
             "courage": 2
@@ -923,7 +923,7 @@
         },
         {
           "id": "calm",
-          "text": "Lower your tail",
+          "text": "Disguise",
           "hint": "Pretend to be the fifth head",
           "effect": {
             "magic": 2,
@@ -934,8 +934,8 @@
         },
         {
           "id": "sleep-center",
-          "text": "Sleep in the center of the maze",
-          "hint": "Rest first",
+          "text": "Stillness",
+          "hint": "Sleep in the center",
           "effect": {
             "courage": 3,
             "curiosity": 2,
@@ -951,15 +951,15 @@
     {
       "id": "warrior-friend",
       "title": "The Warrior Companion",
-      "event": "A warrior with a wooden sword waits in the training yard, a cat-paw button sewn onto the bracer.",
+      "event": "The warrior companion asks you to define the relationship: sparring, sharing, or observing.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "spar",
-          "text": "Spar with him",
-          "hint": "The wooden sword is light",
+          "text": "Sparring partner",
+          "hint": "Spar",
           "effect": {
             "courage": 3,
             "magic": 1
@@ -969,8 +969,8 @@
         },
         {
           "id": "share-fish",
-          "text": "Share a dried fish",
-          "hint": "Partnership starts with food",
+          "text": "Sharing partner",
+          "hint": "Share fish",
           "effect": {
             "courage": 1,
             "fish": -1,
@@ -981,8 +981,8 @@
         },
         {
           "id": "let-him-strike",
-          "text": "Let him strike first",
-          "hint": "Learn his rhythm",
+          "text": "Observing partner",
+          "hint": "Let him strike first",
           "effect": {
             "courage": 2,
             "curiosity": 3,
@@ -998,15 +998,15 @@
     {
       "id": "priest-heal",
       "title": "The Priest's Healing",
-      "event": "A priest cat drips holy water onto your paw pad, and a tiny cross forms on the surface.",
+      "event": "The priest's healing asks you to choose recovery: faith, rest, or self-healing.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "prayer",
-          "text": "Join the prayer",
-          "hint": "Be quiet",
+          "text": "Faith recovery",
+          "hint": "Pray",
           "effect": {
             "magic": 2,
             "courage": 2
@@ -1016,8 +1016,8 @@
         },
         {
           "id": "rest",
-          "text": "Sleep by the altar",
-          "hint": "The cat's recovery method",
+          "text": "Rest recovery",
+          "hint": "Sleep",
           "effect": {
             "magic": 1,
             "courage": 1,
@@ -1028,8 +1028,8 @@
         },
         {
           "id": "drink",
-          "text": "Drink the holy water",
-          "hint": "Moisten your throat first",
+          "text": "Self-healing path",
+          "hint": "Drink the holy water",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -1045,15 +1045,15 @@
     {
       "id": "elf-library",
       "title": "The Elf Library",
-      "event": "The elf librarian hands you a breathing book whose pages wait for you.",
+      "event": "The elf library gives you three knowledge paths: deep study, borrowing, or returning.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "read",
-          "text": "Keep reading",
-          "hint": "The book will lead you",
+          "text": "Deep study",
+          "hint": "Keep reading",
           "effect": {
             "magic": 3,
             "curiosity": 2
@@ -1063,8 +1063,8 @@
         },
         {
           "id": "borrow",
-          "text": "Borrow it",
-          "hint": "Read it in the dorm",
+          "text": "Borrow",
+          "hint": "Take it with you",
           "effect": {
             "magic": 2,
             "courage": 1
@@ -1074,8 +1074,8 @@
         },
         {
           "id": "return-book",
-          "text": "Put the book back",
-          "hint": "Be a good reader",
+          "text": "Return",
+          "hint": "Put it back",
           "effect": {
             "magic": 1,
             "courage": 2,
@@ -1091,15 +1091,15 @@
     {
       "id": "dwarf-forge",
       "title": "The Dwarf Forge",
-      "event": "A dwarf smith lays rune-iron on the anvil, sparks jumping like fleas.",
+      "event": "The dwarf forge represents three paths: craft, research, and courage. Which do you choose?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "forge",
-          "text": "Help forge",
-          "hint": "Cats can hammer",
+          "text": "Craft path",
+          "hint": "Help forge",
           "effect": {
             "magic": 2,
             "courage": 3
@@ -1109,8 +1109,8 @@
         },
         {
           "id": "inspect",
-          "text": "Inspect the runes",
-          "hint": "The third stroke is crooked",
+          "text": "Research path",
+          "hint": "Inspect the runes",
           "effect": {
             "magic": 3,
             "curiosity": 2
@@ -1120,8 +1120,8 @@
         },
         {
           "id": "catch-sparks",
-          "text": "Catch the sparks with your paw",
-          "hint": "Do not fear the heat",
+          "text": "Courage path",
+          "hint": "Catch the sparks",
           "effect": {
             "courage": 3,
             "curiosity": 1,
@@ -1137,15 +1137,15 @@
     {
       "id": "scroll-riddle",
       "title": "The Scroll Riddle",
-      "event": "An old scroll lies open, its final word dodging your gaze.",
+      "event": "The scroll riddle asks you to choose a solving style: direct, record, or ask for help.",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "solve",
-          "text": "Solve it directly",
-          "hint": "The answer is in the last sound",
+          "text": "Solve directly",
+          "hint": "Find the answer",
           "effect": {
             "magic": 3,
             "curiosity": 3
@@ -1155,8 +1155,8 @@
         },
         {
           "id": "copy",
-          "text": "Copy it first",
-          "hint": "Hand faster than mind",
+          "text": "Recording path",
+          "hint": "Copy it first",
           "effect": {
             "magic": 2,
             "courage": 1
@@ -1166,8 +1166,8 @@
         },
         {
           "id": "read-aloud",
-          "text": "Read the riddle to a cat",
-          "hint": "Maybe the cat understands",
+          "text": "Ask-for-help path",
+          "hint": "Read it to a cat",
           "effect": {
             "magic": 2,
             "courage": 1,
@@ -1183,15 +1183,15 @@
     {
       "id": "incantation",
       "title": "The Incantation",
-      "event": "Spell class asks you to sing ancient syllables into one complete sentence.",
+      "event": "The incantation asks you to choose expression: tradition, creation, or inner cultivation.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "chant",
-          "text": "Chant it correctly",
-          "hint": "The standard melody",
+          "text": "Traditional chant",
+          "hint": "Follow the melody",
           "effect": {
             "magic": 3,
             "courage": 1
@@ -1201,8 +1201,8 @@
         },
         {
           "id": "improvise",
-          "text": "Turn it into a lullaby",
-          "hint": "Cats know sleep",
+          "text": "Creative chant",
+          "hint": "Turn it into a lullaby",
           "effect": {
             "magic": 2,
             "curiosity": 3
@@ -1212,8 +1212,8 @@
         },
         {
           "id": "silent",
-          "text": "Chant silently",
-          "hint": "Do not disturb anyone",
+          "text": "Inner chant",
+          "hint": "Chant silently",
           "effect": {
             "magic": 3,
             "courage": 1,
@@ -1229,14 +1229,14 @@
     {
       "id": "magic-circle",
       "title": "The Magic Circle",
-      "event": "An unfinished magic circle covers the floor, its gap right beside your foot.",
+      "event": "The magic circle asks how you will relate to it: repair, risk, or offering.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "draw",
-          "text": "Finish it with chalk",
+          "text": "Repair the circle",
           "hint": "Close the gap",
           "effect": {
             "magic": 3,
@@ -1247,8 +1247,8 @@
         },
         {
           "id": "activate",
-          "text": "Step in and activate it",
-          "hint": "Try it now",
+          "text": "Activate the circle",
+          "hint": "Step inside",
           "effect": {
             "magic": 2,
             "courage": 3
@@ -1258,8 +1258,8 @@
         },
         {
           "id": "fish-center",
-          "text": "Place a dried fish at the center",
-          "hint": "Offer a little food",
+          "text": "Offering path",
+          "hint": "Place a fish",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -1275,14 +1275,14 @@
     {
       "id": "cat-church",
       "title": "The Cat Church",
-      "event": "A fish-shaped chandelier hangs in the church, every candle bending in the same direction.",
+      "event": "The cat church asks you to choose a way of faith: prayer, rest, or service.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "pray",
-          "text": "Pray on the pew",
+          "text": "Pray",
           "hint": "Thank the dried fish",
           "effect": {
             "magic": 2,
@@ -1293,8 +1293,8 @@
         },
         {
           "id": "nap",
-          "text": "Nap under the pew",
-          "hint": "This is also practice",
+          "text": "Rest",
+          "hint": "Sleep under the pew",
           "effect": {
             "magic": 1,
             "curiosity": 1,
@@ -1305,8 +1305,8 @@
         },
         {
           "id": "polish-lamp",
-          "text": "Polish the chandelier",
-          "hint": "Do a little housework",
+          "text": "Serve",
+          "hint": "Polish the chandelier",
           "effect": {
             "magic": 1,
             "courage": 2,
@@ -1322,15 +1322,15 @@
     {
       "id": "adventurer-guild",
       "title": "The Cat Adventurers' Guild",
-      "event": "A map only cats can read is pinned to the guild's job board.",
+      "event": "The adventurers' guild is not just a job board; it is a choice of adventure style. Which adventurer are you?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "quest",
-          "text": "Accept a quest",
-          "hint": "Go to the dungeon",
+          "text": "Task adventurer",
+          "hint": "Accept a quest",
           "effect": {
             "courage": 3,
             "magic": 1
@@ -1340,8 +1340,8 @@
         },
         {
           "id": "recruit",
-          "text": "Recruit companions",
-          "hint": "More paws are better",
+          "text": "Leader adventurer",
+          "hint": "Recruit companions",
           "effect": {
             "courage": 1,
             "curiosity": 2,
@@ -1352,8 +1352,8 @@
         },
         {
           "id": "small-quest",
-          "text": "Take only a small quest",
-          "hint": "Do not be greedy",
+          "text": "Cautious adventurer",
+          "hint": "Take a small quest",
           "effect": {
             "courage": 2,
             "curiosity": 2,
@@ -1370,15 +1370,15 @@
     {
       "id": "academy-festival",
       "title": "The Academy Festival",
-      "event": "Thirty floating lanterns light the festival night, each holding an unfinished wish.",
+      "event": "The academy festival asks whether you belong on stage, in the judge's seat, or backstage.",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "perform",
-          "text": "Perform on stage",
-          "hint": "Make lightning fireworks",
+          "text": "On-stage performer",
+          "hint": "Make fireworks",
           "effect": {
             "magic": 3,
             "courage": 2
@@ -1388,8 +1388,8 @@
         },
         {
           "id": "judge",
-          "text": "Be a judge",
-          "hint": "Visit every stall",
+          "text": "Judge",
+          "hint": "Evaluate the stalls",
           "effect": {
             "magic": 1,
             "curiosity": 3
@@ -1399,8 +1399,8 @@
         },
         {
           "id": "light-lanterns",
-          "text": "Light every lantern",
-          "hint": "More wishes",
+          "text": "Backstage worker",
+          "hint": "Light the lanterns",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -1415,16 +1415,16 @@
     },
     {
       "id": "thieves-guild",
-      "title": "The Thieves' Guild",
-      "event": "Behind the thieves' guild door there is no light, only a neat row of shadows.",
+      "title": "The Thieves' Guild Invitation",
+      "event": "The thieves' guild invites you to join. What kind of underworld cat will you become?",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "stealth",
-          "text": "Move from shadow to shadow",
-          "hint": "Stay silent",
+          "text": "Join the thieves' guild",
+          "hint": "Become a thief",
           "effect": {
             "courage": 2,
             "curiosity": 3
@@ -1434,8 +1434,8 @@
         },
         {
           "id": "lockpick",
-          "text": "Pick a lock",
-          "hint": "Locks speak",
+          "text": "Become a locksmith",
+          "hint": "Technical path",
           "effect": {
             "magic": 2,
             "courage": 2
@@ -1445,8 +1445,8 @@
         },
         {
           "id": "take-lock-apart",
-          "text": "Take the lock apart",
-          "hint": "See how it works",
+          "text": "Become an investigator",
+          "hint": "Study the lock",
           "effect": {
             "magic": 2,
             "courage": 3,
@@ -1462,15 +1462,15 @@
     {
       "id": "archer-training",
       "title": "Archer Training",
-      "event": "The range replaces its scarecrows with moving cat-shaped posts.",
+      "event": "Archer training asks you to choose your combat distance: ranged, scouting, or melee.",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "aim",
-          "text": "Aim directly",
-          "hint": "Arrive before the arrow",
+          "text": "Ranged path",
+          "hint": "Aim directly",
           "effect": {
             "magic": 2,
             "courage": 2
@@ -1480,8 +1480,8 @@
         },
         {
           "id": "tracking",
-          "text": "Read the grass",
-          "hint": "The wind has a direction",
+          "text": "Scouting path",
+          "hint": "Read the grass",
           "effect": {
             "magic": 1,
             "curiosity": 3
@@ -1491,8 +1491,8 @@
         },
         {
           "id": "claws",
-          "text": "Use your claws instead of arrows",
-          "hint": "The cat way",
+          "text": "Melee path",
+          "hint": "Use your claws",
           "effect": {
             "courage": 3,
             "curiosity": 2,
@@ -1507,16 +1507,16 @@
     },
     {
       "id": "rogue-sneak",
-      "title": "Rogue Sneaking",
-      "event": "The night guard carries a bright lamp, but its shadow is very short.",
+      "title": "The Night Walker's Choice",
+      "event": "The night guard asks whether you will become a night walker. What do you choose?",
       "rarity": 0,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "shadow",
-          "text": "Hide in your own shadow",
-          "hint": "The shadow is crowded",
+          "text": "Become a night walker",
+          "hint": "Hide in shadow",
           "effect": {
             "courage": 2,
             "curiosity": 2
@@ -1526,8 +1526,8 @@
         },
         {
           "id": "distract",
-          "text": "Toss a coin",
-          "hint": "Let sound go first",
+          "text": "Become a trickster",
+          "hint": "Draw attention away",
           "effect": {
             "magic": 2,
             "courage": 1
@@ -1537,8 +1537,8 @@
         },
         {
           "id": "blow-out-lamp",
-          "text": "Blow out the lamp",
-          "hint": "Let the room sleep first",
+          "text": "Become a lightkeeper",
+          "hint": "Blow out the lamp",
           "effect": {
             "courage": 2,
             "curiosity": 1,
@@ -1554,15 +1554,15 @@
     {
       "id": "demon-king",
       "title": "The Demon King",
-      "event": "The demon king sits on an obsidian throne, a tiny cat eye set into the top of the scepter.",
+      "event": "The demon king is not only an enemy but also a choice: confrontation, diplomacy, or trade.",
       "rarity": 3,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "face",
-          "text": "Face him",
-          "hint": "Cats do not hide",
+          "text": "Confront directly",
+          "hint": "Face him",
           "effect": {
             "magic": 3,
             "courage": 3
@@ -1572,8 +1572,8 @@
         },
         {
           "id": "befriend",
-          "text": "Befriend him",
-          "hint": "Offer dried fish first",
+          "text": "Diplomacy path",
+          "hint": "Befriend him",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -1584,8 +1584,8 @@
         },
         {
           "id": "trade-fish",
-          "text": "Trade a dried fish with him",
-          "hint": "Diplomacy",
+          "text": "Trade path",
+          "hint": "Exchange dried fish",
           "effect": {
             "magic": 3,
             "courage": 3,
@@ -1601,15 +1601,15 @@
     {
       "id": "witch-bargain",
       "title": "The Witch's Bargain",
-      "event": "A witch spreads a parchment contract with a cat-paw-shaped space at the bottom.",
+      "event": "The witch's contract asks how you will bargain with magic: negotiate, refuse, or be cautious.",
       "rarity": 2,
       "minTurn": 1,
       "maxTurn": 30,
       "choices": [
         {
           "id": "bargain",
-          "text": "Bargain",
-          "hint": "Change it to three fish",
+          "text": "Negotiate",
+          "hint": "Change the terms",
           "effect": {
             "magic": 3,
             "courage": 1
@@ -1620,7 +1620,7 @@
         {
           "id": "refuse",
           "text": "Refuse to sign",
-          "hint": "The paw matters more",
+          "hint": "Keep your paw",
           "effect": {
             "courage": 3,
             "magic": 1
@@ -1630,8 +1630,8 @@
         },
         {
           "id": "tiny-paw",
-          "text": "Sign only a tiny paw print",
-          "hint": "Do not sign too large",
+          "text": "Sign cautiously",
+          "hint": "Only a tiny paw print",
           "effect": {
             "magic": 2,
             "courage": 2,
@@ -1648,15 +1648,15 @@
     {
       "id": "merchant-cat",
       "title": "The Merchant Cat's Stardust Stall",
-      "event": "A merchant cat with a wooden box sets up a stall at the academy gate, three glowing things inside.",
+      "event": "The merchant cat asks you to choose your spending style: magic, protection, or saving.",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 33,
       "choices": [
         {
           "id": "buy-vial",
-          "text": "Buy a small vial of stardust",
-          "hint": "Powerful but expensive",
+          "text": "Invest in magic",
+          "hint": "Buy stardust",
           "effect": {
             "magic": 5,
             "courage": 2,
@@ -1668,8 +1668,8 @@
         },
         {
           "id": "buy-charm",
-          "text": "Buy a charm",
-          "hint": "A little cheaper",
+          "text": "Invest in protection",
+          "hint": "Buy a charm",
           "effect": {
             "magic": 3,
             "courage": 1,
@@ -1681,8 +1681,8 @@
         },
         {
           "id": "just-look",
-          "text": "Just look, do not buy",
-          "hint": "Save your fish",
+          "text": "Saving path",
+          "hint": "Look but do not buy",
           "effect": {
             "magic": 1,
             "curiosity": 1,
@@ -1698,15 +1698,15 @@
     {
       "id": "dragon-hoard",
       "title": "The Dragon's Hoard",
-      "event": "The dragon opens its hoard by a narrow gap and lets you choose one thing. It seems indifferent, but its tail keeps moving.",
+      "event": "The dragon's hoard asks you to choose your relationship with wealth and risk: steal, request, or restrain.",
       "rarity": 2,
       "minTurn": 1,
       "maxTurn": 33,
       "choices": [
         {
           "id": "steal-scale",
-          "text": "Steal a scale",
-          "hint": "High risk, high reward",
+          "text": "High-risk theft",
+          "hint": "Steal a scale",
           "effect": {
             "magic": 5,
             "courage": 4,
@@ -1718,8 +1718,8 @@
         },
         {
           "id": "ask-scale",
-          "text": "Ask for a fallen scale",
-          "hint": "Be polite",
+          "text": "Request a gift",
+          "hint": "Ask for a scale",
           "effect": {
             "magic": 3,
             "courage": 3,
@@ -1730,8 +1730,8 @@
         },
         {
           "id": "one-coin",
-          "text": "Take only one coin",
-          "hint": "Just enough",
+          "text": "Restraint path",
+          "hint": "Take only a coin",
           "effect": {
             "magic": 1,
             "courage": 2,
@@ -1747,15 +1747,15 @@
     {
       "id": "dungeon-maze",
       "title": "The Underground Maze",
-      "event": "Deep in the training dungeon is a maze with three entrances, each smelling different.",
+      "event": "The underground maze asks you to choose an exploration style: risk, depth, or caution.",
       "rarity": 1,
       "minTurn": 1,
       "maxTurn": 33,
       "choices": [
         {
           "id": "left-trap",
-          "text": "Left door: step into the trap",
-          "hint": "There may be a reward",
+          "text": "Risk path",
+          "hint": "Step into the trap",
           "effect": {
             "magic": 2,
             "courage": 3,
@@ -1766,8 +1766,8 @@
         },
         {
           "id": "middle-stairs",
-          "text": "Middle door: take the spiral stairs",
-          "hint": "A deeper path",
+          "text": "Depth path",
+          "hint": "Take the stairs",
           "effect": {
             "magic": 3,
             "courage": 2,
@@ -1778,8 +1778,8 @@
         },
         {
           "id": "right-crack",
-          "text": "Right door: squeeze through the crack",
-          "hint": "Stay quiet",
+          "text": "Caution path",
+          "hint": "Squeeze through the crack",
           "effect": {
             "magic": 1,
             "courage": 2,
