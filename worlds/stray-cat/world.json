@@ -72,7 +72,7 @@
       "name": "猫武神",
       "rarity": 4,
       "weight": 1,
-      "description": "武力10000，特殊结局",
+      "description": "武力+10000，特殊结局",
       "effect": {
         "strength": 10000
       },
