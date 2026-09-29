@@ -6,8 +6,8 @@
   "description": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. Draw talents, study fire, water, and lightning, explore dungeons, meet dragons, slimes, unicorns, griffins, and a demon king, then choose between Grand Magus and Cat God.",
   "mode": "life",
   "lifeTurnLimit": 30,
-  "lifespanMax": 30,
-  "lifespanUnit": 1,
+  "lifespanMax": 32,
+  "lifespanUnit": 5,
   "lifeTalentPicks": 1,
   "lifeTalentShow": 3,
   "realmState": "magic",
@@ -17,23 +17,23 @@
       "label": "Magic Apprentice"
     },
     {
-      "min": 8,
+      "min": 15,
       "label": "Formal Mage"
     },
     {
-      "min": 16,
+      "min": 30,
       "label": "Archmage"
     },
     {
-      "min": 24,
+      "min": 45,
       "label": "Magus"
     },
     {
-      "min": 32,
+      "min": 60,
       "label": "Grand Magus"
     },
     {
-      "min": 40,
+      "min": 75,
       "label": "Cat God"
     }
   ],
@@ -82,7 +82,7 @@
     {
       "id": "magic",
       "label": "Magic",
-      "description": "0 Apprentice, 8 Formal Mage, 16 Archmage, 24 Magus, 32 Grand Magus, 40 Cat God",
+      "description": "0 Apprentice, 15 Formal Mage, 30 Archmage, 45 Magus, 60 Grand Magus, 75 Cat God",
       "color": "#8b5cf6",
       "chipBackground": "#ede9fe",
       "max": 100
@@ -216,41 +216,41 @@
   ],
   "milestones": [
     {
-      "id": "magic-8",
+      "id": "magic-15",
       "state": "magic",
-      "at": 8,
+      "at": 15,
       "eyebrow": "RANK UP",
       "title": "Formal Mage",
       "text": "Your first spell no longer needs a yawn as a wind-up."
     },
     {
-      "id": "magic-16",
+      "id": "magic-30",
       "state": "magic",
-      "at": 16,
+      "at": 30,
       "eyebrow": "RANK UP",
       "title": "Archmage",
       "text": "The tower window now leaves a lamp lit for you."
     },
     {
-      "id": "magic-24",
+      "id": "magic-45",
       "state": "magic",
-      "at": 24,
+      "at": 45,
       "eyebrow": "RANK UP",
       "title": "Magus",
       "text": "You can hold three spells at once; one is only for roasting fish."
     },
     {
-      "id": "magic-32",
+      "id": "magic-60",
       "state": "magic",
-      "at": 32,
+      "at": 60,
       "eyebrow": "RANK UP",
       "title": "Grand Magus",
       "text": "The stars begin consulting your class schedule."
     },
     {
-      "id": "magic-40",
+      "id": "magic-75",
       "state": "magic",
-      "at": 40,
+      "at": 75,
       "eyebrow": "RANK UP",
       "title": "Cat God",
       "text": "Every dried fish in the world blinks at you at once."
@@ -288,6 +288,18 @@
           },
           "result": "The letter smells like dried fish and stardust. You memorize the scent.",
           "image": "assets/images/events/results/letter-moth-sniff.webp"
+        },
+        {
+          "id": "paper-plane",
+          "text": "Fold the letter into a paper plane",
+          "hint": "Let it fly first",
+          "effect": {
+            "magic": 1,
+            "courage": 1,
+            "curiosity": 2
+          },
+          "result": "The paper plane flies out, the moth chases it, and you chase the moth.",
+          "image": "assets/images/events/results/letter-moth-paper-plane.webp"
         }
       ],
       "image": "assets/images/events/letter-moth.webp",
@@ -322,6 +334,17 @@
           },
           "result": "The shaft looks like driftwood after low tide, and each swing leaves a ring of water.",
           "image": "assets/images/events/results/wand-shop-tide.webp"
+        },
+        {
+          "id": "both",
+          "text": "Try both wands",
+          "hint": "Maybe you can have both",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "Both wands glow at once, and the shopkeeper cat records the anomaly in the ledger.",
+          "image": "assets/images/events/results/wand-shop-both.webp"
         }
       ],
       "image": "assets/images/events/wand-shop.webp",
@@ -356,6 +379,18 @@
           },
           "result": "You press your paw against it, and a tiny rain falls inside the sphere.",
           "image": "assets/images/events/results/crystal-ball-paw.webp"
+        },
+        {
+          "id": "lift",
+          "text": "Lift it up",
+          "hint": "See how heavy it is",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2,
+            "magic": 1
+          },
+          "result": "The sphere is lighter than expected, and your nine tails appear inside it.",
+          "image": "assets/images/events/results/crystal-ball-lift.webp"
         }
       ],
       "image": "assets/images/events/crystal-ball.webp",
@@ -391,6 +426,17 @@
           },
           "result": "You press the flame into a warm cushion and roast a dried fish beside it.",
           "image": "assets/images/events/results/fire-class-warm-paws.webp"
+        },
+        {
+          "id": "blow-out",
+          "text": "Blow it out",
+          "hint": "Cats can put out fire too",
+          "effect": {
+            "magic": 1,
+            "courage": 2
+          },
+          "result": "The flame goes out, and the classroom is quiet for a second.",
+          "image": "assets/images/events/results/fire-class-blow-out.webp"
         }
       ],
       "image": "assets/images/events/fire-class.webp",
@@ -425,6 +471,17 @@
           },
           "result": "The stream curves around the desk and pours exactly into the flowerpot; the professor nods.",
           "image": "assets/images/events/results/water-class-stream.webp"
+        },
+        {
+          "id": "mist",
+          "text": "Turn the water into mist",
+          "hint": "Change its form",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3
+          },
+          "result": "The mist spreads like a very small morning.",
+          "image": "assets/images/events/results/water-class-mist.webp"
         }
       ],
       "image": "assets/images/events/water-class.webp",
@@ -459,6 +516,17 @@
           },
           "result": "You hold the lightning in your throat and breathe out a tiny star.",
           "image": "assets/images/events/results/lightning-tower-absorb.webp"
+        },
+        {
+          "id": "tail-ground",
+          "text": "Catch it with your tail",
+          "hint": "Be a lightning rod",
+          "effect": {
+            "magic": 3,
+            "courage": 3
+          },
+          "result": "The lightning runs down your tail into the ground, and you feel like a very competent lightning rod.",
+          "image": "assets/images/events/results/lightning-tower-tail-ground.webp"
         }
       ],
       "image": "assets/images/events/lightning-tower.webp",
@@ -493,6 +561,17 @@
           },
           "result": "You charge through the door and knock a row of barrels into glowing shards.",
           "image": "assets/images/events/results/dungeon-training-charge.webp"
+        },
+        {
+          "id": "count-torches",
+          "text": "Count the torches",
+          "hint": "Maybe one is slacking",
+          "effect": {
+            "courage": 1,
+            "curiosity": 3
+          },
+          "result": "The seventh torch is dozing. You gently straighten it.",
+          "image": "assets/images/events/results/dungeon-training-count-torches.webp"
         }
       ],
       "image": "assets/images/events/dungeon-training.webp",
@@ -528,6 +607,18 @@
           },
           "result": "You understand the dragon's breathing rhythm, like a pot slowly coming to a boil.",
           "image": "assets/images/events/results/dragon-lair-observe.webp"
+        },
+        {
+          "id": "one-coin",
+          "text": "Take only one coin",
+          "hint": "Do not take too much",
+          "effect": {
+            "magic": 1,
+            "courage": 2,
+            "fish": 2
+          },
+          "result": "The dragon does not look up. You take the smallest coin.",
+          "image": "assets/images/events/results/dragon-lair-one-coin.webp"
         }
       ],
       "image": "assets/images/events/dragon-lair.webp",
@@ -562,6 +653,18 @@
           },
           "result": "You stack the coins into a tower, and its tip points to the exit.",
           "image": "assets/images/events/results/coin-vault-stack.webp"
+        },
+        {
+          "id": "self-sort",
+          "text": "Let the coins sort themselves",
+          "hint": "Magic can tidy up",
+          "effect": {
+            "magic": 2,
+            "courage": 1,
+            "curiosity": 2
+          },
+          "result": "The coins line themselves up, and the accountant cat nods.",
+          "image": "assets/images/events/results/coin-vault-self-sort.webp"
         }
       ],
       "image": "assets/images/events/coin-vault.webp",
@@ -596,6 +699,18 @@
           },
           "result": "You bounce one to the ceiling, and it becomes a very sticky lamp.",
           "image": "assets/images/events/results/slime-battle-bounce.webp"
+        },
+        {
+          "id": "shake",
+          "text": "Shake its hand",
+          "hint": "Maybe it is friendly",
+          "effect": {
+            "courage": 2,
+            "curiosity": 3,
+            "magic": 1
+          },
+          "result": "The slime is sticky but very polite.",
+          "image": "assets/images/events/results/slime-battle-shake.webp"
         }
       ],
       "image": "assets/images/events/slime-battle.webp",
@@ -630,6 +745,18 @@
           },
           "result": "You swap two bones, and the skeleton starts solving itself like a puzzle.",
           "image": "assets/images/events/results/skeleton-crypt-bone-trick.webp"
+        },
+        {
+          "id": "dance",
+          "text": "Dance for them",
+          "hint": "Bones understand rhythm",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2,
+            "magic": 1
+          },
+          "result": "The bones rattle lightly with the rhythm, like a xylophone.",
+          "image": "assets/images/events/results/skeleton-crypt-dance.webp"
         }
       ],
       "image": "assets/images/events/skeleton-crypt.webp",
@@ -664,6 +791,19 @@
           },
           "result": "You count the light three times, and stardust from the horn falls into your fur.",
           "image": "assets/images/events/results/unicorn-grove-meditate.webp"
+        },
+        {
+          "id": "pocket-starlight",
+          "text": "Pocket the stardust",
+          "hint": "Keep a little light",
+          "effect": {
+            "magic": 2,
+            "curiosity": 3,
+            "fish": 1,
+            "lifespan": 1
+          },
+          "result": "The stardust glows in your pocket, and today feels a little longer.",
+          "image": "assets/images/events/results/unicorn-grove-pocket-starlight.webp"
         }
       ],
       "image": "assets/images/events/unicorn-grove.webp",
@@ -699,6 +839,18 @@
           },
           "result": "You share a dried fish, and it leaves you its brightest feather.",
           "image": "assets/images/events/results/griffin-tower-feed.webp"
+        },
+        {
+          "id": "give-feather",
+          "text": "Give it a feather",
+          "hint": "Exchange",
+          "effect": {
+            "courage": 2,
+            "curiosity": 1,
+            "magic": 2
+          },
+          "result": "The griffin takes the feather and returns a brighter one.",
+          "image": "assets/images/events/results/griffin-tower-give-feather.webp"
         }
       ],
       "image": "assets/images/events/griffin-tower.webp",
@@ -733,6 +885,18 @@
           },
           "result": "You reply with paw prints, and the eagle rolls the letter into a very official scroll.",
           "image": "assets/images/events/results/double-eagle-reply.webp"
+        },
+        {
+          "id": "two-letters",
+          "text": "Reply with two letters at once",
+          "hint": "Please both heads",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "Both heads are satisfied.",
+          "image": "assets/images/events/results/double-eagle-two-letters.webp"
         }
       ],
       "image": "assets/images/events/double-eagle.webp",
@@ -767,6 +931,18 @@
           },
           "result": "You lower your tail, and the chimera thinks you are its fifth head.",
           "image": "assets/images/events/results/chimera-maze-calm.webp"
+        },
+        {
+          "id": "sleep-center",
+          "text": "Sleep in the center of the maze",
+          "hint": "Rest first",
+          "effect": {
+            "courage": 3,
+            "curiosity": 2,
+            "magic": 1
+          },
+          "result": "The chimera walks around you once without waking you.",
+          "image": "assets/images/events/results/chimera-maze-sleep-center.webp"
         }
       ],
       "image": "assets/images/events/chimera-maze.webp",
@@ -802,6 +978,18 @@
           },
           "result": "The warrior bites the dried fish and writes you into the adventure contract.",
           "image": "assets/images/events/results/warrior-friend-share-fish.webp"
+        },
+        {
+          "id": "let-him-strike",
+          "text": "Let him strike first",
+          "hint": "Learn his rhythm",
+          "effect": {
+            "courage": 2,
+            "curiosity": 3,
+            "magic": 1
+          },
+          "result": "The wooden sword stops an inch away from you, and he smiles.",
+          "image": "assets/images/events/results/warrior-friend-let-him-strike.webp"
         }
       ],
       "image": "assets/images/events/warrior-friend.webp",
@@ -837,6 +1025,18 @@
           },
           "result": "You sleep beside the altar for ten minutes and wake up healed.",
           "image": "assets/images/events/results/priest-heal-rest.webp"
+        },
+        {
+          "id": "drink",
+          "text": "Drink the holy water",
+          "hint": "Moisten your throat first",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "fish": 1
+          },
+          "result": "It tastes a little like mineral water, only warmer.",
+          "image": "assets/images/events/results/priest-heal-drink.webp"
         }
       ],
       "image": "assets/images/events/priest-heal.webp",
@@ -871,6 +1071,18 @@
           },
           "result": "The elf hands you a slim book and says, 'Do not fold the corner.' You fold a very small one.",
           "image": "assets/images/events/results/elf-library-borrow.webp"
+        },
+        {
+          "id": "return-book",
+          "text": "Put the book back",
+          "hint": "Be a good reader",
+          "effect": {
+            "magic": 1,
+            "courage": 2,
+            "curiosity": 3
+          },
+          "result": "The elf librarian nods at you for the first time.",
+          "image": "assets/images/events/results/elf-library-return-book.webp"
         }
       ],
       "image": "assets/images/events/elf-library.webp",
@@ -905,6 +1117,18 @@
           },
           "result": "You notice the third rune stroke is crooked, and the dwarf freezes.",
           "image": "assets/images/events/results/dwarf-forge-inspect.webp"
+        },
+        {
+          "id": "catch-sparks",
+          "text": "Catch the sparks with your paw",
+          "hint": "Do not fear the heat",
+          "effect": {
+            "courage": 3,
+            "curiosity": 1,
+            "magic": 2
+          },
+          "result": "The sparks burst into a tiny flower on your paw pad.",
+          "image": "assets/images/events/results/dwarf-forge-catch-sparks.webp"
         }
       ],
       "image": "assets/images/events/dwarf-forge.webp",
@@ -939,6 +1163,18 @@
           },
           "result": "You copy the whole incantation, and your handwriting looks more like paw prints than the original.",
           "image": "assets/images/events/results/scroll-riddle-copy.webp"
+        },
+        {
+          "id": "read-aloud",
+          "text": "Read the riddle to a cat",
+          "hint": "Maybe the cat understands",
+          "effect": {
+            "magic": 2,
+            "courage": 1,
+            "curiosity": 3
+          },
+          "result": "The cat does not understand, but the scroll does.",
+          "image": "assets/images/events/results/scroll-riddle-read-aloud.webp"
         }
       ],
       "image": "assets/images/events/scroll-riddle.webp",
@@ -973,6 +1209,18 @@
           },
           "result": "You turn the spell into a lullaby, and every chair in the classroom falls asleep.",
           "image": "assets/images/events/results/incantation-improvise.webp"
+        },
+        {
+          "id": "silent",
+          "text": "Chant silently",
+          "hint": "Do not disturb anyone",
+          "effect": {
+            "magic": 3,
+            "courage": 1,
+            "curiosity": 2
+          },
+          "result": "The classroom stays quiet, and the spell forms inside your throat on its own.",
+          "image": "assets/images/events/results/incantation-silent.webp"
         }
       ],
       "image": "assets/images/events/incantation.webp",
@@ -1007,6 +1255,18 @@
           },
           "result": "The ring lights up while you stand exactly at its center.",
           "image": "assets/images/events/results/magic-circle-activate.webp"
+        },
+        {
+          "id": "fish-center",
+          "text": "Place a dried fish at the center",
+          "hint": "Offer a little food",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "fish": 1
+          },
+          "result": "When the ring lights up, the dried fish turns into light.",
+          "image": "assets/images/events/results/magic-circle-fish-center.webp"
         }
       ],
       "image": "assets/images/events/magic-circle.webp",
@@ -1042,6 +1302,18 @@
           },
           "result": "You fall asleep beneath the pew and dream of nine fish in a ring.",
           "image": "assets/images/events/results/cat-church-nap.webp"
+        },
+        {
+          "id": "polish-lamp",
+          "text": "Polish the chandelier",
+          "hint": "Do a little housework",
+          "effect": {
+            "magic": 1,
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "The candle flames become a little tidier.",
+          "image": "assets/images/events/results/cat-church-polish-lamp.webp"
         }
       ],
       "image": "assets/images/events/cat-church.webp",
@@ -1077,6 +1349,19 @@
           },
           "result": "You set a coin on the table corner, and a warrior who listens to you joins the party.",
           "image": "assets/images/events/results/adventurer-guild-recruit.webp"
+        },
+        {
+          "id": "small-quest",
+          "text": "Take only a small quest",
+          "hint": "Do not be greedy",
+          "effect": {
+            "courage": 2,
+            "curiosity": 2,
+            "fish": 1,
+            "magic": 1
+          },
+          "result": "You wipe the name off the wooden board and write your own.",
+          "image": "assets/images/events/results/adventurer-guild-small-quest.webp"
         }
       ],
       "image": "assets/images/events/adventurer-guild.webp",
@@ -1111,6 +1396,18 @@
           },
           "result": "You give every stall full marks except the one that turned dried fish into perfume.",
           "image": "assets/images/events/results/academy-festival-judge.webp"
+        },
+        {
+          "id": "light-lanterns",
+          "text": "Light every lantern",
+          "hint": "More wishes",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "curiosity": 3
+          },
+          "result": "Thirty wishes light up at the same time.",
+          "image": "assets/images/events/results/academy-festival-light-lanterns.webp"
         }
       ],
       "image": "assets/images/events/academy-festival.webp",
@@ -1145,6 +1442,18 @@
           },
           "result": "The lock clicks open as softly as a blink.",
           "image": "assets/images/events/results/thieves-guild-lockpick.webp"
+        },
+        {
+          "id": "take-lock-apart",
+          "text": "Take the lock apart",
+          "hint": "See how it works",
+          "effect": {
+            "magic": 2,
+            "courage": 3,
+            "curiosity": 2
+          },
+          "result": "The lock is simple; the hard part is not making a sound.",
+          "image": "assets/images/events/results/thieves-guild-take-lock-apart.webp"
         }
       ],
       "image": "assets/images/events/thieves-guild.webp",
@@ -1179,6 +1488,18 @@
           },
           "result": "The grass tells you which way the target will sway.",
           "image": "assets/images/events/results/archer-training-tracking.webp"
+        },
+        {
+          "id": "claws",
+          "text": "Use your claws instead of arrows",
+          "hint": "The cat way",
+          "effect": {
+            "courage": 3,
+            "curiosity": 2,
+            "magic": 1
+          },
+          "result": "Three tidy claw marks appear on the wooden post.",
+          "image": "assets/images/events/results/archer-training-claws.webp"
         }
       ],
       "image": "assets/images/events/archer-training.webp",
@@ -1213,6 +1534,18 @@
           },
           "result": "You toss a coin, and every gaze follows it around once.",
           "image": "assets/images/events/results/rogue-sneak-distract.webp"
+        },
+        {
+          "id": "blow-out-lamp",
+          "text": "Blow out the lamp",
+          "hint": "Let the room sleep first",
+          "effect": {
+            "courage": 2,
+            "curiosity": 1,
+            "magic": 2
+          },
+          "result": "Only your own shadow remains in the dark.",
+          "image": "assets/images/events/results/rogue-sneak-blow-out-lamp.webp"
         }
       ],
       "image": "assets/images/events/rogue-sneak.webp",
@@ -1248,6 +1581,18 @@
           },
           "result": "The demon king sniffs your dried fish and says, 'So this is a cat's scepter.'",
           "image": "assets/images/events/results/demon-king-befriend.webp"
+        },
+        {
+          "id": "trade-fish",
+          "text": "Trade a dried fish with him",
+          "hint": "Diplomacy",
+          "effect": {
+            "magic": 3,
+            "courage": 3,
+            "fish": 1
+          },
+          "result": "The demon king places the dried fish on the armrest like a medal.",
+          "image": "assets/images/events/results/demon-king-trade-fish.webp"
         }
       ],
       "image": "assets/images/events/demon-king.webp",
@@ -1282,9 +1627,169 @@
           },
           "result": "You pull your paw back, and the witch smiles for the first time.",
           "image": "assets/images/events/results/witch-bargain-refuse.webp"
+        },
+        {
+          "id": "tiny-paw",
+          "text": "Sign only a tiny paw print",
+          "hint": "Do not sign too large",
+          "effect": {
+            "magic": 2,
+            "courage": 2,
+            "curiosity": 3,
+            "lifespan": 1
+          },
+          "result": "The contract is small enough for only one paw print. The witch smiles, and your days feel a little longer.",
+          "image": "assets/images/events/results/witch-bargain-tiny-paw.webp"
         }
       ],
       "image": "assets/images/events/witch-bargain.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "merchant-cat",
+      "title": "The Merchant Cat's Stardust Stall",
+      "event": "A merchant cat with a wooden box sets up a stall at the academy gate, three glowing things inside.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 33,
+      "choices": [
+        {
+          "id": "buy-vial",
+          "text": "Buy a small vial of stardust",
+          "hint": "Powerful but expensive",
+          "effect": {
+            "magic": 5,
+            "courage": 2,
+            "curiosity": 1
+          },
+          "result": "The vial holds a short piece of the night sky, and when you open it every shadow in the classroom turns blue.",
+          "cost": 5,
+          "image": "assets/images/events/results/merchant-cat-buy-vial.webp"
+        },
+        {
+          "id": "buy-charm",
+          "text": "Buy a charm",
+          "hint": "A little cheaper",
+          "effect": {
+            "magic": 3,
+            "courage": 1,
+            "curiosity": 2
+          },
+          "result": "The charm warms under your paw like a stone that has just been in the sun.",
+          "cost": 3,
+          "image": "assets/images/events/results/merchant-cat-buy-charm.webp"
+        },
+        {
+          "id": "just-look",
+          "text": "Just look, do not buy",
+          "hint": "Save your fish",
+          "effect": {
+            "magic": 1,
+            "curiosity": 1,
+            "fish": 1
+          },
+          "result": "You sniff every item on the stall, then walk away satisfied.",
+          "image": "assets/images/events/results/merchant-cat-just-look.webp"
+        }
+      ],
+      "image": "assets/images/events/merchant-cat.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dragon-hoard",
+      "title": "The Dragon's Hoard",
+      "event": "The dragon opens its hoard by a narrow gap and lets you choose one thing. It seems indifferent, but its tail keeps moving.",
+      "rarity": 2,
+      "minTurn": 1,
+      "maxTurn": 33,
+      "choices": [
+        {
+          "id": "steal-scale",
+          "text": "Steal a scale",
+          "hint": "High risk, high reward",
+          "effect": {
+            "magic": 5,
+            "courage": 4,
+            "fish": 2,
+            "lifespan": -1
+          },
+          "result": "The scale is hot, and you hold it in your mouth until your eyes shine from the pain.",
+          "image": "assets/images/events/results/dragon-hoard-steal-scale.webp"
+        },
+        {
+          "id": "ask-scale",
+          "text": "Ask for a fallen scale",
+          "hint": "Be polite",
+          "effect": {
+            "magic": 3,
+            "courage": 3,
+            "fish": 1
+          },
+          "result": "The dragon lowers its head and pushes a fallen scale toward you.",
+          "image": "assets/images/events/results/dragon-hoard-ask-scale.webp"
+        },
+        {
+          "id": "one-coin",
+          "text": "Take only one coin",
+          "hint": "Just enough",
+          "effect": {
+            "magic": 1,
+            "courage": 2,
+            "fish": 3
+          },
+          "result": "The dragon sweeps one coin to you with the tip of its tail.",
+          "image": "assets/images/events/results/dragon-hoard-one-coin.webp"
+        }
+      ],
+      "image": "assets/images/events/dragon-hoard.webp",
+      "timeCost": 1
+    },
+    {
+      "id": "dungeon-maze",
+      "title": "The Underground Maze",
+      "event": "Deep in the training dungeon is a maze with three entrances, each smelling different.",
+      "rarity": 1,
+      "minTurn": 1,
+      "maxTurn": 33,
+      "choices": [
+        {
+          "id": "left-trap",
+          "text": "Left door: step into the trap",
+          "hint": "There may be a reward",
+          "effect": {
+            "magic": 2,
+            "courage": 3,
+            "fish": -3
+          },
+          "result": "The floor collapses half a step, and your fish pouch falls into the pit.",
+          "image": "assets/images/events/results/dungeon-maze-left-trap.webp"
+        },
+        {
+          "id": "middle-stairs",
+          "text": "Middle door: take the spiral stairs",
+          "hint": "A deeper path",
+          "effect": {
+            "magic": 3,
+            "courage": 2,
+            "curiosity": 2
+          },
+          "result": "At the bottom of the stairs is a very old door.",
+          "image": "assets/images/events/results/dungeon-maze-middle-stairs.webp"
+        },
+        {
+          "id": "right-crack",
+          "text": "Right door: squeeze through the crack",
+          "hint": "Stay quiet",
+          "effect": {
+            "magic": 1,
+            "courage": 2,
+            "curiosity": 3
+          },
+          "result": "You squeeze through the crack with almost no sound.",
+          "image": "assets/images/events/results/dungeon-maze-right-crack.webp"
+        }
+      ],
+      "image": "assets/images/events/dungeon-maze.webp",
       "timeCost": 1
     }
   ],
@@ -1297,22 +1802,22 @@
         {
           "state": "magic",
           "operator": ">=",
-          "value": 40
+          "value": 75
         },
         {
           "state": "courage",
           "operator": ">=",
-          "value": 12
+          "value": 20
         },
         {
           "state": "curiosity",
           "operator": ">=",
-          "value": 12
+          "value": 20
         },
         {
           "state": "fish",
           "operator": ">=",
-          "value": 12
+          "value": 10
         }
       ],
       "image": "assets/images/endings/cat-god.webp",
@@ -1326,12 +1831,12 @@
         {
           "state": "magic",
           "operator": ">=",
-          "value": 32
+          "value": 60
         },
         {
           "state": "courage",
           "operator": ">=",
-          "value": 8
+          "value": 15
         }
       ],
       "image": "assets/images/endings/grand-magus.webp",
@@ -1345,7 +1850,7 @@
         {
           "state": "magic",
           "operator": ">=",
-          "value": 16
+          "value": 30
         }
       ],
       "image": "assets/images/endings/archmage.webp",
@@ -1359,7 +1864,7 @@
         {
           "state": "curiosity",
           "operator": ">=",
-          "value": 18
+          "value": 25
         }
       ],
       "image": "assets/images/endings/wandering-mage.webp",
@@ -1373,7 +1878,7 @@
         {
           "state": "magic",
           "operator": ">=",
-          "value": 8
+          "value": 15
         }
       ],
       "image": "assets/images/endings/academy-librarian.webp",
