@@ -24,6 +24,14 @@
       "descriptionEn": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. Choose a profession, manage dried fish, explore dungeons and dragon hoards, and decide how close to stand to a false god hidden in an old chapel across 10 major endings."
     },
     {
+      "id": "stray-cat",
+      "config": "stray-cat/world.json",
+      "status": "ready",
+      "titleEn": "Dusty White",
+      "subtitleEn": "48 months as a stray",
+      "descriptionEn": "A dusty white cat meets dogs, geese, a neutering team, kind people, and Black Glove across 16 quarters."
+    },
+    {
       "id": "meow-supreme",
       "config": "meow-supreme/world.json",
       "status": "ready",

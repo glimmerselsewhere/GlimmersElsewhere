@@ -1,0 +1,1174 @@
+{
+  "id": "stray-cat",
+  "title": "灰白流浪记",
+  "shortTitle": "灰白流浪记",
+  "subtitle": "48 个月的街头猫生",
+  "description": "一只灰扑扑的白猫，在 16 个季度里遇到狗、鹅、绝育队、好心人和黑手套。",
+  "mode": null,
+  "music": "assets/audio/street-patrol.mp3",
+  "musicVolume": 0.12,
+  "assetBase": "worlds/stray-cat/",
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
+  },
+  "initialState": {
+    "strength": 3,
+    "agility": 5,
+    "charm": 4,
+    "health": 6,
+    "sick": 0
+  },
+  "states": [
+    {
+      "id": "strength",
+      "label": "武力",
+      "description": "打架、翻墙、撑过街头冲突",
+      "color": "#d8654c",
+      "chipBackground": "#f7d6cf",
+      "max": 12
+    },
+    {
+      "id": "agility",
+      "label": "敏捷",
+      "description": "逃跑、钻缝、避开捕猫网",
+      "color": "#4f8fc0",
+      "chipBackground": "#d9e8f5",
+      "max": 12
+    },
+    {
+      "id": "charm",
+      "label": "魅力",
+      "description": "让人停下、投喂、抚摸或收养",
+      "color": "#c78a3b",
+      "chipBackground": "#f7e7cc",
+      "max": 12
+    },
+    {
+      "id": "health",
+      "label": "健康",
+      "description": "伤口、食物、温暖和治疗",
+      "color": "#5f9e78",
+      "chipBackground": "#dcf0e2",
+      "max": 12
+    }
+  ],
+  "characters": [
+    {
+      "id": "chen",
+      "name": "陈奶奶",
+      "role": "feed",
+      "strength": 2,
+      "agility": 2
+    },
+    {
+      "id": "big-yellow",
+      "name": "大黄",
+      "role": "stray dog",
+      "strength": 7,
+      "agility": 5
+    },
+    {
+      "id": "white-tyrant",
+      "name": "白霸",
+      "role": "wild goose",
+      "strength": 5,
+      "agility": 6
+    },
+    {
+      "id": "lin",
+      "name": "林医生",
+      "role": "neutering team",
+      "strength": 6,
+      "agility": 4
+    },
+    {
+      "id": "zhao",
+      "name": "小赵",
+      "role": "adopter",
+      "strength": 3,
+      "agility": 3
+    },
+    {
+      "id": "su",
+      "name": "苏医生",
+      "role": "vet",
+      "strength": 4,
+      "agility": 4
+    },
+    {
+      "id": "scar",
+      "name": "刀疤哥",
+      "role": "gangster",
+      "strength": 8,
+      "agility": 7
+    },
+    {
+      "id": "old-orange",
+      "name": "老橘",
+      "role": "rival cat",
+      "strength": 7,
+      "agility": 8
+    },
+    {
+      "id": "black-glove",
+      "name": "黑手套",
+      "role": "abuser",
+      "strength": 9,
+      "agility": 4
+    }
+  ],
+  "scenes": [
+    {
+      "id": "cardboard",
+      "chapter": "Q1 · 0-3个月",
+      "title": "纸箱里的第一声",
+      "description": "你出生在便利店后的纸箱里。毛是白的，但灰尘让你看起来灰扑扑的。",
+      "image": "assets/images/scenes/cardboard.webp",
+      "actions": [
+        {
+          "id": "cry",
+          "name": "大声叫",
+          "hint": "让人听见",
+          "icon": "A"
+        },
+        {
+          "id": "hide",
+          "name": "往纸箱深处缩",
+          "hint": "先保住自己",
+          "icon": "B"
+        },
+        {
+          "id": "explore",
+          "name": "爬出纸箱",
+          "hint": "看看外面",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "cry": {
+          "text": "你的叫声引来了一个停下脚步的人。",
+          "stateChanges": {
+            "health": 1,
+            "charm": 1
+          }
+        },
+        "hide": {
+          "text": "你把自己缩成一团，纸箱变成了一座小山。",
+          "stateChanges": {
+            "strength": 1,
+            "agility": 1
+          }
+        },
+        "explore": {
+          "text": "你踩到地面，世界比纸箱大得多。",
+          "stateChanges": {
+            "agility": 2,
+            "health": -1
+          }
+        }
+      }
+    },
+    {
+      "id": "rain-car",
+      "chapter": "Q2 · 3-6个月",
+      "title": "雨夜车底",
+      "description": "雨把街面打成一片亮。你钻进车底，水从轮胎边流过去。",
+      "image": "assets/images/scenes/rain-car.webp",
+      "actions": [
+        {
+          "id": "dry",
+          "name": "贴着车底取暖",
+          "hint": "别再淋湿",
+          "icon": "A"
+        },
+        {
+          "id": "move",
+          "name": "换到更深的阴影",
+          "hint": "找一个更稳的地方",
+          "icon": "B"
+        },
+        {
+          "id": "call",
+          "name": "朝雨里叫一声",
+          "hint": "也许有人听见",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "dry": {
+          "text": "车身挡住了大部分雨，你的毛慢慢变重。",
+          "stateChanges": {
+            "health": 1
+          }
+        },
+        "move": {
+          "text": "你穿过水线，找到一块干一些的水泥地。",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "call": {
+          "text": "雨声很大，但你还是叫了。",
+          "stateChanges": {
+            "charm": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "fish-stall",
+      "chapter": "Q3 · 6-9个月",
+      "title": "陈奶奶的鱼摊",
+      "description": "陈奶奶的鱼摊每天收摊前会剩下一点碎鱼。她武力2，敏捷2，不会攻击你。",
+      "image": "assets/images/scenes/fish-stall.webp",
+      "actions": [
+        {
+          "id": "wait",
+          "name": "在摊边等",
+          "hint": "不急着靠近",
+          "icon": "A"
+        },
+        {
+          "id": "meow",
+          "name": "轻轻叫一声",
+          "hint": "让她看见你",
+          "icon": "B"
+        },
+        {
+          "id": "steal",
+          "name": "叼走一块鱼",
+          "hint": "靠自己的爪子",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "wait": {
+          "text": "她把碎鱼放在地上，又看了你一眼。",
+          "stateChanges": {
+            "health": 1,
+            "charm": 1
+          }
+        },
+        "meow": {
+          "text": "你叫得很轻，她笑了一下。",
+          "stateChanges": {
+            "charm": 2
+          }
+        },
+        "steal": {
+          "text": "你叼起鱼就跑，尾巴比身体先转弯。",
+          "stateChanges": {
+            "strength": 2,
+            "health": -1
+          }
+        }
+      }
+    },
+    {
+      "id": "dog-territory",
+      "chapter": "Q4 · 9-12个月",
+      "title": "大黄的领地",
+      "description": "流浪狗大黄守着垃圾桶。它武力7，敏捷5，看见你就会追。",
+      "image": "assets/images/scenes/dog-territory.webp",
+      "actions": [
+        {
+          "id": "run",
+          "name": "转身就跑",
+          "hint": "比它快就行",
+          "icon": "A"
+        },
+        {
+          "id": "stand",
+          "name": "拱起背",
+          "hint": "看起来不能输",
+          "icon": "B"
+        },
+        {
+          "id": "avoid",
+          "name": "绕开垃圾桶",
+          "hint": "不进入它的地盘",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "run": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 6
+              },
+              "text": "你贴着墙角拐了两个弯，大黄的鼻子撞在墙上。",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "大黄追了你半条街。你钻进铁栅栏，喘了很久。",
+              "stateChanges": {
+                "health": -2,
+                "agility": 1
+              }
+            }
+          ]
+        },
+        "stand": {
+          "tiers": [
+            {
+              "min": {
+                "strength": 8
+              },
+              "text": "你把背拱成一座桥，大黄停住了。",
+              "stateChanges": {
+                "strength": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "你被撞了一下，翻进草丛里。",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        },
+        "avoid": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "你从花坛后面绕过去，大黄只闻到你的味道。",
+              "stateChanges": {
+                "agility": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "你踩到了空罐头，声音把大黄引了过来。",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "goose-river",
+      "chapter": "Q5 · 12-15个月",
+      "title": "白霸的河岸",
+      "description": "野生大鹅白霸占了河岸。它武力5，敏捷6，脖子比你的前腿还长。",
+      "image": "assets/images/scenes/goose-river.webp",
+      "actions": [
+        {
+          "id": "back",
+          "name": "慢慢后退",
+          "hint": "别刺激它",
+          "icon": "A"
+        },
+        {
+          "id": "circle",
+          "name": "绕到水边",
+          "hint": "从侧面过去",
+          "icon": "B"
+        },
+        {
+          "id": "sprint",
+          "name": "直接冲过去",
+          "hint": "赌一次速度",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "back": {
+          "text": "你退到台阶下面，白霸的脖子才收回去。",
+          "stateChanges": {
+            "health": 1
+          }
+        },
+        "circle": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 7
+              },
+              "text": "你沿着水线走，白霸只来得及叫半声。",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "你的尾巴被啄了一下，毛炸成一团。",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        },
+        "sprint": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 6
+              },
+              "text": "你从它翅膀下面冲过去，风把你推上岸。",
+              "stateChanges": {
+                "agility": 3
+              }
+            },
+            {
+              "min": {},
+              "text": "你被翅膀扫到，滚了两圈。",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "neuter-van",
+      "chapter": "Q6 · 15-18个月",
+      "title": "捕猫网和林医生",
+      "description": "绝育队的林医生拿着网。她武力6，敏捷4，动作很稳。",
+      "image": "assets/images/scenes/neuter-van.webp",
+      "actions": [
+        {
+          "id": "hide",
+          "name": "钻进车底",
+          "hint": "别被网住",
+          "icon": "A"
+        },
+        {
+          "id": "dash",
+          "name": "从网边冲出去",
+          "hint": "赌一次敏捷",
+          "icon": "B"
+        },
+        {
+          "id": "accept",
+          "name": "停在原地",
+          "hint": "也许这是好事",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "hide": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "你贴着排气管藏住，网落空了。",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "网碰到你的后背，你挣了很久才滑出去。",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        },
+        "dash": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "你从网和墙之间穿过去，像一条白线。",
+              "stateChanges": {
+                "agility": 3
+              }
+            },
+            {
+              "min": {},
+              "text": "网口擦过你的耳朵，你被按了一下。",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        },
+        "accept": {
+          "text": "林医生把你放进笼子，动作很轻。",
+          "stateChanges": {
+            "health": 2,
+            "charm": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "kind-hand",
+      "chapter": "Q7 · 18-21个月",
+      "title": "小赵的手",
+      "description": "小赵蹲下来，手心朝上。他武力3，敏捷3，不会伤害你。",
+      "image": "assets/images/scenes/kind-hand.webp",
+      "actions": [
+        {
+          "id": "sniff",
+          "name": "先闻一下",
+          "hint": "确认味道",
+          "icon": "A"
+        },
+        {
+          "id": "rub",
+          "name": "用头蹭他的手",
+          "hint": "表达一点信任",
+          "icon": "B"
+        },
+        {
+          "id": "run",
+          "name": "退后两步",
+          "hint": "还没准备好",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "sniff": {
+          "text": "他的手有洗衣粉和一点鱼干的味道。",
+          "stateChanges": {
+            "charm": 2
+          }
+        },
+        "rub": {
+          "text": "你把头蹭过去，他笑出了声。",
+          "stateChanges": {
+            "charm": 3
+          }
+        },
+        "run": {
+          "text": "你退到墙边，他没有追上来。",
+          "stateChanges": {
+            "agility": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "clinic",
+      "chapter": "Q8 · 21-24个月",
+      "title": "苏医生的诊室",
+      "description": "苏医生把手放在你的背上。她武力4，敏捷4，正在检查你的伤口。",
+      "image": "assets/images/scenes/clinic.webp",
+      "actions": [
+        {
+          "id": "treat",
+          "name": "接受治疗",
+          "hint": "让她帮你",
+          "icon": "A"
+        },
+        {
+          "id": "hide",
+          "name": "躲到椅子下面",
+          "hint": "先观察",
+          "icon": "B"
+        },
+        {
+          "id": "struggle",
+          "name": "挣扎一下",
+          "hint": "还不太习惯",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "treat": {
+          "text": "她给你上药，又放了一碗水。",
+          "stateChanges": {
+            "health": 3,
+            "charm": 1
+          }
+        },
+        "hide": {
+          "text": "你躲进椅子下面，她把药放在你旁边。",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "struggle": {
+          "text": "你挣了一下，她停住手，等你安静。",
+          "stateChanges": {
+            "strength": 2,
+            "health": -1
+          }
+        }
+      }
+    },
+    {
+      "id": "sick-alley",
+      "chapter": "Q9 · 24-27个月",
+      "title": "生病的三个季度",
+      "description": "你开始咳嗽，鼻子发干。这场病会持续 3 个季度。",
+      "image": "assets/images/scenes/sick-alley.webp",
+      "actions": [
+        {
+          "id": "endure",
+          "name": "缩在纸箱里撑过去",
+          "hint": "少动，少耗力气",
+          "icon": "A"
+        },
+        {
+          "id": "water",
+          "name": "去找水",
+          "hint": "先解决喉咙",
+          "icon": "B"
+        },
+        {
+          "id": "help",
+          "name": "回到诊所门口",
+          "hint": "让人看见你",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "endure": {
+          "text": "你把自己缩得很小，咳嗽声也变小了。",
+          "stateChanges": {
+            "sick": 3,
+            "health": -1
+          }
+        },
+        "water": {
+          "text": "你找到一点积水，喝的时候爪尖发抖。",
+          "stateChanges": {
+            "sick": 3,
+            "health": -2,
+            "agility": 1
+          }
+        },
+        "help": {
+          "text": "苏医生看见你，把门开了一条缝。",
+          "stateChanges": {
+            "sick": 2,
+            "health": 1,
+            "charm": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "medicine",
+      "chapter": "Q10 · 27-30个月",
+      "title": "药和水",
+      "description": "病还在。你闻到药味，也闻到自己毛里的灰尘味。",
+      "image": "assets/images/scenes/medicine.webp",
+      "actions": [
+        {
+          "id": "drink",
+          "name": "把药喝下去",
+          "hint": "苦一点也没关系",
+          "icon": "A"
+        },
+        {
+          "id": "refuse",
+          "name": "把头转开",
+          "hint": "先不信它",
+          "icon": "B"
+        },
+        {
+          "id": "share",
+          "name": "把水让给别的猫",
+          "hint": "它比你更渴",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drink": {
+          "text": "药很苦，但喉咙不再那么干。",
+          "stateChanges": {
+            "health": 2
+          }
+        },
+        "refuse": {
+          "text": "你把头转开，药味还留在空气里。",
+          "stateChanges": {
+            "health": -1
+          }
+        },
+        "share": {
+          "text": "另一只猫喝完水，看了你一眼。",
+          "stateChanges": {
+            "charm": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "gang-alley",
+      "chapter": "Q11 · 30-33个月",
+      "title": "刀疤哥的后巷",
+      "description": "黑社会的刀疤哥坐在后巷。他武力8，敏捷7，手里有一根铁管。",
+      "image": "assets/images/scenes/gang-alley.webp",
+      "actions": [
+        {
+          "id": "trade",
+          "name": "用鱼干换通行",
+          "hint": "先谈条件",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "在阴影里看他",
+          "hint": "学他的路线",
+          "icon": "B"
+        },
+        {
+          "id": "avoid",
+          "name": "绕另一条巷子",
+          "hint": "别靠近铁管",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "trade": {
+          "text": "他把鱼干收走，把巷口让开半步。",
+          "stateChanges": {
+            "charm": 2,
+            "health": 1
+          }
+        },
+        "watch": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 7
+              },
+              "text": "你记住他每次抬手前会先看地。",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "他回头看了你一眼，你贴着墙不动。",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        },
+        "avoid": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 6
+              },
+              "text": "你从另一条巷子穿过，鞋声没有追上来。",
+              "stateChanges": {
+                "agility": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "那条巷子是死路，你原路退回时被看见。",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "warm-radiator",
+      "chapter": "Q12 · 33-36个月",
+      "title": "冬天的暖气片",
+      "description": "锅炉房的暖气片有一格是空的。你的毛还是灰扑扑的。",
+      "image": "assets/images/scenes/warm-radiator.webp",
+      "actions": [
+        {
+          "id": "stay",
+          "name": "贴着暖气片睡",
+          "hint": "先暖起来",
+          "icon": "A"
+        },
+        {
+          "id": "move",
+          "name": "去检查门缝",
+          "hint": "留一条退路",
+          "icon": "B"
+        },
+        {
+          "id": "share",
+          "name": "让出半格位置",
+          "hint": "给更冷的猫",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "stay": {
+          "text": "暖气片很烫，你把身子贴成一条线。",
+          "stateChanges": {
+            "health": 2
+          }
+        },
+        "move": {
+          "text": "你确认门缝能钻出去，才闭上一只眼。",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "share": {
+          "text": "另一只猫挤过来，你们背靠背。",
+          "stateChanges": {
+            "charm": 2,
+            "health": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "rival-cat",
+      "chapter": "Q13 · 36-39个月",
+      "title": "老橘的地盘",
+      "description": "老橘是这条街最稳的猫。它武力7，敏捷8，眼睛很慢，爪子很快。",
+      "image": "assets/images/scenes/rival-cat.webp",
+      "actions": [
+        {
+          "id": "challenge",
+          "name": "挑战它",
+          "hint": "争这块地盘",
+          "icon": "A"
+        },
+        {
+          "id": "share",
+          "name": "分享垃圾桶",
+          "hint": "各吃一边",
+          "icon": "B"
+        },
+        {
+          "id": "retreat",
+          "name": "退到屋檐上",
+          "hint": "保住尾巴",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "challenge": {
+          "tiers": [
+            {
+              "min": {
+                "strength": 7
+              },
+              "text": "你们撞在一起，最后它先眨眼。",
+              "stateChanges": {
+                "strength": 3
+              }
+            },
+            {
+              "min": {},
+              "text": "它一爪把你按在墙上，又松开。",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        },
+        "share": {
+          "text": "你们分掉同一块鱼头，谁也没低吼。",
+          "stateChanges": {
+            "charm": 2
+          }
+        },
+        "retreat": {
+          "text": "你跳上屋檐，它只在下面看着。",
+          "stateChanges": {
+            "agility": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "bridge",
+      "chapter": "Q14 · 39-42个月",
+      "title": "最后的桥洞",
+      "description": "桥洞下有风、水声和一点回音。你从这里能看见整条街。",
+      "image": "assets/images/scenes/bridge.webp",
+      "actions": [
+        {
+          "id": "cross",
+          "name": "直接穿过",
+          "hint": "不回头看",
+          "icon": "A"
+        },
+        {
+          "id": "wait",
+          "name": "等风停",
+          "hint": "让毛干一点",
+          "icon": "B"
+        },
+        {
+          "id": "climb",
+          "name": "爬上桥栏",
+          "hint": "看更远的地方",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "cross": {
+          "text": "你穿过桥洞，脚步声被水声盖住。",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "wait": {
+          "text": "风停了，你的毛贴回身上。",
+          "stateChanges": {
+            "health": 1
+          }
+        },
+        "climb": {
+          "text": "你站在桥栏上，街灯连成一条线。",
+          "stateChanges": {
+            "strength": 2,
+            "agility": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "door",
+      "chapter": "Q15 · 42-45个月",
+      "title": "小赵的门口",
+      "description": "小赵把门开了一条缝，灯光落在你的爪子前。他武力3，敏捷3。",
+      "image": "assets/images/scenes/door.webp",
+      "actions": [
+        {
+          "id": "enter",
+          "name": "走进去",
+          "hint": "试试暖的地板",
+          "icon": "A"
+        },
+        {
+          "id": "sit",
+          "name": "坐在门口",
+          "hint": "先不进去",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "转身离开",
+          "hint": "还想去街上",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "enter": {
+          "text": "地板很暖，你的爪垫陷进去一点。",
+          "stateChanges": {
+            "charm": 3
+          }
+        },
+        "sit": {
+          "text": "你坐在光和黑的边界上，没有动。",
+          "stateChanges": {
+            "charm": 2,
+            "health": 1
+          }
+        },
+        "leave": {
+          "text": "你转身走进夜色，尾巴消失在转角。",
+          "stateChanges": {
+            "agility": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "black-glove",
+      "chapter": "Q16 · 45-48个月",
+      "title": "黑手套",
+      "description": "虐猫恶人黑手套站在巷口，手里有一个袋子。他武力9，敏捷4。",
+      "image": "assets/images/scenes/black-glove.webp",
+      "actions": [
+        {
+          "id": "fight",
+          "name": "扑过去",
+          "hint": "用爪子说话",
+          "icon": "A"
+        },
+        {
+          "id": "run",
+          "name": "从他身边冲过去",
+          "hint": "赌一次敏捷",
+          "icon": "B"
+        },
+        {
+          "id": "charm",
+          "name": "让他停一下",
+          "hint": "也许他会犹豫",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "tiers": [
+            {
+              "min": {
+                "strength": 10
+              },
+              "text": "你的爪子划过他的手背，袋子掉在地上。",
+              "stateChanges": {
+                "strength": 2,
+                "health": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "你没有足够的力量。袋子合上了，但后来有光。",
+              "stateChanges": {
+                "health": -5
+              }
+            }
+          ]
+        },
+        "run": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "你贴着他的裤脚冲过去，风把他留在原地。",
+              "stateChanges": {
+                "agility": 2,
+                "health": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "你没能逃开。袋子合上了，但后来有光。",
+              "stateChanges": {
+                "health": -5
+              }
+            }
+          ]
+        },
+        "charm": {
+          "tiers": [
+            {
+              "min": {
+                "charm": 8
+              },
+              "text": "你坐在灯光下舔了舔爪子，他停住了。",
+              "stateChanges": {
+                "charm": 2,
+                "health": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "他没有停。袋子合上了，但后来有光。",
+              "stateChanges": {
+                "health": -5
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "home",
+      "title": "小赵的家",
+      "description": "你趴在窗台上，阳光把灰扑扑的毛照成白色。",
+      "all": [
+        {
+          "state": "charm",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "state": "health",
+          "operator": ">=",
+          "value": 7
+        }
+      ],
+      "image": "assets/images/endings/home.webp"
+    },
+    {
+      "id": "clinic",
+      "title": "苏医生的诊室猫",
+      "description": "你成了诊室里的白猫，负责在打针时陪小孩坐着。",
+      "all": [
+        {
+          "state": "health",
+          "operator": ">=",
+          "value": 9
+        }
+      ],
+      "image": "assets/images/endings/clinic.webp"
+    },
+    {
+      "id": "street-king",
+      "title": "巷子的王",
+      "description": "你和老橘分掉这条街，垃圾桶两边各有一个王座。",
+      "all": [
+        {
+          "state": "strength",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "state": "agility",
+          "operator": ">=",
+          "value": 7
+        }
+      ],
+      "image": "assets/images/endings/street-king.webp"
+    },
+    {
+      "id": "night-legend",
+      "title": "夜巷传说",
+      "description": "没人收养你，但整条街都知道有一只灰扑扑的白猫。",
+      "all": [
+        {
+          "state": "agility",
+          "operator": ">=",
+          "value": 9
+        }
+      ],
+      "image": "assets/images/endings/night-legend.webp"
+    },
+    {
+      "id": "heaven",
+      "title": "猫的天堂",
+      "description": "袋子后来打开了。里面没有猫，只有很软的光。",
+      "all": [],
+      "image": "assets/images/endings/heaven.webp"
+    }
+  ],
+  "catalog": {
+    "eyebrow": "第十片异境微光已经苏醒",
+    "headline": "48 个月，一只灰扑扑的白猫。",
+    "description": "16 个季度，遇到狗、鹅、绝育队、好心人和黑手套。",
+    "cardDescription": "武力、敏捷、魅力和健康共同决定你被收养、成为巷子的王，还是上天堂。",
+    "cardIcon": "●",
+    "cardLabel": "WORLD 10",
+    "cardGradient": [
+      "#b8c6d6",
+      "#6b7f92",
+      "#2d3b47"
+    ],
+    "cardAccent": "#f2d6a0",
+    "actionSummary": "逃 · 打 · 讨好 · 活下去"
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "开始流浪",
+    "continueButton": "下一个季度",
+    "finalContinueButton": "看看结局",
+    "replayButton": "再流浪一次"
+  }
+}

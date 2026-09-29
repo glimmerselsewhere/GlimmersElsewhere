@@ -1,0 +1,1174 @@
+{
+  "id": "stray-cat",
+  "title": "Dusty White",
+  "shortTitle": "Dusty White",
+  "subtitle": "48 Months as a Stray",
+  "description": "A dusty white cat meets dogs, geese, a neutering team, kind people, and Black Glove across 16 quarters.",
+  "mode": null,
+  "music": "assets/audio/street-patrol.mp3",
+  "musicVolume": 0.12,
+  "assetBase": "worlds/stray-cat/",
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
+  },
+  "initialState": {
+    "strength": 3,
+    "agility": 5,
+    "charm": 4,
+    "health": 6,
+    "sick": 0
+  },
+  "states": [
+    {
+      "id": "strength",
+      "label": "Strength",
+      "description": "Fighting, climbing, and surviving conflicts",
+      "color": "#d8654c",
+      "chipBackground": "#f7d6cf",
+      "max": 12
+    },
+    {
+      "id": "agility",
+      "label": "Agility",
+      "description": "Escaping, squeezing through gaps, and avoiding nets",
+      "color": "#4f8fc0",
+      "chipBackground": "#d9e8f5",
+      "max": 12
+    },
+    {
+      "id": "charm",
+      "label": "Charm",
+      "description": "Making people stop, feed, pet, or adopt you",
+      "color": "#c78a3b",
+      "chipBackground": "#f7e7cc",
+      "max": 12
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "description": "Wounds, food, warmth, and treatment",
+      "color": "#5f9e78",
+      "chipBackground": "#dcf0e2",
+      "max": 12
+    }
+  ],
+  "characters": [
+    {
+      "id": "chen",
+      "name": "Grandma Chen",
+      "role": "feed",
+      "strength": 2,
+      "agility": 2
+    },
+    {
+      "id": "big-yellow",
+      "name": "Big Yellow",
+      "role": "stray dog",
+      "strength": 7,
+      "agility": 5
+    },
+    {
+      "id": "white-tyrant",
+      "name": "White Tyrant",
+      "role": "wild goose",
+      "strength": 5,
+      "agility": 6
+    },
+    {
+      "id": "lin",
+      "name": "Dr. Lin",
+      "role": "neutering team",
+      "strength": 6,
+      "agility": 4
+    },
+    {
+      "id": "zhao",
+      "name": "Xiao Zhao",
+      "role": "adopter",
+      "strength": 3,
+      "agility": 3
+    },
+    {
+      "id": "su",
+      "name": "Dr. Su",
+      "role": "vet",
+      "strength": 4,
+      "agility": 4
+    },
+    {
+      "id": "scar",
+      "name": "Scar Brother",
+      "role": "gangster",
+      "strength": 8,
+      "agility": 7
+    },
+    {
+      "id": "old-orange",
+      "name": "Old Orange",
+      "role": "rival cat",
+      "strength": 7,
+      "agility": 8
+    },
+    {
+      "id": "black-glove",
+      "name": "Black Glove",
+      "role": "abuser",
+      "strength": 9,
+      "agility": 4
+    }
+  ],
+  "scenes": [
+    {
+      "id": "cardboard",
+      "chapter": "Q1 · Months 0-3",
+      "title": "The First Sound in the Cardboard Box",
+      "description": "You were born in a cardboard box behind a convenience store. Your fur is white, but dust makes you look gray.",
+      "image": "assets/images/scenes/cardboard.webp",
+      "actions": [
+        {
+          "id": "cry",
+          "name": "Cry loudly",
+          "hint": "Be heard",
+          "icon": "A"
+        },
+        {
+          "id": "hide",
+          "name": "Hide deeper",
+          "hint": "Protect yourself first",
+          "icon": "B"
+        },
+        {
+          "id": "explore",
+          "name": "Climb out",
+          "hint": "See outside",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "cry": {
+          "text": "Your cry makes someone stop.",
+          "stateChanges": {
+            "health": 1,
+            "charm": 1
+          }
+        },
+        "hide": {
+          "text": "You curl up, and the box becomes a small mountain.",
+          "stateChanges": {
+            "strength": 1,
+            "agility": 1
+          }
+        },
+        "explore": {
+          "text": "You touch the ground; the world is much bigger than the box.",
+          "stateChanges": {
+            "agility": 2,
+            "health": -1
+          }
+        }
+      }
+    },
+    {
+      "id": "rain-car",
+      "chapter": "Q2 · Months 3-6",
+      "title": "Under the Car on a Rainy Night",
+      "description": "Rain turns the street into one bright sheet. You slip under a car while water streams past the tires.",
+      "image": "assets/images/scenes/rain-car.webp",
+      "actions": [
+        {
+          "id": "dry",
+          "name": "Stay dry",
+          "hint": "Stop getting wet",
+          "icon": "A"
+        },
+        {
+          "id": "move",
+          "name": "Move deeper",
+          "hint": "Find a safer spot",
+          "icon": "B"
+        },
+        {
+          "id": "call",
+          "name": "Call into the rain",
+          "hint": "Maybe someone hears",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "dry": {
+          "text": "The car blocks most of the rain, though your fur grows heavy.",
+          "stateChanges": {
+            "health": 1
+          }
+        },
+        "move": {
+          "text": "You cross the waterline and find a drier patch of concrete.",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "call": {
+          "text": "The rain is loud, but you call anyway.",
+          "stateChanges": {
+            "charm": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "fish-stall",
+      "chapter": "Q3 · Months 6-9",
+      "title": "Grandma Chen's Fish Stall",
+      "description": "Grandma Chen's stall always has scraps before closing. Her strength is 2 and agility is 2; she will not attack you.",
+      "image": "assets/images/scenes/fish-stall.webp",
+      "actions": [
+        {
+          "id": "wait",
+          "name": "Wait",
+          "hint": "Do not rush closer",
+          "icon": "A"
+        },
+        {
+          "id": "meow",
+          "name": "Meow softly",
+          "hint": "Let her see you",
+          "icon": "B"
+        },
+        {
+          "id": "steal",
+          "name": "Steal a scrap",
+          "hint": "Use your own paws",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "wait": {
+          "text": "She places the scraps on the ground and glances at you again.",
+          "stateChanges": {
+            "health": 1,
+            "charm": 1
+          }
+        },
+        "meow": {
+          "text": "You meow softly, and she smiles.",
+          "stateChanges": {
+            "charm": 2
+          }
+        },
+        "steal": {
+          "text": "You grab the fish and run, your tail turning before your body.",
+          "stateChanges": {
+            "strength": 2,
+            "health": -1
+          }
+        }
+      }
+    },
+    {
+      "id": "dog-territory",
+      "chapter": "Q4 · Months 9-12",
+      "title": "Big Yellow's Territory",
+      "description": "The stray dog Big Yellow guards the trash cans. His strength is 7 and agility is 5; he will chase you on sight.",
+      "image": "assets/images/scenes/dog-territory.webp",
+      "actions": [
+        {
+          "id": "run",
+          "name": "Run",
+          "hint": "Just be faster",
+          "icon": "A"
+        },
+        {
+          "id": "stand",
+          "name": "Stand your ground",
+          "hint": "Look unbeatable",
+          "icon": "B"
+        },
+        {
+          "id": "avoid",
+          "name": "Avoid the cans",
+          "hint": "Stay out of his territory",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "run": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 6
+              },
+              "text": "You cut two corners along the wall; Big Yellow's nose hits the bricks.",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "Big Yellow chases you half a street. You squeeze through a fence and pant for a long time.",
+              "stateChanges": {
+                "health": -2,
+                "agility": 1
+              }
+            }
+          ]
+        },
+        "stand": {
+          "tiers": [
+            {
+              "min": {
+                "strength": 8
+              },
+              "text": "You arch your back like a bridge, and Big Yellow stops.",
+              "stateChanges": {
+                "strength": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "You are bumped aside and tumble into the grass.",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        },
+        "avoid": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "You circle behind the flower bed; Big Yellow only smells you.",
+              "stateChanges": {
+                "agility": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "You step on an empty can, and the sound brings Big Yellow over.",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "goose-river",
+      "chapter": "Q5 · Months 12-15",
+      "title": "White Tyrant's Riverbank",
+      "description": "The wild goose White Tyrant rules the riverbank. Its strength is 5 and agility is 6; its neck is longer than your front legs.",
+      "image": "assets/images/scenes/goose-river.webp",
+      "actions": [
+        {
+          "id": "back",
+          "name": "Back away",
+          "hint": "Do not provoke it",
+          "icon": "A"
+        },
+        {
+          "id": "circle",
+          "name": "Circle to the water",
+          "hint": "Pass from the side",
+          "icon": "B"
+        },
+        {
+          "id": "sprint",
+          "name": "Sprint past",
+          "hint": "Gamble on speed",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "back": {
+          "text": "You back down the steps, and White Tyrant finally retracts its neck.",
+          "stateChanges": {
+            "health": 1
+          }
+        },
+        "circle": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 7
+              },
+              "text": "You walk along the waterline; White Tyrant only manages half a honk.",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "Your tail is pecked, and your fur puffs up.",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        },
+        "sprint": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 6
+              },
+              "text": "You dash under its wing, and the wind pushes you up the bank.",
+              "stateChanges": {
+                "agility": 3
+              }
+            },
+            {
+              "min": {},
+              "text": "Its wing sweeps you, and you roll twice.",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "neuter-van",
+      "chapter": "Q6 · Months 15-18",
+      "title": "The Net and Dr. Lin",
+      "description": "Dr. Lin from the neutering team holds a net. Her strength is 6 and agility is 4, and her movements are steady.",
+      "image": "assets/images/scenes/neuter-van.webp",
+      "actions": [
+        {
+          "id": "hide",
+          "name": "Hide under a car",
+          "hint": "Avoid the net",
+          "icon": "A"
+        },
+        {
+          "id": "dash",
+          "name": "Dash past the net",
+          "hint": "Gamble on agility",
+          "icon": "B"
+        },
+        {
+          "id": "accept",
+          "name": "Stay still",
+          "hint": "Maybe this is help",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "hide": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "You hide beside the exhaust pipe, and the net misses.",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "The net touches your back, and you struggle before slipping out.",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        },
+        "dash": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "You pass between the net and the wall like a white line.",
+              "stateChanges": {
+                "agility": 3
+              }
+            },
+            {
+              "min": {},
+              "text": "The net brushes your ear, and you are held for a moment.",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        },
+        "accept": {
+          "text": "Dr. Lin places you in a carrier, moving gently.",
+          "stateChanges": {
+            "health": 2,
+            "charm": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "kind-hand",
+      "chapter": "Q7 · Months 18-21",
+      "title": "Xiao Zhao's Hand",
+      "description": "Xiao Zhao crouches down with his palm open. His strength is 3 and agility is 3; he will not hurt you.",
+      "image": "assets/images/scenes/kind-hand.webp",
+      "actions": [
+        {
+          "id": "sniff",
+          "name": "Sniff first",
+          "hint": "Check the scent",
+          "icon": "A"
+        },
+        {
+          "id": "rub",
+          "name": "Rub his hand",
+          "hint": "Show some trust",
+          "icon": "B"
+        },
+        {
+          "id": "run",
+          "name": "Step back",
+          "hint": "Not ready yet",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "sniff": {
+          "text": "His hand smells like detergent and a little dried fish.",
+          "stateChanges": {
+            "charm": 2
+          }
+        },
+        "rub": {
+          "text": "You rub your head against his hand, and he laughs.",
+          "stateChanges": {
+            "charm": 3
+          }
+        },
+        "run": {
+          "text": "You back against the wall, and he does not follow.",
+          "stateChanges": {
+            "agility": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "clinic",
+      "chapter": "Q8 · Months 21-24",
+      "title": "Dr. Su's Clinic",
+      "description": "Dr. Su rests her hand on your back. Her strength is 4 and agility is 4; she is checking your wounds.",
+      "image": "assets/images/scenes/clinic.webp",
+      "actions": [
+        {
+          "id": "treat",
+          "name": "Accept treatment",
+          "hint": "Let her help",
+          "icon": "A"
+        },
+        {
+          "id": "hide",
+          "name": "Hide under a chair",
+          "hint": "Observe first",
+          "icon": "B"
+        },
+        {
+          "id": "struggle",
+          "name": "Struggle",
+          "hint": "Not used to this yet",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "treat": {
+          "text": "She treats your wounds and sets out a bowl of water.",
+          "stateChanges": {
+            "health": 3,
+            "charm": 1
+          }
+        },
+        "hide": {
+          "text": "You hide under the chair, and she places the medicine beside you.",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "struggle": {
+          "text": "You struggle once; she stops and waits for you to calm down.",
+          "stateChanges": {
+            "strength": 2,
+            "health": -1
+          }
+        }
+      }
+    },
+    {
+      "id": "sick-alley",
+      "chapter": "Q9 · Months 24-27",
+      "title": "Three Sick Quarters",
+      "description": "You start coughing and your nose becomes dry. This sickness will last for three quarters.",
+      "image": "assets/images/scenes/sick-alley.webp",
+      "actions": [
+        {
+          "id": "endure",
+          "name": "Endure it",
+          "hint": "Move less, spend less energy",
+          "icon": "A"
+        },
+        {
+          "id": "water",
+          "name": "Search for water",
+          "hint": "Soothe your throat first",
+          "icon": "B"
+        },
+        {
+          "id": "help",
+          "name": "Return to the clinic",
+          "hint": "Let someone see you",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "endure": {
+          "text": "You make yourself small, and even your cough softens.",
+          "stateChanges": {
+            "sick": 3,
+            "health": -1
+          }
+        },
+        "water": {
+          "text": "You find some standing water; your paw tips tremble while drinking.",
+          "stateChanges": {
+            "sick": 3,
+            "health": -2,
+            "agility": 1
+          }
+        },
+        "help": {
+          "text": "Dr. Su sees you and opens the door a crack.",
+          "stateChanges": {
+            "sick": 2,
+            "health": 1,
+            "charm": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "medicine",
+      "chapter": "Q10 · Months 27-30",
+      "title": "Medicine and Water",
+      "description": "The sickness remains. You smell medicine and the dust in your own fur.",
+      "image": "assets/images/scenes/medicine.webp",
+      "actions": [
+        {
+          "id": "drink",
+          "name": "Drink the medicine",
+          "hint": "A little bitter is fine",
+          "icon": "A"
+        },
+        {
+          "id": "refuse",
+          "name": "Turn away",
+          "hint": "Do not trust it yet",
+          "icon": "B"
+        },
+        {
+          "id": "share",
+          "name": "Share the water",
+          "hint": "It is thirstier than you",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drink": {
+          "text": "The medicine is bitter, but your throat is no longer so dry.",
+          "stateChanges": {
+            "health": 2
+          }
+        },
+        "refuse": {
+          "text": "You turn away, and the medicine smell stays in the air.",
+          "stateChanges": {
+            "health": -1
+          }
+        },
+        "share": {
+          "text": "Another cat finishes the water and looks at you.",
+          "stateChanges": {
+            "charm": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "gang-alley",
+      "chapter": "Q11 · Months 30-33",
+      "title": "Scar Brother's Back Alley",
+      "description": "The gangster Scar Brother sits in the back alley. His strength is 8 and agility is 7, and he holds a metal pipe.",
+      "image": "assets/images/scenes/gang-alley.webp",
+      "actions": [
+        {
+          "id": "trade",
+          "name": "Trade dried fish",
+          "hint": "Negotiate first",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "Watch from shadow",
+          "hint": "Learn his route",
+          "icon": "B"
+        },
+        {
+          "id": "avoid",
+          "name": "Take another alley",
+          "hint": "Stay away from the pipe",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "trade": {
+          "text": "He takes the dried fish and opens half a step of the alley.",
+          "stateChanges": {
+            "charm": 2,
+            "health": 1
+          }
+        },
+        "watch": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 7
+              },
+              "text": "You notice he always looks down before raising his hand.",
+              "stateChanges": {
+                "agility": 2
+              }
+            },
+            {
+              "min": {},
+              "text": "He glances back; you press flat against the wall.",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        },
+        "avoid": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 6
+              },
+              "text": "You pass through another alley, and the footsteps do not follow.",
+              "stateChanges": {
+                "agility": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "That alley is a dead end; you are seen while backing out.",
+              "stateChanges": {
+                "health": -1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "warm-radiator",
+      "chapter": "Q12 · Months 33-36",
+      "title": "The Winter Radiator",
+      "description": "One section of the boiler-room radiator is empty. Your fur is still dusty gray.",
+      "image": "assets/images/scenes/warm-radiator.webp",
+      "actions": [
+        {
+          "id": "stay",
+          "name": "Sleep against it",
+          "hint": "Warm up first",
+          "icon": "A"
+        },
+        {
+          "id": "move",
+          "name": "Check the door gap",
+          "hint": "Keep an exit",
+          "icon": "B"
+        },
+        {
+          "id": "share",
+          "name": "Share half a section",
+          "hint": "For a colder cat",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "stay": {
+          "text": "The radiator is hot, and you press your body into a line.",
+          "stateChanges": {
+            "health": 2
+          }
+        },
+        "move": {
+          "text": "You confirm the door gap is passable before closing one eye.",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "share": {
+          "text": "Another cat squeezes in, and you sit back to back.",
+          "stateChanges": {
+            "charm": 2,
+            "health": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "rival-cat",
+      "chapter": "Q13 · Months 36-39",
+      "title": "Old Orange's Territory",
+      "description": "Old Orange is the steadiest cat on this street. His strength is 7 and agility is 8; his eyes are slow, but his claws are fast.",
+      "image": "assets/images/scenes/rival-cat.webp",
+      "actions": [
+        {
+          "id": "challenge",
+          "name": "Challenge him",
+          "hint": "Fight for this territory",
+          "icon": "A"
+        },
+        {
+          "id": "share",
+          "name": "Share the trash can",
+          "hint": "Each take one side",
+          "icon": "B"
+        },
+        {
+          "id": "retreat",
+          "name": "Retreat to the roof",
+          "hint": "Keep your tail",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "challenge": {
+          "tiers": [
+            {
+              "min": {
+                "strength": 7
+              },
+              "text": "You collide, and he blinks first.",
+              "stateChanges": {
+                "strength": 3
+              }
+            },
+            {
+              "min": {},
+              "text": "He pins you against the wall with one paw, then lets go.",
+              "stateChanges": {
+                "health": -2
+              }
+            }
+          ]
+        },
+        "share": {
+          "text": "You split the same fish head without either of you growling.",
+          "stateChanges": {
+            "charm": 2
+          }
+        },
+        "retreat": {
+          "text": "You leap onto the roof, and he only watches from below.",
+          "stateChanges": {
+            "agility": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "bridge",
+      "chapter": "Q14 · Months 39-42",
+      "title": "The Last Bridge",
+      "description": "Under the bridge there is wind, water, and a little echo. From here you can see the whole street.",
+      "image": "assets/images/scenes/bridge.webp",
+      "actions": [
+        {
+          "id": "cross",
+          "name": "Cross",
+          "hint": "Do not look back",
+          "icon": "A"
+        },
+        {
+          "id": "wait",
+          "name": "Wait for the wind",
+          "hint": "Let your fur dry",
+          "icon": "B"
+        },
+        {
+          "id": "climb",
+          "name": "Climb the rail",
+          "hint": "See farther",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "cross": {
+          "text": "You cross the bridge, your footsteps hidden by the water.",
+          "stateChanges": {
+            "agility": 2
+          }
+        },
+        "wait": {
+          "text": "The wind stops, and your fur settles back against your body.",
+          "stateChanges": {
+            "health": 1
+          }
+        },
+        "climb": {
+          "text": "You stand on the rail, and the streetlights form one line.",
+          "stateChanges": {
+            "strength": 2,
+            "agility": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "door",
+      "chapter": "Q15 · Months 42-45",
+      "title": "Xiao Zhao's Doorstep",
+      "description": "Xiao Zhao opens the door a crack, and light falls in front of your paws. His strength is 3 and agility is 3.",
+      "image": "assets/images/scenes/door.webp",
+      "actions": [
+        {
+          "id": "enter",
+          "name": "Walk inside",
+          "hint": "Try the warm floor",
+          "icon": "A"
+        },
+        {
+          "id": "sit",
+          "name": "Sit at the door",
+          "hint": "Stay outside for now",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Turn away",
+          "hint": "The street still calls",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "enter": {
+          "text": "The floor is warm, and your paw pads sink in slightly.",
+          "stateChanges": {
+            "charm": 3
+          }
+        },
+        "sit": {
+          "text": "You sit on the border between light and dark, unmoving.",
+          "stateChanges": {
+            "charm": 2,
+            "health": 1
+          }
+        },
+        "leave": {
+          "text": "You turn into the night, your tail disappearing around the corner.",
+          "stateChanges": {
+            "agility": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "black-glove",
+      "chapter": "Q16 · Months 45-48",
+      "title": "Black Glove",
+      "description": "The cat abuser Black Glove stands at the alley mouth with a sack. His strength is 9 and agility is 4.",
+      "image": "assets/images/scenes/black-glove.webp",
+      "actions": [
+        {
+          "id": "fight",
+          "name": "Fight",
+          "hint": "Use your claws",
+          "icon": "A"
+        },
+        {
+          "id": "run",
+          "name": "Run past him",
+          "hint": "Gamble on agility",
+          "icon": "B"
+        },
+        {
+          "id": "charm",
+          "name": "Make him pause",
+          "hint": "Maybe he hesitates",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "tiers": [
+            {
+              "min": {
+                "strength": 10
+              },
+              "text": "Your claws cross the back of his hand, and the sack drops.",
+              "stateChanges": {
+                "strength": 2,
+                "health": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "You do not have enough strength. The sack closes, but later there is light.",
+              "stateChanges": {
+                "health": -5
+              }
+            }
+          ]
+        },
+        "run": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 5
+              },
+              "text": "You dash past his trouser leg, leaving the wind behind with him.",
+              "stateChanges": {
+                "agility": 2,
+                "health": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "You cannot escape. The sack closes, but later there is light.",
+              "stateChanges": {
+                "health": -5
+              }
+            }
+          ]
+        },
+        "charm": {
+          "tiers": [
+            {
+              "min": {
+                "charm": 8
+              },
+              "text": "You sit in the light and lick your paw; he stops.",
+              "stateChanges": {
+                "charm": 2,
+                "health": 1
+              }
+            },
+            {
+              "min": {},
+              "text": "He does not stop. The sack closes, but later there is light.",
+              "stateChanges": {
+                "health": -5
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "home",
+      "title": "Xiao Zhao's Home",
+      "description": "You lie on the windowsill, and sunlight turns your dusty fur white again.",
+      "all": [
+        {
+          "state": "charm",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "state": "health",
+          "operator": ">=",
+          "value": 7
+        }
+      ],
+      "image": "assets/images/endings/home.webp"
+    },
+    {
+      "id": "clinic",
+      "title": "The Clinic Cat",
+      "description": "You become the clinic's white cat, sitting with children during injections.",
+      "all": [
+        {
+          "state": "health",
+          "operator": ">=",
+          "value": 9
+        }
+      ],
+      "image": "assets/images/endings/clinic.webp"
+    },
+    {
+      "id": "street-king",
+      "title": "King of the Alley",
+      "description": "You and Old Orange split the street, one throne on each side of the trash cans.",
+      "all": [
+        {
+          "state": "strength",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "state": "agility",
+          "operator": ">=",
+          "value": 7
+        }
+      ],
+      "image": "assets/images/endings/street-king.webp"
+    },
+    {
+      "id": "night-legend",
+      "title": "The Night Legend",
+      "description": "No one adopts you, but the whole street knows there is a dusty white cat.",
+      "all": [
+        {
+          "state": "agility",
+          "operator": ">=",
+          "value": 9
+        }
+      ],
+      "image": "assets/images/endings/night-legend.webp"
+    },
+    {
+      "id": "heaven",
+      "title": "Cat Heaven",
+      "description": "The sack opens later. There is no cat inside, only very soft light.",
+      "all": [],
+      "image": "assets/images/endings/heaven.webp"
+    }
+  ],
+  "catalog": {
+    "eyebrow": "A tenth glimmer has awakened",
+    "headline": "48 months, one dusty white cat.",
+    "description": "Sixteen quarters with dogs, geese, a neutering team, kind people, and Black Glove.",
+    "cardDescription": "Strength, agility, charm, and health decide whether you are adopted, rule the alley, or reach heaven.",
+    "cardIcon": "●",
+    "cardLabel": "WORLD 10",
+    "cardGradient": [
+      "#b8c6d6",
+      "#6b7f92",
+      "#2d3b47"
+    ],
+    "cardAccent": "#f2d6a0",
+    "actionSummary": "Run · Fight · Charm · Survive"
+  },
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Begin the stray life",
+    "continueButton": "Next quarter",
+    "finalContinueButton": "See the ending",
+    "replayButton": "Stray again"
+  }
+}
