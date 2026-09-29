@@ -1,5 +1,16 @@
 const $ = id => document.getElementById(id);
 const views = ["languageView", "catalogView", "introView", "gameView", "endingView"];
+const APP_ROOT = (() => {
+  const script = document.currentScript;
+  if (!script) return "/";
+  const path = new URL(script.src, location.href).pathname;
+  return path.endsWith("/app/app.js") ? path.slice(0, -"app/app.js".length) : "/";
+})();
+
+function rootUrl(path) {
+  return new URL(path, new URL(APP_ROOT, location.href)).href;
+}
+
 let world = null;
 let worldEntries = [];
 let selectedWorldEntry = null;
@@ -68,7 +79,7 @@ function textOverrideUrl(baseFolder, name) {
 function prefetchTextOverride(baseFolder, name) {
   const url = textOverrideUrl(baseFolder, name);
   if (!textOverrideCache.has(url)) {
-    textOverrideCache.set(url, fetch(url, { cache: "no-store" })
+    textOverrideCache.set(url, fetch(rootUrl(url), { cache: "no-store" })
       .then(res => res.ok ? res.json() : null)
       .catch(() => null));
   }
@@ -221,7 +232,7 @@ function worldUi(key, fallback) {
 
 async function loadLevelConfig(level) {
   const configPath = level.config.startsWith("worlds/") ? level.config : `${world.assetBase || `worlds/${world.id}/`}${level.config}`;
-  const response = await fetch(configPath, { cache: "no-store" });
+  const response = await fetch(rootUrl(configPath), { cache: "no-store" });
   if (!response.ok) throw new Error(`无法载入篇章配置：${configPath}`);
   const rawConfig = await response.json();
   const levelFolder = world.assetBase || `worlds/${world.id}/`;
@@ -234,7 +245,7 @@ async function loadLevelConfig(level) {
   const caseOverride = (await loadTextOverride(levelFolder, "en.cases.json")) || {};
   const cases = await Promise.all(caseFiles.map(async caseFile => {
     const casePath = caseFile.startsWith("worlds/") ? caseFile : `${world.assetBase || `worlds/${world.id}/`}${caseFile}`;
-    const caseResponse = await fetch(casePath, { cache: "no-store" });
+    const caseResponse = await fetch(rootUrl(casePath), { cache: "no-store" });
     if (!caseResponse.ok) throw new Error(`无法载入题目配置：${casePath}`);
     const raw = await caseResponse.json();
     return mergeText(raw, caseOverride[raw.id]);
@@ -287,7 +298,7 @@ async function loadLevels() {
 
 async function loadWorld(configPath) {
   if (!configPath) return;
-  const response = await fetch(configPath, { cache: "no-store" });
+  const response = await fetch(rootUrl(configPath), { cache: "no-store" });
   if (!response.ok) throw new Error(`无法载入异界配置：${configPath}`);
   const rawWorld = await response.json();
   const worldFolder = rawWorld.assetBase || `worlds/${rawWorld.id}/`;
@@ -326,7 +337,7 @@ async function loadPlatformText() {
 function prefetchCatalogSource() {
   if (!catalogSourcePromise) {
     catalogSourcePromise = (async () => {
-      const response = await fetch("worlds/index.json?v=1", { cache: "no-store" });
+      const response = await fetch(rootUrl("worlds/index.json?v=1"), { cache: "no-store" });
       if (!response.ok) throw new Error("无法载入异界目录");
       const catalog = await response.json();
       const entries = (Array.isArray(catalog.worlds) ? catalog.worlds : []).filter(entry => !entry.hidden);
@@ -338,7 +349,7 @@ function prefetchCatalogSource() {
           return { entry, configPath: null, rawWorld: null, folder: null };
         }
         const configPath = entry.config.startsWith("worlds/") ? entry.config : `worlds/${entry.config}`;
-        const configResponse = await fetch(configPath, { cache: "no-store" });
+        const configResponse = await fetch(rootUrl(configPath), { cache: "no-store" });
         if (!configResponse.ok) throw new Error(`异界配置不存在：${configPath}`);
         const rawWorld = await configResponse.json();
         const folder = rawWorld.assetBase || `worlds/${rawWorld.id}/`;
@@ -418,10 +429,8 @@ function renderCatalog(catalog) {
 }
 
 function worldShareUrl(entry) {
-  const url = new URL(location.href);
-  url.search = "";
+  const url = new URL(rootUrl(`worlds/${entry.id}/`), location.href);
   url.searchParams.set("lang", lang);
-  url.searchParams.set("world", entry.id);
   return url.href;
 }
 
@@ -438,7 +447,7 @@ function worldCardMarkup(entry, index) {
   const label = `WORLD ${String(index + 1).padStart(2, "0")}`;
   const actionSummary = (useEn && catalog.actionSummary) || (item.actions || []).map(action => action.plain || action.name).join(" · ");
   const coverRel = (item.cover && item.cover[useEn ? "en" : "zh"]) || item.cover?.default || item.coverImage || item.assets?.cover;
-  const cover = coverRel ? `${item.assetBase || `worlds/${item.id}/`}${coverRel}` : "";
+  const cover = coverRel ? rootUrl(`${item.assetBase || `worlds/${item.id}/`}${coverRel}`) : "";
   const comingSoon = entry.status === "coming-soon" || item.status === "coming-soon";
   const launch = entry.launchUrl || item.launchUrl;
   const button = comingSoon
@@ -585,7 +594,7 @@ function setWorldMusic(relativePath) {
 }
 
 function setCatalogMusic() {
-  playMusicPath("worlds/meow-supreme/assets/audio/curious-patrol.mp3", 0.1);
+  playMusicPath(rootUrl("worlds/meow-supreme/assets/audio/curious-patrol.mp3"), 0.1);
 }
 
 function stopWorldMusic() {
@@ -692,6 +701,12 @@ function startStrayGame() {
 }
 
 function goCatalog() {
+  if (window.__WORLD_ID__) {
+    const back = new URL(rootUrl(""), location.href);
+    back.searchParams.set("lang", lang);
+    location.href = `${back.pathname}${back.search}`;
+    return;
+  }
   showView("catalogView");
   // resolve relative to the deployed folder so this also works under a
   // GitHub Pages project subpath (e.g. /GlimmersElsewhere/)
@@ -1436,7 +1451,7 @@ function renderScene() {
 }
 
 function worldAsset(relativePath) {
-  return `${world.assetBase || `worlds/${world.id}/`}${relativePath}`;
+  return rootUrl(`${world.assetBase || `worlds/${world.id}/`}${relativePath}`);
 }
 
 function renderSceneImage(scene) {
@@ -1684,6 +1699,13 @@ function replay() {
 
 async function init() {
   try {
+    const directWorldId = window.__WORLD_ID__;
+    if (directWorldId) {
+      const explicitLang = requestedLang() || "zh";
+      await bootDirectWorld(explicitLang, directWorldId);
+      return;
+    }
+
     const explicitLang = requestedLang();
     if (explicitLang) {
       await bootPlayer(explicitLang);
@@ -1712,6 +1734,31 @@ async function init() {
   } catch (error) {
     showFatalError(error);
   }
+}
+
+async function bootDirectWorld(nextLang, worldId) {
+  setLang(nextLang);
+  labelStaticDom();
+  updateSoundButtons();
+  installAudioUnlock();
+  await loadPlatformText();
+  const configPath = `worlds/${worldId}/world.json`;
+  await loadWorld(configPath);
+  $("beginJourney").addEventListener("click", startJourney);
+  $("continueButton").addEventListener("click", continueJourney);
+  $("replayButton").addEventListener("click", replay);
+  $("keepsakeOpen").addEventListener("click", openKeepsake);
+  document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
+  document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
+  $("soundToggle").addEventListener("click", toggleSound);
+  document.querySelectorAll(".lang-button").forEach(button => button.addEventListener("click", async () => {
+    setLang(lang === "en" ? "zh" : "en");
+    await loadPlatformText();
+    await loadWorld(configPath);
+    enterWorld();
+  }));
+  document.querySelectorAll("[data-back-catalog]").forEach(button => button.addEventListener("click", goCatalog));
+  enterWorld();
 }
 
 function showFatalError(error) {
