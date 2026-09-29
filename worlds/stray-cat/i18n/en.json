@@ -43,8 +43,8 @@
     },
     {
       "id": "charm",
-      "label": "Charm",
-      "description": "Making people stop, feed, pet, or adopt you",
+      "label": "Appearance",
+      "description": "Appearance from fur, cleanliness, collar, and accessories",
       "color": "#c78a3b",
       "chipBackground": "#f7e7cc",
       "max": 10000
@@ -83,7 +83,7 @@
       "name": "Peerless Beauty",
       "rarity": 3,
       "weight": 1,
-      "description": "Charm +10",
+      "description": "Appearance +10",
       "effect": {
         "charm": 10
       }
@@ -124,7 +124,7 @@
       "name": "Soft Paw",
       "rarity": 2,
       "weight": 4,
-      "description": "Charm +2, Health +1",
+      "description": "Appearance +2, Health +1",
       "effect": {
         "charm": 2,
         "health": 1
@@ -279,7 +279,6 @@
           "text": "Your cry makes someone stop.",
           "stateChanges": {
             "health": 2,
-            "charm": 1,
             "fish": 1
           }
         },
@@ -339,9 +338,7 @@
         },
         "call": {
           "text": "The rain is loud, but you call anyway.",
-          "stateChanges": {
-            "charm": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -389,7 +386,6 @@
         "meow": {
           "text": "You meow softly, and she smiles.",
           "stateChanges": {
-            "charm": 1,
             "fish": 1
           }
         },
@@ -697,14 +693,12 @@
         "sniff": {
           "text": "Her hand smells like detergent and a little dried fish.",
           "stateChanges": {
-            "charm": 1,
             "fish": 1
           }
         },
         "rub": {
           "text": "You rub your head against her hand, and she laughs.",
           "stateChanges": {
-            "charm": 2,
             "fish": 1
           }
         },
@@ -815,9 +809,7 @@
         },
         "resist": {
           "text": "You jump out the window, leaving the collar on the table.",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -953,10 +945,7 @@
       "outcomes": {
         "play": {
           "text": "He chases you three circles, then laughs by himself.",
-          "stateChanges": {
-            "health": 1,
-            "charm": 1
-          }
+          "stateChanges": {}
         },
         "avoid": {
           "compare": {
@@ -1034,14 +1023,11 @@
         },
         "move": {
           "text": "You confirm the door gap is passable before closing one eye.",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         },
         "share": {
           "text": "Another cat squeezes in, and you sit back to back.",
           "stateChanges": {
-            "charm": 2,
             "health": 1
           }
         }
@@ -1110,9 +1096,7 @@
         },
         "retreat": {
           "text": "You leap onto the roof, and he only watches.",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -1158,9 +1142,7 @@
         },
         "climb": {
           "text": "You stand on the rail, and the streetlights form one line.",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -1201,7 +1183,6 @@
         "enter": {
           "text": "The floor is warm, and your paw pads sink in slightly.",
           "stateChanges": {
-            "charm": 2,
             "health": 2,
             "fish": 2
           }
@@ -1209,15 +1190,12 @@
         "sit": {
           "text": "You sit on the border between light and dark, unmoving.",
           "stateChanges": {
-            "charm": 1,
             "health": 1
           }
         },
         "leave": {
           "text": "You turn into the night, your tail disappearing around the corner.",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -1302,9 +1280,7 @@
             "op": ">=",
             "success": {
               "text": "You sit in the light and lick your paw; he stops.",
-              "stateChanges": {
-                "charm": 1
-              }
+              "stateChanges": {}
             },
             "failure": {
               "text": "He does not stop. The sack closes, but later there is light.",
