@@ -597,6 +597,93 @@ function stopWorldMusic() {
 function startJourney() {
   if (world?.levels?.length) return;
   if (world?.mode === "life") { showTalentSelect(); return; }
+  if (world?.id === "stray-cat") { showStrayTalentSelect(); return; }
+  showView("gameView");
+  renderScene();
+}
+
+function pickWeightedTalents(count = 3) {
+  const talents = [...(content().talents || [])];
+  const picked = [];
+  while (talents.length && picked.length < count) {
+    const total = talents.reduce((sum, item) => sum + Number(item.weight || 1), 0);
+    let roll = Math.random() * total;
+    let index = talents.length - 1;
+    for (let i = 0; i < talents.length; i++) {
+      roll -= Number(talents[i].weight || 1);
+      if (roll <= 0) { index = i; break; }
+    }
+    picked.push(talents.splice(index, 1)[0]);
+  }
+  return picked;
+}
+
+function showStrayTalentSelect() {
+  const talents = content().talents || [];
+  if (!talents.length) { startStrayGame(); return; }
+  const selection = content().talentSelection || {};
+  const options = selection.weighted
+    ? pickWeightedTalents(selection.count || 3)
+    : [...talents].sort(() => Math.random() - 0.5).slice(0, selection.count || 3);
+
+  showView("introView");
+  $("openingFallback").hidden = true;
+  $("openingImage").hidden = true;
+  $("openingVideo").hidden = true;
+  $("levelSelect").hidden = false;
+  $("levelSelectTitle").textContent = lang === "en" ? "Ah Hui's talent" : "阿灰的天赋";
+  $("beginJourney").hidden = true;
+
+  const rarityLabels = { 0: "WHITE", 1: "BLUE", 2: "PURPLE", 3: "ORANGE", 4: "RED" };
+  $("levelCards").innerHTML = options.map(talent => `
+    <button class="level-card talent-card" type="button" data-stray-talent="${escapeHtml(talent.id)}">
+      ${talent.image ? `<img class="talent-image" src="${escapeHtml(worldAsset(talent.image))}" alt="">` : ""}
+      <span class="talent-rarity rarity-${talent.rarity || 0}">${rarityLabels[talent.rarity || 0] || "WHITE"}</span>
+      <strong>${escapeHtml(talent.name)}</strong>
+      <small>${escapeHtml(talent.description || "")}</small>
+      <b class="talent-check">✓</b>
+    </button>
+  `).join("") + `
+    <button id="strayTalentConfirm" class="talent-confirm" type="button" disabled>
+      ${escapeHtml(lang === "en" ? "Confirm" : "确认")}
+    </button>
+  `;
+
+  let selected = null;
+  const confirmBtn = $("strayTalentConfirm");
+  const updateConfirm = () => {
+    confirmBtn.disabled = !selected;
+    confirmBtn.textContent = lang === "en" ? "Start the stray life" : "开始流浪";
+    confirmBtn.classList.toggle("is-ready", Boolean(selected));
+  };
+  updateConfirm();
+
+  $("levelCards").querySelectorAll("[data-stray-talent]").forEach(button => {
+    button.addEventListener("click", () => {
+      selected = button.dataset.strayTalent;
+      $("levelCards").querySelectorAll("[data-stray-talent]").forEach(item => item.classList.remove("is-selected"));
+      button.classList.add("is-selected");
+      updateConfirm();
+    });
+  });
+
+  confirmBtn.addEventListener("click", () => {
+    if (!selected) return;
+    lifeTalentIds = [selected];
+    startStrayGame();
+  });
+}
+
+function startStrayGame() {
+  resetGame();
+  for (const talentId of lifeTalentIds) {
+    const talent = (content().talents || []).find(item => item.id === talentId);
+    if (talent?.effect) {
+      for (const [key, value] of Object.entries(talent.effect)) {
+        state[key] = (state[key] || 0) + value;
+      }
+    }
+  }
   showView("gameView");
   renderScene();
 }
@@ -641,6 +728,13 @@ function meetsMins(mins) {
 
 function resolveOutcome(scene, actionId) {
   const base = (scene.outcomes || {})[actionId] || {};
+  if (base.compare) {
+    const condition = base.compare;
+    const left = Number(state[condition.stat] || 0);
+    const right = Number(scene.enemy?.[condition.enemyStat] || 0);
+    const passed = condition.op === ">" ? left > right : condition.op === "<" ? left < right : left >= right;
+    return passed ? condition.success : condition.failure;
+  }
   let resolved = base;
   if (Array.isArray(base.tiers) && base.tiers.length) {
     resolved = base.tiers.find(tier => meetsMins(tier.min)) || base.tiers[base.tiers.length - 1];
@@ -1293,10 +1387,28 @@ function renderScene() {
   $("visualStage").classList.remove("is-hero");
   const actions = maybeShuffleActions(scene.actions || current.actions || []);
   choiceLocked = false;
-  $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")}`;
+  if (world?.id === "stray-cat") {
+    const age = Math.round(state.age || 0);
+    const lifespan = Math.round(state.lifespan || 48);
+    $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")} · ${age}/${lifespan}月 · 🐟${state.fish || 0}`;
+  } else {
+    $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")}`;
+  }
   $("sceneChapter").textContent = scene.chapter;
   $("sceneTitle").textContent = scene.title;
   $("sceneDescription").textContent = scene.description;
+  const enemyStats = $("enemyStats");
+  if (enemyStats) {
+    if (scene.enemy) {
+      const enemy = scene.enemy;
+      const danger = ["cat eater", "abuser", "stray dog", "wild goose", "kid"].includes(enemy.kind);
+      enemyStats.hidden = false;
+      enemyStats.innerHTML = `<strong>${escapeHtml(lang === "en" ? enemy.nameEn || enemy.name : enemy.name)}</strong><span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Strength" : "武力")} ${enemy.strength}</span><span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Agility" : "敏捷")} ${enemy.agility}</span>`;
+    } else {
+      enemyStats.hidden = true;
+      enemyStats.innerHTML = "";
+    }
+  }
   $("outcomePanel").hidden = true;
   $("choicePanel").hidden = false;
   $("choicePanel").innerHTML = actions.map(action => `
@@ -1402,9 +1514,11 @@ function resolveChoice(actionId) {
   for (const [key, value] of Object.entries(outcome.stateChanges || {})) {
     state[key] = (state[key] || 0) + value;
   }
-  if (world?.id === "stray-cat" && state.sick > 0) {
-    state.sick = Math.max(0, Number(state.sick || 0) - 1);
-    state.agility = Math.max(0, Number(state.agility || 0) - 1);
+  if (world?.id === "stray-cat") {
+    state.age = Math.max(0, Number(state.age || 0) + 3);
+    if (Number(state.health || 0) < 0) {
+      state.lifespan = Math.max(0, Number(state.lifespan || 0) - 3);
+    }
   }
   renderMeters();
   renderOutcomeImage(scene, outcome);
@@ -1436,6 +1550,10 @@ function resolveChoice(actionId) {
 
 function continueJourney() {
   if (world?.mode === "life") { renderLifeEvent(); return; }
+  if (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 48)) {
+    showEnding();
+    return;
+  }
   if (sceneIndex >= content().scenes.length - 1) {
     showEnding();
   } else {
