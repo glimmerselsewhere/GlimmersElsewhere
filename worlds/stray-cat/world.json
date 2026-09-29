@@ -43,8 +43,8 @@
     },
     {
       "id": "charm",
-      "label": "外貌",
-      "description": "毛色、清洁度、项圈和装饰物带来的外观吸引力",
+      "label": "魅力",
+      "description": "吸引人类的能力，包含外在整洁与内在气质",
       "color": "#c78a3b",
       "chipBackground": "#f7e7cc",
       "max": 10000
@@ -311,9 +311,9 @@
           "icon": "A"
         },
         {
-          "id": "move",
-          "name": "换到更深的阴影",
-          "hint": "找一个更稳的地方",
+          "id": "mud",
+          "name": "在泥水里打滚",
+          "hint": "会变脏",
           "icon": "B"
         },
         {
@@ -330,10 +330,10 @@
             "health": 2
           }
         },
-        "move": {
-          "text": "你穿过水线，找到一块干一些的水泥地。",
+        "mud": {
+          "text": "泥水把白毛盖住，你看起来更不像一只家猫。",
           "stateChanges": {
-            "fish": 0
+            "charm": -1
           }
         },
         "call": {
@@ -345,8 +345,8 @@
     {
       "id": "fish-stall",
       "chapter": "Q3 · 6-9个月",
-      "title": "鱼摊老太太",
-      "description": "收摊前，鱼摊老太太会把碎鱼放在地上。她不会攻击你。",
+      "title": "鱼摊与乞讨课",
+      "description": "鱼摊老太太会把碎鱼放在地上。一只老猫正在示范怎么坐直、看人、轻轻叫。",
       "image": "assets/images/scenes/fish-stall.webp",
       "enemy": {
         "id": "fish-woman",
@@ -363,9 +363,9 @@
           "icon": "A"
         },
         {
-          "id": "meow",
-          "name": "轻轻叫一声",
-          "hint": "让她看见你",
+          "id": "observe",
+          "name": "观察老猫乞讨",
+          "hint": "学怎么吸引人类",
           "icon": "B"
         },
         {
@@ -383,9 +383,10 @@
             "fish": 2
           }
         },
-        "meow": {
-          "text": "你叫得很轻，她笑了一下。",
+        "observe": {
+          "text": "你学会了一点怎么坐直、怎么看人、怎么轻轻叫。",
           "stateChanges": {
+            "charm": 2,
             "fish": 1
           }
         },
@@ -818,7 +819,7 @@
       "chapter": "Q10 · 27-30个月",
       "title": "猫肉贩子",
       "description": "猫肉贩子守在后巷，手里有一只铁笼。他很强，但不够快。",
-      "image": "assets/images/scenes/gang-alley.webp",
+      "image": "assets/images/scenes/good-kid-bad-kid.webp",
       "enemy": {
         "id": "cat-eater",
         "name": "猫肉贩子",
@@ -912,8 +913,8 @@
     {
       "id": "kid",
       "chapter": "Q11 · 30-33个月",
-      "title": "胡闹的小屁孩",
-      "description": "小屁孩拿树枝敲垃圾桶，看见你就追。",
+      "title": "好小孩与坏小孩",
+      "description": "街角有两个小孩：一个蹲下来伸手，另一个拿着树枝。",
       "image": "assets/images/scenes/gang-alley.webp",
       "enemy": {
         "id": "kid",
@@ -924,109 +925,83 @@
       },
       "actions": [
         {
-          "id": "play",
-          "name": "陪他玩",
-          "hint": "消耗他的力气",
+          "id": "good",
+          "name": "陪好小孩玩",
+          "hint": "他会轻一点",
           "icon": "A"
         },
         {
-          "id": "avoid",
-          "name": "绕开他",
-          "hint": "别被树枝碰到",
+          "id": "bad",
+          "name": "陪坏小孩玩",
+          "hint": "他会挥树枝",
           "icon": "B"
         },
         {
-          "id": "scratch",
-          "name": "轻轻抓一下",
-          "hint": "让他知道疼",
+          "id": "avoid",
+          "name": "绕开两个小孩",
+          "hint": "别冒险",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "play": {
-          "text": "他追了你三圈，最后自己笑了。",
-          "stateChanges": {}
+        "good": {
+          "text": "好小孩把半块鱼干放在手心，等你走过去。",
+          "stateChanges": {
+            "health": 1,
+            "fish": 1
+          }
+        },
+        "bad": {
+          "text": "树枝扫到你的侧腹，你疼得炸毛跑开。",
+          "stateChanges": {
+            "health": -2
+          }
         },
         "avoid": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "你从花坛后面绕过去，他只挥到空气。",
-              "stateChanges": {
-                "health": 1
-              }
-            },
-            "failure": {
-              "text": "树枝碰到你的尾巴，你炸毛跑开。",
-              "stateChanges": {
-                "health": -1
-              }
-            }
-          }
-        },
-        "scratch": {
-          "compare": {
-            "stat": "strength",
-            "enemyStat": "strength",
-            "op": ">=",
-            "success": {
-              "text": "你轻轻抓了一下，他立刻收回手。",
-              "stateChanges": {
-                "health": 1
-              }
-            },
-            "failure": {
-              "text": "你抓得太轻，他笑得更厉害。",
-              "stateChanges": {
-                "health": -1
-              }
-            }
-          }
+          "text": "你从花坛后面绕过去，两个小孩都没看见你。",
+          "stateChanges": {}
         }
       }
     },
     {
-      "id": "warm-radiator",
+      "id": "plastic-waste",
       "chapter": "Q12 · 33-36个月",
-      "title": "冬天的暖气片",
-      "description": "锅炉房的暖气片有一格是空的。",
-      "image": "assets/images/scenes/warm-radiator.webp",
+      "title": "塑料陷阱",
+      "description": "垃圾桶边有一只闻起来像鱼的塑料袋。你不知道里面还有半块塑料片。",
+      "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
-          "id": "stay",
-          "name": "贴着暖气片睡",
-          "hint": "先暖起来",
+          "id": "sniff",
+          "name": "只闻一下",
+          "hint": "先确认味道",
           "icon": "A"
         },
         {
-          "id": "move",
-          "name": "去检查门缝",
-          "hint": "留一条退路",
+          "id": "bite",
+          "name": "咬开塑料袋",
+          "hint": "里面也许有鱼",
           "icon": "B"
         },
         {
-          "id": "share",
-          "name": "让出半格位置",
-          "hint": "给更冷的猫",
+          "id": "avoid",
+          "name": "绕开塑料袋",
+          "hint": "不吃不明东西",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "stay": {
-          "text": "暖气片很烫，你把身子贴成一条线。",
-          "stateChanges": {
-            "health": 2,
-            "fish": 1
-          }
-        },
-        "move": {
-          "text": "你确认门缝能钻出去，才闭上一只眼。",
+        "sniff": {
+          "text": "你只闻到了鱼味和一点消毒水味。",
           "stateChanges": {}
         },
-        "share": {
-          "text": "另一只猫挤过来，你们背靠背。",
+        "bite": {
+          "text": "你吞下了一片软塑料。它卡在胃里，很疼。",
+          "stateChanges": {
+            "health": -5
+          }
+        },
+        "avoid": {
+          "text": "你绕开塑料袋，去找更安全的水。",
           "stateChanges": {
             "health": 1
           }
@@ -1034,115 +1009,102 @@
       }
     },
     {
-      "id": "old-orange",
+      "id": "old-cat-lesson",
       "chapter": "Q13 · 36-39个月",
-      "title": "老橘",
-      "description": "老橘是这条街最稳的猫。他眼睛很慢，爪子很快。",
-      "image": "assets/images/scenes/rival-cat.webp",
+      "title": "老猫的敏捷课",
+      "description": "老橘带你到铁栅栏前，教你怎么压低身体、侧肩、从最窄的缝里穿过去。",
+      "image": "assets/images/scenes/old-cat-lesson.webp",
       "enemy": {
         "id": "old-orange",
         "name": "老橘",
         "strength": 7,
         "agility": 8,
-        "kind": "rival cat"
+        "kind": "mentor cat"
       },
       "actions": [
         {
-          "id": "challenge",
-          "name": "挑战他",
-          "hint": "争这块地盘",
+          "id": "follow",
+          "name": "跟着他钻一次",
+          "hint": "学动作",
           "icon": "A"
         },
         {
-          "id": "share",
-          "name": "分享垃圾桶",
-          "hint": "各吃一边",
+          "id": "watch",
+          "name": "在旁边看",
+          "hint": "先记住路线",
           "icon": "B"
         },
         {
-          "id": "retreat",
-          "name": "退到屋檐上",
-          "hint": "保住尾巴",
+          "id": "ignore",
+          "name": "不理他",
+          "hint": "自己找路",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "challenge": {
-          "compare": {
-            "stat": "strength",
-            "enemyStat": "strength",
-            "op": ">=",
-            "success": {
-              "text": "你们撞在一起，最后他先眨眼。",
-              "stateChanges": {
-                "health": 1
-              }
-            },
-            "failure": {
-              "text": "他一爪把你按在墙上，又松开。",
-              "stateChanges": {
-                "health": -3,
-                "fish": -1
-              }
-            }
-          }
-        },
-        "share": {
-          "text": "你们分掉同一块鱼头，谁也没低吼。",
+        "follow": {
+          "text": "你第一次就卡了一下，第二次侧肩过去。身体记住了一点东西。",
           "stateChanges": {
-            "health": 1,
-            "fish": 2
+            "agility": 2
           }
         },
-        "retreat": {
-          "text": "你跳上屋檐，他只在下面看着。",
+        "watch": {
+          "text": "你看清了他压低身体的角度。",
+          "stateChanges": {
+            "agility": 1
+          }
+        },
+        "ignore": {
+          "text": "你自己绕了很远，没学到什么。",
           "stateChanges": {}
         }
       }
     },
     {
-      "id": "bridge",
+      "id": "wire-neck",
       "chapter": "Q14 · 39-42个月",
-      "title": "最后的桥洞",
-      "description": "桥洞下有风、水声和一点回音。",
-      "image": "assets/images/scenes/bridge.webp",
+      "title": "脖子上的铁丝",
+      "description": "一根细铁丝挂在脖子上。你越挣扎，它勒得越紧。",
+      "image": "assets/images/scenes/wire-neck.webp",
       "actions": [
         {
-          "id": "cross",
-          "name": "直接穿过",
-          "hint": "不回头看",
+          "id": "struggle",
+          "name": "拼命挣扎",
+          "hint": "想把它弄掉",
           "icon": "A"
         },
         {
-          "id": "wait",
-          "name": "等风停",
-          "hint": "让毛干一点",
+          "id": "freeze",
+          "name": "停下不动",
+          "hint": "等它松一点",
           "icon": "B"
         },
         {
-          "id": "climb",
-          "name": "爬上桥栏",
-          "hint": "看更远的地方",
+          "id": "help",
+          "name": "让人看见你",
+          "hint": "也许有人会帮你",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "cross": {
-          "text": "你穿过桥洞，脚步声被水声盖住。",
+        "struggle": {
+          "text": "铁丝勒进毛里，你喘不上气。",
           "stateChanges": {
-            "health": 1
+            "health": -5
           }
         },
-        "wait": {
-          "text": "风停了，你的毛贴回身上。",
+        "freeze": {
+          "text": "你停下以后，铁丝没有再收紧。",
+          "stateChanges": {
+            "health": -2
+          }
+        },
+        "help": {
+          "text": "一个路过的人蹲下来，慢慢把铁丝剪开。",
           "stateChanges": {
             "health": 1,
-            "fish": 1
+            "lifespan": 3
           }
-        },
-        "climb": {
-          "text": "你站在桥栏上，街灯连成一条线。",
-          "stateChanges": {}
         }
       }
     },
@@ -1381,7 +1343,7 @@
   "catalog": {
     "eyebrow": "第十片异境微光已经苏醒",
     "headline": "48 个月，一只灰扑扑的白猫。",
-    "description": "16 个季度，遇到狗、鹅、绝育队、好心人、猫肉贩子和虐猫者。",
+    "description": "16 个季度，遇到狗、鹅、绝育队、好心人、猫肉贩子、塑料垃圾、铁丝和虐猫者。",
     "cardDescription": "武力、敏捷、魅力、健康、鱼干和寿命共同决定你的结局。",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",
