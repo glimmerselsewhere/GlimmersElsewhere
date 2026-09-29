@@ -842,7 +842,7 @@
           "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
         "collar": {
-          "text": "项圈很轻，铃铛只响了一下。",
+          "text": "项圈很轻，铃铛只响了一下。女孩说：先戴着，别弄丢。",
           "stateChanges": {
             "charm": 2,
             "fish": 1
@@ -1241,10 +1241,11 @@
       ],
       "outcomes": {
         "enter": {
-          "text": "地板很暖，你的爪垫陷进去一点。",
+          "text": "地板很暖，你的爪垫陷进去一点。门在你身后合上——你不用再流浪了。",
           "stateChanges": {
             "health": 2,
-            "fish": 2
+            "fish": 2,
+            "forcedEnding": "home"
           },
           "image": "assets/images/outcomes/adopter-enter.webp"
         },
@@ -1384,7 +1385,7 @@
     {
       "id": "home",
       "title": "年轻人的家",
-      "description": "你趴在窗台上，阳光把灰扑扑的毛照成白色。",
+      "description": "你四脚朝天睡在床上，肚皮朝着天花板。没有人再让你出去。",
       "all": [
         {
           "state": "charm",
