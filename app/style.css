@@ -154,6 +154,23 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .scene-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 body[data-world-id="stray-cat"] .visual-stage { aspect-ratio: 1; }
 body[data-world-id="stray-cat"] .scene-image { object-fit: contain; }
+body[data-world-id="stray-cat"] .meters { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 7px 0; }
+body[data-world-id="stray-cat"] .meter { padding: 6px 8px; border-radius: 11px; }
+body[data-world-id="stray-cat"] .meter span { font-size: 10px; }
+body[data-world-id="stray-cat"] .meter em { font-size: 15px; }
+body[data-world-id="stray-cat"] .meter > i { display: none; }
+body[data-world-id="stray-cat"] .meter:nth-child(5) { display: none; }
+body[data-world-id="stray-cat"] .scene-copy { min-height: 52px; margin-bottom: 5px; }
+body[data-world-id="stray-cat"] .scene-copy h2 { font-size: 20px; }
+body[data-world-id="stray-cat"] .enemy-stats { margin-top: 4px; gap: 5px; }
+body[data-world-id="stray-cat"] .enemy-stats strong { font-size: 11px; }
+body[data-world-id="stray-cat"] .enemy-stats span { padding: 3px 7px; font-size: 10px; }
+body[data-world-id="stray-cat"] .scene-description { margin: 6px 3px 6px; font-size: 12px; line-height: 1.45; }
+body[data-world-id="stray-cat"] .choice-panel { gap: 5px; }
+body[data-world-id="stray-cat"] .choice-button { grid-template-columns: 36px 1fr auto; gap: 9px; min-height: 52px; padding: 6px 10px 6px 7px; border-radius: 14px; }
+body[data-world-id="stray-cat"] .choice-button .choice-icon { width: 28px; height: 28px; font-size: 13px; }
+body[data-world-id="stray-cat"] .choice-button strong { font-size: 14px; }
+body[data-world-id="stray-cat"] .choice-button small { font-size: 10px; }
 .scene-missing { display: grid; place-items: center; height: 100%; padding: 30px; color: #665d68; background: #e5d7c3; text-align: center; font-size: 13px; }
 .pov-label { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; border-radius: 99px; color: white; background: rgba(28,22,37,.62); backdrop-filter: blur(7px); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
 .result-flash { position: absolute; inset: 0; pointer-events: none; background: white; animation: flash .55s ease both; }
