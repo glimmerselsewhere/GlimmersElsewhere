@@ -16,6 +16,14 @@
       "descriptionEn": "A jade pendant drops a house cat into a cultivation world. Cultivation, belly and morality decide what it becomes."
     },
     {
+      "id": "nine-lives-academy",
+      "config": "nine-lives-academy/world.json",
+      "status": "ready",
+      "titleEn": "Nine Lives Academy",
+      "subtitleEn": "Magic Academy · A Cat Life Simulator",
+      "descriptionEn": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. Draw talents, study fire, water, and lightning, explore dungeons, meet dragons, slimes, unicorns, griffins, and a demon king, then choose between Grand Magus and Cat God."
+    },
+    {
       "id": "meow-supreme",
       "config": "meow-supreme/world.json",
       "status": "ready",
@@ -75,11 +83,6 @@
     {
       "id": "wall-street-cat",
       "config": "wall-street-cat/world.json",
-      "status": "ready"
-    },
-    {
-      "id": "nine-lives-academy",
-      "config": "nine-lives-academy/world.json",
       "status": "ready"
     }
   ]
