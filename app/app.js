@@ -866,6 +866,11 @@ function applyLifeEffect(effect = {}) {
   const applied = {};
   const spiritRoot = lifeTalentIds.includes("spirit-root");
   for (const [key, rawValue] of Object.entries(effect)) {
+    if (typeof rawValue === "string") {
+      state[key] = rawValue;
+      applied[key] = rawValue;
+      continue;
+    }
     let value = Number(rawValue) || 0;
     if (key === "cultivation" && value > 0 && spiritRoot) value *= 2;
     state[key] = (state[key] || 0) + value;
@@ -914,6 +919,23 @@ function lifeRealm() {
     if (v >= r.min) realm = r;
   }
   return realm;
+}
+
+function lifeProfession() {
+  const professionId = state.profession || (content().initialState || {}).profession;
+  const definition = (content().professions || []).find(item => item.id === professionId);
+  if (!definition) return "";
+  return definition.label || definition.labelEn || professionId;
+}
+
+function renderLifeProfession() {
+  const chip = $("professionChip");
+  if (!chip) return;
+  const label = lifeProfession();
+  chip.hidden = !label || world?.mode !== "life";
+  if (label) {
+    chip.innerHTML = `<small>${escapeHtml(lang === "en" ? "PROFESSION" : "职业")}</small><strong>${escapeHtml(label)}</strong>`;
+  }
 }
 
 function clampLifeState() {
@@ -976,7 +998,7 @@ function renderLifeEvent() {
   const lifespanYears = Math.round((state.lifespan || 0) * unit);
   $("sceneProgress").textContent = (lang === "en"
     ? `${realmLabel} · Age ${ageYears}/${lifespanYears}y`
-    : `${realmLabel} · 年龄 ${ageYears}/${lifespanYears}年`) + (fish ? ` · 🐟${fish}` : "");
+    : `${realmLabel} · 年龄 ${ageYears}/${lifespanYears}年`) + ` · 🐟${fish}`;
   $("sceneTitle").textContent = event.title || event.event || "";
   $("sceneDescription").textContent = event.event || event.description || "";
   $("outcomePanel").hidden = true;
@@ -1026,6 +1048,7 @@ function renderLifeEvent() {
   }
 
   renderMeters();
+  renderLifeProfession();
   for (const choice of event.choices || []) {
     preloadImage(choice.image);
   }
@@ -1060,6 +1083,8 @@ function showLifeFinalTrial() {
   $("sceneMissing").hidden = true;
   image.src = worldAsset(trial.image);
   image.alt = trial.title;
+  renderMeters();
+  renderLifeProfession();
 
   $("choicePanel").querySelector("[data-life-final-trial]").addEventListener("click", () => {
     const resultImage = success ? trial.successImage : trial.failureImage;
@@ -1085,6 +1110,10 @@ function lifeDeltaMarkup(effect = {}) {
     { key: "lifespan", label: lang === "en" ? "Lifespan" : "寿元", color: "#76b7cd", background: "#dff2f7" }
   ];
   const chips = [];
+  if (effect.profession) {
+    const definition = (content().professions || []).find(item => item.id === effect.profession);
+    if (definition) chips.push(`<span class="profession-delta">${escapeHtml(lang === "en" ? "Profession" : "职业")} → ${escapeHtml(definition.label)}</span>`);
+  }
   for (const definition of [...definitions, ...extras]) {
     const value = Number(effect[definition.id || definition.key] || 0);
     if (!value) continue;
@@ -1149,6 +1178,7 @@ function resolveLifeChoice(event, choice) {
     img.alt = `${event.event || event.title || ""} ${choice.text || ""}`;
   }
   renderMeters();
+  renderLifeProfession();
   queueNextLifeEvent();
 }
 
@@ -1235,9 +1265,10 @@ function lifeSummaryMarkup() {
   const talents = (content().talents || []).filter(t => lifeTalentIds.includes(t.id)).map(t => t.name);
   const realm = lifeRealm();
   const realmLabel = lang === "en" ? realm.en : realm.label;
+  const profession = lifeProfession();
   return `<div class="life-summary">
     <small>${escapeHtml(lang === "en" ? "LIFE SUMMARY" : "猫生总结")}</small>
-    <p><strong>${escapeHtml(realmLabel)}</strong> · ${escapeHtml(lines)}</p>
+    <p><strong>${escapeHtml(realmLabel)}</strong>${profession ? ` · ${escapeHtml(profession)}` : ""} · ${escapeHtml(lines)}</p>
     <p>${escapeHtml(turns)} · ${escapeHtml(events)}</p>
     ${talents.length ? `<p class="talent-badges">${talents.map(t => `<span>${escapeHtml(t)}</span>`).join("")}</p>` : ""}
   </div>`;

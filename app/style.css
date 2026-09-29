@@ -130,6 +130,10 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .world-mini small { display: block; color: var(--muted); font-weight: 600; }.world-mini strong { font: 800 13px/1 monospace; }
 .icon-button.compact { width: 36px; height: 36px; font-size: 13px; }
 .meters { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 14px; }
+.profession-chip { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 10px 0 0; padding: 9px 12px; border: 1px solid #d8c9e9; border-radius: 14px; background: linear-gradient(135deg, #fff7d8, #f3e0ff); box-shadow: 0 4px 12px rgba(73,54,100,.08); }
+.profession-chip small { color: #7b6886; font-size: 9px; font-weight: 800; letter-spacing: .14em; }
+.profession-chip strong { color: #4b3159; font-size: 13px; font-weight: 900; }
+.profession-delta { color: #6d28d9 !important; background: #ede9fe !important; }
 .meter { padding: 9px 11px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.6); }
 .meter span { display: flex; justify-content: space-between; font-size: 11px; }.meter em { font-style: normal; font-weight: 900; }
 .meter > i { display: block; height: 5px; margin-top: 6px; overflow: hidden; border-radius: 99px; background: rgba(43,35,51,.1); }
