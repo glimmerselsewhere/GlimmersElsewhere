@@ -842,7 +842,7 @@
           "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
         "collar": {
-          "text": "The collar is light, and the bell rings only once.",
+          "text": "The collar is light, and the bell rings only once. The girl says: keep it on, don't lose it.",
           "stateChanges": {
             "charm": 2,
             "fish": 1
@@ -1241,10 +1241,11 @@
       ],
       "outcomes": {
         "enter": {
-          "text": "The floor is warm, and your paw pads sink in slightly.",
+          "text": "The floor is warm, and your paw pads sink in slightly. The door closes behind you — you never have to stray again.",
           "stateChanges": {
             "health": 2,
-            "fish": 2
+            "fish": 2,
+            "forcedEnding": "home"
           },
           "image": "assets/images/outcomes/adopter-enter.webp"
         },
@@ -1384,7 +1385,7 @@
     {
       "id": "home",
       "title": "The Young Person's Home",
-      "description": "You lie on the windowsill, and sunlight turns your dusty fur white again.",
+      "description": "You sleep on your back on the bed, belly to the ceiling. No one sends you out again.",
       "all": [
         {
           "state": "charm",

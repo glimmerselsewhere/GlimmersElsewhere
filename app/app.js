@@ -1571,7 +1571,12 @@ function resolveChoice(actionId) {
   }
   if (!chips.length) chips.push(`<span>${escapeHtml(t("noChange"))}</span>`);
   $("deltaChips").innerHTML = chips.join("");
-  $("continueButton").innerHTML = sceneIndex === current.scenes.length - 1 ? `${escapeHtml(worldUi("finalContinueButton", uiText.finalContinueButton))} <b>→</b>` : `${escapeHtml(worldUi("continueButton", uiText.continueButton))} <b>→</b>`;
+  // Adoption, forced endings, and a used-up lifespan all end the story right here,
+  // so the button must promise the ending instead of another scene.
+  const storyEndsHere = sceneIndex === current.scenes.length - 1
+    || Boolean(state.forcedEnding)
+    || (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 48));
+  $("continueButton").innerHTML = storyEndsHere ? `${escapeHtml(worldUi("finalContinueButton", uiText.finalContinueButton))} <b>→</b>` : `${escapeHtml(worldUi("continueButton", uiText.continueButton))} <b>→</b>`;
   preloadNextScene();
 }
 
