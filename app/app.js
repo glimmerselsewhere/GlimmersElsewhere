@@ -293,6 +293,7 @@ async function loadWorld(configPath) {
   const worldFolder = rawWorld.assetBase || `worlds/${rawWorld.id}/`;
   const worldOverride = await loadTextOverride(worldFolder, "en.json");
   world = mergeText(rawWorld, worldOverride);
+  document.body.dataset.worldId = world.id;
   activeLevel = null;
   await loadLevels();
   selectedWorldEntry = worldEntries.find(entry => entry.config === configPath) || selectedWorldEntry;
@@ -675,7 +676,9 @@ function showStrayTalentSelect() {
 }
 
 function startStrayGame() {
+  const selectedTalentIds = [...lifeTalentIds];
   resetGame();
+  lifeTalentIds = selectedTalentIds;
   for (const talentId of lifeTalentIds) {
     const talent = (content().talents || []).find(item => item.id === talentId);
     if (talent?.effect) {
