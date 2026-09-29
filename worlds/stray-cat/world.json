@@ -72,9 +72,11 @@
       "name": "猫武神",
       "rarity": 4,
       "weight": 1,
-      "description": "武力+10000，特殊结局",
+      "description": "武力/敏捷/健康+10000，特殊结局",
       "effect": {
-        "strength": 10000
+        "strength": 10000,
+        "agility": 10000,
+        "health": 10000
       },
       "image": "assets/images/talents/cat-martial-god.webp"
     },
@@ -278,22 +280,25 @@
         "cry": {
           "text": "你的叫声让一个人停下脚步。",
           "stateChanges": {
-            "health": 2,
+            "health": 1,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/cardboard-cry.webp"
         },
         "hide": {
           "text": "你把自己缩成一团，纸箱变成了一座小山。",
           "stateChanges": {
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/cardboard-hide.webp"
         },
         "explore": {
           "text": "你踩到地面，世界比纸箱大得多。",
           "stateChanges": {
             "health": -1,
             "fish": 0
-          }
+          },
+          "image": "assets/images/outcomes/cardboard-explore.webp"
         }
       }
     },
@@ -327,18 +332,21 @@
         "dry": {
           "text": "车身挡住了大部分雨，你的毛慢慢变重。",
           "stateChanges": {
-            "health": 2
-          }
+            "health": 1
+          },
+          "image": "assets/images/outcomes/rain-car-dry.webp"
         },
         "mud": {
           "text": "泥水把白毛盖住，你看起来更不像一只家猫。",
           "stateChanges": {
             "charm": -1
-          }
+          },
+          "image": "assets/images/outcomes/rain-car-mud.webp"
         },
         "call": {
           "text": "雨声很大，但你还是叫了。",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/rain-car-call.webp"
         }
       }
     },
@@ -381,21 +389,24 @@
           "stateChanges": {
             "health": 1,
             "fish": 2
-          }
+          },
+          "image": "assets/images/outcomes/fish-stall-wait.webp"
         },
         "observe": {
           "text": "你学会了一点怎么坐直、怎么看人、怎么轻轻叫。",
           "stateChanges": {
             "charm": 2,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/fish-stall-observe.webp"
         },
         "steal": {
           "text": "你叼起鱼就跑，尾巴比身体先转弯。",
           "stateChanges": {
             "health": -1,
             "fish": 3
-          }
+          },
+          "image": "assets/images/outcomes/fish-stall-steal.webp"
         }
       }
     },
@@ -440,16 +451,16 @@
             "op": ">=",
             "success": {
               "text": "你贴着墙角拐了两个弯，大黄的鼻子撞在墙上。",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/dog-territory-run-success.webp"
             },
             "failure": {
               "text": "大黄追了你半条街。你钻进铁栅栏，喘了很久。",
               "stateChanges": {
                 "health": -2,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/dog-territory-run-failure.webp"
             }
           }
         },
@@ -461,15 +472,17 @@
             "success": {
               "text": "你把背拱成一座桥，大黄停住了。",
               "stateChanges": {
-                "health": 1
-              }
+                "health": -1
+              },
+              "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
             "failure": {
               "text": "你被撞了一下，翻进草丛里。",
               "stateChanges": {
                 "health": -3,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/dog-territory-fight-failure.webp"
             }
           }
         },
@@ -480,15 +493,15 @@
             "op": ">=",
             "success": {
               "text": "你从花坛后面绕过去，大黄只闻到你的味道。",
-              "stateChanges": {
-                "fish": 0
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/dog-territory-avoid-success.webp"
             },
             "failure": {
               "text": "你踩到空罐头，声音把大黄引了过来。",
               "stateChanges": {
                 "health": -2
-              }
+              },
+              "image": "assets/images/outcomes/dog-territory-avoid-failure.webp"
             }
           }
         }
@@ -509,67 +522,83 @@
       },
       "actions": [
         {
-          "id": "back",
-          "name": "慢慢后退",
-          "hint": "别刺激她",
+          "id": "avoid",
+          "name": "绕开河岸",
+          "hint": "不跟她硬碰",
           "icon": "A"
         },
         {
-          "id": "circle",
-          "name": "绕到水边",
-          "hint": "从侧面过去",
+          "id": "fight",
+          "name": "和她打一架",
+          "hint": "用武力压住她",
           "icon": "B"
         },
         {
-          "id": "sprint",
+          "id": "run",
           "name": "直接冲过去",
           "hint": "赌一次速度",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "back": {
-          "text": "你退到台阶下面，白霸的脖子才收回去。",
-          "stateChanges": {
-            "health": 1
-          }
-        },
-        "circle": {
+        "avoid": {
           "compare": {
             "stat": "agility",
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "你沿着水线走，白霸只来得及叫半声。",
-              "stateChanges": {
-                "fish": 1
-              }
+              "text": "你从河岸后面绕过去，白霸只看到你的尾巴。",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/goose-river-avoid-success.webp"
             },
             "failure": {
-              "text": "你的尾巴被啄了一下，毛炸成一团。",
+              "text": "你绕得不够快，被白霸追着啄了两下。",
               "stateChanges": {
                 "health": -2
-              }
+              },
+              "image": "assets/images/outcomes/goose-river-avoid-failure.webp"
             }
           }
         },
-        "sprint": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "你压住她的翅膀，白霸退了一步。",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/goose-river-fight-success.webp"
+            },
+            "failure": {
+              "text": "你被翅膀扫倒，胸口疼了很久。",
+              "stateChanges": {
+                "health": -3,
+                "fish": -1
+              },
+              "image": "assets/images/outcomes/goose-river-fight-failure.webp"
+            }
+          }
+        },
+        "run": {
           "compare": {
             "stat": "agility",
             "enemyStat": "agility",
             "op": ">=",
             "success": {
               "text": "你从她翅膀下面冲过去，风把你推上岸。",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/goose-river-run-success.webp"
             },
             "failure": {
               "text": "你被翅膀扫到，滚了两圈。",
               "stateChanges": {
                 "health": -3,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/goose-river-run-failure.webp"
             }
           }
         }
@@ -618,13 +647,15 @@
               "text": "你贴着排气管藏住，网落空了。",
               "stateChanges": {
                 "health": 1
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-hide-success.webp"
             },
             "failure": {
               "text": "网碰到你的后背，你挣了很久才滑出去。",
               "stateChanges": {
                 "health": -2
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-hide-failure.webp"
             }
           }
         },
@@ -637,14 +668,16 @@
               "text": "你从网和墙之间穿过去，像一条白线。",
               "stateChanges": {
                 "health": 1
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-dash-success.webp"
             },
             "failure": {
               "text": "网口擦过你的耳朵，你被按了一下。",
               "stateChanges": {
                 "health": -2,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-dash-failure.webp"
             }
           }
         },
@@ -653,61 +686,64 @@
           "stateChanges": {
             "health": 3,
             "lifespan": 6
-          }
+          },
+          "image": "assets/images/outcomes/neuter-van-accept.webp"
         }
       }
     },
     {
       "id": "kind-hand",
       "chapter": "Q7 · 18-21个月",
-      "title": "摸猫的小女孩",
-      "description": "小女孩蹲下来，手心朝上。她不会伤害你。",
-      "image": "assets/images/scenes/kind-hand.webp",
+      "title": "好小孩",
+      "description": "街角有个小女孩蹲下来，手心放着半块鱼干。",
+      "image": "assets/images/scenes/good-kid.webp",
       "enemy": {
         "id": "girl",
-        "name": "摸猫的小女孩",
+        "name": "小女孩",
         "strength": 3,
         "agility": 3,
         "kind": "kind human"
       },
       "actions": [
         {
-          "id": "sniff",
-          "name": "先闻一下",
-          "hint": "确认味道",
+          "id": "approach",
+          "name": "走过去",
+          "hint": "接受她的鱼干",
           "icon": "A"
         },
         {
           "id": "rub",
-          "name": "用头蹭她的手",
-          "hint": "表达一点信任",
+          "name": "蹭她的手",
+          "hint": "让她摸一下",
           "icon": "B"
         },
         {
-          "id": "run",
-          "name": "退后两步",
-          "hint": "还没准备好",
+          "id": "leave",
+          "name": "转身离开",
+          "hint": "不靠近",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "sniff": {
-          "text": "她的手有洗衣粉和一点鱼干的味道。",
+        "approach": {
+          "text": "她把鱼干放在地上，退开两步等你吃。",
           "stateChanges": {
+            "health": 1,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/kind-hand-approach.webp"
         },
         "rub": {
-          "text": "你把头蹭过去，她笑出了声。",
+          "text": "她摸了摸你的头，你的身体松下来一点。",
           "stateChanges": {
-            "fish": 1
-          }
+            "health": 1
+          },
+          "image": "assets/images/outcomes/kind-hand-rub.webp"
         },
-        "run": {
+        "leave": {
           "text": "你退到墙边，她没有追上来。",
-          "stateChanges": {
-            "fish": 0
-          }
+          "stateChanges": {},
+          "image": "assets/images/outcomes/kind-hand-leave.webp"
         }
       }
     },
@@ -751,19 +787,22 @@
             "health": 4,
             "lifespan": 6,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/clinic-treat.webp"
         },
         "hide": {
           "text": "你躲进椅子下面，她把药放在你旁边。",
           "stateChanges": {
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/clinic-hide.webp"
         },
         "struggle": {
           "text": "你挣了一下，她停住手，等你安静。",
           "stateChanges": {
             "health": -1
-          }
+          },
+          "image": "assets/images/outcomes/clinic-struggle.webp"
         }
       }
     },
@@ -799,18 +838,21 @@
           "stateChanges": {
             "charm": 2,
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
         "collar": {
           "text": "项圈很轻，铃铛只响了一下。",
           "stateChanges": {
             "charm": 2,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/bath-collar-collar.webp"
         },
         "resist": {
           "text": "你从窗户跳出去，项圈留在桌上。",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/bath-collar-resist.webp"
         }
       }
     },
@@ -819,7 +861,7 @@
       "chapter": "Q10 · 27-30个月",
       "title": "猫肉贩子",
       "description": "猫肉贩子守在后巷，手里有一只铁笼。他很强，但不够快。",
-      "image": "assets/images/scenes/good-kid-bad-kid.webp",
+      "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
         "id": "cat-eater",
         "name": "猫肉贩子",
@@ -856,15 +898,19 @@
             "success": {
               "text": "你的爪子划过他的手背，铁笼掉在地上。",
               "stateChanges": {
-                "health": 1
-              }
+                "health": -1
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
               "text": "你没有足够的力量。铁笼合上了，但后来有光。",
               "stateChanges": {
-                "health": -4,
-                "fish": -3
-              }
+                "health": -5,
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
             }
           }
         },
@@ -875,16 +921,18 @@
             "op": ">=",
             "success": {
               "text": "你贴着他的裤脚冲过去，风把他留在原地。",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-run-success.webp"
             },
             "failure": {
               "text": "你没能逃开。铁笼合上了，但后来有光。",
               "stateChanges": {
-                "health": -4,
-                "fish": -3
-              }
+                "health": -5,
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-run-failure.webp"
             }
           }
         },
@@ -895,16 +943,18 @@
             "op": ">=",
             "success": {
               "text": "你藏进纸箱，他只闻到你的味道。",
-              "stateChanges": {
-                "fish": 0
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-hide-success.webp"
             },
             "failure": {
               "text": "纸箱被他踢翻，你滚了出来。",
               "stateChanges": {
-                "health": -4,
-                "fish": -2
-              }
+                "health": -5,
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-hide-failure.webp"
             }
           }
         }
@@ -913,53 +963,95 @@
     {
       "id": "kid",
       "chapter": "Q11 · 30-33个月",
-      "title": "好小孩与坏小孩",
-      "description": "街角有两个小孩：一个蹲下来伸手，另一个拿着树枝。",
-      "image": "assets/images/scenes/gang-alley.webp",
+      "title": "坏小孩",
+      "description": "一个拿着树枝的小男孩看见你，开始追。",
+      "image": "assets/images/scenes/bad-kid.webp",
       "enemy": {
         "id": "kid",
-        "name": "胡闹的小屁孩",
+        "name": "坏小孩",
         "strength": 4,
         "agility": 3,
         "kind": "kid"
       },
       "actions": [
         {
-          "id": "good",
-          "name": "陪好小孩玩",
-          "hint": "他会轻一点",
+          "id": "fight",
+          "name": "和他打一架",
+          "hint": "用武力压住他",
           "icon": "A"
         },
         {
-          "id": "bad",
-          "name": "陪坏小孩玩",
-          "hint": "他会挥树枝",
+          "id": "run",
+          "name": "转身跑开",
+          "hint": "比他快就行",
           "icon": "B"
         },
         {
           "id": "avoid",
-          "name": "绕开两个小孩",
-          "hint": "别冒险",
+          "name": "绕开他",
+          "hint": "别被树枝打到",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "good": {
-          "text": "好小孩把半块鱼干放在手心，等你走过去。",
-          "stateChanges": {
-            "health": 1,
-            "fish": 1
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "你抓住树枝，把他吓退了。",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/kid-fight-success.webp"
+            },
+            "failure": {
+              "text": "树枝扫到你的侧腹，你疼得炸毛跑开。",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/kid-fight-failure.webp"
+            }
           }
         },
-        "bad": {
-          "text": "树枝扫到你的侧腹，你疼得炸毛跑开。",
-          "stateChanges": {
-            "health": -2
+        "run": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "你从花坛后面冲过去，他追不上。",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/kid-run-success.webp"
+            },
+            "failure": {
+              "text": "他追上来扔了一块小石头，砸到你的后腿。",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/kid-run-failure.webp"
+            }
           }
         },
         "avoid": {
-          "text": "你从花坛后面绕过去，两个小孩都没看见你。",
-          "stateChanges": {}
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "你贴墙绕过去，他没看见你。",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/kid-avoid-success.webp"
+            },
+            "failure": {
+              "text": "你踩到树枝，声音把他引了过来。",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/kid-avoid-failure.webp"
+            }
+          }
         }
       }
     },
@@ -992,19 +1084,20 @@
       "outcomes": {
         "sniff": {
           "text": "你只闻到了鱼味和一点消毒水味。",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/plastic-waste-sniff.webp"
         },
         "bite": {
           "text": "你吞下了一片软塑料。它卡在胃里，很疼。",
           "stateChanges": {
             "health": -5
-          }
+          },
+          "image": "assets/images/outcomes/plastic-waste-bite.webp"
         },
         "avoid": {
           "text": "你绕开塑料袋，去找更安全的水。",
-          "stateChanges": {
-            "health": 1
-          }
+          "stateChanges": {},
+          "image": "assets/images/outcomes/plastic-waste-avoid.webp"
         }
       }
     },
@@ -1046,17 +1139,20 @@
           "text": "你第一次就卡了一下，第二次侧肩过去。身体记住了一点东西。",
           "stateChanges": {
             "agility": 2
-          }
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
         },
         "watch": {
           "text": "你看清了他压低身体的角度。",
           "stateChanges": {
             "agility": 1
-          }
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
         },
         "ignore": {
           "text": "你自己绕了很远，没学到什么。",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/old-cat-lesson-ignore.webp"
         }
       }
     },
@@ -1091,20 +1187,22 @@
           "text": "铁丝勒进毛里，你喘不上气。",
           "stateChanges": {
             "health": -5
-          }
+          },
+          "image": "assets/images/outcomes/wire-neck-struggle.webp"
         },
         "freeze": {
           "text": "你停下以后，铁丝没有再收紧。",
           "stateChanges": {
             "health": -2
-          }
+          },
+          "image": "assets/images/outcomes/wire-neck-freeze.webp"
         },
         "help": {
           "text": "一个路过的人蹲下来，慢慢把铁丝剪开。",
           "stateChanges": {
-            "health": 1,
-            "lifespan": 3
-          }
+            "health": -1
+          },
+          "image": "assets/images/outcomes/wire-neck-help.webp"
         }
       }
     },
@@ -1147,17 +1245,20 @@
           "stateChanges": {
             "health": 2,
             "fish": 2
-          }
+          },
+          "image": "assets/images/outcomes/adopter-enter.webp"
         },
         "sit": {
           "text": "你坐在光和黑的边界上，没有动。",
           "stateChanges": {
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/adopter-sit.webp"
         },
         "leave": {
           "text": "你转身走进夜色，尾巴消失在转角。",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/adopter-leave.webp"
         }
       }
     },
@@ -1203,15 +1304,19 @@
             "success": {
               "text": "你的爪子划过他的手背，袋子掉在地上。",
               "stateChanges": {
-                "health": 1
-              }
+                "health": -1
+              },
+              "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
               "text": "你没有足够的力量。袋子合上了，但后来有光。",
               "stateChanges": {
                 "health": -5,
-                "fish": -3
-              }
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/abuser-fight-failure.webp"
             }
           }
         },
@@ -1222,16 +1327,18 @@
             "op": ">=",
             "success": {
               "text": "你贴着他的裤脚冲过去，风把他留在原地。",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/abuser-run-success.webp"
             },
             "failure": {
               "text": "你没能逃开。袋子合上了，但后来有光。",
               "stateChanges": {
                 "health": -5,
-                "fish": -3
-              }
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/abuser-run-failure.webp"
             }
           }
         },
@@ -1242,14 +1349,18 @@
             "op": ">=",
             "success": {
               "text": "你坐在灯光下舔了舔爪子，他停住了。",
-              "stateChanges": {}
+              "stateChanges": {},
+              "image": "assets/images/outcomes/abuser-charm-success.webp"
             },
             "failure": {
               "text": "他没有停。袋子合上了，但后来有光。",
               "stateChanges": {
                 "health": -5,
-                "fish": -3
-              }
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/abuser-charm-failure.webp"
             }
           }
         }
@@ -1268,7 +1379,7 @@
           "value": 9999
         }
       ],
-      "image": "assets/images/talents/cat-martial-god.webp"
+      "image": "assets/images/endings/cat-martial-god-ash.webp"
     },
     {
       "id": "home",
@@ -1323,20 +1434,20 @@
       "id": "night-legend",
       "title": "夜巷传说",
       "description": "没人收养你，但整条街都知道有一只灰扑扑的白猫。",
-      "all": [
-        {
-          "state": "agility",
-          "operator": ">=",
-          "value": 9
-        }
-      ],
+      "all": [],
       "image": "assets/images/endings/night-legend.webp"
     },
     {
       "id": "heaven",
       "title": "猫的天堂",
       "description": "袋子后来打开了。里面没有猫，只有很软的光。",
-      "all": [],
+      "all": [
+        {
+          "state": "forcedEnding",
+          "operator": "=",
+          "value": "heaven"
+        }
+      ],
       "image": "assets/images/endings/heaven.webp"
     }
   ],
