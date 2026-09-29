@@ -1398,7 +1398,8 @@ function lifeSummaryMarkup() {
 
 function renderMeters() {
   const definitions = content().states || Object.keys(state).map((id, index) => ({ id, label: id, color: index ? "#6d9e75" : "#d8654c", max: 14 }));
-  $("meters").style.gridTemplateColumns = `repeat(${Math.min(3, definitions.length)}, minmax(0, 1fr))`;
+  const maxColumns = world?.id === "stray-cat" ? 4 : 3;
+  $("meters").style.gridTemplateColumns = `repeat(${Math.min(maxColumns, definitions.length)}, minmax(0, 1fr))`;
   $("meters").innerHTML = definitions.map(definition => `
     <div class="meter" style="--meter-color:${definition.color || '#6b4bb9'}"><span><b>${definition.label}</b><em>${state[definition.id] || 0}</em></span><i><u style="width:${Math.min(100, (state[definition.id] || 0) / (definition.max || 10) * 100)}%"></u></i></div>`).join("");
 }
