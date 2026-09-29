@@ -43,8 +43,8 @@
     },
     {
       "id": "charm",
-      "label": "魅力",
-      "description": "让人停下、投喂、抚摸或收养",
+      "label": "外貌",
+      "description": "毛色、清洁度、项圈和装饰物带来的外观吸引力",
       "color": "#c78a3b",
       "chipBackground": "#f7e7cc",
       "max": 10000
@@ -83,7 +83,7 @@
       "name": "倾国倾城",
       "rarity": 3,
       "weight": 1,
-      "description": "魅力+10",
+      "description": "外貌+10",
       "effect": {
         "charm": 10
       }
@@ -124,7 +124,7 @@
       "name": "软爪",
       "rarity": 2,
       "weight": 4,
-      "description": "魅力+2，健康+1",
+      "description": "外貌+2，健康+1",
       "effect": {
         "charm": 2,
         "health": 1
@@ -279,7 +279,6 @@
           "text": "你的叫声让一个人停下脚步。",
           "stateChanges": {
             "health": 2,
-            "charm": 1,
             "fish": 1
           }
         },
@@ -339,9 +338,7 @@
         },
         "call": {
           "text": "雨声很大，但你还是叫了。",
-          "stateChanges": {
-            "charm": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -389,7 +386,6 @@
         "meow": {
           "text": "你叫得很轻，她笑了一下。",
           "stateChanges": {
-            "charm": 1,
             "fish": 1
           }
         },
@@ -697,14 +693,12 @@
         "sniff": {
           "text": "她的手有洗衣粉和一点鱼干的味道。",
           "stateChanges": {
-            "charm": 1,
             "fish": 1
           }
         },
         "rub": {
           "text": "你把头蹭过去，她笑出了声。",
           "stateChanges": {
-            "charm": 2,
             "fish": 1
           }
         },
@@ -815,9 +809,7 @@
         },
         "resist": {
           "text": "你从窗户跳出去，项圈留在桌上。",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -953,10 +945,7 @@
       "outcomes": {
         "play": {
           "text": "他追了你三圈，最后自己笑了。",
-          "stateChanges": {
-            "health": 1,
-            "charm": 1
-          }
+          "stateChanges": {}
         },
         "avoid": {
           "compare": {
@@ -1034,14 +1023,11 @@
         },
         "move": {
           "text": "你确认门缝能钻出去，才闭上一只眼。",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         },
         "share": {
           "text": "另一只猫挤过来，你们背靠背。",
           "stateChanges": {
-            "charm": 2,
             "health": 1
           }
         }
@@ -1110,9 +1096,7 @@
         },
         "retreat": {
           "text": "你跳上屋檐，他只在下面看着。",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -1158,9 +1142,7 @@
         },
         "climb": {
           "text": "你站在桥栏上，街灯连成一条线。",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -1201,7 +1183,6 @@
         "enter": {
           "text": "地板很暖，你的爪垫陷进去一点。",
           "stateChanges": {
-            "charm": 2,
             "health": 2,
             "fish": 2
           }
@@ -1209,15 +1190,12 @@
         "sit": {
           "text": "你坐在光和黑的边界上，没有动。",
           "stateChanges": {
-            "charm": 1,
             "health": 1
           }
         },
         "leave": {
           "text": "你转身走进夜色，尾巴消失在转角。",
-          "stateChanges": {
-            "agility": 1
-          }
+          "stateChanges": {}
         }
       }
     },
@@ -1302,9 +1280,7 @@
             "op": ">=",
             "success": {
               "text": "你坐在灯光下舔了舔爪子，他停住了。",
-              "stateChanges": {
-                "charm": 1
-              }
+              "stateChanges": {}
             },
             "failure": {
               "text": "他没有停。袋子合上了，但后来有光。",
