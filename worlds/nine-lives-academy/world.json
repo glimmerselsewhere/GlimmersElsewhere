@@ -3,7 +3,7 @@
   "title": "九命猫魔法学院",
   "shortTitle": "九命学院",
   "subtitle": "魔法学院 · 猫咪成长模拟器",
-  "description": "一只普通家猫被月蛾送进九命猫魔法学院。选择职业、管理鱼干，并决定离伪神多近。",
+  "description": "一只普通家猫被月蛾送进九命猫魔法学院。选择职业、管理鱼干，并决定离伪神多近，通向 10 个大结局。",
   "mode": "life",
   "lifeTurnLimit": 30,
   "lifespanMax": 32,
@@ -58,7 +58,7 @@
   "catalog": {
     "eyebrow": "第九片异境微光已经苏醒",
     "headline": "猫的九条命，是一条魔法成长线。",
-    "description": "抽取天赋，选择职业，管理鱼干，探索地下城与巨龙宝库，经历 34 个具体的人生抉择。",
+    "description": "抽取天赋，选择职业，管理鱼干，探索地下城与巨龙宝库，经历 34 个具体的人生抉择，通向 10 个大结局。",
     "cardDescription": "火、水、雷、地下城、巨龙、金币、商猫、盗贼工会、魔王、女巫，以及藏在旧礼拜堂里的伪神。",
     "cardIcon": "✦",
     "cardLabel": "WORLD 09",
@@ -147,6 +147,22 @@
     {
       "id": "evil-god-follower",
       "label": "伪神信徒"
+    },
+    {
+      "id": "cat-knight",
+      "label": "猫骑士"
+    },
+    {
+      "id": "archer",
+      "label": "弓箭手"
+    },
+    {
+      "id": "star-merchant",
+      "label": "星尘商猫"
+    },
+    {
+      "id": "demon-cat",
+      "label": "魔猫"
     }
   ],
   "states": [
@@ -185,20 +201,29 @@
   ],
   "talents": [
     {
-      "id": "star-whiskers",
-      "name": "星须",
+      "id": "sun-napper",
+      "name": "日光猫",
       "rarity": 0,
-      "description": "魔力+3，勇气+1",
+      "description": "魔力+2，勇气+1",
       "effect": {
-        "magic": 3,
+        "magic": 2,
         "courage": 1
-      },
-      "descriptionEn": "Magic +3, Courage +1"
+      }
+    },
+    {
+      "id": "water-paw",
+      "name": "水爪",
+      "rarity": 0,
+      "description": "魔力+2，勇气+1",
+      "effect": {
+        "magic": 2,
+        "courage": 1
+      }
     },
     {
       "id": "brave-paw",
       "name": "勇爪",
-      "rarity": 0,
+      "rarity": 1,
       "description": "勇气+3",
       "effect": {
         "courage": 3
@@ -213,28 +238,6 @@
         "magic": 1,
         "fish": 2
       }
-    },
-    {
-      "id": "sun-napper",
-      "name": "日光猫",
-      "rarity": 0,
-      "description": "魔力+2，勇气+1",
-      "effect": {
-        "magic": 2,
-        "courage": 1
-      }
-    },
-    {
-      "id": "book-sniffer",
-      "name": "影鼻猫",
-      "rarity": 0,
-      "description": "魔力+1，邪恶+2",
-      "effect": {
-        "magic": 1,
-        "evil": 2
-      },
-      "nameEn": "Shadow Nose",
-      "descriptionEn": "Magic +1, Evil +2"
     },
     {
       "id": "gold-finder",
@@ -257,24 +260,23 @@
       }
     },
     {
-      "id": "water-paw",
-      "name": "水爪",
-      "rarity": 0,
-      "description": "魔力+2，勇气+1",
+      "id": "star-whiskers",
+      "name": "星须",
+      "rarity": 2,
+      "description": "魔力+3，勇气+2",
       "effect": {
-        "magic": 2,
-        "courage": 1
-      },
-      "descriptionEn": "Magic +2, Courage +1"
+        "magic": 3,
+        "courage": 2
+      }
     },
     {
       "id": "fire-whisker",
       "name": "火须",
-      "rarity": 1,
-      "description": "魔力+3，勇气+1",
+      "rarity": 2,
+      "description": "魔力+3，勇气+2",
       "effect": {
         "magic": 3,
-        "courage": 1
+        "courage": 2
       }
     },
     {
@@ -286,8 +288,39 @@
         "magic": 2,
         "courage": 2,
         "fish": 1
-      },
-      "descriptionEn": "Magic +2, Courage +2, Dried Fish +1"
+      }
+    },
+    {
+      "id": "shadow-nose",
+      "name": "影鼻猫",
+      "rarity": 2,
+      "description": "魔力+1，邪恶+2",
+      "effect": {
+        "magic": 1,
+        "evil": 2
+      }
+    },
+    {
+      "id": "dragon-heart",
+      "name": "龙心",
+      "rarity": 3,
+      "description": "魔力+5，勇气+3，鱼干+2",
+      "effect": {
+        "magic": 5,
+        "courage": 3,
+        "fish": 2
+      }
+    },
+    {
+      "id": "astral-archer",
+      "name": "星弓",
+      "rarity": 3,
+      "description": "魔力+4，勇气+4，鱼干+1",
+      "effect": {
+        "magic": 4,
+        "courage": 4,
+        "fish": 1
+      }
     }
   ],
   "milestones": [
@@ -337,10 +370,10 @@
     {
       "id": "letter-moth",
       "title": "月蛾送来的录取信",
-      "event": "深夜窗台上，月蛾送来一封烫金信。家里暖气片还温着，学院明早开学。",
+      "event": "你出生在普通家庭的窗台上，月光把毛照成浅金色。三年后，月蛾送来一封烫金信，学院明早开学。",
       "rarity": 0,
       "minTurn": 1,
-      "maxTurn": 30,
+      "maxTurn": 1,
       "choices": [
         {
           "id": "follow",
@@ -1394,47 +1427,48 @@
     {
       "id": "adventurer-guild",
       "title": "猫险者公会",
-      "event": "猫险者公会只剩三个委托：找回铃铛、护送商队、清扫史莱姆。",
+      "event": "猫险者公会的门口站着三位导师：弓箭手、猫骑士、星尘商猫。你只能选一位拜师。",
       "rarity": 0,
-      "minTurn": 1,
-      "maxTurn": 30,
+      "minTurn": 2,
+      "maxTurn": 6,
       "choices": [
         {
           "id": "quest",
-          "text": "接正式委托",
-          "hint": "独自完成",
+          "text": "拜弓箭手为师",
+          "hint": "成为弓箭手",
           "effect": {
-            "magic": 1,
-            "courage": 2,
+            "magic": 2,
+            "courage": 3,
             "fish": 1,
-            "profession": "quest-runner"
+            "profession": "archer"
           },
-          "result": "铃铛在乌鸦窝里，你把名字写在委托单的完成栏。",
+          "result": "你把名字写在委托单的完成栏，弓箭手把一支木箭放在你爪边。",
           "image": "assets/images/events/results/adventurer-guild-quest.webp"
         },
         {
           "id": "recruit",
-          "text": "招募伙伴",
-          "hint": "带队伍完成",
+          "text": "拜猫骑士为师",
+          "hint": "成为猫骑士",
           "effect": {
-            "magic": 1,
-            "courage": 2,
-            "fish": 2,
-            "profession": "guild-leader"
+            "magic": 3,
+            "courage": 3,
+            "fish": 1,
+            "profession": "cat-knight"
           },
-          "result": "商队平安过桥，三个伙伴把铃铛挂在你魔杖上。",
+          "result": "你跪下的动作很轻，猫骑士把一枚小小的银铃系在你的魔杖上。",
           "image": "assets/images/events/results/adventurer-guild-recruit.webp"
         },
         {
           "id": "small-quest",
-          "text": "只接小任务",
-          "hint": "选择小任务",
+          "text": "拜星尘商猫为师",
+          "hint": "成为星尘商猫",
           "effect": {
             "magic": 2,
-            "courage": 1,
-            "profession": "cautious-adventurer"
+            "courage": 2,
+            "fish": 3,
+            "profession": "star-merchant"
           },
-          "result": "你清完三只史莱姆，委托栏多了一枚很小的铜星。",
+          "result": "你学会的第一件事不是魔法，而是把三枚金币摆成一排。",
           "image": "assets/images/events/results/adventurer-guild-small-quest.webp"
         }
       ],
@@ -1543,7 +1577,7 @@
       "title": "弓箭手训练",
       "event": "弓箭手训练场有三个目标：移动草叶、风中的铃、贴脸木桩。",
       "rarity": 0,
-      "minTurn": 1,
+      "minTurn": 7,
       "maxTurn": 30,
       "choices": [
         {
@@ -1581,7 +1615,8 @@
         }
       ],
       "image": "assets/images/events/archer-training.webp",
-      "timeCost": 1
+      "timeCost": 1,
+      "requiredProfession": "archer"
     },
     {
       "id": "rogue-sneak",
@@ -1957,6 +1992,72 @@
       "video": "assets/videos/cat-god-ending-v1.mp4"
     },
     {
+      "id": "false-god-vessel",
+      "title": "伪神之器 · 旧礼拜堂的容器",
+      "description": "你成了伪神的容器。它依旧温柔，依旧会烘热鱼干，只是你再也分不清哪份饿意是你的。",
+      "all": [
+        {
+          "profession": "evil-god-follower"
+        },
+        {
+          "state": "evil",
+          "operator": ">=",
+          "value": 25
+        }
+      ],
+      "image": "assets/images/endings/false-god-vessel.webp"
+    },
+    {
+      "id": "demon-cat",
+      "title": "魔猫 · 影中低语",
+      "description": "你的影子比身体先一步行动。魔猫不是堕落，是把黑暗当成另一条走廊。",
+      "all": [
+        {
+          "state": "evil",
+          "operator": ">=",
+          "value": 25
+        },
+        {
+          "state": "magic",
+          "operator": ">=",
+          "value": 45
+        }
+      ],
+      "image": "assets/images/endings/demon-cat.webp"
+    },
+    {
+      "id": "cat-knight",
+      "title": "猫骑士 · 月下誓约",
+      "description": "你把爪子按在剑上，替整座学院守夜。猫骑士的誓约不是杀戮，是守住暖炉和睡着的同学。",
+      "all": [
+        {
+          "profession": "cat-knight"
+        },
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 25
+        }
+      ],
+      "image": "assets/images/endings/cat-knight.webp"
+    },
+    {
+      "id": "star-merchant",
+      "title": "星尘商猫 · 流动商铺",
+      "description": "你把摊位开在各个世界的门口。猫来买星尘，你来收故事。",
+      "all": [
+        {
+          "profession": "star-merchant"
+        },
+        {
+          "state": "fish",
+          "operator": ">=",
+          "value": 20
+        }
+      ],
+      "image": "assets/images/endings/star-merchant.webp"
+    },
+    {
       "id": "grand-magus",
       "title": "大魔导士 · 星穹讲师",
       "description": "你在星穹下开课，讲义是一根会发光的胡须。",
@@ -2069,5 +2170,6 @@
       "glb": "assets/models/sleepy-pillow.glb",
       "preview": "assets/models/sleepy-pillow-source.webp"
     }
-  ]
+  ],
+  "startEventId": "letter-moth"
 }

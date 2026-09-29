@@ -812,6 +812,8 @@ function drawLifeEvent() {
     if (lifeEventHistory.includes(event.id)) return false;
     if (event.minTurn !== undefined && lifeTurn < event.minTurn) return false;
     if (event.maxTurn !== undefined && lifeTurn > event.maxTurn) return false;
+    if (event.requiredProfession && state.profession !== event.requiredProfession) return false;
+    if (Array.isArray(event.requiredProfessions) && !event.requiredProfessions.includes(state.profession)) return false;
     if (event.include && !checkLifeCondition(event.include)) return false;
     if (event.exclude && checkLifeCondition(event.exclude)) return false;
     return true;
@@ -887,6 +889,10 @@ function startLifeSim() {
   queuedLifeEvent = null;
   lifeFinalTrialShown = false;
   state = { ...(content().initialState || {}) };
+  const startEventId = content().startEventId;
+  queuedLifeEvent = startEventId
+    ? (content().events || []).find(event => event.id === startEventId)
+    : null;
   for (const talentId of lifeTalentIds) {
     const talent = (content().talents || []).find(t => t.id === talentId);
     if (talent?.effect) {
@@ -1436,6 +1442,9 @@ function continueJourney() {
 
 function compareCondition(condition) {
   if (!condition) return true;
+  if (condition.profession) {
+    return state.profession === condition.profession;
+  }
   const left = state[condition.state] || 0;
   const right = condition.otherState ? (state[condition.otherState] || 0) + (condition.offset || 0) : condition.value;
   if (condition.operator === ">") return left > right;
