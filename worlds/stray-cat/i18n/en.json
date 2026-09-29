@@ -72,9 +72,11 @@
       "name": "Cat Martial God",
       "rarity": 4,
       "weight": 1,
-      "description": "Strength +10000, special ending",
+      "description": "Strength/Agility/Health +10000, special ending",
       "effect": {
-        "strength": 10000
+        "strength": 10000,
+        "agility": 10000,
+        "health": 10000
       },
       "image": "assets/images/talents/cat-martial-god.webp"
     },
@@ -278,22 +280,25 @@
         "cry": {
           "text": "Your cry makes someone stop.",
           "stateChanges": {
-            "health": 2,
+            "health": 1,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/cardboard-cry.webp"
         },
         "hide": {
           "text": "You curl up, and the box becomes a small mountain.",
           "stateChanges": {
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/cardboard-hide.webp"
         },
         "explore": {
           "text": "You touch the ground; the world is bigger than the box.",
           "stateChanges": {
             "health": -1,
             "fish": 0
-          }
+          },
+          "image": "assets/images/outcomes/cardboard-explore.webp"
         }
       }
     },
@@ -327,18 +332,21 @@
         "dry": {
           "text": "The car blocks most of the rain, though your fur grows heavy.",
           "stateChanges": {
-            "health": 2
-          }
+            "health": 1
+          },
+          "image": "assets/images/outcomes/rain-car-dry.webp"
         },
         "mud": {
           "text": "Mud covers your white fur, making you look even less like a house cat.",
           "stateChanges": {
             "charm": -1
-          }
+          },
+          "image": "assets/images/outcomes/rain-car-mud.webp"
         },
         "call": {
           "text": "The rain is loud, but you call anyway.",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/rain-car-call.webp"
         }
       }
     },
@@ -381,21 +389,24 @@
           "stateChanges": {
             "health": 1,
             "fish": 2
-          }
+          },
+          "image": "assets/images/outcomes/fish-stall-wait.webp"
         },
         "observe": {
           "text": "You learn a little about sitting upright, looking at humans, and meowing softly.",
           "stateChanges": {
             "charm": 2,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/fish-stall-observe.webp"
         },
         "steal": {
           "text": "You grab the fish and run, your tail turning before your body.",
           "stateChanges": {
             "health": -1,
             "fish": 3
-          }
+          },
+          "image": "assets/images/outcomes/fish-stall-steal.webp"
         }
       }
     },
@@ -440,16 +451,16 @@
             "op": ">=",
             "success": {
               "text": "You cut two corners; Big Yellow's nose hits the bricks.",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/dog-territory-run-success.webp"
             },
             "failure": {
               "text": "Big Yellow chases you half a street. You squeeze through a fence and pant.",
               "stateChanges": {
                 "health": -2,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/dog-territory-run-failure.webp"
             }
           }
         },
@@ -461,15 +472,17 @@
             "success": {
               "text": "You arch your back like a bridge, and Big Yellow stops.",
               "stateChanges": {
-                "health": 1
-              }
+                "health": -1
+              },
+              "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
             "failure": {
               "text": "You are bumped aside and tumble into the grass.",
               "stateChanges": {
                 "health": -3,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/dog-territory-fight-failure.webp"
             }
           }
         },
@@ -480,15 +493,15 @@
             "op": ">=",
             "success": {
               "text": "You circle behind the flower bed; Big Yellow only smells you.",
-              "stateChanges": {
-                "fish": 0
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/dog-territory-avoid-success.webp"
             },
             "failure": {
               "text": "You step on an empty can, and the sound brings Big Yellow.",
               "stateChanges": {
                 "health": -2
-              }
+              },
+              "image": "assets/images/outcomes/dog-territory-avoid-failure.webp"
             }
           }
         }
@@ -509,67 +522,83 @@
       },
       "actions": [
         {
-          "id": "back",
-          "name": "Back away",
-          "hint": "Do not provoke",
+          "id": "avoid",
+          "name": "Avoid",
+          "hint": "Do not confront her",
           "icon": "A"
         },
         {
-          "id": "circle",
-          "name": "Circle",
-          "hint": "Pass from the side",
+          "id": "fight",
+          "name": "Fight",
+          "hint": "Overpower her",
           "icon": "B"
         },
         {
-          "id": "sprint",
-          "name": "Sprint",
+          "id": "run",
+          "name": "Run",
           "hint": "Gamble on speed",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "back": {
-          "text": "You back down the steps, and White Tyrant retracts her neck.",
-          "stateChanges": {
-            "health": 1
-          }
-        },
-        "circle": {
+        "avoid": {
           "compare": {
             "stat": "agility",
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "You walk along the waterline; White Tyrant only manages half a honk.",
-              "stateChanges": {
-                "fish": 1
-              }
+              "text": "You circle behind the riverbank; White Tyrant only sees your tail.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/goose-river-avoid-success.webp"
             },
             "failure": {
-              "text": "Your tail is pecked, and your fur puffs up.",
+              "text": "You are not fast enough, and White Tyrant pecks you twice.",
               "stateChanges": {
                 "health": -2
-              }
+              },
+              "image": "assets/images/outcomes/goose-river-avoid-failure.webp"
             }
           }
         },
-        "sprint": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "You pin her wing, and White Tyrant steps back.",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/goose-river-fight-success.webp"
+            },
+            "failure": {
+              "text": "You are swept down by her wing, and your chest hurts for a long time.",
+              "stateChanges": {
+                "health": -3,
+                "fish": -1
+              },
+              "image": "assets/images/outcomes/goose-river-fight-failure.webp"
+            }
+          }
+        },
+        "run": {
           "compare": {
             "stat": "agility",
             "enemyStat": "agility",
             "op": ">=",
             "success": {
               "text": "You dash under her wing, and the wind pushes you up the bank.",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/goose-river-run-success.webp"
             },
             "failure": {
               "text": "Her wing sweeps you, and you roll twice.",
               "stateChanges": {
                 "health": -3,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/goose-river-run-failure.webp"
             }
           }
         }
@@ -618,13 +647,15 @@
               "text": "You hide beside the exhaust pipe, and the net misses.",
               "stateChanges": {
                 "health": 1
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-hide-success.webp"
             },
             "failure": {
               "text": "The net touches your back, and you struggle before slipping out.",
               "stateChanges": {
                 "health": -2
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-hide-failure.webp"
             }
           }
         },
@@ -637,14 +668,16 @@
               "text": "You pass between the net and wall like a white line.",
               "stateChanges": {
                 "health": 1
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-dash-success.webp"
             },
             "failure": {
               "text": "The net brushes your ear, and you are held for a moment.",
               "stateChanges": {
                 "health": -2,
                 "fish": -1
-              }
+              },
+              "image": "assets/images/outcomes/neuter-van-dash-failure.webp"
             }
           }
         },
@@ -653,61 +686,64 @@
           "stateChanges": {
             "health": 3,
             "lifespan": 6
-          }
+          },
+          "image": "assets/images/outcomes/neuter-van-accept.webp"
         }
       }
     },
     {
       "id": "kind-hand",
       "chapter": "Q7 · Months 18-21",
-      "title": "The Girl Who Pets Cats",
-      "description": "A little girl crouches down with her palm open. She will not hurt you.",
-      "image": "assets/images/scenes/kind-hand.webp",
+      "title": "The Good Kid",
+      "description": "A little girl crouches at the corner with half a dried fish in her palm.",
+      "image": "assets/images/scenes/good-kid.webp",
       "enemy": {
         "id": "girl",
-        "name": "Petting Girl",
+        "name": "Little Girl",
         "strength": 3,
         "agility": 3,
         "kind": "kind human"
       },
       "actions": [
         {
-          "id": "sniff",
-          "name": "Sniff",
-          "hint": "Check the scent",
+          "id": "approach",
+          "name": "Approach",
+          "hint": "Take the dried fish",
           "icon": "A"
         },
         {
           "id": "rub",
           "name": "Rub",
-          "hint": "Show trust",
+          "hint": "Let her pet you",
           "icon": "B"
         },
         {
-          "id": "run",
-          "name": "Step back",
-          "hint": "Not ready",
+          "id": "leave",
+          "name": "Leave",
+          "hint": "Do not get close",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "sniff": {
-          "text": "Her hand smells like detergent and a little dried fish.",
+        "approach": {
+          "text": "She puts the dried fish on the ground and steps back for you.",
           "stateChanges": {
+            "health": 1,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/kind-hand-approach.webp"
         },
         "rub": {
-          "text": "You rub your head against her hand, and she laughs.",
+          "text": "She pets your head, and your body relaxes a little.",
           "stateChanges": {
-            "fish": 1
-          }
+            "health": 1
+          },
+          "image": "assets/images/outcomes/kind-hand-rub.webp"
         },
-        "run": {
+        "leave": {
           "text": "You back against the wall, and she does not follow.",
-          "stateChanges": {
-            "fish": 0
-          }
+          "stateChanges": {},
+          "image": "assets/images/outcomes/kind-hand-leave.webp"
         }
       }
     },
@@ -751,19 +787,22 @@
             "health": 4,
             "lifespan": 6,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/clinic-treat.webp"
         },
         "hide": {
           "text": "You hide under the chair, and she places the medicine beside you.",
           "stateChanges": {
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/clinic-hide.webp"
         },
         "struggle": {
           "text": "You struggle once; she stops and waits for you to calm down.",
           "stateChanges": {
             "health": -1
-          }
+          },
+          "image": "assets/images/outcomes/clinic-struggle.webp"
         }
       }
     },
@@ -799,18 +838,21 @@
           "stateChanges": {
             "charm": 2,
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
         "collar": {
           "text": "The collar is light, and the bell rings only once.",
           "stateChanges": {
             "charm": 2,
             "fish": 1
-          }
+          },
+          "image": "assets/images/outcomes/bath-collar-collar.webp"
         },
         "resist": {
           "text": "You jump out the window, leaving the collar on the table.",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/bath-collar-resist.webp"
         }
       }
     },
@@ -819,7 +861,7 @@
       "chapter": "Q10 · Months 27-30",
       "title": "The Cat Meat Dealer",
       "description": "The cat meat dealer guards the back alley with an iron cage. He is strong but not fast enough.",
-      "image": "assets/images/scenes/good-kid-bad-kid.webp",
+      "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
         "id": "cat-eater",
         "name": "Cat Meat Dealer",
@@ -856,15 +898,19 @@
             "success": {
               "text": "Your claws cross the back of his hand, and the cage drops.",
               "stateChanges": {
-                "health": 1
-              }
+                "health": -1
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
               "text": "You do not have enough strength. The cage closes, but later there is light.",
               "stateChanges": {
-                "health": -4,
-                "fish": -3
-              }
+                "health": -5,
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
             }
           }
         },
@@ -875,16 +921,18 @@
             "op": ">=",
             "success": {
               "text": "You dash past his trouser leg, leaving the wind behind.",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-run-success.webp"
             },
             "failure": {
               "text": "You cannot escape. The cage closes, but later there is light.",
               "stateChanges": {
-                "health": -4,
-                "fish": -3
-              }
+                "health": -5,
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-run-failure.webp"
             }
           }
         },
@@ -895,16 +943,18 @@
             "op": ">=",
             "success": {
               "text": "You hide in the box; he only smells you.",
-              "stateChanges": {
-                "fish": 0
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-hide-success.webp"
             },
             "failure": {
               "text": "He kicks the box over, and you roll out.",
               "stateChanges": {
-                "health": -4,
-                "fish": -2
-              }
+                "health": -5,
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-hide-failure.webp"
             }
           }
         }
@@ -913,53 +963,95 @@
     {
       "id": "kid",
       "chapter": "Q11 · Months 30-33",
-      "title": "The Good Kid and the Bad Kid",
-      "description": "Two kids are on the corner: one crouches down with an open hand, the other holds a stick.",
-      "image": "assets/images/scenes/gang-alley.webp",
+      "title": "The Bad Kid",
+      "description": "A little boy with a stick sees you and starts chasing.",
+      "image": "assets/images/scenes/bad-kid.webp",
       "enemy": {
         "id": "kid",
-        "name": "Mischievous Kid",
+        "name": "Bad Kid",
         "strength": 4,
         "agility": 3,
         "kind": "kid"
       },
       "actions": [
         {
-          "id": "good",
-          "name": "Play with the good kid",
-          "hint": "He will be gentle",
+          "id": "fight",
+          "name": "Fight",
+          "hint": "Overpower him",
           "icon": "A"
         },
         {
-          "id": "bad",
-          "name": "Play with the bad kid",
-          "hint": "He will swing the stick",
+          "id": "run",
+          "name": "Run",
+          "hint": "Just be faster",
           "icon": "B"
         },
         {
           "id": "avoid",
-          "name": "Avoid both kids",
-          "hint": "Do not take the risk",
+          "name": "Avoid",
+          "hint": "Avoid the stick",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "good": {
-          "text": "The good kid places half a dried fish on his palm and waits for you.",
-          "stateChanges": {
-            "health": 1,
-            "fish": 1
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "You grab the stick and scare him off.",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/kid-fight-success.webp"
+            },
+            "failure": {
+              "text": "The stick sweeps your side, and you bolt away with puffed fur.",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/kid-fight-failure.webp"
+            }
           }
         },
-        "bad": {
-          "text": "The stick sweeps your side, and you bolt away with puffed fur.",
-          "stateChanges": {
-            "health": -2
+        "run": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You dash behind the flower bed, and he cannot catch you.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/kid-run-success.webp"
+            },
+            "failure": {
+              "text": "He catches up and throws a small stone that hits your hind leg.",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/kid-run-failure.webp"
+            }
           }
         },
         "avoid": {
-          "text": "You circle behind the flower bed, and neither kid sees you.",
-          "stateChanges": {}
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You slip along the wall, and he does not see you.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/kid-avoid-success.webp"
+            },
+            "failure": {
+              "text": "You step on a branch, and the sound brings him over.",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/kid-avoid-failure.webp"
+            }
+          }
         }
       }
     },
@@ -992,19 +1084,20 @@
       "outcomes": {
         "sniff": {
           "text": "You only smell fish and a little disinfectant.",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/plastic-waste-sniff.webp"
         },
         "bite": {
           "text": "You swallow a piece of soft plastic. It sticks in your stomach and hurts.",
           "stateChanges": {
             "health": -5
-          }
+          },
+          "image": "assets/images/outcomes/plastic-waste-bite.webp"
         },
         "avoid": {
           "text": "You avoid the plastic bag and look for safer water.",
-          "stateChanges": {
-            "health": 1
-          }
+          "stateChanges": {},
+          "image": "assets/images/outcomes/plastic-waste-avoid.webp"
         }
       }
     },
@@ -1046,17 +1139,20 @@
           "text": "You get stuck the first time, then angle your shoulders through the second time. Your body remembers something.",
           "stateChanges": {
             "agility": 2
-          }
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
         },
         "watch": {
           "text": "You see clearly how he lowers his body at an angle.",
           "stateChanges": {
             "agility": 1
-          }
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
         },
         "ignore": {
           "text": "You take a long detour and learn nothing.",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/old-cat-lesson-ignore.webp"
         }
       }
     },
@@ -1091,20 +1187,22 @@
           "text": "The wire digs into your fur and you can barely breathe.",
           "stateChanges": {
             "health": -5
-          }
+          },
+          "image": "assets/images/outcomes/wire-neck-struggle.webp"
         },
         "freeze": {
           "text": "Once you stop, the wire stops tightening.",
           "stateChanges": {
             "health": -2
-          }
+          },
+          "image": "assets/images/outcomes/wire-neck-freeze.webp"
         },
         "help": {
           "text": "A passerby crouches down and slowly cuts the wire away.",
           "stateChanges": {
-            "health": 1,
-            "lifespan": 3
-          }
+            "health": -1
+          },
+          "image": "assets/images/outcomes/wire-neck-help.webp"
         }
       }
     },
@@ -1147,17 +1245,20 @@
           "stateChanges": {
             "health": 2,
             "fish": 2
-          }
+          },
+          "image": "assets/images/outcomes/adopter-enter.webp"
         },
         "sit": {
           "text": "You sit on the border between light and dark, unmoving.",
           "stateChanges": {
             "health": 1
-          }
+          },
+          "image": "assets/images/outcomes/adopter-sit.webp"
         },
         "leave": {
           "text": "You turn into the night, your tail disappearing around the corner.",
-          "stateChanges": {}
+          "stateChanges": {},
+          "image": "assets/images/outcomes/adopter-leave.webp"
         }
       }
     },
@@ -1203,15 +1304,19 @@
             "success": {
               "text": "Your claws cross the back of his hand, and the sack drops.",
               "stateChanges": {
-                "health": 1
-              }
+                "health": -1
+              },
+              "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
               "text": "You do not have enough strength. The sack closes, but later there is light.",
               "stateChanges": {
                 "health": -5,
-                "fish": -3
-              }
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/abuser-fight-failure.webp"
             }
           }
         },
@@ -1222,16 +1327,18 @@
             "op": ">=",
             "success": {
               "text": "You dash past his trouser leg, leaving the wind behind.",
-              "stateChanges": {
-                "health": 1
-              }
+              "stateChanges": {},
+              "image": "assets/images/outcomes/abuser-run-success.webp"
             },
             "failure": {
               "text": "You cannot escape. The sack closes, but later there is light.",
               "stateChanges": {
                 "health": -5,
-                "fish": -3
-              }
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/abuser-run-failure.webp"
             }
           }
         },
@@ -1242,14 +1349,18 @@
             "op": ">=",
             "success": {
               "text": "You sit in the light and lick your paw; he stops.",
-              "stateChanges": {}
+              "stateChanges": {},
+              "image": "assets/images/outcomes/abuser-charm-success.webp"
             },
             "failure": {
               "text": "He does not stop. The sack closes, but later there is light.",
               "stateChanges": {
                 "health": -5,
-                "fish": -3
-              }
+                "fish": -3,
+                "lifespan": -10,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/abuser-charm-failure.webp"
             }
           }
         }
@@ -1268,7 +1379,7 @@
           "value": 9999
         }
       ],
-      "image": "assets/images/talents/cat-martial-god.webp"
+      "image": "assets/images/endings/cat-martial-god-ash.webp"
     },
     {
       "id": "home",
@@ -1323,20 +1434,20 @@
       "id": "night-legend",
       "title": "The Night Legend",
       "description": "No one adopts you, but the whole street knows there is a dusty white cat.",
-      "all": [
-        {
-          "state": "agility",
-          "operator": ">=",
-          "value": 9
-        }
-      ],
+      "all": [],
       "image": "assets/images/endings/night-legend.webp"
     },
     {
       "id": "heaven",
       "title": "Cat Heaven",
       "description": "The sack opens later. There is no cat inside, only very soft light.",
-      "all": [],
+      "all": [
+        {
+          "state": "forcedEnding",
+          "operator": "=",
+          "value": "heaven"
+        }
+      ],
       "image": "assets/images/endings/heaven.webp"
     }
   ],

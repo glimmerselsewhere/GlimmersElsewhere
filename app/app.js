@@ -1573,6 +1573,7 @@ function resolveChoice(actionId) {
 
 function continueJourney() {
   if (world?.mode === "life") { renderLifeEvent(); return; }
+  if (state.forcedEnding) { showEnding(); return; }
   if (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 48)) {
     showEnding();
     return;
@@ -1600,6 +1601,7 @@ function compareCondition(condition) {
 }
 
 function endingMatches(ending) {
+  if (state.forcedEnding) return ending.id === state.forcedEnding;
   return (ending.all || []).every(compareCondition);
 }
 
