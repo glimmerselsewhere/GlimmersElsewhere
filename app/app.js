@@ -1535,6 +1535,10 @@ function resolveChoice(actionId) {
   const outcome = resolveOutcome(scene, actionId);
   recordChoice(world.id, scene.id, actionId);
   for (const [key, value] of Object.entries(outcome.stateChanges || {})) {
+    if (typeof value === "string") {
+      state[key] = value;
+      continue;
+    }
     state[key] = (state[key] || 0) + value;
   }
   if (world?.id === "stray-cat") {
