@@ -405,7 +405,11 @@ function renderCatalog(catalog) {
   applyPlatformText();
   $("worldCards").innerHTML = worldEntries.map((entry, index) => worldCardMarkup(entry, index)).join("");
   $("worldCards").querySelectorAll("[data-world-config]").forEach(button => {
-    button.addEventListener("click", () => enterWorldFromCatalog(button.dataset.worldConfig));
+    button.addEventListener("click", () => {
+      const entry = worldEntries.find(item => item.config === button.dataset.worldConfig);
+      if (!entry) return;
+      window.location.href = worldShareUrl(entry);
+    });
   });
   $("worldCards").querySelectorAll("[data-world-launch]").forEach(button => {
     button.addEventListener("click", () => { window.location.href = button.dataset.worldLaunch; });
@@ -454,7 +458,7 @@ function worldCardMarkup(entry, index) {
     ? `<button class="is-coming-soon" type="button" disabled>${t("comingSoon")} <b>·</b></button>`
     : launch
       ? `<button data-world-launch="${escapeHtml(launch)}" type="button">${t("enterWorld")} <b>→</b></button>`
-    : `<button data-world-config="${escapeHtml(entry.config)}" type="button">${t("enterWorld")} <b>→</b></button>`;
+    : `<button data-world-config="${escapeHtml(entry.config)}" data-world-entry="${escapeHtml(worldShareUrl(entry))}" type="button">${t("enterWorld")} <b>→</b></button>`;
   return `<article class="world-card">
     <div class="world-card-art${cover ? " has-cover" : ""}" style="--world-gradient:${gradient};--world-accent:${escapeHtml(accent)}" aria-hidden="true">
       ${cover ? `<img class="world-cover" src="${escapeHtml(cover)}" alt="" loading="lazy">` : ""}
