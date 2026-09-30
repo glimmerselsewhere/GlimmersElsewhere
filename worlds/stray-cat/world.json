@@ -1372,8 +1372,7 @@
           "value": 9999
         }
       ],
-      "image": "assets/images/endings/cat-martial-god-ash.webp",
-      "video": "assets/videos/cat-martial-god-ending-v1.mp4"
+      "image": "assets/images/endings/cat-martial-god-ash.webp"
     },
     {
       "id": "home",
@@ -1399,8 +1398,7 @@
           "value": 9
         }
       ],
-      "image": "assets/images/endings/clinic.webp",
-      "video": "assets/videos/clinic-ending-v1.mp4"
+      "image": "assets/images/endings/clinic.webp"
     },
     {
       "id": "street-king",
@@ -1418,16 +1416,14 @@
           "value": 7
         }
       ],
-      "image": "assets/images/endings/street-king.webp",
-      "video": "assets/videos/street-king-ending-v1.mp4"
+      "image": "assets/images/endings/street-king.webp"
     },
     {
       "id": "night-legend",
       "title": "没有人带走你",
       "description": "你还是住在同一条街上。垃圾桶、屋檐、车底，你都熟。没有人带走你，也没有人知道你叫什么。你把自己缩得更小一点，等下一个冬天过去。",
       "all": [],
-      "image": "assets/images/endings/night-legend.webp",
-      "video": "assets/videos/night-legend-ending-v1.mp4"
+      "image": "assets/images/endings/night-legend.webp"
     },
     {
       "id": "sick",
@@ -1440,8 +1436,7 @@
           "value": "sick"
         }
       ],
-      "image": "assets/images/endings/sick.webp",
-      "video": "assets/videos/sick-ending-v1.mp4"
+      "image": "assets/images/endings/sick.webp"
     },
     {
       "id": "heaven",
@@ -1454,8 +1449,7 @@
           "value": "heaven"
         }
       ],
-      "image": "assets/images/endings/heaven.webp",
-      "video": "assets/videos/heaven-ending-v1.mp4"
+      "image": "assets/images/endings/heaven.webp"
     }
   ],
   "catalog": {
