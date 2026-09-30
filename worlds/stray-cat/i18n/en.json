@@ -554,13 +554,13 @@
         {
           "id": "fight",
           "name": "Fight",
-          "hint": "Overpower her",
+          "hint": "Pin her down",
           "icon": "B"
         },
         {
           "id": "run",
           "name": "Run",
-          "hint": "Gamble on speed",
+          "hint": "Dash under her wing",
           "icon": "C"
         }
       ],
@@ -649,7 +649,7 @@
         {
           "id": "dash",
           "name": "Dash",
-          "hint": "Gamble on agility",
+          "hint": "Squeeze past the net",
           "icon": "B"
         },
         {
@@ -900,7 +900,7 @@
         {
           "id": "fight",
           "name": "Fight",
-          "hint": "Overpower him",
+          "hint": "Pin him down",
           "icon": "A"
         },
         {
@@ -1103,7 +1103,7 @@
         {
           "id": "run",
           "name": "Run",
-          "hint": "Gamble on agility",
+          "hint": "Slip past his trouser leg",
           "icon": "B"
         },
         {
