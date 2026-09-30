@@ -9,7 +9,7 @@
     "head": 3,
     "tail": 4
   },
-  "music": "assets/audio/street-patrol.mp3",
+  "music": "assets/audio/soft-paws-roam.mp3",
   "musicVolume": 0.12,
   "assetBase": "worlds/stray-cat/",
   "cover": {
