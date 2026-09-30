@@ -173,6 +173,7 @@ const STRINGS = {
     keepsakeDownload: "Download GLB",
     keepsakeGet: "Get it on jujubit",
     keepsakeGetHint: "3D print · made real",
+    tuntunSummary: "Hidden page: a real cat",
     ksLoading: "Loading the 3D model…",
     soundLabel: "Toggle sound",
     sceneProgressHint: "Scene",
@@ -213,6 +214,7 @@ const STRINGS = {
     keepsakeDownload: "下载 GLB",
     keepsakeGet: "去 jujubit 拿到它",
     keepsakeGetHint: "3D 打印 · 做成实物",
+    tuntunSummary: "彩蛋：一只真实的猫",
     ksLoading: "正在载入 3D 模型…",
     soundLabel: "切换声音",
     sceneProgressHint: "进度",
@@ -1795,6 +1797,19 @@ function showEnding() {
   setKeepsakeGetLinks();
   recordEnding(world.id, ending.id);
   $("collectionBox").innerHTML = collectionMarkup(world.id);
+  // Some endings hide a "real photo" easter egg behind a fold-out, so the
+  // ending art itself stays in the drawn style.
+  const realPhotos = ending.realPhotos;
+  const tuntunBox = $("tuntunBox");
+  if (tuntunBox) {
+    tuntunBox.hidden = !realPhotos;
+    tuntunBox.open = false;
+    if (realPhotos) {
+      $("tuntunImage").src = worldAsset(realPhotos.image);
+      $("tuntunCaption").textContent = lang === "en" ? (realPhotos.captionEn || realPhotos.caption) : realPhotos.caption;
+      tuntunBox.querySelector("summary").textContent = lang === "en" ? (realPhotos.titleEn || realPhotos.title) : realPhotos.title;
+    }
+  }
   showView("endingView");
   if (keepsake) {
     const glbUrl = `${worldAsset(keepsake.glb)}?v=20260928`;
