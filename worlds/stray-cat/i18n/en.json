@@ -3,7 +3,7 @@
   "title": "Ah Hui's Stray Life",
   "shortTitle": "Ah Hui",
   "subtitle": "48 Months as a Stray",
-  "description": "Ah Hui is a dusty white cat. Over 48 months he meets a fish stall woman, Big Yellow, White Tyrant, a neutering team, a clinic doctor, a cat meat dealer, a kid, and a cat abuser.",
+  "description": "Ah Hui is a dusty white cat. Over 48 months he meets a fish stall woman, Big Yellow, White Tyrant, a neutering team, a clinic doctor, a cat meat dealer, a kid, a cat abuser, and a young woman who would like to keep him.",
   "mode": null,
   "music": "assets/audio/street-patrol.mp3",
   "musicVolume": 0.12,
@@ -21,6 +21,7 @@
     "charm": 4,
     "health": 8,
     "fish": 3,
+    "friendliness": 1,
     "age": 0,
     "lifespan": 48
   },
@@ -52,7 +53,7 @@
     {
       "id": "health",
       "label": "Health",
-      "description": "Can be negative; negative health reduces lifespan each turn",
+      "description": "Can be negative; while it is negative, every month costs that many months of lifespan (at -3 you lose 3 months each month)",
       "color": "#5f9e78",
       "chipBackground": "#dcf0e2",
       "max": 100
@@ -64,6 +65,14 @@
       "color": "#eab308",
       "chipBackground": "#fef9c3",
       "max": 100
+    },
+    {
+      "id": "friendliness",
+      "label": "Friendliness",
+      "description": "How willing you are to trust humans; it decides whether anyone keeps you in the end",
+      "color": "#c0648a",
+      "chipBackground": "#f8dbe8",
+      "max": 10
     }
   ],
   "talents": [
@@ -385,10 +394,11 @@
       ],
       "outcomes": {
         "wait": {
-          "text": "She pushes the scraps a little closer.",
+          "text": "You sit quietly, and she does not shoo you away. You remember this.",
           "stateChanges": {
             "health": 1,
-            "fish": 2
+            "fish": 2,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/fish-stall-wait.webp"
         },
@@ -396,7 +406,8 @@
           "text": "You learn a little about sitting upright, looking at humans, and meowing softly.",
           "stateChanges": {
             "charm": 2,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/fish-stall-observe.webp"
         },
@@ -682,10 +693,11 @@
           }
         },
         "accept": {
-          "text": "The worker places you in a carrier, moving gently.",
+          "text": "The worker places you in a carrier, moving gently. You wake up back on your own corner.",
           "stateChanges": {
             "health": 3,
-            "lifespan": 6
+            "lifespan": 6,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/neuter-van-accept.webp"
         }
@@ -729,14 +741,16 @@
           "text": "She puts the dried fish on the ground and steps back for you.",
           "stateChanges": {
             "health": 1,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/kind-hand-approach.webp"
         },
         "rub": {
-          "text": "She pets your head, and your body relaxes a little.",
+          "text": "She pets your head, and your body relaxes a little. This time you do not pull away.",
           "stateChanges": {
-            "health": 1
+            "health": 1,
+            "friendliness": 2
           },
           "image": "assets/images/outcomes/kind-hand-rub.webp"
         },
@@ -782,11 +796,12 @@
       ],
       "outcomes": {
         "treat": {
-          "text": "She treats your wounds and sets out a bowl of water.",
+          "text": "She treats your wounds and sets out a bowl of water. You let her touch the back of your neck.",
           "stateChanges": {
             "health": 4,
             "lifespan": 6,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/clinic-treat.webp"
         },
@@ -798,9 +813,10 @@
           "image": "assets/images/outcomes/clinic-hide.webp"
         },
         "struggle": {
-          "text": "You struggle once; she stops and waits for you to calm down.",
+          "text": "You bite her hand once; she stops and waits for you to calm down.",
           "stateChanges": {
-            "health": -1
+            "health": -1,
+            "friendliness": -1
           },
           "image": "assets/images/outcomes/clinic-struggle.webp"
         }
@@ -834,10 +850,11 @@
       ],
       "outcomes": {
         "bath": {
-          "text": "The water is warm, and your white fur finally shows.",
+          "text": "The water is warm, and your white fur finally shows. You fall asleep in human hands for the first time.",
           "stateChanges": {
             "charm": 2,
-            "health": 1
+            "health": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
@@ -845,124 +862,23 @@
           "text": "The collar is light, and the bell rings only once. The girl says: keep it on, don't lose it.",
           "stateChanges": {
             "charm": 2,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 2
           },
           "image": "assets/images/outcomes/bath-collar-collar.webp"
         },
         "resist": {
-          "text": "You jump out the window, leaving the collar on the table.",
-          "stateChanges": {},
+          "text": "You scratch her once and jump out the window, leaving the collar on the table.",
+          "stateChanges": {
+            "friendliness": -1
+          },
           "image": "assets/images/outcomes/bath-collar-resist.webp"
         }
       }
     },
     {
-      "id": "cat-eater",
-      "chapter": "Q10 · Months 27-30",
-      "title": "The Cat Meat Dealer",
-      "description": "The cat meat dealer guards the back alley with an iron cage. He is strong but not fast enough.",
-      "image": "assets/images/scenes/cat-meat-dealer.webp",
-      "enemy": {
-        "id": "cat-eater",
-        "name": "Cat Meat Dealer",
-        "strength": 12,
-        "agility": 5,
-        "kind": "cat eater"
-      },
-      "actions": [
-        {
-          "id": "fight",
-          "name": "Fight",
-          "hint": "Use your claws",
-          "icon": "A"
-        },
-        {
-          "id": "run",
-          "name": "Run",
-          "hint": "Gamble on agility",
-          "icon": "B"
-        },
-        {
-          "id": "hide",
-          "name": "Hide",
-          "hint": "Stay unseen",
-          "icon": "C"
-        }
-      ],
-      "outcomes": {
-        "fight": {
-          "compare": {
-            "stat": "strength",
-            "enemyStat": "strength",
-            "op": ">=",
-            "success": {
-              "text": "Your claws cross the back of his hand, and the cage drops.",
-              "stateChanges": {
-                "health": -1
-              },
-              "image": "assets/images/outcomes/cat-eater-fight-success.webp"
-            },
-            "failure": {
-              "text": "You do not have enough strength. The cage closes, but later there is light.",
-              "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
-              },
-              "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
-            }
-          }
-        },
-        "run": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "You dash past his trouser leg, leaving the wind behind.",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/cat-eater-run-success.webp"
-            },
-            "failure": {
-              "text": "You cannot escape. The cage closes, but later there is light.",
-              "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
-              },
-              "image": "assets/images/outcomes/cat-eater-run-failure.webp"
-            }
-          }
-        },
-        "hide": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "You hide in the box; he only smells you.",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/cat-eater-hide-success.webp"
-            },
-            "failure": {
-              "text": "He kicks the box over, and you roll out.",
-              "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
-              },
-              "image": "assets/images/outcomes/cat-eater-hide-failure.webp"
-            }
-          }
-        }
-      }
-    },
-    {
       "id": "kid",
-      "chapter": "Q11 · Months 30-33",
+      "chapter": "Q10 · Months 27-30",
       "title": "The Bad Kid",
       "description": "A little boy with a stick sees you and starts chasing.",
       "image": "assets/images/scenes/bad-kid.webp",
@@ -1000,9 +916,10 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "You grab the stick and scare him off.",
+              "text": "You grab the stick and scare him off. His crying follows you for two blocks.",
               "stateChanges": {
-                "health": -1
+                "health": -1,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/kid-fight-success.webp"
             },
@@ -1056,6 +973,61 @@
       }
     },
     {
+      "id": "old-cat-lesson",
+      "chapter": "Q11 · Months 30-33",
+      "title": "The Old Cat's Agility Lesson",
+      "description": "Old Orange takes you to the iron fence and teaches you how to lower your body, angle your shoulders, and slip through the narrowest gap.",
+      "image": "assets/images/scenes/old-cat-lesson.webp",
+      "enemy": {
+        "id": "old-orange",
+        "name": "Old Orange",
+        "strength": 7,
+        "agility": 8,
+        "kind": "mentor cat"
+      },
+      "actions": [
+        {
+          "id": "follow",
+          "name": "Follow him through",
+          "hint": "Learn the movement",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "Watch",
+          "hint": "Remember the route",
+          "icon": "B"
+        },
+        {
+          "id": "ignore",
+          "name": "Ignore him",
+          "hint": "Find your own way",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "follow": {
+          "text": "You get stuck the first time, then angle your shoulders through the second time. You practise the move all afternoon.",
+          "stateChanges": {
+            "agility": 3
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
+        },
+        "watch": {
+          "text": "You see clearly how he lowers his body at an angle.",
+          "stateChanges": {
+            "agility": 1
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
+        },
+        "ignore": {
+          "text": "You take a long detour and learn nothing.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/old-cat-lesson-ignore.webp"
+        }
+      }
+    },
+    {
       "id": "plastic-waste",
       "chapter": "Q12 · Months 33-36",
       "title": "The Plastic Trap",
@@ -1102,57 +1074,100 @@
       }
     },
     {
-      "id": "old-cat-lesson",
+      "id": "cat-eater",
       "chapter": "Q13 · Months 36-39",
-      "title": "The Old Cat's Agility Lesson",
-      "description": "Old Orange takes you to the iron fence and teaches you how to lower your body, angle your shoulders, and slip through the narrowest gap.",
-      "image": "assets/images/scenes/old-cat-lesson.webp",
+      "title": "The Cat Meat Dealer",
+      "description": "The cat meat dealer guards the back alley with an iron cage. He is strong but not fast enough.",
+      "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
-        "id": "old-orange",
-        "name": "Old Orange",
-        "strength": 7,
-        "agility": 8,
-        "kind": "mentor cat"
+        "id": "cat-eater",
+        "name": "Cat Meat Dealer",
+        "strength": 12,
+        "agility": 5,
+        "kind": "cat eater"
       },
       "actions": [
         {
-          "id": "follow",
-          "name": "Follow him through",
-          "hint": "Learn the movement",
+          "id": "fight",
+          "name": "Fight",
+          "hint": "Use your claws",
           "icon": "A"
         },
         {
-          "id": "watch",
-          "name": "Watch",
-          "hint": "Remember the route",
+          "id": "run",
+          "name": "Run",
+          "hint": "Gamble on agility",
           "icon": "B"
         },
         {
-          "id": "ignore",
-          "name": "Ignore him",
-          "hint": "Find your own way",
+          "id": "hide",
+          "name": "Hide",
+          "hint": "Stay unseen",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "follow": {
-          "text": "You get stuck the first time, then angle your shoulders through the second time. Your body remembers something.",
-          "stateChanges": {
-            "agility": 2
-          },
-          "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "Your claws cross the back of his hand, and the cage drops.",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-success.webp"
+            },
+            "failure": {
+              "text": "You do not have enough strength. The cage closes, and you go to cat heaven.",
+              "stateChanges": {
+                "health": -100,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
+            }
+          }
         },
-        "watch": {
-          "text": "You see clearly how he lowers his body at an angle.",
-          "stateChanges": {
-            "agility": 1
-          },
-          "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
+        "run": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You dash past his trouser leg, leaving the wind behind.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-run-success.webp"
+            },
+            "failure": {
+              "text": "You cannot escape. The cage closes, and you go to cat heaven.",
+              "stateChanges": {
+                "health": -100,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-run-failure.webp"
+            }
+          }
         },
-        "ignore": {
-          "text": "You take a long detour and learn nothing.",
-          "stateChanges": {},
-          "image": "assets/images/outcomes/old-cat-lesson-ignore.webp"
+        "hide": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You hide in the box; he only smells you.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-hide-success.webp"
+            },
+            "failure": {
+              "text": "He kicks the box over. The cage closes, and you go to cat heaven.",
+              "stateChanges": {
+                "health": -100,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-hide-failure.webp"
+            }
+          }
         }
       }
     },
@@ -1207,93 +1222,30 @@
       }
     },
     {
-      "id": "adopter",
-      "chapter": "Q15 · Months 42-45",
-      "title": "The Young Adopter",
-      "description": "A young person opens the door a crack, and light falls in front of your paws.",
-      "image": "assets/images/scenes/door.webp",
-      "enemy": {
-        "id": "adopter",
-        "name": "Young Adopter",
-        "strength": 3,
-        "agility": 3,
-        "kind": "kind human"
-      },
-      "actions": [
-        {
-          "id": "enter",
-          "name": "Walk inside",
-          "hint": "Try the warm floor",
-          "icon": "A"
-        },
-        {
-          "id": "sit",
-          "name": "Sit at the door",
-          "hint": "Stay outside",
-          "icon": "B"
-        },
-        {
-          "id": "leave",
-          "name": "Turn away",
-          "hint": "The street still calls",
-          "icon": "C"
-        }
-      ],
-      "outcomes": {
-        "enter": {
-          "text": "The floor is warm, and your paw pads sink in slightly. The door closes behind you — you never have to stray again.",
-          "stateChanges": {
-            "health": 2,
-            "fish": 2,
-            "forcedEnding": "home"
-          },
-          "image": "assets/images/outcomes/adopter-enter.webp"
-        },
-        "sit": {
-          "text": "You sit on the border between light and dark, unmoving.",
-          "stateChanges": {
-            "health": 1
-          },
-          "image": "assets/images/outcomes/adopter-sit.webp"
-        },
-        "leave": {
-          "text": "You turn into the night, your tail disappearing around the corner.",
-          "stateChanges": {},
-          "image": "assets/images/outcomes/adopter-leave.webp"
-        }
-      }
-    },
-    {
       "id": "abuser",
-      "chapter": "Q16 · Months 45-48",
+      "chapter": "Q15 · Months 42-45",
       "title": "The Cat Abuser",
-      "description": "The cat abuser stands at the alley mouth with a sack. He is the most dangerous person on this street.",
+      "description": "The cat abuser stands at the alley mouth with a sack. He is the most dangerous person on this street. Hiding is useless: you either fight past him or run past him.",
       "image": "assets/images/scenes/black-glove.webp",
       "enemy": {
         "id": "abuser",
         "name": "Cat Abuser",
-        "strength": 10,
-        "agility": 11,
+        "strength": 8,
+        "agility": 8,
         "kind": "abuser"
       },
       "actions": [
         {
           "id": "fight",
           "name": "Fight",
-          "hint": "Use your claws",
+          "hint": "Your strength must beat his",
           "icon": "A"
         },
         {
           "id": "run",
           "name": "Run",
-          "hint": "Gamble on agility",
+          "hint": "Your agility must beat his",
           "icon": "B"
-        },
-        {
-          "id": "charm",
-          "name": "Charm",
-          "hint": "Maybe he hesitates",
-          "icon": "C"
         }
       ],
       "outcomes": {
@@ -1310,11 +1262,9 @@
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
-              "text": "You do not have enough strength. The sack closes, but later there is light.",
+              "text": "You do not have enough strength. The sack is tied shut, and you go to cat heaven.",
               "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
+                "health": -100,
                 "forcedEnding": "heaven"
               },
               "image": "assets/images/outcomes/abuser-fight-failure.webp"
@@ -1332,38 +1282,86 @@
               "image": "assets/images/outcomes/abuser-run-success.webp"
             },
             "failure": {
-              "text": "You cannot escape. The sack closes, but later there is light.",
+              "text": "You cannot escape. The sack is tied shut, and you go to cat heaven.",
               "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
+                "health": -100,
                 "forcedEnding": "heaven"
               },
               "image": "assets/images/outcomes/abuser-run-failure.webp"
             }
           }
+        }
+      }
+    },
+    {
+      "id": "adopter",
+      "chapter": "Q16 · Months 45-48",
+      "title": "The Young Woman at the Door",
+      "description": "A young woman opens the door a crack, and light falls in front of your paws. She has been watching you from the window for many days.",
+      "image": "assets/images/scenes/door.webp",
+      "enemy": {
+        "id": "adopter",
+        "name": "The Young Woman",
+        "strength": 3,
+        "agility": 3,
+        "kind": "kind human",
+        "friendliness": 4
+      },
+      "actions": [
+        {
+          "id": "enter",
+          "name": "Walk inside",
+          "hint": "She needs you to trust humans",
+          "icon": "A"
         },
-        "charm": {
+        {
+          "id": "sit",
+          "name": "Sit at the door",
+          "hint": "Stay outside",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Turn away",
+          "hint": "The street still calls",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "enter": {
           "compare": {
-            "stat": "charm",
-            "enemyStat": "agility",
+            "stat": "friendliness",
+            "enemyStat": "friendliness",
             "op": ">=",
             "success": {
-              "text": "You sit in the light and lick your paw; he stops.",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/abuser-charm-success.webp"
+              "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to stray again.",
+              "stateChanges": {
+                "health": 2,
+                "fish": 2,
+                "forcedEnding": "home"
+              },
+              "image": "assets/images/outcomes/adopter-enter-success.webp"
             },
             "failure": {
-              "text": "He does not stop. The sack closes, but later there is light.",
+              "text": "You flatten yourself and creep along the wall. She watches you for a long time, then quietly closes the door.",
               "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
+                "friendliness": 1
               },
-              "image": "assets/images/outcomes/abuser-charm-failure.webp"
+              "image": "assets/images/outcomes/adopter-enter-failure.webp"
             }
           }
+        },
+        "sit": {
+          "text": "You sit on the border between light and dark, unmoving.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/adopter-sit.webp"
+        },
+        "leave": {
+          "text": "You turn into the night, your tail disappearing around the corner.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/adopter-leave.webp"
         }
       }
     }
@@ -1388,14 +1386,9 @@
       "description": "You sleep on your back on the bed, belly to the ceiling. No one sends you out again.",
       "all": [
         {
-          "state": "charm",
-          "operator": ">=",
-          "value": 8
-        },
-        {
-          "state": "health",
-          "operator": ">=",
-          "value": 7
+          "state": "forcedEnding",
+          "operator": "=",
+          "value": "home"
         }
       ],
       "image": "assets/images/endings/home.webp"
@@ -1455,8 +1448,8 @@
   "catalog": {
     "eyebrow": "A tenth glimmer has awakened",
     "headline": "48 months, one dusty white cat.",
-    "description": "Sixteen quarters with dogs, geese, a neutering team, kind people, a cat meat dealer, plastic waste, wire, and an abuser.",
-    "cardDescription": "Strength, agility, charm, health, dried fish, and lifespan decide your ending.",
+    "description": "Sixteen quarters: a box and a rainy night first, then dogs, geese, a neutering team and kind people. It only gets harder — the last two quarters are the abuser and that door.",
+    "cardDescription": "Strength, agility, charm, friendliness, health, dried fish, and lifespan decide your ending.",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",
     "cardGradient": [
