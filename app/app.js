@@ -724,8 +724,10 @@ function prepareStraySceneOrder() {
   world.scenes = [...scenes.slice(0, head), ...middle, ...scenes.slice(end)];
   world.scenes.forEach((scene, index) => {
     const start = 3 * index;
-    scene.chapter = `Q${index + 1} · ${start}-${start + 3}个月`;
     scene.chapterEn = `Q${index + 1} · Months ${start}-${start + 3}`;
+    // The label has to follow the current language, otherwise English runs show
+    // the Chinese 个月 that the merge step had already translated away.
+    scene.chapter = lang === "en" ? scene.chapterEn : `Q${index + 1} · ${start}-${start + 3}个月`;
   });
 }
 

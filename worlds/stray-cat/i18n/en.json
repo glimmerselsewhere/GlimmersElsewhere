@@ -127,7 +127,7 @@
       "id": "street-wise",
       "name": "Street Wise",
       "rarity": 2,
-      "weight": 4,
+      "weight": 3,
       "description": "Health +2, Dried Fish +2",
       "effect": {
         "health": 2,
@@ -171,7 +171,7 @@
       "id": "ordinary-white",
       "name": "Ordinary White",
       "rarity": 0,
-      "weight": 5,
+      "weight": 4,
       "description": "No bonus",
       "effect": {}
     },
@@ -179,10 +179,22 @@
       "id": "dusty-fur",
       "name": "Dusty Fur",
       "rarity": 0,
-      "weight": 5,
+      "weight": 4,
       "description": "Health +1",
       "effect": {
         "health": 1
+      }
+    },
+    {
+      "id": "hard-fists",
+      "name": "Hard Fists",
+      "rarity": 0,
+      "weight": 3,
+      "description": "Strength +3, but Friendliness -1 and Charm -1",
+      "effect": {
+        "strength": 3,
+        "friendliness": -1,
+        "charm": -1
       }
     }
   ],
@@ -418,7 +430,6 @@
         "steal": {
           "text": "You grab the fish and run, your tail turning before your body.",
           "stateChanges": {
-            "health": -1,
             "fish": 3
           },
           "image": "assets/images/outcomes/fish-stall-steal.webp"
@@ -921,7 +932,8 @@
             "failure": {
               "text": "The stick sweeps your side, and you bolt away with puffed fur.",
               "stateChanges": {
-                "health": -2
+                "health": -2,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/kid-fight-failure.webp"
             }
@@ -1109,13 +1121,16 @@
             "op": ">=",
             "success": {
               "text": "Your claws cross the back of his hand, and the cage drops.",
-              "stateChanges": {},
+              "stateChanges": {
+                "friendliness": -1
+              },
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
               "text": "You do not have enough strength. The cage closes, and you go to cat heaven.",
               "stateChanges": {
                 "health": -100,
+                "friendliness": -1,
                 "forcedEnding": "heaven"
               },
               "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
@@ -1206,10 +1221,8 @@
           "image": "assets/images/outcomes/wire-neck-freeze.webp"
         },
         "help": {
-          "text": "A passerby crouches down and slowly cuts the wire away.",
-          "stateChanges": {
-            "health": -1
-          },
+          "text": "A passerby crouches down and slowly cuts the wire away. Once it drops, nothing else is left on you.",
+          "stateChanges": {},
           "image": "assets/images/outcomes/wire-neck-help.webp"
         }
       }
@@ -1308,13 +1321,16 @@
             "op": ">=",
             "success": {
               "text": "Your claws cross the back of his hand, and the sack drops.",
-              "stateChanges": {},
+              "stateChanges": {
+                "friendliness": -1
+              },
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
               "text": "You do not have enough strength. The sack is tied shut, and you go to cat heaven.",
               "stateChanges": {
                 "health": -100,
+                "friendliness": -1,
                 "forcedEnding": "heaven"
               },
               "image": "assets/images/outcomes/abuser-fight-failure.webp"
