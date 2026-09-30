@@ -1372,7 +1372,8 @@
           "value": 9999
         }
       ],
-      "image": "assets/images/endings/cat-martial-god-ash.webp"
+      "image": "assets/images/endings/cat-martial-god-ash.webp",
+      "video": "assets/videos/cat-martial-god-ending-v1.mp4"
     },
     {
       "id": "home",
@@ -1398,7 +1399,8 @@
           "value": 9
         }
       ],
-      "image": "assets/images/endings/clinic.webp"
+      "image": "assets/images/endings/clinic.webp",
+      "video": "assets/videos/clinic-ending-v1.mp4"
     },
     {
       "id": "street-king",
@@ -1416,14 +1418,16 @@
           "value": 7
         }
       ],
-      "image": "assets/images/endings/street-king.webp"
+      "image": "assets/images/endings/street-king.webp",
+      "video": "assets/videos/street-king-ending-v1.mp4"
     },
     {
       "id": "night-legend",
       "title": "Nobody Took You Home",
       "description": "You still live on the same street. The bins, the eaves, the space under cars — you know them all. Nobody took you home, and nobody knows your name. You curl up a little smaller and wait for the next winter to pass.",
       "all": [],
-      "image": "assets/images/endings/night-legend.webp"
+      "image": "assets/images/endings/night-legend.webp",
+      "video": "assets/videos/night-legend-ending-v1.mp4"
     },
     {
       "id": "sick",
@@ -1436,7 +1440,8 @@
           "value": "sick"
         }
       ],
-      "image": "assets/images/endings/sick.webp"
+      "image": "assets/images/endings/sick.webp",
+      "video": "assets/videos/sick-ending-v1.mp4"
     },
     {
       "id": "heaven",
@@ -1449,7 +1454,8 @@
           "value": "heaven"
         }
       ],
-      "image": "assets/images/endings/heaven.webp"
+      "image": "assets/images/endings/heaven.webp",
+      "video": "assets/videos/heaven-ending-v1.mp4"
     }
   ],
   "catalog": {
