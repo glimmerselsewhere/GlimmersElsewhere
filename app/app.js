@@ -1409,6 +1409,9 @@ function renderMeters() {
 function renderScene() {
   const current = content();
   const scene = current.scenes[sceneIndex];
+  // Talents and event effects can change stats before a scene paints (for
+  // example 飞檐走壁's agility +10), so always repaint the meters here.
+  renderMeters();
   $("visualStage").classList.remove("is-hero");
   const actions = maybeShuffleActions(scene.actions || current.actions || []);
   choiceLocked = false;
@@ -1562,6 +1565,9 @@ function resolveChoice(actionId) {
       // quarter at -5 health costs 15 months of the nine-lives budget.
       // The -100 health of a fatal scene is not a sickness, so it is skipped.
       state.lifespan = Math.max(0, Number(state.lifespan || 0) + 3 * health);
+      state.sickMonths = (Number(state.sickMonths) || 0) + 3 * Math.abs(health);
+      // When the illness eats the rest of the nine lives the cat dies of it.
+      if (Number(state.age || 0) >= Number(state.lifespan || 0)) state.forcedEnding = "sick";
     }
   }
   renderMeters();
@@ -1656,8 +1662,13 @@ function showEnding() {
   const ending = world?.mode === "life"
     ? chooseLifeEnding()
     : content().endings.find(endingMatches) || content().endings.at(-1);
-  $("endingTitle").textContent = ending.title;
-  $("endingDescription").textContent = ending.description;
+  // Endings may quote the run: {age}, {lifespan} and {fish} are filled in here.
+  const fillEndingText = (text = "") => String(text)
+    .replace(/\{age\}/g, String(Math.round(Number(state.age || 0))))
+    .replace(/\{lifespan\}/g, String(Math.round(Number(state.lifespan || 0))))
+    .replace(/\{fish\}/g, String(Math.round(Number(state.fish || 0))));
+  $("endingTitle").textContent = fillEndingText(ending.title);
+  $("endingDescription").textContent = fillEndingText(ending.description);
   const finalStats = $("finalStats");
   finalStats.classList.toggle("is-life", world?.mode === "life");
   finalStats.innerHTML = (content().states || []).map(definition => `<span>${definition.label} <b>${state[definition.id] || 0}</b></span>`).join("") + (world?.mode === "life" ? lifeSummaryMarkup() : "");

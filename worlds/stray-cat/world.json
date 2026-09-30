@@ -1426,10 +1426,23 @@
     },
     {
       "id": "night-legend",
-      "title": "夜巷传说",
-      "description": "没人收养你，但整条街都知道有一只灰扑扑的白猫。",
+      "title": "没有人带走你",
+      "description": "你还是住在同一条街上。垃圾桶、屋檐、车底，你都熟。没有人带走你，也没有人知道你叫什么。你把自己缩得更小一点，等下一个冬天过去。",
       "all": [],
       "image": "assets/images/endings/night-legend.webp"
+    },
+    {
+      "id": "sick",
+      "title": "没撑过这个冬天",
+      "description": "病一直没有好。最后一个很冷的早上，你在暖气管道边的纸箱里蜷成一团，再没有站起来。你只活了 {age} 个月，街上的猫很多都是这样。",
+      "all": [
+        {
+          "state": "forcedEnding",
+          "operator": "=",
+          "value": "sick"
+        }
+      ],
+      "image": "assets/images/endings/sick.webp"
     },
     {
       "id": "heaven",

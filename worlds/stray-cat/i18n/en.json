@@ -1426,10 +1426,23 @@
     },
     {
       "id": "night-legend",
-      "title": "The Night Legend",
-      "description": "No one adopts you, but the whole street knows there is a dusty white cat.",
+      "title": "Nobody Took You Home",
+      "description": "You still live on the same street. The bins, the eaves, the space under cars — you know them all. Nobody took you home, and nobody knows your name. You curl up a little smaller and wait for the next winter to pass.",
       "all": [],
       "image": "assets/images/endings/night-legend.webp"
+    },
+    {
+      "id": "sick",
+      "title": "Did Not Last the Winter",
+      "description": "The illness never really left you. On one very cold morning you curled into a ball in a cardboard box beside the heating pipe and did not get up again. You lived only {age} months. That is how it goes for many cats on this street.",
+      "all": [
+        {
+          "state": "forcedEnding",
+          "operator": "=",
+          "value": "sick"
+        }
+      ],
+      "image": "assets/images/endings/sick.webp"
     },
     {
       "id": "heaven",
