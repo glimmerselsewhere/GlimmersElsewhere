@@ -1483,13 +1483,27 @@ function renderScene() {
       const enemy = scene.enemy;
       const danger = ["cat eater", "abuser", "stray dog", "wild goose", "kid"].includes(enemy.kind);
       const label = (lang === "en" ? enemy.nameEn || enemy.name : enemy.name);
-      const chips = enemy.friendliness != null
-        // Friendly humans are not sparring partners: show the trust they want instead.
-        ? [`<span>${escapeHtml(lang === "en" ? "Friendliness" : "友善")} ${enemy.friendliness}</span>`]
-        : [
-            `<span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Strength" : "武力")} ${enemy.strength}</span>`,
-            `<span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Agility" : "敏捷")} ${enemy.agility}</span>`,
-          ];
+      // A cat cannot read stat sheets. Dangerous encounters only get a vague
+      // impression, measured against the cat's own body — never a number, and
+      // never an attribute on a human (friendliness belongs to the cat alone).
+      const sizeWord = ratio => {
+        if (ratio < 0.75) return lang === "en" ? "looks smaller than you" : "看起来比你小";
+        if (ratio <= 1.3) return lang === "en" ? "looks about your size" : "看起来跟你差不多大";
+        if (ratio <= 2.2) return lang === "en" ? "looks bigger than you" : "看起来比你大";
+        return lang === "en" ? "looks much bigger than you" : "看起来比你大得多";
+      };
+      const speedWord = ratio => {
+        if (ratio < 0.75) return lang === "en" ? "slower than you" : "跑得没你快";
+        if (ratio <= 1.3) return lang === "en" ? "about as fast as you" : "和你差不多快";
+        if (ratio <= 2.2) return lang === "en" ? "faster than you" : "比你快";
+        return lang === "en" ? "much faster than you" : "比你快得多";
+      };
+      const chips = danger
+        ? [
+            `<span class="is-danger">${escapeHtml(sizeWord(Number(enemy.strength || 0) / Math.max(1, Number(state.strength || 0))))}</span>`,
+            `<span>${escapeHtml(speedWord(Number(enemy.agility || 0) / Math.max(1, Number(state.agility || 0))))}</span>`,
+          ]
+        : [];
       enemyStats.hidden = false;
       enemyStats.innerHTML = `<strong>${escapeHtml(label)}</strong>${chips.join("")}`;
     } else {
