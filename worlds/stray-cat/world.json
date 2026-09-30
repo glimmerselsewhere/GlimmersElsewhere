@@ -397,8 +397,8 @@
         },
         {
           "id": "observe",
-          "name": "观察老猫乞讨",
-          "hint": "学怎么吸引人类",
+          "name": "观察老猫",
+          "hint": "学它怎么坐、怎么看人",
           "icon": "B"
         },
         {
@@ -629,12 +629,12 @@
     {
       "id": "neuter-van",
       "chapter": "Q6 · 15-18个月",
-      "title": "绝育队的网",
-      "description": "绝育队的年轻人拿着网。他动作很稳，但不会伤害你。",
+      "title": "巷口拿网的人",
+      "description": "一个年轻人拿着网站在巷口。他动作很稳，正一步一步靠近。",
       "image": "assets/images/scenes/neuter-van.webp",
       "enemy": {
         "id": "neuter-worker",
-        "name": "绝育队年轻人",
+        "name": "拿网的年轻人",
         "strength": 6,
         "agility": 4,
         "kind": "kind human"
@@ -713,7 +713,7 @@
     {
       "id": "kind-hand",
       "chapter": "Q7 · 18-21个月",
-      "title": "好小孩",
+      "title": "蹲下来的小孩",
       "description": "街角有个小女孩蹲下来，手心放着半块鱼干。",
       "image": "assets/images/scenes/good-kid.webp",
       "enemy": {
@@ -771,12 +771,12 @@
     {
       "id": "clinic",
       "chapter": "Q8 · 21-24个月",
-      "title": "诊所医生",
-      "description": "诊所医生把手放在你的背上，正在检查你的伤口。",
+      "title": "白大褂的人",
+      "description": "一个穿白大褂的人把手放在你的背上。屋里有药水的味道。",
       "image": "assets/images/scenes/clinic.webp",
       "enemy": {
         "id": "doctor",
-        "name": "诊所医生",
+        "name": "白大褂的人",
         "strength": 4,
         "agility": 4,
         "kind": "kind human"
@@ -886,12 +886,12 @@
     {
       "id": "kid",
       "chapter": "Q10 · 27-30个月",
-      "title": "坏小孩",
+      "title": "拿着树枝的小孩",
       "description": "一个拿着树枝的小男孩看见你，开始追。",
       "image": "assets/images/scenes/bad-kid.webp",
       "enemy": {
         "id": "kid",
-        "name": "坏小孩",
+        "name": "拿着树枝的小孩",
         "strength": 4,
         "agility": 3,
         "kind": "kid"
@@ -1037,8 +1037,8 @@
     {
       "id": "plastic-waste",
       "chapter": "Q12 · 33-36个月",
-      "title": "塑料陷阱",
-      "description": "垃圾桶边有一只闻起来像鱼的塑料袋。你不知道里面还有半块塑料片。",
+      "title": "垃圾桶边的塑料袋",
+      "description": "垃圾桶边有一只闻起来像鱼的塑料袋。味道很香。",
       "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
@@ -1083,12 +1083,12 @@
     {
       "id": "cat-eater",
       "chapter": "Q13 · 36-39个月",
-      "title": "猫肉贩子",
-      "description": "猫肉贩子守在后巷，手里有一只铁笼。他很强，但不够快。",
+      "title": "巷口的铁笼",
+      "description": "一个男人守在后巷，脚边放着一只铁笼。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
         "id": "cat-eater",
-        "name": "猫肉贩子",
+        "name": "后巷的男人",
         "strength": 12,
         "agility": 5,
         "kind": "cat eater"
@@ -1230,22 +1230,22 @@
     {
       "id": "adopter",
       "chapter": "Q15 · 42-45个月",
-      "title": "想收养你的年轻女人",
-      "description": "年轻女人把门开了一条缝，灯光落在你的爪子前。她已经在楼上看了你很多天。",
+      "title": "夜里开门的人",
+      "description": "一个女人把门开了一条缝，灯光落在你的爪子前。你闻不出屋子里面是什么味道。",
       "image": "assets/images/scenes/door.webp",
       "enemy": {
         "id": "adopter",
-        "name": "想收养你的年轻女人",
+        "name": "夜里开门的人",
         "strength": 3,
         "agility": 3,
         "kind": "kind human",
-        "friendliness": 4
+        "needsCatFriendliness": 4
       },
       "actions": [
         {
           "id": "enter",
           "name": "走进去",
-          "hint": "她需要你亲近人",
+          "hint": "试试那块暖地板",
           "icon": "A"
         },
         {
@@ -1259,7 +1259,7 @@
         "enter": {
           "compare": {
             "stat": "friendliness",
-            "enemyStat": "friendliness",
+            "enemyStat": "needsCatFriendliness",
             "op": ">=",
             "success": {
               "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再流浪了。",
@@ -1289,12 +1289,12 @@
     {
       "id": "abuser",
       "chapter": "Q16 · 45-48个月",
-      "title": "虐猫者",
-      "description": "虐猫者站在巷口，手里有一个袋子。他是这条街最危险的人。躲没有用，只能打过去，或者冲过去。",
+      "title": "夜里挡路的人",
+      "description": "他站在巷口，手里拎着一个袋子。他没有让开，也没有说话。",
       "image": "assets/images/scenes/black-glove.webp",
       "enemy": {
         "id": "abuser",
-        "name": "虐猫者",
+        "name": "巷口的人",
         "strength": 8,
         "agility": 8,
         "kind": "abuser"
@@ -1303,13 +1303,13 @@
         {
           "id": "fight",
           "name": "扑过去",
-          "hint": "武力要压过他",
+          "hint": "用爪子说话",
           "icon": "A"
         },
         {
           "id": "run",
           "name": "从他身边冲过去",
-          "hint": "敏捷要快过他",
+          "hint": "贴着墙挤过去",
           "icon": "B"
         }
       ],

@@ -398,7 +398,7 @@
         {
           "id": "observe",
           "name": "Observe the older cat",
-          "hint": "Learn how to attract humans",
+          "hint": "Learn how it sits and looks at people",
           "icon": "B"
         },
         {
@@ -629,12 +629,12 @@
     {
       "id": "neuter-van",
       "chapter": "Q6 · Months 15-18",
-      "title": "The Neutering Team's Net",
-      "description": "The young person from the neutering team holds a net. Their movements are steady but not harmful.",
+      "title": "The Person With a Net",
+      "description": "A young person stands at the mouth of the alley with a net. Their movements are steady, and they keep coming closer.",
       "image": "assets/images/scenes/neuter-van.webp",
       "enemy": {
         "id": "neuter-worker",
-        "name": "Neutering Worker",
+        "name": "The Young Person With a Net",
         "strength": 6,
         "agility": 4,
         "kind": "kind human"
@@ -713,7 +713,7 @@
     {
       "id": "kind-hand",
       "chapter": "Q7 · Months 18-21",
-      "title": "The Good Kid",
+      "title": "The Kid Who Crouches Down",
       "description": "A little girl crouches at the corner with half a dried fish in her palm.",
       "image": "assets/images/scenes/good-kid.webp",
       "enemy": {
@@ -771,12 +771,12 @@
     {
       "id": "clinic",
       "chapter": "Q8 · Months 21-24",
-      "title": "The Clinic Doctor",
-      "description": "The clinic doctor rests a hand on your back, checking your wounds.",
+      "title": "The Person in the White Coat",
+      "description": "A person in a white coat rests a hand on your back. The room smells of medicine.",
       "image": "assets/images/scenes/clinic.webp",
       "enemy": {
         "id": "doctor",
-        "name": "Clinic Doctor",
+        "name": "The Person in the White Coat",
         "strength": 4,
         "agility": 4,
         "kind": "kind human"
@@ -886,12 +886,12 @@
     {
       "id": "kid",
       "chapter": "Q10 · Months 27-30",
-      "title": "The Bad Kid",
+      "title": "The Kid With a Stick",
       "description": "A little boy with a stick sees you and starts chasing.",
       "image": "assets/images/scenes/bad-kid.webp",
       "enemy": {
         "id": "kid",
-        "name": "Bad Kid",
+        "name": "The Kid With a Stick",
         "strength": 4,
         "agility": 3,
         "kind": "kid"
@@ -1037,8 +1037,8 @@
     {
       "id": "plastic-waste",
       "chapter": "Q12 · Months 33-36",
-      "title": "The Plastic Trap",
-      "description": "A plastic bag near the trash can smells like fish. You do not know there is still half a plastic piece inside.",
+      "title": "The Plastic Bag by the Bins",
+      "description": "A plastic bag near the trash can smells like fish. It smells very good.",
       "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
@@ -1083,12 +1083,12 @@
     {
       "id": "cat-eater",
       "chapter": "Q13 · Months 36-39",
-      "title": "The Cat Meat Dealer",
-      "description": "The cat meat dealer guards the back alley with an iron cage. He is strong but not fast enough.",
+      "title": "The Cage at the End of the Alley",
+      "description": "A man guards the back alley with an iron cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
         "id": "cat-eater",
-        "name": "Cat Meat Dealer",
+        "name": "The Man in the Back Alley",
         "strength": 12,
         "agility": 5,
         "kind": "cat eater"
@@ -1230,22 +1230,22 @@
     {
       "id": "adopter",
       "chapter": "Q15 · Months 42-45",
-      "title": "The Young Woman at the Door",
-      "description": "A young woman opens the door a crack, and light falls in front of your paws. She has been watching you from the window for many days.",
+      "title": "The Person Who Opens the Door",
+      "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
       "enemy": {
         "id": "adopter",
-        "name": "The Young Woman",
+        "name": "The Person Who Opens the Door",
         "strength": 3,
         "agility": 3,
         "kind": "kind human",
-        "friendliness": 4
+        "needsCatFriendliness": 4
       },
       "actions": [
         {
           "id": "enter",
           "name": "Walk inside",
-          "hint": "She needs you to trust humans",
+          "hint": "Try the warm floor",
           "icon": "A"
         },
         {
@@ -1259,7 +1259,7 @@
         "enter": {
           "compare": {
             "stat": "friendliness",
-            "enemyStat": "friendliness",
+            "enemyStat": "needsCatFriendliness",
             "op": ">=",
             "success": {
               "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to stray again.",
@@ -1289,12 +1289,12 @@
     {
       "id": "abuser",
       "chapter": "Q16 · Months 45-48",
-      "title": "The Cat Abuser",
-      "description": "The cat abuser stands at the alley mouth with a sack. He is the most dangerous person on this street. Hiding is useless: you either fight past him or run past him.",
+      "title": "The Man Blocking the Alley",
+      "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",
       "enemy": {
         "id": "abuser",
-        "name": "Cat Abuser",
+        "name": "The Man at the Alley Mouth",
         "strength": 8,
         "agility": 8,
         "kind": "abuser"
@@ -1303,13 +1303,13 @@
         {
           "id": "fight",
           "name": "Fight",
-          "hint": "Your strength must beat his",
+          "hint": "Use your claws",
           "icon": "A"
         },
         {
           "id": "run",
           "name": "Run",
-          "hint": "Your agility must beat his",
+          "hint": "Squeeze past along the wall",
           "icon": "B"
         }
       ],
