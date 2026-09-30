@@ -1398,7 +1398,9 @@ function lifeSummaryMarkup() {
 
 function renderMeters() {
   const definitions = content().states || Object.keys(state).map((id, index) => ({ id, label: id, color: index ? "#6d9e75" : "#d8654c", max: 14 }));
-  const maxColumns = world?.id === "stray-cat" ? 4 : 3;
+  // Five stats stay on one row for the stray cat: strength, agility, charm,
+  // health, and friendliness (dried fish rides in the progress line instead).
+  const maxColumns = world?.id === "stray-cat" ? 5 : 3;
   $("meters").style.gridTemplateColumns = `repeat(${Math.min(maxColumns, definitions.length)}, minmax(0, 1fr))`;
   $("meters").innerHTML = definitions.map(definition => `
     <div class="meter" style="--meter-color:${definition.color || '#6b4bb9'}"><span><b>${definition.label}</b><em>${state[definition.id] || 0}</em></span><i><u style="width:${Math.min(100, (state[definition.id] || 0) / (definition.max || 10) * 100)}%"></u></i></div>`).join("");
@@ -1413,7 +1415,10 @@ function renderScene() {
   if (world?.id === "stray-cat") {
     const age = Math.round(state.age || 0);
     const lifespan = Math.round(state.lifespan || 48);
-    $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")} · ${age}/${lifespan}月 · 🐟${state.fish || 0}`;
+    const months = lang === "en" ? `${age}/${lifespan}mo` : `${age}/${lifespan}月`;
+    // Kept tight on purpose: this line must not wrap onto a second row on a phone.
+    // Friendliness has its own meter next to the other five stats.
+    $("sceneProgress").textContent = `${sceneIndex + 1}/${current.scenes.length} · ${months} · 🐟${state.fish || 0}`;
   } else {
     $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")}`;
   }
@@ -1425,8 +1430,16 @@ function renderScene() {
     if (scene.enemy) {
       const enemy = scene.enemy;
       const danger = ["cat eater", "abuser", "stray dog", "wild goose", "kid"].includes(enemy.kind);
+      const label = (lang === "en" ? enemy.nameEn || enemy.name : enemy.name);
+      const chips = enemy.friendliness != null
+        // Friendly humans are not sparring partners: show the trust they want instead.
+        ? [`<span>${escapeHtml(lang === "en" ? "Friendliness" : "友善")} ${enemy.friendliness}</span>`]
+        : [
+            `<span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Strength" : "武力")} ${enemy.strength}</span>`,
+            `<span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Agility" : "敏捷")} ${enemy.agility}</span>`,
+          ];
       enemyStats.hidden = false;
-      enemyStats.innerHTML = `<strong>${escapeHtml(lang === "en" ? enemy.nameEn || enemy.name : enemy.name)}</strong><span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Strength" : "武力")} ${enemy.strength}</span><span${danger ? ' class="is-danger"' : ''}>${escapeHtml(lang === "en" ? "Agility" : "敏捷")} ${enemy.agility}</span>`;
+      enemyStats.innerHTML = `<strong>${escapeHtml(label)}</strong>${chips.join("")}`;
     } else {
       enemyStats.hidden = true;
       enemyStats.innerHTML = "";
@@ -1543,8 +1556,12 @@ function resolveChoice(actionId) {
   }
   if (world?.id === "stray-cat") {
     state.age = Math.max(0, Number(state.age || 0) + 3);
-    if (Number(state.health || 0) < 0) {
-      state.lifespan = Math.max(0, Number(state.lifespan || 0) - 3);
+    const health = Math.round(Number(state.health || 0));
+    if (health < 0 && !state.forcedEnding) {
+      // A sick cat burns through its lifeline: |health| months per month, so a
+      // quarter at -5 health costs 15 months of the nine-lives budget.
+      // The -100 health of a fatal scene is not a sickness, so it is skipped.
+      state.lifespan = Math.max(0, Number(state.lifespan || 0) + 3 * health);
     }
   }
   renderMeters();

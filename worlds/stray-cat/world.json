@@ -3,7 +3,7 @@
   "title": "阿灰流浪记",
   "shortTitle": "阿灰流浪记",
   "subtitle": "48个月的街头猫生",
-  "description": "阿灰是一只灰扑扑的白猫。他在 48 个月里遇到鱼摊老太太、大黄、白霸、绝育队、诊所医生、猫肉贩子、小屁孩和虐猫者。",
+  "description": "阿灰是一只灰扑扑的白猫。他在 48 个月里遇到鱼摊老太太、大黄、白霸、绝育队、诊所医生、猫肉贩子、小屁孩、虐猫者，和一个想把他留下的年轻女人。",
   "mode": null,
   "music": "assets/audio/street-patrol.mp3",
   "musicVolume": 0.12,
@@ -21,6 +21,7 @@
     "charm": 4,
     "health": 8,
     "fish": 3,
+    "friendliness": 1,
     "age": 0,
     "lifespan": 48
   },
@@ -52,7 +53,7 @@
     {
       "id": "health",
       "label": "健康",
-      "description": "可为负数；负数时每回合减少寿命上限",
+      "description": "可为负数；为负时每个月按负值折寿，比如 -3 就是每个月少活 3 个月",
       "color": "#5f9e78",
       "chipBackground": "#dcf0e2",
       "max": 100
@@ -64,6 +65,14 @@
       "color": "#eab308",
       "chipBackground": "#fef9c3",
       "max": 100
+    },
+    {
+      "id": "friendliness",
+      "label": "友善度",
+      "description": "你有多愿意亲近人；决定最后有没有人愿意把你留下",
+      "color": "#c0648a",
+      "chipBackground": "#f8dbe8",
+      "max": 10
     }
   ],
   "talents": [
@@ -385,10 +394,11 @@
       ],
       "outcomes": {
         "wait": {
-          "text": "她把碎鱼推得更近一点。",
+          "text": "你安静地坐着，她没有赶你。你把这件事记住了。",
           "stateChanges": {
             "health": 1,
-            "fish": 2
+            "fish": 2,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/fish-stall-wait.webp"
         },
@@ -396,7 +406,8 @@
           "text": "你学会了一点怎么坐直、怎么看人、怎么轻轻叫。",
           "stateChanges": {
             "charm": 2,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/fish-stall-observe.webp"
         },
@@ -682,10 +693,11 @@
           }
         },
         "accept": {
-          "text": "年轻人把你放进笼子，动作很轻。",
+          "text": "年轻人把你放进笼子，动作很轻。醒来时你已经在原来的街角。",
           "stateChanges": {
             "health": 3,
-            "lifespan": 6
+            "lifespan": 6,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/neuter-van-accept.webp"
         }
@@ -729,14 +741,16 @@
           "text": "她把鱼干放在地上，退开两步等你吃。",
           "stateChanges": {
             "health": 1,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/kind-hand-approach.webp"
         },
         "rub": {
-          "text": "她摸了摸你的头，你的身体松下来一点。",
+          "text": "她摸了摸你的头，你的身体松下来一点。这次你没有躲。",
           "stateChanges": {
-            "health": 1
+            "health": 1,
+            "friendliness": 2
           },
           "image": "assets/images/outcomes/kind-hand-rub.webp"
         },
@@ -782,11 +796,12 @@
       ],
       "outcomes": {
         "treat": {
-          "text": "她给你上药，又放了一碗水。",
+          "text": "她给你上药，又放了一碗水。你让她碰了你的后颈。",
           "stateChanges": {
             "health": 4,
             "lifespan": 6,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/clinic-treat.webp"
         },
@@ -798,9 +813,10 @@
           "image": "assets/images/outcomes/clinic-hide.webp"
         },
         "struggle": {
-          "text": "你挣了一下，她停住手，等你安静。",
+          "text": "你咬了她一口，她停住手，等你安静。",
           "stateChanges": {
-            "health": -1
+            "health": -1,
+            "friendliness": -1
           },
           "image": "assets/images/outcomes/clinic-struggle.webp"
         }
@@ -834,10 +850,11 @@
       ],
       "outcomes": {
         "bath": {
-          "text": "水很暖，你的白毛终于露出来。",
+          "text": "水很暖，你的白毛终于露出来。你第一次在人的手里睡着。",
           "stateChanges": {
             "charm": 2,
-            "health": 1
+            "health": 1,
+            "friendliness": 1
           },
           "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
@@ -845,124 +862,23 @@
           "text": "项圈很轻，铃铛只响了一下。女孩说：先戴着，别弄丢。",
           "stateChanges": {
             "charm": 2,
-            "fish": 1
+            "fish": 1,
+            "friendliness": 2
           },
           "image": "assets/images/outcomes/bath-collar-collar.webp"
         },
         "resist": {
-          "text": "你从窗户跳出去，项圈留在桌上。",
-          "stateChanges": {},
+          "text": "你抓了她一下，从窗户跳出去，项圈留在桌上。",
+          "stateChanges": {
+            "friendliness": -1
+          },
           "image": "assets/images/outcomes/bath-collar-resist.webp"
         }
       }
     },
     {
-      "id": "cat-eater",
-      "chapter": "Q10 · 27-30个月",
-      "title": "猫肉贩子",
-      "description": "猫肉贩子守在后巷，手里有一只铁笼。他很强，但不够快。",
-      "image": "assets/images/scenes/cat-meat-dealer.webp",
-      "enemy": {
-        "id": "cat-eater",
-        "name": "猫肉贩子",
-        "strength": 12,
-        "agility": 5,
-        "kind": "cat eater"
-      },
-      "actions": [
-        {
-          "id": "fight",
-          "name": "扑过去",
-          "hint": "用爪子说话",
-          "icon": "A"
-        },
-        {
-          "id": "run",
-          "name": "从他身边冲过去",
-          "hint": "赌一次敏捷",
-          "icon": "B"
-        },
-        {
-          "id": "hide",
-          "name": "躲进纸箱",
-          "hint": "别被他看见",
-          "icon": "C"
-        }
-      ],
-      "outcomes": {
-        "fight": {
-          "compare": {
-            "stat": "strength",
-            "enemyStat": "strength",
-            "op": ">=",
-            "success": {
-              "text": "你的爪子划过他的手背，铁笼掉在地上。",
-              "stateChanges": {
-                "health": -1
-              },
-              "image": "assets/images/outcomes/cat-eater-fight-success.webp"
-            },
-            "failure": {
-              "text": "你没有足够的力量。铁笼合上了，但后来有光。",
-              "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
-              },
-              "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
-            }
-          }
-        },
-        "run": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "你贴着他的裤脚冲过去，风把他留在原地。",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/cat-eater-run-success.webp"
-            },
-            "failure": {
-              "text": "你没能逃开。铁笼合上了，但后来有光。",
-              "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
-              },
-              "image": "assets/images/outcomes/cat-eater-run-failure.webp"
-            }
-          }
-        },
-        "hide": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "你藏进纸箱，他只闻到你的味道。",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/cat-eater-hide-success.webp"
-            },
-            "failure": {
-              "text": "纸箱被他踢翻，你滚了出来。",
-              "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
-              },
-              "image": "assets/images/outcomes/cat-eater-hide-failure.webp"
-            }
-          }
-        }
-      }
-    },
-    {
       "id": "kid",
-      "chapter": "Q11 · 30-33个月",
+      "chapter": "Q10 · 27-30个月",
       "title": "坏小孩",
       "description": "一个拿着树枝的小男孩看见你，开始追。",
       "image": "assets/images/scenes/bad-kid.webp",
@@ -1000,9 +916,10 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "你抓住树枝，把他吓退了。",
+              "text": "你抓住树枝，把他吓退了。他的哭声跟了你两条街。",
               "stateChanges": {
-                "health": -1
+                "health": -1,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/kid-fight-success.webp"
             },
@@ -1056,6 +973,61 @@
       }
     },
     {
+      "id": "old-cat-lesson",
+      "chapter": "Q11 · 30-33个月",
+      "title": "老猫的敏捷课",
+      "description": "老橘带你到铁栅栏前，教你怎么压低身体、侧肩、从最窄的缝里穿过去。",
+      "image": "assets/images/scenes/old-cat-lesson.webp",
+      "enemy": {
+        "id": "old-orange",
+        "name": "老橘",
+        "strength": 7,
+        "agility": 8,
+        "kind": "mentor cat"
+      },
+      "actions": [
+        {
+          "id": "follow",
+          "name": "跟着他钻一次",
+          "hint": "学动作",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "在旁边看",
+          "hint": "先记住路线",
+          "icon": "B"
+        },
+        {
+          "id": "ignore",
+          "name": "不理他",
+          "hint": "自己找路",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "follow": {
+          "text": "你第一次就卡了一下，第二次侧肩过去。一整个下午你都在练这个动作。",
+          "stateChanges": {
+            "agility": 3
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
+        },
+        "watch": {
+          "text": "你看清了他压低身体的角度。",
+          "stateChanges": {
+            "agility": 1
+          },
+          "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
+        },
+        "ignore": {
+          "text": "你自己绕了很远，没学到什么。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/old-cat-lesson-ignore.webp"
+        }
+      }
+    },
+    {
       "id": "plastic-waste",
       "chapter": "Q12 · 33-36个月",
       "title": "塑料陷阱",
@@ -1102,57 +1074,100 @@
       }
     },
     {
-      "id": "old-cat-lesson",
+      "id": "cat-eater",
       "chapter": "Q13 · 36-39个月",
-      "title": "老猫的敏捷课",
-      "description": "老橘带你到铁栅栏前，教你怎么压低身体、侧肩、从最窄的缝里穿过去。",
-      "image": "assets/images/scenes/old-cat-lesson.webp",
+      "title": "猫肉贩子",
+      "description": "猫肉贩子守在后巷，手里有一只铁笼。他很强，但不够快。",
+      "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
-        "id": "old-orange",
-        "name": "老橘",
-        "strength": 7,
-        "agility": 8,
-        "kind": "mentor cat"
+        "id": "cat-eater",
+        "name": "猫肉贩子",
+        "strength": 12,
+        "agility": 5,
+        "kind": "cat eater"
       },
       "actions": [
         {
-          "id": "follow",
-          "name": "跟着他钻一次",
-          "hint": "学动作",
+          "id": "fight",
+          "name": "扑过去",
+          "hint": "用爪子说话",
           "icon": "A"
         },
         {
-          "id": "watch",
-          "name": "在旁边看",
-          "hint": "先记住路线",
+          "id": "run",
+          "name": "从他身边冲过去",
+          "hint": "赌一次敏捷",
           "icon": "B"
         },
         {
-          "id": "ignore",
-          "name": "不理他",
-          "hint": "自己找路",
+          "id": "hide",
+          "name": "躲进纸箱",
+          "hint": "别被他看见",
           "icon": "C"
         }
       ],
       "outcomes": {
-        "follow": {
-          "text": "你第一次就卡了一下，第二次侧肩过去。身体记住了一点东西。",
-          "stateChanges": {
-            "agility": 2
-          },
-          "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "你的爪子划过他的手背，铁笼掉在地上。",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-success.webp"
+            },
+            "failure": {
+              "text": "你没有足够的力量。铁笼合上了，你去了猫的天堂。",
+              "stateChanges": {
+                "health": -100,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-fight-failure.webp"
+            }
+          }
         },
-        "watch": {
-          "text": "你看清了他压低身体的角度。",
-          "stateChanges": {
-            "agility": 1
-          },
-          "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
+        "run": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "你贴着他的裤脚冲过去，风把他留在原地。",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-run-success.webp"
+            },
+            "failure": {
+              "text": "你没能逃开。铁笼合上了，你去了猫的天堂。",
+              "stateChanges": {
+                "health": -100,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-run-failure.webp"
+            }
+          }
         },
-        "ignore": {
-          "text": "你自己绕了很远，没学到什么。",
-          "stateChanges": {},
-          "image": "assets/images/outcomes/old-cat-lesson-ignore.webp"
+        "hide": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "你藏进纸箱，他只闻到你的味道。",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/cat-eater-hide-success.webp"
+            },
+            "failure": {
+              "text": "纸箱被他踢翻。铁笼合上了，你去了猫的天堂。",
+              "stateChanges": {
+                "health": -100,
+                "forcedEnding": "heaven"
+              },
+              "image": "assets/images/outcomes/cat-eater-hide-failure.webp"
+            }
+          }
         }
       }
     },
@@ -1207,93 +1222,30 @@
       }
     },
     {
-      "id": "adopter",
-      "chapter": "Q15 · 42-45个月",
-      "title": "想收养你的年轻人",
-      "description": "年轻人把门开了一条缝，灯光落在你的爪子前。",
-      "image": "assets/images/scenes/door.webp",
-      "enemy": {
-        "id": "adopter",
-        "name": "想收养你的年轻人",
-        "strength": 3,
-        "agility": 3,
-        "kind": "kind human"
-      },
-      "actions": [
-        {
-          "id": "enter",
-          "name": "走进去",
-          "hint": "试试暖的地板",
-          "icon": "A"
-        },
-        {
-          "id": "sit",
-          "name": "坐在门口",
-          "hint": "先不进去",
-          "icon": "B"
-        },
-        {
-          "id": "leave",
-          "name": "转身离开",
-          "hint": "还想去街上",
-          "icon": "C"
-        }
-      ],
-      "outcomes": {
-        "enter": {
-          "text": "地板很暖，你的爪垫陷进去一点。门在你身后合上——你不用再流浪了。",
-          "stateChanges": {
-            "health": 2,
-            "fish": 2,
-            "forcedEnding": "home"
-          },
-          "image": "assets/images/outcomes/adopter-enter.webp"
-        },
-        "sit": {
-          "text": "你坐在光和黑的边界上，没有动。",
-          "stateChanges": {
-            "health": 1
-          },
-          "image": "assets/images/outcomes/adopter-sit.webp"
-        },
-        "leave": {
-          "text": "你转身走进夜色，尾巴消失在转角。",
-          "stateChanges": {},
-          "image": "assets/images/outcomes/adopter-leave.webp"
-        }
-      }
-    },
-    {
       "id": "abuser",
-      "chapter": "Q16 · 45-48个月",
+      "chapter": "Q15 · 42-45个月",
       "title": "虐猫者",
-      "description": "虐猫者站在巷口，手里有一个袋子。他是这条街最危险的人。",
+      "description": "虐猫者站在巷口，手里有一个袋子。他是这条街最危险的人。躲没有用，只能打过去，或者冲过去。",
       "image": "assets/images/scenes/black-glove.webp",
       "enemy": {
         "id": "abuser",
         "name": "虐猫者",
-        "strength": 10,
-        "agility": 11,
+        "strength": 8,
+        "agility": 8,
         "kind": "abuser"
       },
       "actions": [
         {
           "id": "fight",
           "name": "扑过去",
-          "hint": "用爪子说话",
+          "hint": "武力要压过他",
           "icon": "A"
         },
         {
           "id": "run",
           "name": "从他身边冲过去",
-          "hint": "赌一次敏捷",
+          "hint": "敏捷要快过他",
           "icon": "B"
-        },
-        {
-          "id": "charm",
-          "name": "让他停一下",
-          "hint": "也许他会犹豫",
-          "icon": "C"
         }
       ],
       "outcomes": {
@@ -1310,11 +1262,9 @@
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
-              "text": "你没有足够的力量。袋子合上了，但后来有光。",
+              "text": "你没有足够的力量。袋子扎紧了，你去了猫的天堂。",
               "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
+                "health": -100,
                 "forcedEnding": "heaven"
               },
               "image": "assets/images/outcomes/abuser-fight-failure.webp"
@@ -1332,38 +1282,86 @@
               "image": "assets/images/outcomes/abuser-run-success.webp"
             },
             "failure": {
-              "text": "你没能逃开。袋子合上了，但后来有光。",
+              "text": "你没能逃开。袋子扎紧了，你去了猫的天堂。",
               "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
+                "health": -100,
                 "forcedEnding": "heaven"
               },
               "image": "assets/images/outcomes/abuser-run-failure.webp"
             }
           }
+        }
+      }
+    },
+    {
+      "id": "adopter",
+      "chapter": "Q16 · 45-48个月",
+      "title": "想收养你的年轻女人",
+      "description": "年轻女人把门开了一条缝，灯光落在你的爪子前。她已经在楼上看了你很多天。",
+      "image": "assets/images/scenes/door.webp",
+      "enemy": {
+        "id": "adopter",
+        "name": "想收养你的年轻女人",
+        "strength": 3,
+        "agility": 3,
+        "kind": "kind human",
+        "friendliness": 4
+      },
+      "actions": [
+        {
+          "id": "enter",
+          "name": "走进去",
+          "hint": "她需要你亲近人",
+          "icon": "A"
         },
-        "charm": {
+        {
+          "id": "sit",
+          "name": "坐在门口",
+          "hint": "先不进去",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "转身离开",
+          "hint": "还想去街上",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "enter": {
           "compare": {
-            "stat": "charm",
-            "enemyStat": "agility",
+            "stat": "friendliness",
+            "enemyStat": "friendliness",
             "op": ">=",
             "success": {
-              "text": "你坐在灯光下舔了舔爪子，他停住了。",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/abuser-charm-success.webp"
+              "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再流浪了。",
+              "stateChanges": {
+                "health": 2,
+                "fish": 2,
+                "forcedEnding": "home"
+              },
+              "image": "assets/images/outcomes/adopter-enter-success.webp"
             },
             "failure": {
-              "text": "他没有停。袋子合上了，但后来有光。",
+              "text": "你进门就压低身体，贴着墙根走。她看了你很久，最后还是轻轻把门关上了。",
               "stateChanges": {
-                "health": -5,
-                "fish": -3,
-                "lifespan": -10,
-                "forcedEnding": "heaven"
+                "friendliness": 1
               },
-              "image": "assets/images/outcomes/abuser-charm-failure.webp"
+              "image": "assets/images/outcomes/adopter-enter-failure.webp"
             }
           }
+        },
+        "sit": {
+          "text": "你坐在光和黑的边界上，没有动。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/adopter-sit.webp"
+        },
+        "leave": {
+          "text": "你转身走进夜色，尾巴消失在转角。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/adopter-leave.webp"
         }
       }
     }
@@ -1388,14 +1386,9 @@
       "description": "你四脚朝天睡在床上，肚皮朝着天花板。没有人再让你出去。",
       "all": [
         {
-          "state": "charm",
-          "operator": ">=",
-          "value": 8
-        },
-        {
-          "state": "health",
-          "operator": ">=",
-          "value": 7
+          "state": "forcedEnding",
+          "operator": "=",
+          "value": "home"
         }
       ],
       "image": "assets/images/endings/home.webp"
@@ -1455,8 +1448,8 @@
   "catalog": {
     "eyebrow": "第十片异境微光已经苏醒",
     "headline": "48 个月，一只灰扑扑的白猫。",
-    "description": "16 个季度，遇到狗、鹅、绝育队、好心人、猫肉贩子、塑料垃圾、铁丝和虐猫者。",
-    "cardDescription": "武力、敏捷、魅力、健康、鱼干和寿命共同决定你的结局。",
+    "description": "16 个季度：先是纸箱和雨夜，然后是狗、鹅、绝育队和好心人；越到后面越难，最后两关是虐猫者和那扇门。",
+    "cardDescription": "武力、敏捷、魅力、友善度、健康、鱼干和寿命共同决定你的结局。",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",
     "cardGradient": [
