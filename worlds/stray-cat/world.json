@@ -5,6 +5,10 @@
   "subtitle": "48个月的街头猫生",
   "description": "阿灰是一只灰扑扑的白猫。他在 48 个月里遇到鱼摊老太太、大黄、白霸、绝育队、诊所医生、猫肉贩子、小屁孩、虐猫者，和一个想把他留下的年轻女人。",
   "mode": null,
+  "sceneShuffle": {
+    "head": 3,
+    "tail": 4
+  },
   "music": "assets/audio/street-patrol.mp3",
   "musicVolume": 0.12,
   "assetBase": "worlds/stray-cat/",
@@ -482,9 +486,7 @@
             "op": ">=",
             "success": {
               "text": "你把背拱成一座桥，大黄停住了。",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
             "failure": {
@@ -578,9 +580,7 @@
             "op": ">=",
             "success": {
               "text": "你压住她的翅膀，白霸退了一步。",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
             },
             "failure": {
@@ -656,9 +656,7 @@
             "op": ">=",
             "success": {
               "text": "你贴着排气管藏住，网落空了。",
-              "stateChanges": {
-                "health": 1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/neuter-van-hide-success.webp"
             },
             "failure": {
@@ -677,9 +675,7 @@
             "op": ">=",
             "success": {
               "text": "你从网和墙之间穿过去，像一条白线。",
-              "stateChanges": {
-                "health": 1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/neuter-van-dash-success.webp"
             },
             "failure": {
@@ -838,7 +834,7 @@
         {
           "id": "collar",
           "name": "接受项圈",
-          "hint": "像有了一个家",
+          "hint": "她说先戴着",
           "icon": "B"
         },
         {
@@ -918,7 +914,6 @@
             "success": {
               "text": "你抓住树枝，把他吓退了。他的哭声跟了你两条街。",
               "stateChanges": {
-                "health": -1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/kid-fight-success.webp"
@@ -1114,9 +1109,7 @@
             "op": ">=",
             "success": {
               "text": "你的爪子划过他的手背，铁笼掉在地上。",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
@@ -1222,8 +1215,67 @@
       }
     },
     {
-      "id": "abuser",
+      "id": "adopter",
       "chapter": "Q15 · 42-45个月",
+      "title": "想收养你的年轻女人",
+      "description": "年轻女人把门开了一条缝，灯光落在你的爪子前。她已经在楼上看了你很多天。",
+      "image": "assets/images/scenes/door.webp",
+      "enemy": {
+        "id": "adopter",
+        "name": "想收养你的年轻女人",
+        "strength": 3,
+        "agility": 3,
+        "kind": "kind human",
+        "friendliness": 4
+      },
+      "actions": [
+        {
+          "id": "enter",
+          "name": "走进去",
+          "hint": "她需要你亲近人",
+          "icon": "A"
+        },
+        {
+          "id": "leave",
+          "name": "转身离开",
+          "hint": "街上还有事没了",
+          "icon": "B"
+        }
+      ],
+      "outcomes": {
+        "enter": {
+          "compare": {
+            "stat": "friendliness",
+            "enemyStat": "friendliness",
+            "op": ">=",
+            "success": {
+              "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再流浪了。",
+              "stateChanges": {
+                "health": 2,
+                "fish": 2,
+                "forcedEnding": "home"
+              },
+              "image": "assets/images/outcomes/adopter-enter-success.webp"
+            },
+            "failure": {
+              "text": "你进门就压低身体，贴着墙根走。她看了你很久，最后还是轻轻把门关上了。",
+              "stateChanges": {
+                "friendliness": 1
+              },
+              "image": "assets/images/outcomes/adopter-enter-failure.webp"
+            }
+          }
+        },
+        "leave": {
+          "text": "你退开半步，转身走进夜色。灯光在你身后慢慢关上。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/adopter-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "abuser",
+      "chapter": "Q16 · 45-48个月",
       "title": "虐猫者",
       "description": "虐猫者站在巷口，手里有一个袋子。他是这条街最危险的人。躲没有用，只能打过去，或者冲过去。",
       "image": "assets/images/scenes/black-glove.webp",
@@ -1256,9 +1308,7 @@
             "op": ">=",
             "success": {
               "text": "你的爪子划过他的手背，袋子掉在地上。",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
@@ -1290,78 +1340,6 @@
               "image": "assets/images/outcomes/abuser-run-failure.webp"
             }
           }
-        }
-      }
-    },
-    {
-      "id": "adopter",
-      "chapter": "Q16 · 45-48个月",
-      "title": "想收养你的年轻女人",
-      "description": "年轻女人把门开了一条缝，灯光落在你的爪子前。她已经在楼上看了你很多天。",
-      "image": "assets/images/scenes/door.webp",
-      "enemy": {
-        "id": "adopter",
-        "name": "想收养你的年轻女人",
-        "strength": 3,
-        "agility": 3,
-        "kind": "kind human",
-        "friendliness": 4
-      },
-      "actions": [
-        {
-          "id": "enter",
-          "name": "走进去",
-          "hint": "她需要你亲近人",
-          "icon": "A"
-        },
-        {
-          "id": "sit",
-          "name": "坐在门口",
-          "hint": "先不进去",
-          "icon": "B"
-        },
-        {
-          "id": "leave",
-          "name": "转身离开",
-          "hint": "还想去街上",
-          "icon": "C"
-        }
-      ],
-      "outcomes": {
-        "enter": {
-          "compare": {
-            "stat": "friendliness",
-            "enemyStat": "friendliness",
-            "op": ">=",
-            "success": {
-              "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再流浪了。",
-              "stateChanges": {
-                "health": 2,
-                "fish": 2,
-                "forcedEnding": "home"
-              },
-              "image": "assets/images/outcomes/adopter-enter-success.webp"
-            },
-            "failure": {
-              "text": "你进门就压低身体，贴着墙根走。她看了你很久，最后还是轻轻把门关上了。",
-              "stateChanges": {
-                "friendliness": 1
-              },
-              "image": "assets/images/outcomes/adopter-enter-failure.webp"
-            }
-          }
-        },
-        "sit": {
-          "text": "你坐在光和黑的边界上，没有动。",
-          "stateChanges": {
-            "health": 1
-          },
-          "image": "assets/images/outcomes/adopter-sit.webp"
-        },
-        "leave": {
-          "text": "你转身走进夜色，尾巴消失在转角。",
-          "stateChanges": {},
-          "image": "assets/images/outcomes/adopter-leave.webp"
         }
       }
     }
@@ -1476,7 +1454,7 @@
   "ui": {
     "backToCatalog": "← 返回目录",
     "introButton": "开始流浪",
-    "continueButton": "下一个季度",
+    "continueButton": "继续走",
     "finalContinueButton": "看看结局",
     "replayButton": "再流浪一次"
   }

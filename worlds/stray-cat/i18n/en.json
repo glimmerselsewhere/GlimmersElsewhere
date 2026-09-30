@@ -5,6 +5,10 @@
   "subtitle": "48 Months as a Stray",
   "description": "Ah Hui is a dusty white cat. Over 48 months he meets a fish stall woman, Big Yellow, White Tyrant, a neutering team, a clinic doctor, a cat meat dealer, a kid, a cat abuser, and a young woman who would like to keep him.",
   "mode": null,
+  "sceneShuffle": {
+    "head": 3,
+    "tail": 4
+  },
   "music": "assets/audio/street-patrol.mp3",
   "musicVolume": 0.12,
   "assetBase": "worlds/stray-cat/",
@@ -482,9 +486,7 @@
             "op": ">=",
             "success": {
               "text": "You arch your back like a bridge, and Big Yellow stops.",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
             "failure": {
@@ -578,9 +580,7 @@
             "op": ">=",
             "success": {
               "text": "You pin her wing, and White Tyrant steps back.",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
             },
             "failure": {
@@ -656,9 +656,7 @@
             "op": ">=",
             "success": {
               "text": "You hide beside the exhaust pipe, and the net misses.",
-              "stateChanges": {
-                "health": 1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/neuter-van-hide-success.webp"
             },
             "failure": {
@@ -677,9 +675,7 @@
             "op": ">=",
             "success": {
               "text": "You pass between the net and wall like a white line.",
-              "stateChanges": {
-                "health": 1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/neuter-van-dash-success.webp"
             },
             "failure": {
@@ -838,7 +834,7 @@
         {
           "id": "collar",
           "name": "Accept the collar",
-          "hint": "Like having a home",
+          "hint": "She says to keep it on",
           "icon": "B"
         },
         {
@@ -918,7 +914,6 @@
             "success": {
               "text": "You grab the stick and scare him off. His crying follows you for two blocks.",
               "stateChanges": {
-                "health": -1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/kid-fight-success.webp"
@@ -1114,9 +1109,7 @@
             "op": ">=",
             "success": {
               "text": "Your claws cross the back of his hand, and the cage drops.",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
@@ -1222,8 +1215,67 @@
       }
     },
     {
-      "id": "abuser",
+      "id": "adopter",
       "chapter": "Q15 · Months 42-45",
+      "title": "The Young Woman at the Door",
+      "description": "A young woman opens the door a crack, and light falls in front of your paws. She has been watching you from the window for many days.",
+      "image": "assets/images/scenes/door.webp",
+      "enemy": {
+        "id": "adopter",
+        "name": "The Young Woman",
+        "strength": 3,
+        "agility": 3,
+        "kind": "kind human",
+        "friendliness": 4
+      },
+      "actions": [
+        {
+          "id": "enter",
+          "name": "Walk inside",
+          "hint": "She needs you to trust humans",
+          "icon": "A"
+        },
+        {
+          "id": "leave",
+          "name": "Turn away",
+          "hint": "The street is not done with you",
+          "icon": "B"
+        }
+      ],
+      "outcomes": {
+        "enter": {
+          "compare": {
+            "stat": "friendliness",
+            "enemyStat": "friendliness",
+            "op": ">=",
+            "success": {
+              "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to stray again.",
+              "stateChanges": {
+                "health": 2,
+                "fish": 2,
+                "forcedEnding": "home"
+              },
+              "image": "assets/images/outcomes/adopter-enter-success.webp"
+            },
+            "failure": {
+              "text": "You flatten yourself and creep along the wall. She watches you for a long time, then quietly closes the door.",
+              "stateChanges": {
+                "friendliness": 1
+              },
+              "image": "assets/images/outcomes/adopter-enter-failure.webp"
+            }
+          }
+        },
+        "leave": {
+          "text": "You step back and turn into the night. The light closes slowly behind you.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/adopter-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "abuser",
+      "chapter": "Q16 · Months 45-48",
       "title": "The Cat Abuser",
       "description": "The cat abuser stands at the alley mouth with a sack. He is the most dangerous person on this street. Hiding is useless: you either fight past him or run past him.",
       "image": "assets/images/scenes/black-glove.webp",
@@ -1256,9 +1308,7 @@
             "op": ">=",
             "success": {
               "text": "Your claws cross the back of his hand, and the sack drops.",
-              "stateChanges": {
-                "health": -1
-              },
+              "stateChanges": {},
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
@@ -1290,78 +1340,6 @@
               "image": "assets/images/outcomes/abuser-run-failure.webp"
             }
           }
-        }
-      }
-    },
-    {
-      "id": "adopter",
-      "chapter": "Q16 · Months 45-48",
-      "title": "The Young Woman at the Door",
-      "description": "A young woman opens the door a crack, and light falls in front of your paws. She has been watching you from the window for many days.",
-      "image": "assets/images/scenes/door.webp",
-      "enemy": {
-        "id": "adopter",
-        "name": "The Young Woman",
-        "strength": 3,
-        "agility": 3,
-        "kind": "kind human",
-        "friendliness": 4
-      },
-      "actions": [
-        {
-          "id": "enter",
-          "name": "Walk inside",
-          "hint": "She needs you to trust humans",
-          "icon": "A"
-        },
-        {
-          "id": "sit",
-          "name": "Sit at the door",
-          "hint": "Stay outside",
-          "icon": "B"
-        },
-        {
-          "id": "leave",
-          "name": "Turn away",
-          "hint": "The street still calls",
-          "icon": "C"
-        }
-      ],
-      "outcomes": {
-        "enter": {
-          "compare": {
-            "stat": "friendliness",
-            "enemyStat": "friendliness",
-            "op": ">=",
-            "success": {
-              "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to stray again.",
-              "stateChanges": {
-                "health": 2,
-                "fish": 2,
-                "forcedEnding": "home"
-              },
-              "image": "assets/images/outcomes/adopter-enter-success.webp"
-            },
-            "failure": {
-              "text": "You flatten yourself and creep along the wall. She watches you for a long time, then quietly closes the door.",
-              "stateChanges": {
-                "friendliness": 1
-              },
-              "image": "assets/images/outcomes/adopter-enter-failure.webp"
-            }
-          }
-        },
-        "sit": {
-          "text": "You sit on the border between light and dark, unmoving.",
-          "stateChanges": {
-            "health": 1
-          },
-          "image": "assets/images/outcomes/adopter-sit.webp"
-        },
-        "leave": {
-          "text": "You turn into the night, your tail disappearing around the corner.",
-          "stateChanges": {},
-          "image": "assets/images/outcomes/adopter-leave.webp"
         }
       }
     }
@@ -1476,7 +1454,7 @@
   "ui": {
     "backToCatalog": "← Worlds",
     "introButton": "Begin the stray life",
-    "continueButton": "Next quarter",
+    "continueButton": "Keep walking",
     "finalContinueButton": "See the ending",
     "replayButton": "Stray again"
   }

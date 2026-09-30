@@ -690,6 +690,7 @@ function showStrayTalentSelect() {
 
 function startStrayGame() {
   const selectedTalentIds = [...lifeTalentIds];
+  prepareStraySceneOrder();
   resetGame();
   lifeTalentIds = selectedTalentIds;
   for (const talentId of lifeTalentIds) {
@@ -702,6 +703,41 @@ function startStrayGame() {
   }
   showView("gameView");
   renderScene();
+  warmUpStrayScenes();
+}
+
+/* ---------- Ah Hui: shuffled middle, warmed art ---------- */
+function prepareStraySceneOrder() {
+  const shuffle = world?.sceneShuffle;
+  const scenes = world?.scenes || [];
+  if (!shuffle || scenes.length < 2) return;
+  const head = Math.max(0, Number(shuffle.head) || 0);
+  const tail = Math.max(0, Number(shuffle.tail) || 0);
+  const end = Math.max(head, scenes.length - tail);
+  const middle = scenes.slice(head, end);
+  for (let i = middle.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [middle[i], middle[j]] = [middle[j], middle[i]];
+  }
+  // Opening quarters and the closing danger block stay fixed; the middle of the
+  // cat's life is different every run, like the life-sim worlds.
+  world.scenes = [...scenes.slice(0, head), ...middle, ...scenes.slice(end)];
+  world.scenes.forEach((scene, index) => {
+    const start = 3 * index;
+    scene.chapter = `Q${index + 1} · ${start}-${start + 3}个月`;
+    scene.chapterEn = `Q${index + 1} · Months ${start}-${start + 3}`;
+  });
+}
+
+function warmUpStrayScenes() {
+  // The late pictures (cat meat dealer, wire, abuser) used to pop in blank on a
+  // slow connection, so warm every scene and every ending in the background.
+  const scenes = [...(content().scenes || [])];
+  scenes.forEach((scene, index) => window.setTimeout(() => preloadImage(scene.image), 800 + index * 130));
+  const endings = [...(content().endings || [])];
+  endings.forEach((ending, index) => {
+    if (ending.image) window.setTimeout(() => preloadImage(ending.image), 3200 + index * 130);
+  });
 }
 
 function goCatalog() {
