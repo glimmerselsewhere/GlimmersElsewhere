@@ -145,14 +145,27 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .enemy-stats span.is-danger { background: #ffe4e0; color: #a2372d; }
 .talent-card .talent-image { width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 8px; }
 .rarity-4 { color: #fff; background: linear-gradient(135deg, #ef4444, #991b1b); }
-.scene-copy { min-height: 72px; margin: 0 3px 10px; }
+/* The copy block never shrinks: if a short viewport squeezes the column, the
+   image is what gives way, otherwise the title/enemy chips slide under it. */
+.scene-copy { min-height: 72px; margin: 0 3px 10px; flex: 0 0 auto; }
 .scene-copy p { margin: 0 0 4px; color: var(--violet); font-size: 11px; font-weight: 800; letter-spacing: .15em; }
 .scene-copy h2 { max-width: 390px; margin: 0; font: 900 22px/1.24 "Songti SC", serif; }
 
 .visual-stage { position: relative; flex: 1 10 auto; min-height: 112px; overflow: hidden; width: 100%; border-radius: 24px; background: #d8c3a6; box-shadow: 0 14px 28px rgba(61,45,63,.16); }
 .visual-stage svg { display: block; width: 100%; height: 100%; }
 .scene-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-body[data-world-id="stray-cat"] .visual-stage { aspect-ratio: 1; }
+/* Ah Hui's art is always 1:1. Keep the stage exactly square and centred so the
+   tan stage colour can never show up as a dark yellow bar beside the photo. */
+body[data-world-id="stray-cat"] .visual-stage {
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  align-self: center;
+  width: 100%;
+  max-width: min(100%, 42vh);
+  max-width: min(100%, 42dvh);
+  background: transparent;
+  box-shadow: 0 12px 26px rgba(61,45,63,.18);
+}
 body[data-world-id="stray-cat"] .scene-image { object-fit: contain; }
 body[data-world-id="stray-cat"] .meters { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; margin: 7px 0; }
 body[data-world-id="stray-cat"] .meter { padding: 6px 7px; border-radius: 11px; }
@@ -168,10 +181,17 @@ body[data-world-id="stray-cat"] .enemy-stats { margin-top: 4px; gap: 5px; }
 body[data-world-id="stray-cat"] .enemy-stats strong { font-size: 11px; }
 body[data-world-id="stray-cat"] .enemy-stats span { padding: 3px 7px; font-size: 10px; }
 body[data-world-id="stray-cat"] .scene-description { margin: 6px 3px 6px; font-size: 12px; line-height: 1.45; }
+/* Short windows (laptops, small phones in landscape-ish shapes) trade a little
+   image size and button height so the three choices always stay on screen. */
+@media (max-height: 720px) {
+  body[data-world-id="stray-cat"] .visual-stage { max-width: min(100%, 36vh); max-width: min(100%, 36dvh); }
+  body[data-world-id="stray-cat"] .choice-button { min-height: 44px; }
+  body[data-world-id="stray-cat"] .scene-description { font-size: 11.5px; }
+}
 body[data-world-id="stray-cat"] .choice-panel { gap: 5px; }
-body[data-world-id="stray-cat"] .choice-button { grid-template-columns: 36px 1fr auto; gap: 9px; min-height: 52px; padding: 6px 10px 6px 7px; border-radius: 14px; }
-body[data-world-id="stray-cat"] .choice-button .choice-icon { width: 28px; height: 28px; font-size: 13px; }
-body[data-world-id="stray-cat"] .choice-button strong { font-size: 14px; }
+body[data-world-id="stray-cat"] .choice-button { grid-template-columns: 32px 1fr auto; gap: 8px; min-height: 48px; padding: 5px 9px 5px 6px; border-radius: 13px; }
+body[data-world-id="stray-cat"] .choice-button .choice-icon { width: 25px; height: 25px; font-size: 12px; }
+body[data-world-id="stray-cat"] .choice-button strong { font-size: 13.5px; }
 body[data-world-id="stray-cat"] .choice-button small { font-size: 10px; }
 .scene-missing { display: grid; place-items: center; height: 100%; padding: 30px; color: #665d68; background: #e5d7c3; text-align: center; font-size: 13px; }
 .pov-label { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; border-radius: 99px; color: white; background: rgba(28,22,37,.62); backdrop-filter: blur(7px); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
