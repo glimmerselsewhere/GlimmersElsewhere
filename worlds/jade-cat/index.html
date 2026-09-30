@@ -117,16 +117,23 @@
         <p id="endingDescription"></p>
         <div id="finalStats" class="final-stats"></div>
         <div id="keepsakeBox" class="keepsake">
-          <button id="keepsakeOpen" class="keepsake-open" type="button">
-            <span class="keepsake-thumb"><img id="keepsakeThumb" alt=""><span class="keepsake-badge">3D</span></span>
-            <span class="keepsake-copy">
-              <small data-i18n="keepsakeLabel">获得结局信物</small>
-              <strong id="keepsakeTitle">唯咪印玺</strong>
-              <em data-i18n="keepsakeOpenHint">点击进入 3D 展厅</em>
-            </span>
-          </button>
-          <a id="keepsakeDownload" class="keepsake-download" href="#" download aria-label="Download GLB" title="Download GLB">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4.2-4.2M12 14 7.8 9.8M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="keepsake-row">
+            <button id="keepsakeOpen" class="keepsake-open" type="button">
+              <span class="keepsake-thumb"><img id="keepsakeThumb" alt=""><span class="keepsake-badge">3D</span></span>
+              <span class="keepsake-copy">
+                <small data-i18n="keepsakeLabel">获得结局信物</small>
+                <strong id="keepsakeTitle">唯咪印玺</strong>
+                <em data-i18n="keepsakeOpenHint">点击进入 3D 展厅</em>
+              </span>
+            </button>
+            <a id="keepsakeDownload" class="keepsake-download" href="#" download aria-label="Download GLB" title="Download GLB">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4.2-4.2M12 14 7.8 9.8M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <a id="keepsakeGet" class="keepsake-get" href="https://jujubit.ai/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-8.5 8.5M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="keepsakeGet">获得这个信物</span>
+            <small data-i18n="keepsakeGetHint">在 jujubit 做成实物</small>
           </a>
         </div>
         <div id="collectionBox"></div>
@@ -149,6 +156,9 @@
         </div>
         <footer class="ks-foot">
           <p class="ks-hint" data-i18n="keepsakeHint">拖动旋转 · 滚轮缩放</p>
+          <a id="ksGet" class="ks-get" href="https://jujubit.ai/" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="keepsakeGet">获得这个信物</span>
+          </a>
           <a id="ksDownload" class="ks-download" href="#" download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4.2-4.2M12 14 7.8 9.8M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span data-i18n="keepsakeDownload">下载 GLB</span>
