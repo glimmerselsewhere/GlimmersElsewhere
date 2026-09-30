@@ -516,10 +516,10 @@
       "title": "Merchant cat",
       "event": "A merchant cat appears at the gate, selling strange things.",
       "choices": [
-    {
-      "text": "Buy a full vial of clarity pills",
-      "hint": "Powerful: Cultivation+5, Belly+2",
-      "result": "You swallow the vial in three doses. Ears, whiskers, and tail tip all glow. The merchant cat counts five dried fish and hands you the vial cap: worth it."
+        {
+          "text": "Buy a full vial of clarity pills",
+          "hint": "Powerful: Cultivation+5, Belly+2",
+          "result": "You swallow the vial in three doses. Ears, whiskers, and tail tip all glow. The merchant cat counts five dried fish and hands you the vial cap: worth it."
         },
         {
           "text": "Buy a safety charm",
@@ -592,17 +592,17 @@
     {
       "id": "time-fruit",
       "title": "Time fruit",
-    "event": "You eat a time fruit. It first adds a hundred years to your lifespan, then makes you stand in place for a hundred years that feel like one second.",
+      "event": "You eat a time fruit. It first adds a hundred years to your lifespan, then makes you stand in place for a hundred years that feel like one second.",
       "choices": [
         {
           "text": "Eat it slowly",
           "hint": "Feel time pass",
-      "result": "Before the sweetness fades, vines green and yellow. The fruit's hundred borrowed years exactly hold the passing time."
+          "result": "Before the sweetness fades, vines green and yellow. The fruit's hundred borrowed years exactly hold the passing time."
         },
         {
           "text": "Share with your sect",
           "hint": "A hundred-year fruit",
-      "result": "The other cats freeze as they bite and their shadows lengthen. You share the hundred years without being pushed to the end."
+          "result": "The other cats freeze as they bite and their shadows lengthen. You share the hundred years without being pushed to the end."
         }
       ]
     },

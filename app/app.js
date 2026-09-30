@@ -1065,7 +1065,11 @@ function clampLifeState() {
   state.age = Math.max(0, Math.min(maxLifespan, Number(state.age || 0)));
   state.lifespan = Math.max(0, Math.min(maxLifespan, Number(state.lifespan || 0)));
   for (const def of content().states || []) {
-    if (def.max) state[def.id] = Math.min(Math.max(0, state[def.id] || 0), def.max);
+    // A stat can declare a floor of its own: morale in 玉猫登仙 is allowed to go
+    // negative, otherwise talents and events that cost morale do nothing at all.
+    const floor = Number.isFinite(Number(def.min)) ? Number(def.min) : 0;
+    const ceiling = Number.isFinite(Number(def.max)) ? Number(def.max) : Infinity;
+    state[def.id] = Math.min(Math.max(floor, Number(state[def.id]) || 0), ceiling);
   }
   state.fish = Math.min(Math.max(0, state.fish || 0), 99);
 }

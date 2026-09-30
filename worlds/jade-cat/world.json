@@ -84,7 +84,8 @@
       "description": "面对诱惑时守住的猫心",
       "color": "#5f9e78",
       "chipBackground": "#dcf0e2",
-      "max": 30
+      "max": 30,
+      "min": -30
     },
     {
       "id": "fish",
@@ -1077,17 +1078,17 @@
       "title": "商猫来访",
       "rarity": 1,
       "choices": [
-    {
-      "id": "buy-pill",
-      "text": "买一炉醒神丹",
-      "hint": "强力：修为+5，肚腩+2",
-      "effect": {
-        "cultivation": 5,
-        "belly": 2
-      },
-      "cost": 5,
-      "image": "assets/images/events/results/merchant-cat-buy-pill.webp",
-      "result": "整炉醒神丹分三次咽下，你的耳朵、胡须和尾巴尖一起发亮。商猫数了五条鱼干，郑重地递上炉盖：这炉，值。"
+        {
+          "id": "buy-pill",
+          "text": "买一炉醒神丹",
+          "hint": "强力：修为+5，肚腩+2",
+          "effect": {
+            "cultivation": 5,
+            "belly": 2
+          },
+          "cost": 5,
+          "image": "assets/images/events/results/merchant-cat-buy-pill.webp",
+          "result": "整炉醒神丹分三次咽下，你的耳朵、胡须和尾巴尖一起发亮。商猫数了五条鱼干，郑重地递上炉盖：这炉，值。"
         },
         {
           "id": "buy-charm",
@@ -1235,13 +1236,13 @@
     {
       "id": "time-fruit",
       "timeCost": 10,
-  "event": "你吃了一颗时光果。它先把一百年补进你的寿元，再让你在原地站了一百年，感觉只有一秒。",
+      "event": "你吃了一颗时光果。它先把一百年补进你的寿元，再让你在原地站了一百年，感觉只有一秒。",
       "title": "时光果",
       "rarity": 2,
-  "effect": {
-    "cultivation": 3,
-    "belly": 1,
-    "lifespan": 10
+      "effect": {
+        "cultivation": 3,
+        "belly": 1,
+        "lifespan": 10
       },
       "minTurn": 9,
       "maxTurn": 20,
@@ -1256,7 +1257,7 @@
             "lifespan": 3
           },
           "image": "assets/images/events/results/time-fruit-eat-slowly.webp",
-      "result": "甜味还没散，山上的藤蔓已经绿了又黄。果子补上的百年寿元，刚好接住这段流逝。"
+          "result": "甜味还没散，山上的藤蔓已经绿了又黄。果子补上的百年寿元，刚好接住这段流逝。"
         },
         {
           "id": "share-time",
@@ -1268,7 +1269,7 @@
             "lifespan": 3
           },
           "image": "assets/images/events/results/time-fruit-share-time.webp",
-      "result": "同门咬下果肉时同时愣住，彼此都看见了对方变长的影子。百年寿元被你们分掉，谁也没有被时间推到终点。"
+          "result": "同门咬下果肉时同时愣住，彼此都看见了对方变长的影子。百年寿元被你们分掉，谁也没有被时间推到终点。"
         }
       ],
       "image": "assets/images/events/time-fruit.webp"
