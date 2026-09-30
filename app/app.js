@@ -171,6 +171,8 @@ const STRINGS = {
     keepsakeHint: "Drag to rotate · scroll to zoom",
     keepsakeOpenHint: "Tap to open the 3D showroom",
     keepsakeDownload: "Download GLB",
+    keepsakeGet: "Get this keepsake",
+    keepsakeGetHint: "Made as a real object on jujubit",
     ksLoading: "Loading the 3D model…",
     soundLabel: "Toggle sound",
     sceneProgressHint: "Scene",
@@ -209,6 +211,8 @@ const STRINGS = {
     keepsakeHint: "拖动旋转 · 滚轮缩放",
     keepsakeOpenHint: "点击进入 3D 展厅",
     keepsakeDownload: "下载 GLB",
+    keepsakeGet: "获得这个信物",
+    keepsakeGetHint: "在 jujubit 做成实物",
     ksLoading: "正在载入 3D 模型…",
     soundLabel: "切换声音",
     sceneProgressHint: "进度",
@@ -1520,6 +1524,16 @@ function worldAsset(relativePath) {
   return rootUrl(`${world.assetBase || `worlds/${world.id}/`}${relativePath}`);
 }
 
+/* Every keepsake can be turned into a real object over on jujubit: the game
+   funnels there instead of integrating their API. */
+const JUJUBIT_URL = "https://jujubit.ai/";
+function setKeepsakeGetLinks() {
+  for (const id of ["keepsakeGet", "ksGet"]) {
+    const link = $(id);
+    if (link) link.href = JUJUBIT_URL;
+  }
+}
+
 function renderSceneImage(scene) {
   const image = $("sceneImage");
   const missing = $("sceneMissing");
@@ -1745,7 +1759,11 @@ function showEnding() {
     $("endingArt").hidden = false;
   }
   const keepsake = content().keepsakes?.find(item => item.endingId === ending.id) || content().keepsakes?.[0] || world.keepsakes?.find(item => item.endingId === ending.id) || world.keepsakes?.[0];
-  $("keepsakeBox").hidden = !keepsake;
+  // The keepsake box always shows: worlds without a 3D model still offer the
+  // "获得这个信物" link out to jujubit.
+  $("keepsakeBox").hidden = false;
+  $("keepsakeBox").classList.toggle("is-link-only", !keepsake);
+  setKeepsakeGetLinks();
   recordEnding(world.id, ending.id);
   $("collectionBox").innerHTML = collectionMarkup(world.id);
   showView("endingView");
@@ -1758,6 +1776,11 @@ function showEnding() {
     const thumb = $("keepsakeThumb");
     if (keepsake.preview) { thumb.src = worldAsset(keepsake.preview); thumb.hidden = false; }
     else { thumb.removeAttribute("src"); thumb.hidden = true; }
+    closeKeepsake();
+  } else {
+    const thumb = $("keepsakeThumb");
+    thumb.removeAttribute("src");
+    thumb.hidden = true;
     closeKeepsake();
   }
 }

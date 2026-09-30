@@ -242,7 +242,13 @@ body[data-world-id="stray-cat"] .choice-button small { font-size: 10px; }
 .life-summary small { display: block; color: #8a6f39; font: 800 9px/1 ui-monospace, monospace; letter-spacing: .14em; }
 .life-summary p { margin: 5px 0 0; color: #63564a; font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
 /* keepsake row: thumbnail + title + icon-only download */
-.keepsake { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid #dcbf79; border-radius: 17px; background: linear-gradient(135deg, #fff4ce, #f2dfad); }
+.keepsake { display: grid; gap: 8px; padding: 9px 11px; border: 1px solid #dcbf79; border-radius: 17px; background: linear-gradient(135deg, #fff4ce, #f2dfad); }
+.keepsake-row { display: flex; align-items: center; gap: 10px; }
+.keepsake.is-link-only .keepsake-row { display: none; }
+.keepsake-get { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 12px; border-radius: 13px; color: #6b4a2a; background: rgba(255,255,255,.78); box-shadow: inset 0 0 0 1px rgba(126,99,48,.32); font: inherit; font-size: 13px; font-weight: 800; text-decoration: none; }
+.keepsake-get svg { width: 16px; height: 16px; flex: 0 0 auto; }
+.keepsake-get small { color: #8a7a58; font-size: 10px; font-weight: 600; }
+.keepsake-get:hover { background: #fff; }
 .keepsake-open { display: flex; align-items: center; gap: 12px; flex: 1 1 auto; min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .keepsake-thumb { position: relative; flex: 0 0 58px; width: 58px; height: 58px; overflow: hidden; border-radius: 14px; background: radial-gradient(circle at 50% 40%, #fff8e2, #dfc680); box-shadow: inset 0 0 0 1px rgba(126,99,48,.25); }
 .keepsake-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -270,8 +276,10 @@ body.ks-open { overflow: hidden; }
 .ks-stage canvas { display: block; width: 100%; height: 100%; }
 .ks-stage .seal { position: absolute; inset: 0; margin: auto; }
 .ks-loading { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; color: #d8c6a8; font-size: 12px; }
-.ks-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px 18px; }
-.ks-hint { margin: 0; color: #b8a68c; font-size: 11px; }
+.ks-foot { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 12px 20px 18px; }
+.ks-hint { flex: 1 1 100%; margin: 0; color: #b8a68c; font-size: 11px; }
+.ks-get { display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 12px; color: #ffe9b8; background: rgba(58,40,20,.72); font-size: 12px; font-weight: 800; text-decoration: none; }
+.ks-get:hover { background: rgba(58,40,20,.9); }
 .ks-download { display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 12px; background: #e0b96b; color: #2b1d10; font-size: 12px; font-weight: 800; text-decoration: none; }
 .ks-download svg { width: 16px; height: 16px; }
 .ks-download:hover { background: #f0cd85; }
