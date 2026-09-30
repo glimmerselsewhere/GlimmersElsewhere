@@ -124,7 +124,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .intro-lines strong { color: white; }
 .intro-copy button { background: #f4c66d; color: #2e233f; text-align: center; }
 
-.game-view { display: flex; flex-direction: column; height: 100dvh; min-height: 0; overflow: hidden; padding: max(12px, env(safe-area-inset-top)) 18px max(12px, env(safe-area-inset-bottom)); background: linear-gradient(180deg, #f7f0e5, #eee2d2); }
+.game-view { display: flex; flex-direction: column; height: 100dvh; height: var(--app-vh, 100dvh); min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: max(12px, env(safe-area-inset-top)) 18px max(12px, env(safe-area-inset-bottom)); background: linear-gradient(180deg, #f7f0e5, #eee2d2); }
 .game-header .back-button.compact { font-size: 12px; }
 .world-mini { text-align: center; }
 .world-mini small { display: block; color: var(--muted); font-weight: 600; }.world-mini strong { font: 800 13px/1 monospace; }
@@ -294,7 +294,7 @@ body.ks-open { overflow: hidden; }
 
 @media (max-height: 760px) {
   body.is-playing { overflow: hidden; }
-  body.is-playing .app-shell, body.is-playing .game-view { height: 100dvh; min-height: 0; }
+  body.is-playing .app-shell, body.is-playing .game-view { height: var(--app-vh, 100dvh); min-height: 0; }
   .game-view { padding-top: 10px; }
   .meters { margin: 8px 0; }
   .scene-copy { min-height: 59px; margin-bottom: 7px; }
@@ -306,7 +306,7 @@ body.ks-open { overflow: hidden; }
 }
 
 body.is-playing { height: 100dvh; overflow: hidden; overscroll-behavior: none; }
-body.is-playing .app-shell { height: 100dvh; min-height: 0; overflow: hidden; }
+body.is-playing .app-shell { height: var(--app-vh, 100dvh); min-height: 0; overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .choice-button, .choice-thumb img { animation: none; transition: none; }

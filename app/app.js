@@ -1524,6 +1524,21 @@ function worldAsset(relativePath) {
   return rootUrl(`${world.assetBase || `worlds/${world.id}/`}${relativePath}`);
 }
 
+/* In-app browsers and phones with a toolbar give the page a taller layout
+   viewport than the area you can actually see, so a 100dvh game column gets its
+   bottom button cut off. Track the real visible height instead. */
+function installViewportHeightSync() {
+  const sync = () => {
+    const height = Math.round(window.visualViewport?.height || window.innerHeight || 0);
+    if (height > 0) document.documentElement.style.setProperty("--app-vh", `${height}px`);
+  };
+  sync();
+  window.addEventListener("resize", sync);
+  window.addEventListener("orientationchange", sync);
+  window.visualViewport?.addEventListener("resize", sync);
+  window.visualViewport?.addEventListener("scroll", sync);
+}
+
 /* Every keepsake can be turned into a real object over on jujubit: the game
    funnels there instead of integrating their API. */
 const JUJUBIT_URL = "https://jujubit.ai/";
@@ -1811,6 +1826,7 @@ function replay() {
 }
 
 async function init() {
+  installViewportHeightSync();
   try {
     const directWorldId = window.__WORLD_ID__;
     if (directWorldId) {
