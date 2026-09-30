@@ -171,8 +171,8 @@ const STRINGS = {
     keepsakeHint: "Drag to rotate · scroll to zoom",
     keepsakeOpenHint: "Tap to open the 3D showroom",
     keepsakeDownload: "Download GLB",
-    keepsakeGet: "Get this keepsake",
-    keepsakeGetHint: "Made as a real object on jujubit",
+    keepsakeGet: "Get it on jujubit",
+    keepsakeGetHint: "3D print · made real",
     ksLoading: "Loading the 3D model…",
     soundLabel: "Toggle sound",
     sceneProgressHint: "Scene",
@@ -211,8 +211,8 @@ const STRINGS = {
     keepsakeHint: "拖动旋转 · 滚轮缩放",
     keepsakeOpenHint: "点击进入 3D 展厅",
     keepsakeDownload: "下载 GLB",
-    keepsakeGet: "获得这个信物",
-    keepsakeGetHint: "在 jujubit 做成实物",
+    keepsakeGet: "去 jujubit 拿到它",
+    keepsakeGetHint: "3D 打印 · 做成实物",
     ksLoading: "正在载入 3D 模型…",
     soundLabel: "切换声音",
     sceneProgressHint: "进度",
@@ -1769,10 +1769,11 @@ function showEnding() {
   showView("endingView");
   if (keepsake) {
     const glbUrl = `${worldAsset(keepsake.glb)}?v=20260928`;
-    $("keepsakeTitle").textContent = keepsake.title;
+    const keepsakeTitle = lang === "en" && keepsake.titleEn ? keepsake.titleEn : keepsake.title;
+    $("keepsakeTitle").textContent = keepsakeTitle;
     $("keepsakeDownload").href = glbUrl;
     $("ksDownload").href = glbUrl;
-    $("ksTitle").textContent = keepsake.title;
+    $("ksTitle").textContent = keepsakeTitle;
     const thumb = $("keepsakeThumb");
     if (keepsake.preview) { thumb.src = worldAsset(keepsake.preview); thumb.hidden = false; }
     else { thumb.removeAttribute("src"); thumb.hidden = true; }
