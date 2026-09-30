@@ -1372,7 +1372,8 @@
           "value": 9999
         }
       ],
-      "image": "assets/images/endings/cat-martial-god-ash.webp"
+      "image": "assets/images/endings/cat-martial-god-ash.webp",
+      "video": "assets/videos/cat-martial-god-ending-v1.mp4"
     },
     {
       "id": "home",
@@ -1398,7 +1399,8 @@
           "value": 9
         }
       ],
-      "image": "assets/images/endings/clinic.webp"
+      "image": "assets/images/endings/clinic.webp",
+      "video": "assets/videos/clinic-ending-v1.mp4"
     },
     {
       "id": "street-king",
@@ -1416,14 +1418,16 @@
           "value": 7
         }
       ],
-      "image": "assets/images/endings/street-king.webp"
+      "image": "assets/images/endings/street-king.webp",
+      "video": "assets/videos/street-king-ending-v1.mp4"
     },
     {
       "id": "night-legend",
       "title": "没有人带走你",
       "description": "你还是住在同一条街上。垃圾桶、屋檐、车底，你都熟。没有人带走你，也没有人知道你叫什么。你把自己缩得更小一点，等下一个冬天过去。",
       "all": [],
-      "image": "assets/images/endings/night-legend.webp"
+      "image": "assets/images/endings/night-legend.webp",
+      "video": "assets/videos/night-legend-ending-v1.mp4"
     },
     {
       "id": "sick",
@@ -1436,7 +1440,8 @@
           "value": "sick"
         }
       ],
-      "image": "assets/images/endings/sick.webp"
+      "image": "assets/images/endings/sick.webp",
+      "video": "assets/videos/sick-ending-v1.mp4"
     },
     {
       "id": "heaven",
@@ -1449,7 +1454,8 @@
           "value": "heaven"
         }
       ],
-      "image": "assets/images/endings/heaven.webp"
+      "image": "assets/images/endings/heaven.webp",
+      "video": "assets/videos/heaven-ending-v1.mp4"
     }
   ],
   "catalog": {
@@ -1467,6 +1473,57 @@
     "cardAccent": "#f2d6a0",
     "actionSummary": "逃 · 打 · 讨好 · 活下去"
   },
+  "keepsakes": [
+    {
+      "id": "thunder-paw-medallion",
+      "endingId": "cat-martial-god",
+      "title": "风雷爪印",
+      "glb": "assets/models/thunder-paw-medallion.glb",
+      "preview": "assets/models/thunder-paw-medallion-source.webp"
+    },
+    {
+      "id": "home-collar-bell",
+      "endingId": "home",
+      "title": "回家的铃铛",
+      "glb": "assets/models/home-collar-bell.glb",
+      "preview": "assets/models/home-collar-bell-source.webp"
+    },
+    {
+      "id": "clinic-tag",
+      "endingId": "clinic",
+      "title": "诊所小白牌",
+      "glb": "assets/models/clinic-tag.glb",
+      "preview": "assets/models/clinic-tag-source.webp"
+    },
+    {
+      "id": "alley-crown",
+      "endingId": "street-king",
+      "title": "巷子的王冠",
+      "glb": "assets/models/alley-crown.glb",
+      "preview": "assets/models/alley-crown-source.webp"
+    },
+    {
+      "id": "nameless-bell",
+      "endingId": "night-legend",
+      "title": "没有名字的铃铛",
+      "glb": "assets/models/nameless-bell.glb",
+      "preview": "assets/models/nameless-bell-source.webp"
+    },
+    {
+      "id": "warm-box-charm",
+      "endingId": "sick",
+      "title": "暖气边的纸箱",
+      "glb": "assets/models/warm-box-charm.glb",
+      "preview": "assets/models/warm-box-charm-source.webp"
+    },
+    {
+      "id": "soft-light-drop",
+      "endingId": "heaven",
+      "title": "一小片光",
+      "glb": "assets/models/soft-light-drop.glb",
+      "preview": "assets/models/soft-light-drop-source.webp"
+    }
+  ],
   "ui": {
     "backToCatalog": "← 返回目录",
     "introButton": "开始流浪",
