@@ -1378,7 +1378,12 @@
     {
       "id": "home",
       "title": "年轻人的家",
-      "description": "你四脚朝天睡在床上，肚皮朝着天花板。没有人再让你出去。照片里是一只真实的猫，名字叫豚豚：先被装进袋子带回家，后来在床上睡成这个样子。",
+      "description": "你四脚朝天睡在床上，肚皮朝着天花板。没有人再让你出去。",
+      "realPhotos": {
+        "image": "assets/images/endings/tuntun-collage.webp",
+        "title": "彩蛋：一只真实的猫",
+        "caption": "这是一只真实的猫，名字叫豚豚——先被装进袋子带回家，后来在床上睡成这个样子。"
+      },
       "all": [
         {
           "state": "forcedEnding",
