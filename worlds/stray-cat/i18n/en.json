@@ -2405,53 +2405,60 @@
   },
   "keepsakes": [
     {
-      "id": "thunder-paw-medallion",
+      "id": "figurine-thunder-roof",
       "endingId": "cat-martial-god",
-      "title": "Thunder Paw Medallion",
-      "glb": "assets/models/thunder-paw-medallion.glb",
-      "preview": "assets/models/thunder-paw-medallion-source.webp"
+      "title": "The Cat Martial God on the Roof",
+      "story": "One paw falls, the alley falls quiet — and he becomes the legend of this street.",
+      "glb": "assets/models/figurine-thunder-roof.glb",
+      "preview": "assets/models/figurine-thunder-roof-source.webp"
     },
     {
-      "id": "home-collar-bell",
+      "id": "figurine-blanket-sleep",
       "endingId": "home",
-      "title": "The Bell That Came Home",
-      "glb": "assets/models/home-collar-bell.glb",
-      "preview": "assets/models/home-collar-bell-source.webp"
+      "title": "Ah Hui in the Blanket",
+      "story": "The blanket is warm. He sleeps on his back until noon, and no one sends him out again.",
+      "glb": "assets/models/figurine-blanket-sleep.glb",
+      "preview": "assets/models/figurine-blanket-sleep-source.webp"
     },
     {
-      "id": "clinic-tag",
+      "id": "figurine-clinic-helper",
       "endingId": "clinic",
-      "title": "Little Clinic Tag",
-      "glb": "assets/models/clinic-tag.glb",
-      "preview": "assets/models/clinic-tag-source.webp"
+      "title": "The Little Helper at the Clinic",
+      "story": "The children stop crying at their shots, because a white cat sits on the counter.",
+      "glb": "assets/models/figurine-clinic-helper.glb",
+      "preview": "assets/models/figurine-clinic-helper-source.webp"
     },
     {
-      "id": "alley-crown",
+      "id": "figurine-bin-king",
       "endingId": "street-king",
-      "title": "Crown of the Alley",
-      "glb": "assets/models/alley-crown.glb",
-      "preview": "assets/models/alley-crown-source.webp"
+      "title": "The King on the Bins",
+      "story": "The street is split in two, and he sits on the throne on the left side.",
+      "glb": "assets/models/figurine-bin-king.glb",
+      "preview": "assets/models/figurine-bin-king-source.webp"
     },
     {
-      "id": "nameless-bell",
+      "id": "figurine-streetlight-cat",
       "endingId": "night-legend",
-      "title": "The Bell With No Name",
-      "glb": "assets/models/nameless-bell.glb",
-      "preview": "assets/models/nameless-bell-source.webp"
+      "title": "The Cat Under the Streetlight",
+      "story": "Nobody knows his name, but he knows every eave in the neighbourhood.",
+      "glb": "assets/models/figurine-streetlight-cat.glb",
+      "preview": "assets/models/figurine-streetlight-cat-source.webp"
     },
     {
-      "id": "warm-box-charm",
+      "id": "figurine-warm-box",
       "endingId": "sick",
-      "title": "Box by the Heating Pipe",
-      "glb": "assets/models/warm-box-charm.glb",
-      "preview": "assets/models/warm-box-charm-source.webp"
+      "title": "Warm Light in the Box",
+      "story": "The illness took him, but that cardboard box stayed warm.",
+      "glb": "assets/models/figurine-warm-box.glb",
+      "preview": "assets/models/figurine-warm-box-source.webp"
     },
     {
-      "id": "soft-light-drop",
+      "id": "figurine-cat-star",
       "endingId": "heaven",
-      "title": "A Drop of Soft Light",
-      "glb": "assets/models/soft-light-drop.glb",
-      "preview": "assets/models/soft-light-drop-source.webp"
+      "title": "The Light on the Cat Star",
+      "story": "The sack opens, and there is no cat inside — only a small, very soft light.",
+      "glb": "assets/models/figurine-cat-star.glb",
+      "preview": "assets/models/figurine-cat-star-source.webp"
     }
   ],
   "ui": {
@@ -2459,6 +2466,8 @@
     "introButton": "Begin the stray life",
     "continueButton": "Keep walking",
     "finalContinueButton": "See the ending",
-    "replayButton": "Stray again"
+    "replayButton": "Stray again",
+    "keepsakeLabel": "Ending figurine",
+    "keepsakeGetHint": "3D printed · a figurine in your hands"
   }
 }

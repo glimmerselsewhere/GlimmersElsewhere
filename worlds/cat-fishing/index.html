@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5eee1">
   <title>猫猫钓鱼 · Glimmers of Elsewhere</title>
-  <link rel="stylesheet" href="../../app/style.css?v=11">
+  <link rel="stylesheet" href="../../app/style.css?v=12">
 </head>
 <body>
   <main id="app" class="app-shell" aria-live="polite">
@@ -127,6 +127,7 @@
               <span class="keepsake-copy">
                 <small data-i18n="keepsakeLabel">获得结局信物</small>
                 <strong id="keepsakeTitle">唯咪印玺</strong>
+                <em id="keepsakeStory" class="keepsake-story" hidden></em>
                 <em data-i18n="keepsakeOpenHint">点击进入 3D 展厅</em>
               </span>
             </button>
@@ -157,7 +158,7 @@
       <div class="ks-backdrop" data-ks-close></div>
       <section class="ks-panel" role="dialog" aria-modal="true" aria-labelledby="ksTitle">
         <header class="ks-head">
-          <div><p class="eyebrow" data-i18n="keepsakeLabel">获得结局信物</p><h2 id="ksTitle">信物</h2></div>
+          <div><p class="eyebrow" data-i18n="keepsakeLabel">获得结局信物</p><h2 id="ksTitle">信物</h2><p id="ksStory" class="ks-story" hidden></p></div>
           <button id="ksClose" class="ks-close" type="button" aria-label="Close" data-ks-close>×</button>
         </header>
         <div id="ksStage" class="ks-stage">
@@ -178,7 +179,7 @@
       </section>
     </div>
   </main>
-  <script>window.__WORLD_ID__="cat-fishing";</script><script src="../../app/app.js?v=24"></script>
+  <script>window.__WORLD_ID__="cat-fishing";</script><script src="../../app/app.js?v=25"></script>
   <script type="module" src="../../app/keepsake-viewer.js?v=2"></script>
 </body>
 </html>
