@@ -1803,7 +1803,9 @@ function showEnding() {
   const tuntunBox = $("tuntunBox");
   if (tuntunBox) {
     tuntunBox.hidden = !realPhotos;
-    tuntunBox.open = false;
+    // The easter egg starts unfolded, so players who never notice the summary
+    // still see the real cat's photos.
+    tuntunBox.open = Boolean(realPhotos);
     if (realPhotos) {
       $("tuntunImage").src = worldAsset(realPhotos.image);
       $("tuntunCaption").textContent = lang === "en" ? (realPhotos.captionEn || realPhotos.caption) : realPhotos.caption;

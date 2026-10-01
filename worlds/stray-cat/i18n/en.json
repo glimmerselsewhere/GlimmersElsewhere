@@ -428,9 +428,10 @@
           "image": "assets/images/outcomes/fish-stall-observe.webp"
         },
         "steal": {
-          "text": "You grab the fish and run, your tail turning before your body.",
+          "text": "You grab the fish and run, your tail turning before your body. She knows it was you.",
           "stateChanges": {
-            "fish": 3
+            "fish": 3,
+            "friendliness": -1
           },
           "image": "assets/images/outcomes/fish-stall-steal.webp"
         }
@@ -463,9 +464,9 @@
           "icon": "B"
         },
         {
-          "id": "avoid",
-          "name": "Avoid",
-          "hint": "Stay out",
+          "id": "fish",
+          "name": "Drop a dried fish",
+          "hint": "Buy peace with food (costs 1 fish)",
           "icon": "C"
         }
       ],
@@ -497,37 +498,28 @@
             "op": ">=",
             "success": {
               "text": "You arch your back like a bridge, and Big Yellow stops.",
-              "stateChanges": {},
+              "stateChanges": {
+                "friendliness": -1
+              },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
             "failure": {
               "text": "You are bumped aside and tumble into the grass.",
               "stateChanges": {
                 "health": -3,
-                "fish": -1
+                "fish": -1,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-failure.webp"
             }
           }
         },
-        "avoid": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "You circle behind the flower bed; Big Yellow only smells you.",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/dog-territory-avoid-success.webp"
-            },
-            "failure": {
-              "text": "You step on an empty can, and the sound brings Big Yellow.",
-              "stateChanges": {
-                "health": -2
-              },
-              "image": "assets/images/outcomes/dog-territory-avoid-failure.webp"
-            }
-          }
+        "fish": {
+          "text": "You drop the dried fish at his feet, and he lowers his nose to it. You walk past behind him, and neither of you gets hurt.",
+          "stateChanges": {
+            "fish": -1
+          },
+          "image": "assets/images/outcomes/dog-territory-fish.webp"
         }
       }
     },
@@ -591,14 +583,17 @@
             "op": ">=",
             "success": {
               "text": "You pin her wing, and White Tyrant steps back.",
-              "stateChanges": {},
+              "stateChanges": {
+                "friendliness": -1
+              },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
             },
             "failure": {
               "text": "You are swept down by her wing, and your chest hurts for a long time.",
               "stateChanges": {
                 "health": -3,
-                "fish": -1
+                "fish": -1,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-failure.webp"
             }
@@ -1257,11 +1252,12 @@
       ],
       "outcomes": {
         "enter": {
-          "compare": {
-            "stat": "friendliness",
-            "enemyStat": "needsCatFriendliness",
-            "op": ">=",
-            "success": {
+          "tiers": [
+            {
+              "min": {
+                "friendliness": 4,
+                "charm": 6
+              },
               "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to stray again.",
               "stateChanges": {
                 "health": 2,
@@ -1270,14 +1266,14 @@
               },
               "image": "assets/images/outcomes/adopter-enter-success.webp"
             },
-            "failure": {
-              "text": "You flatten yourself and creep along the wall. She watches you for a long time, then quietly closes the door.",
+            {
+              "text": "You flatten yourself and creep along the wall. She looks at your matted fur, then at the way you hug the wall, and quietly closes the door.",
               "stateChanges": {
                 "friendliness": 1
               },
               "image": "assets/images/outcomes/adopter-enter-failure.webp"
             }
-          }
+          ]
         },
         "leave": {
           "text": "You step back and turn into the night. The light closes slowly behind you.",
