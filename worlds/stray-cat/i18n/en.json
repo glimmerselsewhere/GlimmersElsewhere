@@ -2107,7 +2107,7 @@
       "id": "wire-neck",
       "chapter": "Q32 · Months 93-96",
       "title": "The Thing Tight Around Your Neck",
-      "description": "A thin wire is caught around your neck. The more you struggle, the tighter it pulls.",
+      "description": "Something thin is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
       "actions": [
         {
@@ -2131,21 +2131,21 @@
       ],
       "outcomes": {
         "struggle": {
-          "text": "The wire digs into your fur and you can barely breathe.",
+          "text": "It digs into your fur and you can barely breathe.",
           "stateChanges": {
             "health": -5
           },
           "image": "assets/images/outcomes/wire-neck-struggle.webp"
         },
         "freeze": {
-          "text": "Once you stop, the wire stops tightening.",
+          "text": "Once you stop, it stops tightening.",
           "stateChanges": {
             "health": -2
           },
           "image": "assets/images/outcomes/wire-neck-freeze.webp"
         },
         "help": {
-          "text": "A passerby crouches down and slowly cuts the wire away. Once it drops, nothing else is left on you.",
+          "text": "A passerby crouches down and slowly cuts it away. Once it drops, nothing else is left on you.",
           "stateChanges": {},
           "image": "assets/images/outcomes/wire-neck-help.webp"
         }
