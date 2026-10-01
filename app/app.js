@@ -1798,7 +1798,8 @@ function showEnding() {
     video.currentTime = 0;
     video.muted = true;
     video.hidden = false;
-    $("replayEndingVideo").hidden = false;
+    const replay = $("replayEndingVideo");
+    if (replay) replay.hidden = false;
     image.hidden = true;
     $("endingArt").hidden = true;
     video.play().catch(() => {
@@ -1809,14 +1810,16 @@ function showEnding() {
     video.onerror = () => { video.hidden = true; image.hidden = !ending.image; $("endingArt").hidden = Boolean(ending.image); };
   } else if (ending.image) {
     video.hidden = true;
-    $("replayEndingVideo").hidden = true;
+    const replayHidden = $("replayEndingVideo");
+    if (replayHidden) replayHidden.hidden = true;
     image.src = worldAsset(ending.image);
     image.alt = ending.title;
     image.hidden = false;
     $("endingArt").hidden = true;
   } else {
     video.hidden = true;
-    $("replayEndingVideo").hidden = true;
+    const replayGone = $("replayEndingVideo");
+    if (replayGone) replayGone.hidden = true;
     image.hidden = true;
     $("endingArt").hidden = false;
   }
