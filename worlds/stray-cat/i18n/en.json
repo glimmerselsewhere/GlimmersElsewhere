@@ -2,8 +2,8 @@
   "id": "stray-cat",
   "title": "Ah Hui's Stray Life",
   "shortTitle": "Ah Hui",
-  "subtitle": "Seven and a Half Years as a Stray",
-  "description": "Ah Hui is a dusty white cat. Over seven and a half years he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also iron cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
+  "subtitle": "Five Years as a Stray",
+  "description": "Ah Hui is a dusty white cat. Over five years on the street he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also iron cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -28,7 +28,7 @@
     "fish": 3,
     "friendliness": 1,
     "age": 0,
-    "lifespan": 90
+    "lifespan": 60
   },
   "states": [
     {
@@ -278,7 +278,7 @@
   "scenes": [
     {
       "id": "cardboard",
-      "chapter": "Q1 · Months 0-3",
+      "chapter": "Q1 · Months 0-2",
       "title": "The First Sound in the Box",
       "description": "Ah Hui was born in a cardboard box behind a convenience store. His fur is white, but dust makes him look gray.",
       "image": "assets/images/scenes/cardboard.webp",
@@ -330,7 +330,7 @@
     },
     {
       "id": "rain-car",
-      "chapter": "Q2 · Months 3-6",
+      "chapter": "Q2 · Months 2-4",
       "title": "Under the Car",
       "description": "Rain turns the street into one bright sheet. You slip under a car while water streams past the tires.",
       "image": "assets/images/scenes/rain-car.webp",
@@ -378,7 +378,7 @@
     },
     {
       "id": "fish-stall",
-      "chapter": "Q3 · Months 6-9",
+      "chapter": "Q3 · Months 4-6",
       "title": "The Keeper of the Fish Mountain",
       "description": "A mountain of fish is piled on the step, and a person in an apron guards it. An older cat sits under the fish mountain, showing how to sit upright, look up and meow softly.",
       "image": "assets/images/scenes/fish-stall.webp",
@@ -440,7 +440,7 @@
     },
     {
       "id": "dog-territory",
-      "chapter": "Q4 · Months 9-12",
+      "chapter": "Q4 · Months 6-8",
       "title": "Big Yellow's Territory",
       "description": "The stray dog Big Yellow guards the trash cans. He will chase you on sight.",
       "image": "assets/images/scenes/dog-territory.webp",
@@ -542,7 +542,7 @@
     },
     {
       "id": "goose-river",
-      "chapter": "Q5 · Months 12-15",
+      "chapter": "Q5 · Months 8-10",
       "title": "White Tyrant's Riverbank",
       "description": "The wild goose White Tyrant rules the riverbank. Her neck is longer than your front legs.",
       "image": "assets/images/scenes/goose-river.webp",
@@ -641,7 +641,7 @@
     },
     {
       "id": "neuter-van",
-      "chapter": "Q6 · Months 15-18",
+      "chapter": "Q6 · Months 10-12",
       "title": "The Person With a Net",
       "description": "A young person stands at the mouth of the alley with a net. Their movements are steady, and they keep coming closer.",
       "image": "assets/images/scenes/neuter-van.webp",
@@ -716,7 +716,7 @@
           "text": "The worker places you in a carrier, moving gently. You wake up back on your own corner, a little cleaner than before.",
           "stateChanges": {
             "health": 4,
-            "lifespan": 6,
+            "lifespan": 4,
             "friendliness": 1
           },
           "image": "assets/images/outcomes/neuter-van-accept.webp"
@@ -725,7 +725,7 @@
     },
     {
       "id": "kind-hand",
-      "chapter": "Q7 · Months 18-21",
+      "chapter": "Q7 · Months 12-14",
       "title": "The Kid Who Crouches Down",
       "description": "A little girl crouches at the corner with half a dried fish in her palm.",
       "image": "assets/images/scenes/good-kid.webp",
@@ -783,7 +783,7 @@
     },
     {
       "id": "clinic",
-      "chapter": "Q8 · Months 21-24",
+      "chapter": "Q8 · Months 14-16",
       "title": "The Person in the White Coat",
       "description": "A person in a white coat rests a hand on your back. The room smells of medicine.",
       "image": "assets/images/scenes/clinic.webp",
@@ -818,8 +818,8 @@
         "treat": {
           "text": "She treats your wounds and sets out a bowl of water. You let her touch the back of your neck.",
           "stateChanges": {
-            "health": 4,
-            "lifespan": 6,
+            "health": 5,
+            "lifespan": 4,
             "fish": 1,
             "friendliness": 1
           },
@@ -844,7 +844,7 @@
     },
     {
       "id": "bath-collar",
-      "chapter": "Q9 · Months 24-27",
+      "chapter": "Q9 · Months 16-18",
       "title": "The Bath and the Band Around the Neck",
       "description": "The girl takes you home for a bath and puts a band around your neck.",
       "image": "assets/images/scenes/kind-hand.webp",
@@ -898,7 +898,7 @@
     },
     {
       "id": "kid",
-      "chapter": "Q10 · Months 27-30",
+      "chapter": "Q10 · Months 18-20",
       "title": "The Kid With a Stick",
       "description": "A little boy with a stick sees you and starts chasing.",
       "image": "assets/images/scenes/bad-kid.webp",
@@ -994,7 +994,7 @@
     },
     {
       "id": "old-cat-lesson",
-      "chapter": "Q11 · Months 30-33",
+      "chapter": "Q11 · Months 20-22",
       "title": "The Move the Old Cat Shows You",
       "description": "Old Orange takes you to the iron fence, flattens himself, angles his shoulders, slips through the narrowest gap, and looks back at you.",
       "image": "assets/images/scenes/old-cat-lesson.webp",
@@ -1049,7 +1049,7 @@
     },
     {
       "id": "plastic-waste",
-      "chapter": "Q12 · Months 33-36",
+      "chapter": "Q12 · Months 22-24",
       "title": "The Bag That Smells of Fish",
       "description": "A bag near the trash can smells like fish. It smells very good.",
       "image": "assets/images/scenes/plastic-waste.webp",
@@ -1095,7 +1095,7 @@
     },
     {
       "id": "mirror",
-      "chapter": "Q13 · Months 36-39",
+      "chapter": "Q13 · Months 24-26",
       "title": "The Thing Leaning Against the Wall",
       "description": "Something bright stands against the wall. A cat exactly like you is staring back out of it.",
       "image": "assets/images/scenes/mirror.webp",
@@ -1143,7 +1143,7 @@
     },
     {
       "id": "grapes",
-      "chapter": "Q14 · Months 39-42",
+      "chapter": "Q14 · Months 26-28",
       "title": "A Small Bunch of Round Things",
       "description": "Someone left a small bunch of round things on the step. They smell very sweet.",
       "image": "assets/images/scenes/grapes.webp",
@@ -1189,7 +1189,7 @@
     },
     {
       "id": "milk",
-      "chapter": "Q15 · Months 42-45",
+      "chapter": "Q15 · Months 28-30",
       "title": "The White Bowl at the Door",
       "description": "Someone left a bowl of something white and smooth at their door. It smells rich.",
       "image": "assets/images/scenes/milk.webp",
@@ -1237,7 +1237,7 @@
     },
     {
       "id": "glue-trap",
-      "chapter": "Q16 · Months 45-48",
+      "chapter": "Q16 · Months 30-32",
       "title": "The Yellow Board in the Corner",
       "description": "A yellow board sits in the corner with a few crumbs on it. A sticky smell comes off it.",
       "image": "assets/images/scenes/glue-trap.webp",
@@ -1285,7 +1285,7 @@
     },
     {
       "id": "typhoon",
-      "chapter": "Q17 · Months 48-51",
+      "chapter": "Q17 · Months 32-34",
       "title": "The Day the Wind Lifted the Whole Street",
       "description": "The wind lifts everything on the street and the signs rattle. The rain falls sideways.",
       "image": "assets/images/scenes/typhoon.webp",
@@ -1335,7 +1335,7 @@
     },
     {
       "id": "winter",
-      "chapter": "Q18 · Months 51-54",
+      "chapter": "Q18 · Months 34-36",
       "title": "The Coldest Winter",
       "description": "The pipes are frozen and it is too cold to move. Your store of dried fish is in your hiding place.",
       "image": "assets/images/scenes/winter.webp",
@@ -1374,7 +1374,7 @@
     },
     {
       "id": "quiet-helper",
-      "chapter": "Q19 · Months 54-57",
+      "chapter": "Q19 · Months 36-38",
       "title": "The Person Who Leaves Things and Walks Away",
       "description": "A person whose face you cannot see sets down a bowl, steps back, and does not come closer. There is leftover rice in it.",
       "image": "assets/images/scenes/quiet-helper.webp",
@@ -1435,7 +1435,7 @@
     },
     {
       "id": "fizzy-water",
-      "chapter": "Q20 · Months 57-60",
+      "chapter": "Q20 · Months 38-40",
       "title": "The Bubbling Bottle on the Pavement",
       "description": "A half-finished sweet drink lies on the pavement, still fizzing. It smells sweet.",
       "image": "assets/images/scenes/fizzy-water.webp",
@@ -1481,7 +1481,7 @@
     },
     {
       "id": "road",
-      "chapter": "Q21 · Months 60-63",
+      "chapter": "Q21 · Months 40-42",
       "title": "The Middle of the Road",
       "description": "You are already in the middle of the road. Cars are coming from both sides, and the sound is getting closer.",
       "image": "assets/images/scenes/road.webp",
@@ -1553,7 +1553,7 @@
     },
     {
       "id": "ac-unit",
-      "chapter": "Q22 · Months 63-66",
+      "chapter": "Q22 · Months 42-44",
       "title": "The Metal Box That Blows Warm Air",
       "description": "The metal box on the wall keeps buzzing and blows out warm air. The concrete step under it is warm too.",
       "image": "assets/images/scenes/ac-unit.webp",
@@ -1601,7 +1601,7 @@
     },
     {
       "id": "manhole",
-      "chapter": "Q23 · Months 66-69",
+      "chapter": "Q23 · Months 44-46",
       "title": "The Round Cover Under the Water",
       "description": "The rain has stopped. A shallow sheet of water sits in the road with a round iron cover underneath. You cannot tell how deep it is.",
       "image": "assets/images/scenes/manhole.webp",
@@ -1647,7 +1647,7 @@
     },
     {
       "id": "poison-bait",
-      "chapter": "Q24 · Months 69-72",
+      "chapter": "Q24 · Months 46-48",
       "title": "Those Few Grains in the Corner",
       "description": "A few grains lie in the corner. They smell of grain, with something sweet and wrong underneath.",
       "image": "assets/images/scenes/poison-bait.webp",
@@ -1693,7 +1693,7 @@
     },
     {
       "id": "wedding-petals",
-      "chapter": "Q25 · Months 72-75",
+      "chapter": "Q25 · Months 48-50",
       "title": "Red Petals All Over the Ground",
       "description": "It is busy at the mouth of the alley. Red petals and little paper pieces cover the ground, and children are stamping on them.",
       "image": "assets/images/scenes/wedding-petals.webp",
@@ -1741,7 +1741,7 @@
     },
     {
       "id": "earthworms",
-      "chapter": "Q26 · Months 75-78",
+      "chapter": "Q26 · Months 50-52",
       "title": "The Things Wriggling on the Wet Ground",
       "description": "The rain has just stopped. Thin wriggling things lie all over the ground, and they curl up when you touch them.",
       "image": "assets/images/scenes/earthworms.webp",
@@ -1787,7 +1787,7 @@
     },
     {
       "id": "garbage-truck",
-      "chapter": "Q27 · Months 78-81",
+      "chapter": "Q27 · Months 52-54",
       "title": "The Big Noisy Thing That Comes Every Morning",
       "description": "At dawn a very big thing stops beside the bins. It keeps making noise, and someone is tipping things into it.",
       "image": "assets/images/scenes/garbage-truck.webp",
@@ -1850,7 +1850,7 @@
     },
     {
       "id": "balcony-ledge",
-      "chapter": "Q28 · Months 81-84",
+      "chapter": "Q28 · Months 54-56",
       "title": "The Narrow Path Along the Outside of the Building",
       "description": "A very narrow edge runs along the outside of a building, straight to the next one. Concrete lies below.",
       "image": "assets/images/scenes/balcony-ledge.webp",
@@ -1912,7 +1912,7 @@
     },
     {
       "id": "sun-patch",
-      "chapter": "Q29 · Months 84-87",
+      "chapter": "Q29 · Months 56-58",
       "title": "The Warmest Stone on the Path",
       "description": "The afternoon sun has warmed a stone slab by the path. No other cat has found this spot yet.",
       "image": "assets/images/scenes/sun-patch.webp",
@@ -1960,7 +1960,7 @@
     },
     {
       "id": "soft-cushion",
-      "chapter": "Q30 · Months 87-90",
+      "chapter": "Q30 · Months 58-60",
       "title": "The Soft Thing by the Wall",
       "description": "A soft thing has appeared at the foot of the wall, sun-warmed and smelling of clean dust.",
       "image": "assets/images/scenes/soft-cushion.webp",
@@ -2006,7 +2006,7 @@
     },
     {
       "id": "cat-eater",
-      "chapter": "Q31 · Months 90-93",
+      "chapter": "Q31 · Months 60-62",
       "title": "The Cage at the End of the Alley",
       "description": "A man guards the back alley with an iron cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -2105,7 +2105,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q32 · Months 93-96",
+      "chapter": "Q32 · Months 62-64",
       "title": "The Thing Tight Around Your Neck",
       "description": "Something thin is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -2153,7 +2153,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q33 · Months 96-99",
+      "chapter": "Q33 · Months 64-66",
       "title": "The Person Who Opens the Door",
       "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
@@ -2213,7 +2213,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q34 · Months 99-102",
+      "chapter": "Q34 · Months 66-68",
       "title": "The Man Blocking the Alley",
       "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",
@@ -2390,7 +2390,7 @@
   ],
   "catalog": {
     "eyebrow": "A tenth glimmer has awakened",
-    "headline": "Seven and a half years, one dusty white cat.",
+    "headline": "Five years, one dusty white cat.",
     "description": "Thirty quarters: a box, a rainy night, dogs and geese, people with nets, kind people — plus something bright that shows a cat, small round fruit, a white bowl, a yellow board, the day the wind lifted the street, the coldest winter and the warmest stone. The last quarters are the man in the back alley, the thing around your neck, that door, and the man at the alley mouth.",
     "cardDescription": "Strength, agility, charm, friendliness, health, dried fish, and lifespan decide your ending.",
     "cardIcon": "●",

@@ -745,11 +745,11 @@ function prepareStraySceneOrder() {
   // cat's life is different every run, like the life-sim worlds.
   world.scenes = [...scenes.slice(0, head), ...middle, ...scenes.slice(end)];
   world.scenes.forEach((scene, index) => {
-    const start = 3 * index;
-    scene.chapterEn = `Q${index + 1} · Months ${start}-${start + 3}`;
+    const start = 2 * index;
+    scene.chapterEn = `Q${index + 1} · Months ${start}-${start + 2}`;
     // The label has to follow the current language, otherwise English runs show
     // the Chinese 个月 that the merge step had already translated away.
-    scene.chapter = lang === "en" ? scene.chapterEn : `Q${index + 1} · ${start}-${start + 3}个月`;
+    scene.chapter = lang === "en" ? scene.chapterEn : `Q${index + 1} · ${start}-${start + 2}个月`;
   });
 }
 
@@ -1484,7 +1484,7 @@ function renderScene() {
   choiceLocked = false;
   if (world?.id === "stray-cat") {
     const age = Math.round(state.age || 0);
-    const lifespan = Math.round(state.lifespan || 48);
+    const lifespan = Math.round(state.lifespan || 60);
     const months = lang === "en" ? `${age}/${lifespan}mo` : `${age}/${lifespan}月`;
     // Kept tight on purpose: this line must not wrap onto a second row on a phone.
     // Friendliness has its own meter next to the other five stats.
@@ -1676,14 +1676,14 @@ function resolveChoice(actionId) {
   if (world?.id === "stray-cat") {
     // 鱼干是手里攒着的资源，输掉一场架最多把手里的都丢掉，不会变成负数。
     state.fish = Math.max(0, Number(state.fish || 0));
-    state.age = Math.max(0, Number(state.age || 0) + 3);
+    state.age = Math.max(0, Number(state.age || 0) + 2);
     const health = Math.round(Number(state.health || 0));
     if (health < 0 && !state.forcedEnding) {
-      // A sick cat burns through its lifeline: |health| months per month, so a
-      // quarter at -5 health costs 15 months of the nine-lives budget.
+      // A sick cat burns through its lifeline: |health| months per month, so an
+      // event covering two months at -5 health costs 10 months of the budget.
       // The -100 health of a fatal scene is not a sickness, so it is skipped.
-      state.lifespan = Math.max(0, Number(state.lifespan || 0) + 3 * health);
-      state.sickMonths = (Number(state.sickMonths) || 0) + 3 * Math.abs(health);
+      state.lifespan = Math.max(0, Number(state.lifespan || 0) + 2 * health);
+      state.sickMonths = (Number(state.sickMonths) || 0) + 2 * Math.abs(health);
       // When the illness eats the rest of the nine lives the cat dies of it.
       if (Number(state.age || 0) >= Number(state.lifespan || 0)) state.forcedEnding = "sick";
     }
@@ -1718,7 +1718,7 @@ function resolveChoice(actionId) {
   // so the button must promise the ending instead of another scene.
   const storyEndsHere = sceneIndex === current.scenes.length - 1
     || Boolean(state.forcedEnding)
-    || (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 48));
+    || (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 60));
   $("continueButton").innerHTML = storyEndsHere ? `${escapeHtml(worldUi("finalContinueButton", uiText.finalContinueButton))} <b>→</b>` : `${escapeHtml(worldUi("continueButton", uiText.continueButton))} <b>→</b>`;
   preloadNextScene();
 }
@@ -1726,7 +1726,7 @@ function resolveChoice(actionId) {
 function continueJourney() {
   if (world?.mode === "life") { renderLifeEvent(); return; }
   if (state.forcedEnding) { showEnding(); return; }
-  if (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 48)) {
+  if (world?.id === "stray-cat" && Number(state.age || 0) >= Number(state.lifespan || 60)) {
     showEnding();
     return;
   }
