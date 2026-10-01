@@ -7,7 +7,8 @@
   "mode": null,
   "sceneShuffle": {
     "head": 3,
-    "tail": 4
+    "tail": 4,
+    "sample": 9
   },
   "music": "assets/audio/soft-paws-roam.mp3",
   "musicVolume": 0.12,
@@ -65,7 +66,7 @@
     {
       "id": "fish",
       "label": "Dried Fish",
-      "description": "Food and trade resource",
+      "description": "Food store; fish you hand over offset the same amount of health loss",
       "color": "#eab308",
       "chipBackground": "#fef9c3",
       "max": 100
@@ -378,12 +379,12 @@
     {
       "id": "fish-stall",
       "chapter": "Q3 · Months 6-9",
-      "title": "The Fish Stall and Begging Lesson",
-      "description": "The fish stall woman leaves scraps on the ground. An older cat is demonstrating how to sit upright, look at humans, and meow softly.",
+      "title": "The Keeper of the Fish Mountain",
+      "description": "A mountain of fish is piled on the step, and a person in an apron guards it. An older cat sits under the fish mountain, showing how to sit upright, look up and meow softly.",
       "image": "assets/images/scenes/fish-stall.webp",
       "enemy": {
         "id": "fish-woman",
-        "name": "Fish Stall Woman",
+        "name": "The Keeper of the Fish Mountain",
         "strength": 2,
         "agility": 2,
         "kind": "kind human"
@@ -515,11 +516,26 @@
           }
         },
         "fish": {
-          "text": "You drop the dried fish at his feet, and he lowers his nose to it. You walk past behind him, and neither of you gets hurt.",
-          "stateChanges": {
-            "fish": -1
-          },
-          "image": "assets/images/outcomes/dog-territory-fish.webp"
+          "tiers": [
+            {
+              "min": {
+                "fish": 2
+              },
+              "text": "You drop the dried fish at his feet, and he lowers his nose to it. You walk past behind him, and neither of you gets hurt.",
+              "stateChanges": {
+                "fish": -2
+              },
+              "image": "assets/images/outcomes/dog-territory-fish-success.webp"
+            },
+            {
+              "text": "You only manage to offer one scrap. He still snaps at you, but the fish makes him let go sooner and the bite is shallow.",
+              "fishOffset": {
+                "need": 2,
+                "health": -3
+              },
+              "image": "assets/images/outcomes/dog-territory-fish-failure.webp"
+            }
+          ]
         }
       }
     },
@@ -1076,8 +1092,466 @@
       }
     },
     {
-      "id": "cat-eater",
+      "id": "mirror",
       "chapter": "Q13 · Months 36-39",
+      "title": "The Mirror Against the Wall",
+      "description": "An old mirror leans against the wall. A cat exactly like you is staring back.",
+      "image": "assets/images/scenes/mirror.webp",
+      "actions": [
+        {
+          "id": "stare",
+          "name": "Stare at it",
+          "hint": "Who is that",
+          "icon": "A"
+        },
+        {
+          "id": "pounce",
+          "name": "Pounce",
+          "hint": "Get it first",
+          "icon": "B"
+        },
+        {
+          "id": "walk",
+          "name": "Walk around",
+          "hint": "Better not to look",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "stare": {
+          "text": "You stare for a long time, then look down and groom your fur.",
+          "stateChanges": {
+            "charm": 1
+          },
+          "image": "assets/images/outcomes/mirror-stare.webp"
+        },
+        "pounce": {
+          "text": "Your nose hits cold glass, and the other cat bumps into it too.",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/mirror-pounce.webp"
+        },
+        "walk": {
+          "text": "You walk past the mirror without looking back.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/mirror-walk.webp"
+        }
+      }
+    },
+    {
+      "id": "grapes",
+      "chapter": "Q14 · Months 39-42",
+      "title": "A Small Bunch of Grapes",
+      "description": "Someone left a small bunch of grapes on the step. They smell very sweet. You do not know cats cannot eat them.",
+      "image": "assets/images/scenes/grapes.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "Eat them",
+          "hint": "They are sweet",
+          "icon": "A"
+        },
+        {
+          "id": "sniff",
+          "name": "Just sniff",
+          "hint": "Remember the smell",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Do not eat what people leave",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "That night your belly cramps you into a ball, and the next day you are still sick.",
+          "stateChanges": {
+            "health": -6
+          },
+          "image": "assets/images/outcomes/grapes-eat.webp"
+        },
+        "sniff": {
+          "text": "Very sweet, but you only remember the smell.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/grapes-sniff.webp"
+        },
+        "leave": {
+          "text": "You walk around the step and look for water you know.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/grapes-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "milk",
+      "chapter": "Q15 · Months 42-45",
+      "title": "The Bowl of Milk at the Door",
+      "description": "Someone left a bowl of milk at their door, meaning well. You do not know it will upset your stomach.",
+      "image": "assets/images/scenes/milk.webp",
+      "actions": [
+        {
+          "id": "drink",
+          "name": "Drink it all",
+          "hint": "Rich and smooth",
+          "icon": "A"
+        },
+        {
+          "id": "sip",
+          "name": "Take a few licks",
+          "hint": "Just a taste",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Water is safer",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drink": {
+          "text": "The milk is rich. At midnight your belly starts rumbling, and the next day leaves you weak.",
+          "stateChanges": {
+            "health": -4
+          },
+          "image": "assets/images/outcomes/milk-drink.webp"
+        },
+        "sip": {
+          "text": "You only take a few licks. Your belly complains a little, then settles.",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/milk-sip.webp"
+        },
+        "leave": {
+          "text": "You go and drink from the puddle by the wall instead.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/milk-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "glue-trap",
+      "chapter": "Q16 · Months 45-48",
+      "title": "The Sticky Board in the Corner",
+      "description": "A yellow board sits in the corner with a few crumbs on it. You can smell the glue.",
+      "image": "assets/images/scenes/glue-trap.webp",
+      "actions": [
+        {
+          "id": "step",
+          "name": "Step on it",
+          "hint": "Grab the food first",
+          "icon": "A"
+        },
+        {
+          "id": "touch",
+          "name": "Poke it with a paw",
+          "hint": "See how soft it is",
+          "icon": "B"
+        },
+        {
+          "id": "avoid",
+          "name": "Smell the glue and leave",
+          "hint": "Something is wrong",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "step": {
+          "text": "All four paws stick fast. You tear out a layer of fur to get free, and your pads ache for days.",
+          "stateChanges": {
+            "health": -4
+          },
+          "image": "assets/images/outcomes/glue-trap-step.webp"
+        },
+        "touch": {
+          "text": "One paw sticks. You shake it loose after a long while, leaving a tuft of fur behind.",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/glue-trap-touch.webp"
+        },
+        "avoid": {
+          "text": "You remember that smell. From then on you always walk around that corner.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/glue-trap-avoid.webp"
+        }
+      }
+    },
+    {
+      "id": "typhoon",
+      "chapter": "Q17 · Months 48-51",
+      "title": "The Typhoon",
+      "description": "The wind lifts everything on the street and the signs rattle. The rain falls sideways.",
+      "image": "assets/images/scenes/typhoon.webp",
+      "actions": [
+        {
+          "id": "stairwell",
+          "name": "Get into the stairwell",
+          "hint": "Hide first",
+          "icon": "A"
+        },
+        {
+          "id": "under-car",
+          "name": "Lie under a car",
+          "hint": "It is usually dry there",
+          "icon": "B"
+        },
+        {
+          "id": "run",
+          "name": "Run in the wind",
+          "hint": "The wind cannot catch you",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "stairwell": {
+          "text": "There is no wind in the stairwell. You shake off the water and sleep a whole night for once.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/typhoon-stairwell.webp"
+        },
+        "under-car": {
+          "text": "Water pours in past the tyres. You spend the night half in cold water, and by morning your paws are numb.",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/typhoon-under-car.webp"
+        },
+        "run": {
+          "text": "A sheet of tin flies past your back, and you run a long time in the wind before you stop.",
+          "stateChanges": {
+            "health": -3
+          },
+          "image": "assets/images/outcomes/typhoon-run.webp"
+        }
+      }
+    },
+    {
+      "id": "winter",
+      "chapter": "Q18 · Months 51-54",
+      "title": "The Coldest Winter",
+      "description": "The pipes are frozen and it is too cold to move. Your store of dried fish is in your hiding place.",
+      "image": "assets/images/scenes/winter.webp",
+      "actions": [
+        {
+          "id": "store",
+          "name": "Live off the store",
+          "hint": "Eat whatever is there",
+          "icon": "A"
+        }
+      ],
+      "outcomes": {
+        "store": {
+          "tiers": [
+            {
+              "min": {
+                "fish": 6
+              },
+              "text": "You eat the whole year's store of dried fish and lean against the heating pipe to outlast the coldest days.",
+              "stateChanges": {
+                "fish": -6
+              },
+              "image": "assets/images/outcomes/winter-store-success.webp"
+            },
+            {
+              "text": "There is not enough in your hiding place. You go hungry, though what you did eat offsets some of the damage.",
+              "fishOffset": {
+                "need": 6,
+                "health": -6
+              },
+              "image": "assets/images/outcomes/winter-store-failure.webp"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet-helper",
+      "chapter": "Q19 · Months 54-57",
+      "title": "The Person Who Leaves Things and Walks Away",
+      "description": "A person whose face you cannot see sets down a bowl, steps back, and does not come closer. There is leftover rice in it.",
+      "image": "assets/images/scenes/quiet-helper.webp",
+      "actions": [
+        {
+          "id": "approach",
+          "name": "Go and eat",
+          "hint": "They are very quiet",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "Watch from far away",
+          "hint": "See if they leave",
+          "icon": "B"
+        },
+        {
+          "id": "hide",
+          "name": "Hide behind the wall",
+          "hint": "Do not risk it",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "approach": {
+          "tiers": [
+            {
+              "min": {
+                "friendliness": 7
+              },
+              "text": "He waits until you finish, comes back the next day, and brings an old blanket. Someone has been looking after the cats on this street.",
+              "stateChanges": {
+                "health": 2,
+                "fish": 3
+              },
+              "image": "assets/images/outcomes/quiet-helper-approach-success.webp"
+            },
+            {
+              "text": "Before you get close, he stands up and walks away. The bowl goes with him.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/quiet-helper-approach-failure.webp"
+            }
+          ]
+        },
+        "watch": {
+          "text": "He waits a long time, then leaves the bowl and goes. You only go over once he is far away.",
+          "stateChanges": {
+            "fish": 1
+          },
+          "image": "assets/images/outcomes/quiet-helper-watch.webp"
+        },
+        "hide": {
+          "text": "You shrink back behind the wall. The footsteps fade quickly.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/quiet-helper-hide.webp"
+        }
+      }
+    },
+    {
+      "id": "fizzy-water",
+      "chapter": "Q20 · Months 57-60",
+      "title": "The Bubbling Bottle on the Pavement",
+      "description": "A half-finished sweet drink lies on the pavement, still fizzing. It smells sweet.",
+      "image": "assets/images/scenes/fizzy-water.webp",
+      "actions": [
+        {
+          "id": "lick",
+          "name": "Take a lick",
+          "hint": "It is sweet",
+          "icon": "A"
+        },
+        {
+          "id": "paw",
+          "name": "Poke it with a paw",
+          "hint": "See if it moves",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Water should not bubble",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "lick": {
+          "text": "The bubbles burst on your tongue. You hiccup, and the gas sits in your stomach for hours.",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/fizzy-water-lick.webp"
+        },
+        "paw": {
+          "text": "The bottle tips over and the sweet water runs into the drain. You smell it for a long time.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/fizzy-water-paw.webp"
+        },
+        "leave": {
+          "text": "You remember one thing: do not drink water that bubbles.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/fizzy-water-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "road",
+      "chapter": "Q21 · Months 60-63",
+      "title": "The Middle of the Road",
+      "description": "You are already in the middle of the road. Cars are coming from both sides, and the sound is getting closer.",
+      "image": "assets/images/scenes/road.webp",
+      "actions": [
+        {
+          "id": "wait",
+          "name": "Wait for a gap",
+          "hint": "Listen before you move",
+          "icon": "A"
+        },
+        {
+          "id": "dash",
+          "name": "Dash low across",
+          "hint": "Fast means safe",
+          "icon": "B"
+        },
+        {
+          "id": "back",
+          "name": "Back to the kerb",
+          "hint": "Not today",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "wait": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You wait for the small silence between two cars and cross in a few steps.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/road-wait-success.webp"
+            },
+            "failure": {
+              "text": "You wait too long; a horn blares and you roll to the far side right beside a tyre.",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/road-wait-failure.webp"
+            }
+          }
+        },
+        "dash": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You dash across low to the ground, the wind pressing your whiskers down.",
+              "stateChanges": {},
+              "image": "assets/images/outcomes/road-dash-success.webp"
+            },
+            "failure": {
+              "text": "A wheel clips your hind leg and you lie on the kerb for a long time before you can stand.",
+              "stateChanges": {
+                "health": -6
+              },
+              "image": "assets/images/outcomes/road-dash-failure.webp"
+            }
+          }
+        },
+        "back": {
+          "text": "You back up to the wall you came from. The road can wait until tomorrow.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/road-back.webp"
+        }
+      }
+    },
+    {
+      "id": "cat-eater",
+      "chapter": "Q22 · Months 63-66",
       "title": "The Cage at the End of the Alley",
       "description": "A man guards the back alley with an iron cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -1176,7 +1650,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q14 · Months 39-42",
+      "chapter": "Q23 · Months 66-69",
       "title": "Wire Around the Neck",
       "description": "A thin wire is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -1224,7 +1698,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q15 · Months 42-45",
+      "chapter": "Q24 · Months 69-72",
       "title": "The Person Who Opens the Door",
       "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
@@ -1284,7 +1758,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q16 · Months 45-48",
+      "chapter": "Q25 · Months 72-75",
       "title": "The Man Blocking the Alley",
       "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",
