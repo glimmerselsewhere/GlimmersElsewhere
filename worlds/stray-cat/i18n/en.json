@@ -1550,8 +1550,196 @@
       }
     },
     {
-      "id": "cat-eater",
+      "id": "ac-unit",
       "chapter": "Q22 · Months 63-66",
+      "title": "The Wind From the Air Conditioner",
+      "description": "The metal box on the wall keeps turning and blows out warm air. The concrete step under it is warm too.",
+      "image": "assets/images/scenes/ac-unit.webp",
+      "actions": [
+        {
+          "id": "curl",
+          "name": "Curl up under it",
+          "hint": "Warmest spot around",
+          "icon": "A"
+        },
+        {
+          "id": "climb",
+          "name": "Jump up to look",
+          "hint": "What is turning in there",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Too loud",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "curl": {
+          "text": "The warm air pushes your fur one way, and you sleep the whole afternoon.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/ac-unit-curl.webp"
+        },
+        "climb": {
+          "text": "The fan blade catches your paw. You jump down with a stinging pad.",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/ac-unit-climb.webp"
+        },
+        "leave": {
+          "text": "You walk out from under the metal box and look for somewhere quieter.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/ac-unit-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "manhole",
+      "chapter": "Q23 · Months 66-69",
+      "title": "The Round Cover Under the Water",
+      "description": "The rain has stopped. A shallow sheet of water sits in the road with a round iron cover underneath. You cannot tell how deep it is.",
+      "image": "assets/images/scenes/manhole.webp",
+      "actions": [
+        {
+          "id": "step",
+          "name": "Step on it",
+          "hint": "Maybe it is solid",
+          "icon": "A"
+        },
+        {
+          "id": "paw",
+          "name": "Feel it with a paw",
+          "hint": "Test it first",
+          "icon": "B"
+        },
+        {
+          "id": "around",
+          "name": "Go around",
+          "hint": "Not worth the risk",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "step": {
+          "text": "Your front leg goes through and the whole cat drops into the cold water. You climb out soaked and shiver for a long time.",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/manhole-step.webp"
+        },
+        "paw": {
+          "text": "Your paw finds the cover solid under the water, and you cross on top of it.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/manhole-paw.webp"
+        },
+        "around": {
+          "text": "You take the pavement instead. A few more steps, but your fur stays dry.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/manhole-around.webp"
+        }
+      }
+    },
+    {
+      "id": "poison-bait",
+      "chapter": "Q24 · Months 69-72",
+      "title": "Those Few Grains in the Corner",
+      "description": "A few grains lie in the corner. They smell of grain, with something sweet and wrong underneath.",
+      "image": "assets/images/scenes/poison-bait.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "Eat them",
+          "hint": "They smell alright",
+          "icon": "A"
+        },
+        {
+          "id": "sniff",
+          "name": "Sniff closely",
+          "hint": "What is that sweet smell",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Something is wrong",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "Two hours later your legs start trembling. You throw up everything and twitch through the whole night.",
+          "stateChanges": {
+            "health": -8
+          },
+          "image": "assets/images/outcomes/poison-bait-eat.webp"
+        },
+        "sniff": {
+          "text": "You pick out the medicine smell, remember it, and never touch anything like it again.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/poison-bait-sniff.webp"
+        },
+        "leave": {
+          "text": "You turn away and go looking for something else to eat.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/poison-bait-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "wedding-petals",
+      "chapter": "Q25 · Months 72-75",
+      "title": "Red Petals All Over the Ground",
+      "description": "Someone is celebrating at the mouth of the alley. Red petals and little paper pieces cover the ground, and children are stamping on them.",
+      "image": "assets/images/scenes/wedding-petals.webp",
+      "actions": [
+        {
+          "id": "chase",
+          "name": "Chase the flying pieces",
+          "hint": "They fly",
+          "icon": "A"
+        },
+        {
+          "id": "sit",
+          "name": "Sit in the pile",
+          "hint": "It looks nice here",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Too many people",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "chase": {
+          "text": "You leap at the red pieces, and a little girl laughs so hard she crouches down.",
+          "stateChanges": {
+            "friendliness": 1
+          },
+          "image": "assets/images/outcomes/wedding-petals-chase.webp"
+        },
+        "sit": {
+          "text": "You sit among the petals, and someone puts a sweet down beside you.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/wedding-petals-sit.webp"
+        },
+        "leave": {
+          "text": "You slip around the edge of the crowd while the firecrackers keep popping.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/wedding-petals-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "cat-eater",
+      "chapter": "Q26 · Months 75-78",
       "title": "The Cage at the End of the Alley",
       "description": "A man guards the back alley with an iron cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -1650,7 +1838,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q23 · Months 66-69",
+      "chapter": "Q27 · Months 78-81",
       "title": "Wire Around the Neck",
       "description": "A thin wire is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -1698,7 +1886,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q24 · Months 69-72",
+      "chapter": "Q28 · Months 81-84",
       "title": "The Person Who Opens the Door",
       "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
@@ -1758,7 +1946,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q25 · Months 72-75",
+      "chapter": "Q29 · Months 84-87",
       "title": "The Man Blocking the Alley",
       "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",

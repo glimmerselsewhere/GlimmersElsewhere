@@ -1550,8 +1550,196 @@
       }
     },
     {
-      "id": "cat-eater",
+      "id": "ac-unit",
       "chapter": "Q22 · 63-66个月",
+      "title": "空调外机上的风",
+      "description": "墙上的铁盒子一直在转，吹出来的风是热的。下面那块水泥台阶也是热的。",
+      "image": "assets/images/scenes/ac-unit.webp",
+      "actions": [
+        {
+          "id": "curl",
+          "name": "缩在风口下面",
+          "hint": "这里最暖",
+          "icon": "A"
+        },
+        {
+          "id": "climb",
+          "name": "跳上去看看",
+          "hint": "里面在转什么",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "走开",
+          "hint": "声音太吵",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "curl": {
+          "text": "热风把你的毛吹得朝一个方向倒。你睡了一整个下午。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/ac-unit-curl.webp"
+        },
+        "climb": {
+          "text": "风叶擦到你的爪子，你跳下来，爪尖火辣辣地疼。",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/ac-unit-climb.webp"
+        },
+        "leave": {
+          "text": "你从铁盒子下面走开，去找更安静的地方。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/ac-unit-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "manhole",
+      "chapter": "Q23 · 66-69个月",
+      "title": "盖着水的圆盖子",
+      "description": "雨停了，马路中间有一片浅水，水底下是一个圆圆的铁盖子。你看不出水有多深。",
+      "image": "assets/images/scenes/manhole.webp",
+      "actions": [
+        {
+          "id": "step",
+          "name": "踩上去",
+          "hint": "也许能过",
+          "icon": "A"
+        },
+        {
+          "id": "paw",
+          "name": "先用爪子拨水",
+          "hint": "先探一探",
+          "icon": "B"
+        },
+        {
+          "id": "around",
+          "name": "绕到人行道上",
+          "hint": "不冒这个险",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "step": {
+          "text": "前腿踩空，整只猫跌进冷水里。你爬出来时全身湿透，抖了很久。",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/manhole-step.webp"
+        },
+        "paw": {
+          "text": "爪子探到铁盖子是实的，你踩着它走了过去。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/manhole-paw.webp"
+        },
+        "around": {
+          "text": "你绕到人行道上，多走了几步，毛还是干的。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/manhole-around.webp"
+        }
+      }
+    },
+    {
+      "id": "poison-bait",
+      "chapter": "Q24 · 69-72个月",
+      "title": "墙角那几粒",
+      "description": "墙角放着几粒东西，闻起来有粮食的味道，又混着一点不对劲的甜。",
+      "image": "assets/images/scenes/poison-bait.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "吃下去",
+          "hint": "闻着挺香",
+          "icon": "A"
+        },
+        {
+          "id": "sniff",
+          "name": "仔细闻一下",
+          "hint": "那股甜味是什么",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "走开",
+          "hint": "不对劲",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "两个小时后你的四肢开始发抖，吐了一地，整整一夜都在抽搐。",
+          "stateChanges": {
+            "health": -8
+          },
+          "image": "assets/images/outcomes/poison-bait-eat.webp"
+        },
+        "sniff": {
+          "text": "你闻出了那点药味，把这几粒记住了，再也没碰过。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/poison-bait-sniff.webp"
+        },
+        "leave": {
+          "text": "你转身走开，去找别的东西吃。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/poison-bait-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "wedding-petals",
+      "chapter": "Q25 · 72-75个月",
+      "title": "满地红色的小纸片",
+      "description": "巷口有人在办喜事，地上落满红色的小纸片和花瓣。有小孩在踩它们。",
+      "image": "assets/images/scenes/wedding-petals.webp",
+      "actions": [
+        {
+          "id": "chase",
+          "name": "追着纸片跳",
+          "hint": "它们会飞",
+          "icon": "A"
+        },
+        {
+          "id": "sit",
+          "name": "坐在花堆里",
+          "hint": "这里好看",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "走开",
+          "hint": "人太多了",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "chase": {
+          "text": "你跳起来拍那些红纸片，一个小女孩笑得蹲在地上。",
+          "stateChanges": {
+            "friendliness": 1
+          },
+          "image": "assets/images/outcomes/wedding-petals-chase.webp"
+        },
+        "sit": {
+          "text": "你坐在花瓣中间，有人往你旁边放了一块糖。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/wedding-petals-sit.webp"
+        },
+        "leave": {
+          "text": "你从人群外面绕过去，那边还在放鞭炮。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/wedding-petals-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "cat-eater",
+      "chapter": "Q26 · 75-78个月",
       "title": "巷口的铁笼",
       "description": "一个男人守在后巷，脚边放着一只铁笼。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -1650,7 +1838,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q23 · 66-69个月",
+      "chapter": "Q27 · 78-81个月",
       "title": "脖子上的铁丝",
       "description": "一根细铁丝挂在脖子上。你越挣扎，它勒得越紧。",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -1698,7 +1886,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q24 · 69-72个月",
+      "chapter": "Q28 · 81-84个月",
       "title": "夜里开门的人",
       "description": "一个女人把门开了一条缝，灯光落在你的爪子前。你闻不出屋子里面是什么味道。",
       "image": "assets/images/scenes/door.webp",
@@ -1758,7 +1946,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q25 · 72-75个月",
+      "chapter": "Q29 · 84-87个月",
       "title": "夜里挡路的人",
       "description": "他站在巷口，手里拎着一个袋子。他没有让开，也没有说话。",
       "image": "assets/images/scenes/black-glove.webp",
