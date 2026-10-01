@@ -498,9 +498,8 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "You arch your back like a bridge, and Big Yellow stops. You remember how you stood.",
+              "text": "You arch your back like a bridge, and Big Yellow stops.",
               "stateChanges": {
-                "strength": 1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
@@ -599,9 +598,8 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "You pin her wing, and White Tyrant steps back. Now you know how much weight you carry.",
+              "text": "You pin her wing, and White Tyrant steps back.",
               "stateChanges": {
-                "strength": 1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
@@ -1830,10 +1828,9 @@
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "You land neatly on the lid, watch it get emptied, jump down, and find two pieces of meat. The climb leaves you more sure of your own legs.",
+              "text": "You land neatly on the lid, watch it get emptied, jump down, and find two pieces of meat.",
               "stateChanges": {
-                "fish": 2,
-                "agility": 1
+                "fish": 2
               },
               "image": "assets/images/outcomes/garbage-truck-jump-success.webp"
             },
@@ -1881,10 +1878,8 @@
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "Not one paw slips, and a few dozen steps take you across. The crossing leaves your step steadier.",
-              "stateChanges": {
-                "agility": 1
-              },
+              "text": "Not one paw slips, and a few dozen steps take you across.",
+              "stateChanges": {},
               "image": "assets/images/outcomes/balcony-ledge-ledge-success.webp"
             },
             "failure": {
