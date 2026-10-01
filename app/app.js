@@ -1674,6 +1674,8 @@ function resolveChoice(actionId) {
     state.health = Number(state.health || 0) + Math.min(0, loss + spend);
   }
   if (world?.id === "stray-cat") {
+    // 鱼干是手里攒着的资源，输掉一场架最多把手里的都丢掉，不会变成负数。
+    state.fish = Math.max(0, Number(state.fish || 0));
     state.age = Math.max(0, Number(state.age || 0) + 3);
     const health = Math.round(Number(state.health || 0));
     if (health < 0 && !state.forcedEnding) {
