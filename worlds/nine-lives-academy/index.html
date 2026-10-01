@@ -107,6 +107,10 @@
       <button class="back-button ending-back" data-back-catalog type="button">← 返回世界</button>
       <div class="ending-stage" aria-label="结局动画">
         <video id="endingVideo" autoplay muted playsinline preload="metadata" hidden></video>
+        <button id="replayEndingVideo" class="ending-video-replay" type="button" hidden>
+          <span aria-hidden="true">↻</span>
+          <span data-i18n="replayVideo">重新播放</span>
+        </button>
         <img id="endingImage" class="ending-image" alt="" hidden>
         <svg id="endingArt" viewBox="0 0 800 800" role="img" aria-label="完整的小猫出现在房间中央"></svg>
         <p data-i18n="endingEyebrow">你的世界回响</p>

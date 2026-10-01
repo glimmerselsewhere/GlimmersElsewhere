@@ -179,6 +179,7 @@ const STRINGS = {
     sceneProgressHint: "Scene",
     creatorEntry: "Creator studio",
     noChange: "No change",
+    replayVideo: "Replay",
   },
   zh: {
     quizHint: "观察画面并作答",
@@ -328,6 +329,7 @@ async function loadPlatformText() {
     continueButton: "继续看下去",
     finalContinueButton: "查看结果",
     replayButton: "再玩一次",
+    replayVideo: "重新播放",
     introButton: "睁开猫眼",
     enterWorld: "进入这个世界",
     comingSoon: "开发中",
@@ -715,12 +717,26 @@ function startStrayGame() {
 /* ---------- Ah Hui: shuffled middle, warmed art ---------- */
 function prepareStraySceneOrder() {
   const shuffle = world?.sceneShuffle;
-  const scenes = world?.scenes || [];
+  // Keep the master pool once: the run order is rebuilt from it every time, so
+  // replaying cannot shrink the pool the way mutating world.scenes would.
+  if (!world.__scenePool) world.__scenePool = [...(world.scenes || [])];
+  const scenes = world.__scenePool;
   if (!shuffle || scenes.length < 2) return;
   const head = Math.max(0, Number(shuffle.head) || 0);
   const tail = Math.max(0, Number(shuffle.tail) || 0);
   const end = Math.max(head, scenes.length - tail);
-  const middle = scenes.slice(head, end);
+  let middle = scenes.slice(head, end);
+  // With a bigger event pool the run only shows `sample` of them, so two runs
+  // never walk the same street twice.
+  const sample = Number(shuffle.sample) || 0;
+  if (sample > 0 && middle.length > sample) {
+    const pool = [...middle];
+    const picked = [];
+    while (picked.length < sample && pool.length) {
+      picked.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    middle = picked;
+  }
   for (let i = middle.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
     [middle[i], middle[j]] = [middle[j], middle[i]];
@@ -1640,12 +1656,22 @@ function resolveChoice(actionId) {
   const scene = current.scenes[sceneIndex];
   const outcome = resolveOutcome(scene, actionId);
   recordChoice(world.id, scene.id, actionId);
+  const before = { ...state };
   for (const [key, value] of Object.entries(outcome.stateChanges || {})) {
     if (typeof value === "string") {
       state[key] = value;
       continue;
     }
     state[key] = (state[key] || 0) + value;
+  }
+  // 鱼干抵扣：给出去的鱼干按 1:1 抵扣这次结果里的健康损失。
+  // 不够也照样给，只是抵扣得少 —— 所以没有"钱不够就不能选"的情况。
+  if (world?.id === "stray-cat" && outcome.fishOffset) {
+    const need = Math.max(0, Number(outcome.fishOffset.need) || 0);
+    const loss = Math.min(0, Number(outcome.fishOffset.health) || 0);
+    const spend = Math.min(Math.max(0, Number(state.fish) || 0), need);
+    if (spend > 0) state.fish = Number(state.fish || 0) - spend;
+    state.health = Number(state.health || 0) + Math.min(0, loss + spend);
   }
   if (world?.id === "stray-cat") {
     state.age = Math.max(0, Number(state.age || 0) + 3);
@@ -1679,7 +1705,9 @@ function resolveChoice(actionId) {
   $("outcomeMilestone").innerHTML = milestoneMarkup(checkMilestone());
   const chips = [];
   for (const definition of current.states || []) {
-    const delta = outcome.stateChanges?.[definition.id] ?? outcome[definition.id] ?? 0;
+    // Show what actually changed (this also covers the fish-offset maths and
+    // any other engine-level adjustment).
+    const delta = Number(state[definition.id] || 0) - Number(before[definition.id] || 0);
     if (delta) chips.push(`<span style="color:${definition.color};background:${definition.chipBackground || '#eee'}">${definition.label} ${delta > 0 ? '+' : ''}${delta}</span>`);
   }
   if (!chips.length) chips.push(`<span>${escapeHtml(t("noChange"))}</span>`);
@@ -1770,6 +1798,7 @@ function showEnding() {
     video.currentTime = 0;
     video.muted = true;
     video.hidden = false;
+    $("replayEndingVideo").hidden = false;
     image.hidden = true;
     $("endingArt").hidden = true;
     video.play().catch(() => {
@@ -1780,12 +1809,14 @@ function showEnding() {
     video.onerror = () => { video.hidden = true; image.hidden = !ending.image; $("endingArt").hidden = Boolean(ending.image); };
   } else if (ending.image) {
     video.hidden = true;
+    $("replayEndingVideo").hidden = true;
     image.src = worldAsset(ending.image);
     image.alt = ending.title;
     image.hidden = false;
     $("endingArt").hidden = true;
   } else {
     video.hidden = true;
+    $("replayEndingVideo").hidden = true;
     image.hidden = true;
     $("endingArt").hidden = false;
   }
@@ -1908,6 +1939,12 @@ async function bootDirectWorld(nextLang, worldId) {
   $("continueButton").addEventListener("click", continueJourney);
   $("replayButton").addEventListener("click", replay);
   $("keepsakeOpen").addEventListener("click", openKeepsake);
+  $("replayEndingVideo")?.addEventListener("click", () => {
+    const video = $("endingVideo");
+    if (!video || video.hidden) return;
+    video.currentTime = 0;
+    video.play().catch(() => {});
+  });
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
   $("soundToggle").addEventListener("click", toggleSound);
@@ -1939,6 +1976,12 @@ async function bootPlayer(nextLang) {
   $("keepsakeOpen").addEventListener("click", openKeepsake);
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
+  $("replayEndingVideo")?.addEventListener("click", () => {
+    const video = $("endingVideo");
+    if (!video || video.hidden) return;
+    video.currentTime = 0;
+    video.play().catch(() => {});
+  });
   $("catalogSound").addEventListener("click", toggleSound);
   $("soundToggle").addEventListener("click", toggleSound);
   document.querySelectorAll(".lang-button").forEach(button => button.addEventListener("click", async () => {
