@@ -316,6 +316,9 @@ async function loadWorld(configPath) {
   await loadLevels();
   selectedWorldEntry = worldEntries.find(entry => entry.config === configPath) || selectedWorldEntry;
   renderWorldIdentity();
+  // Label overrides can only resolve once the world data is in: Ah Hui calls
+  // its endings' rewards "figurines" while other worlds keep "keepsakes".
+  labelStaticDom();
 }
 
 async function loadPlatformText() {
@@ -784,7 +787,11 @@ function labelStaticDom() {
   const set = (sel, text) => { const el = document.querySelector(sel); if (el && text) el.textContent = text; };
   set("#sceneMissing", lang === "en" ? "Scene image could not load" : "场景图片暂时没有加载出来");
   set(".ending-card .eyebrow", t("endingEyebrow"));
-  document.querySelectorAll('[data-i18n]').forEach(el => { const v = t(el.dataset.i18n); if (typeof v === "string") el.textContent = v; });
+  // A world can rename shared labels (Ah Hui's endings hand out figurines, not keepsakes).
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = worldUi(el.dataset.i18n, t(el.dataset.i18n));
+    if (typeof v === "string") el.textContent = v;
+  });
   const meters = document.getElementById("meters");
   if (meters) meters.setAttribute("aria-label", t("waterLabel"));
   const stage = document.getElementById("visualStage");
@@ -1853,6 +1860,18 @@ function showEnding() {
     const glbUrl = `${worldAsset(keepsake.glb)}?v=20260928`;
     const keepsakeTitle = lang === "en" && keepsake.titleEn ? keepsake.titleEn : keepsake.title;
     $("keepsakeTitle").textContent = keepsakeTitle;
+    const story = $("keepsakeStory");
+    if (story) {
+      const storyText = lang === "en" && keepsake.storyEn ? keepsake.storyEn : keepsake.story;
+      story.textContent = storyText || "";
+      story.hidden = !storyText;
+    }
+    const modalStory = $("ksStory");
+    if (modalStory) {
+      const modalStoryText = lang === "en" && keepsake.storyEn ? keepsake.storyEn : keepsake.story;
+      modalStory.textContent = modalStoryText || "";
+      modalStory.hidden = !modalStoryText;
+    }
     $("keepsakeDownload").href = glbUrl;
     $("ksDownload").href = glbUrl;
     $("ksTitle").textContent = keepsakeTitle;
@@ -1864,6 +1883,10 @@ function showEnding() {
     const thumb = $("keepsakeThumb");
     thumb.removeAttribute("src");
     thumb.hidden = true;
+    const story = $("keepsakeStory");
+    if (story) { story.hidden = true; story.textContent = ""; }
+    const modalStory = $("ksStory");
+    if (modalStory) { modalStory.hidden = true; modalStory.textContent = ""; }
     closeKeepsake();
   }
 }

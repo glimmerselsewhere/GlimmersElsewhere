@@ -2405,53 +2405,60 @@
   },
   "keepsakes": [
     {
-      "id": "thunder-paw-medallion",
+      "id": "figurine-thunder-roof",
       "endingId": "cat-martial-god",
-      "title": "风雷爪印",
-      "glb": "assets/models/thunder-paw-medallion.glb",
-      "preview": "assets/models/thunder-paw-medallion-source.webp"
+      "title": "屋顶上的猫武神",
+      "story": "一爪落下，巷口安静了。他成了这条街的传说。",
+      "glb": "assets/models/figurine-thunder-roof.glb",
+      "preview": "assets/models/figurine-thunder-roof-source.webp"
     },
     {
-      "id": "home-collar-bell",
+      "id": "figurine-blanket-sleep",
       "endingId": "home",
-      "title": "回家的铃铛",
-      "glb": "assets/models/home-collar-bell.glb",
-      "preview": "assets/models/home-collar-bell-source.webp"
+      "title": "被窝里的阿灰",
+      "story": "被子是暖的，他四脚朝天睡到中午，没有人再让他出去。",
+      "glb": "assets/models/figurine-blanket-sleep.glb",
+      "preview": "assets/models/figurine-blanket-sleep-source.webp"
     },
     {
-      "id": "clinic-tag",
+      "id": "figurine-clinic-helper",
       "endingId": "clinic",
-      "title": "诊所小白牌",
-      "glb": "assets/models/clinic-tag.glb",
-      "preview": "assets/models/clinic-tag-source.webp"
+      "title": "诊所的小值班",
+      "story": "打针的孩子不哭了，因为柜台上坐着一只白猫。",
+      "glb": "assets/models/figurine-clinic-helper.glb",
+      "preview": "assets/models/figurine-clinic-helper-source.webp"
     },
     {
-      "id": "alley-crown",
+      "id": "figurine-bin-king",
       "endingId": "street-king",
-      "title": "巷子的王冠",
-      "glb": "assets/models/alley-crown.glb",
-      "preview": "assets/models/alley-crown-source.webp"
+      "title": "垃圾桶上的王",
+      "story": "这条街分成了两半，他坐在左边的王座上。",
+      "glb": "assets/models/figurine-bin-king.glb",
+      "preview": "assets/models/figurine-bin-king-source.webp"
     },
     {
-      "id": "nameless-bell",
+      "id": "figurine-streetlight-cat",
       "endingId": "night-legend",
-      "title": "没有名字的铃铛",
-      "glb": "assets/models/nameless-bell.glb",
-      "preview": "assets/models/nameless-bell-source.webp"
+      "title": "路灯下的猫",
+      "story": "没有人知道他的名字，但他认得每一条屋檐。",
+      "glb": "assets/models/figurine-streetlight-cat.glb",
+      "preview": "assets/models/figurine-streetlight-cat-source.webp"
     },
     {
-      "id": "warm-box-charm",
+      "id": "figurine-warm-box",
       "endingId": "sick",
-      "title": "暖气边的纸箱",
-      "glb": "assets/models/warm-box-charm.glb",
-      "preview": "assets/models/warm-box-charm-source.webp"
+      "title": "纸箱里的暖光",
+      "story": "病把他带走了，但那个纸箱一直是暖的。",
+      "glb": "assets/models/figurine-warm-box.glb",
+      "preview": "assets/models/figurine-warm-box-source.webp"
     },
     {
-      "id": "soft-light-drop",
+      "id": "figurine-cat-star",
       "endingId": "heaven",
-      "title": "一小片光",
-      "glb": "assets/models/soft-light-drop.glb",
-      "preview": "assets/models/soft-light-drop-source.webp"
+      "title": "猫星上的光",
+      "story": "袋子打开了，里面没有猫，只有一小片很软的光。",
+      "glb": "assets/models/figurine-cat-star.glb",
+      "preview": "assets/models/figurine-cat-star-source.webp"
     }
   ],
   "ui": {
@@ -2459,6 +2466,8 @@
     "introButton": "开始流浪",
     "continueButton": "继续走",
     "finalContinueButton": "看看结局",
-    "replayButton": "再流浪一次"
+    "replayButton": "再流浪一次",
+    "keepsakeLabel": "获得结局手办",
+    "keepsakeGetHint": "3D 打印 · 做成手办"
   }
 }

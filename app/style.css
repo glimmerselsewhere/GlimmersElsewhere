@@ -260,6 +260,7 @@ body[data-world-id="stray-cat"] .choice-button small { font-size: 10px; }
 .keepsake-copy small { display: block; color: #7e6330; font-size: 10px; }
 .keepsake-copy strong { display: block; margin: 1px 0 2px; font-size: 14px; }
 .keepsake-copy em { display: block; color: #8a7a58; font-size: 10px; font-style: normal; }
+.keepsake-copy .keepsake-story { color: #6f6650; margin-bottom: 2px; line-height: 1.35; }
 .keepsake-download { flex: 0 0 auto; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #6b4a2a; background: rgba(255,255,255,.7); box-shadow: inset 0 0 0 1px rgba(126,99,48,.28); }
 .keepsake-download svg { width: 20px; height: 20px; }
 .keepsake-download:hover { background: #fff; }
@@ -282,6 +283,7 @@ body.ks-open { overflow: hidden; }
 .ks-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 18px 20px 6px; }
 .ks-head .eyebrow { margin: 0; color: #e0b96b; font-size: 10px; font-weight: 800; letter-spacing: .16em; }
 .ks-head h2 { margin: 4px 0 0; font: 900 24px/1.15 "Songti SC", serif; }
+.ks-story { margin: 6px 0 0; color: #8a7a58; font-size: 12px; line-height: 1.4; }
 .ks-close { width: 34px; height: 34px; border: 0; border-radius: 50%; background: rgba(255,255,255,.12); color: #f6ecdc; font-size: 20px; line-height: 1; cursor: pointer; }
 .ks-close:hover { background: rgba(255,255,255,.22); }
 .ks-stage { position: relative; flex: 1 1 auto; min-height: 260px; margin: 10px 16px 0; border-radius: 18px; background: radial-gradient(circle at 50% 34%, #4a3826, #241a12 70%); touch-action: none; overflow: hidden; }
