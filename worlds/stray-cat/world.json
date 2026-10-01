@@ -2107,7 +2107,7 @@
       "id": "wire-neck",
       "chapter": "Q32 · 93-96个月",
       "title": "勒在脖子上的东西",
-      "description": "一根细铁丝挂在脖子上。你越挣扎，它勒得越紧。",
+      "description": "一根细细的东西缠在脖子上。你越挣扎，它勒得越紧。",
       "image": "assets/images/scenes/wire-neck.webp",
       "actions": [
         {
@@ -2131,21 +2131,21 @@
       ],
       "outcomes": {
         "struggle": {
-          "text": "铁丝勒进毛里，你喘不上气。",
+          "text": "它勒进毛里，你喘不上气。",
           "stateChanges": {
             "health": -5
           },
           "image": "assets/images/outcomes/wire-neck-struggle.webp"
         },
         "freeze": {
-          "text": "你停下以后，铁丝没有再收紧。",
+          "text": "你停下以后，它没有再收紧。",
           "stateChanges": {
             "health": -2
           },
           "image": "assets/images/outcomes/wire-neck-freeze.webp"
         },
         "help": {
-          "text": "一个路过的人蹲下来，慢慢把铁丝剪开。铁丝落地以后，你身上没有留下别的东西。",
+          "text": "一个路过的人蹲下来，慢慢把那东西剪开。它落地以后，你身上没有留下别的东西。",
           "stateChanges": {},
           "image": "assets/images/outcomes/wire-neck-help.webp"
         }
