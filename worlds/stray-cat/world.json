@@ -2,8 +2,8 @@
   "id": "stray-cat",
   "title": "阿灰流浪记",
   "shortTitle": "阿灰流浪记",
-  "subtitle": "七年半的街头猫生",
-  "description": "阿灰是一只灰扑扑的白猫。七年半里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到铁笼、勒住脖子东西、被风掀起来的那天，和一扇不知道能不能进的门。",
+  "subtitle": "五年的街头猫生",
+  "description": "阿灰是一只灰扑扑的白猫。五年里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到铁笼、勒住脖子东西、被风掀起来的那天，和一扇不知道能不能进的门。",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -28,7 +28,7 @@
     "fish": 3,
     "friendliness": 1,
     "age": 0,
-    "lifespan": 90
+    "lifespan": 60
   },
   "states": [
     {
@@ -278,7 +278,7 @@
   "scenes": [
     {
       "id": "cardboard",
-      "chapter": "Q1 · 0-3个月",
+      "chapter": "Q1 · 0-2个月",
       "title": "纸箱里的第一声",
       "description": "阿灰出生在便利店后的纸箱里。他的毛本来是白的，灰尘让他看起来灰扑扑。",
       "image": "assets/images/scenes/cardboard.webp",
@@ -330,7 +330,7 @@
     },
     {
       "id": "rain-car",
-      "chapter": "Q2 · 3-6个月",
+      "chapter": "Q2 · 2-4个月",
       "title": "雨夜车底",
       "description": "雨把街面打成一片亮。你钻进车底，水从轮胎边流过去。",
       "image": "assets/images/scenes/rain-car.webp",
@@ -378,7 +378,7 @@
     },
     {
       "id": "fish-stall",
-      "chapter": "Q3 · 6-9个月",
+      "chapter": "Q3 · 4-6个月",
       "title": "鱼山的守护者",
       "description": "台阶上堆着一座鱼山，一个系着围裙的人守着它。一只老猫在鱼山下面坐着，示范怎么坐直、看人、轻轻叫。",
       "image": "assets/images/scenes/fish-stall.webp",
@@ -440,7 +440,7 @@
     },
     {
       "id": "dog-territory",
-      "chapter": "Q4 · 9-12个月",
+      "chapter": "Q4 · 6-8个月",
       "title": "大黄的领地",
       "description": "流浪狗大黄守着垃圾桶。他看见你就会追。",
       "image": "assets/images/scenes/dog-territory.webp",
@@ -542,7 +542,7 @@
     },
     {
       "id": "goose-river",
-      "chapter": "Q5 · 12-15个月",
+      "chapter": "Q5 · 8-10个月",
       "title": "白霸的河岸",
       "description": "野生大鹅白霸占了河岸。她的脖子比你的前腿还长。",
       "image": "assets/images/scenes/goose-river.webp",
@@ -641,7 +641,7 @@
     },
     {
       "id": "neuter-van",
-      "chapter": "Q6 · 15-18个月",
+      "chapter": "Q6 · 10-12个月",
       "title": "巷口拿网的人",
       "description": "一个年轻人拿着网站在巷口。他动作很稳，正一步一步靠近。",
       "image": "assets/images/scenes/neuter-van.webp",
@@ -716,7 +716,7 @@
           "text": "年轻人把你放进笼子，动作很轻。醒来时你已经在原来的街角，身上干净了一点。",
           "stateChanges": {
             "health": 4,
-            "lifespan": 6,
+            "lifespan": 4,
             "friendliness": 1
           },
           "image": "assets/images/outcomes/neuter-van-accept.webp"
@@ -725,7 +725,7 @@
     },
     {
       "id": "kind-hand",
-      "chapter": "Q7 · 18-21个月",
+      "chapter": "Q7 · 12-14个月",
       "title": "蹲下来的小孩",
       "description": "街角有个小女孩蹲下来，手心放着半块鱼干。",
       "image": "assets/images/scenes/good-kid.webp",
@@ -783,7 +783,7 @@
     },
     {
       "id": "clinic",
-      "chapter": "Q8 · 21-24个月",
+      "chapter": "Q8 · 14-16个月",
       "title": "白大褂的人",
       "description": "一个穿白大褂的人把手放在你的背上。屋里有药水的味道。",
       "image": "assets/images/scenes/clinic.webp",
@@ -818,8 +818,8 @@
         "treat": {
           "text": "她给你上药，又放了一碗水。你让她碰了你的后颈。",
           "stateChanges": {
-            "health": 4,
-            "lifespan": 6,
+            "health": 5,
+            "lifespan": 4,
             "fish": 1,
             "friendliness": 1
           },
@@ -844,7 +844,7 @@
     },
     {
       "id": "bath-collar",
-      "chapter": "Q9 · 24-27个月",
+      "chapter": "Q9 · 16-18个月",
       "title": "洗澡和脖子上的圈",
       "description": "小女孩带你回家洗了一次澡，往你脖子上套了一个圈。",
       "image": "assets/images/scenes/kind-hand.webp",
@@ -898,7 +898,7 @@
     },
     {
       "id": "kid",
-      "chapter": "Q10 · 27-30个月",
+      "chapter": "Q10 · 18-20个月",
       "title": "拿着树枝的小孩",
       "description": "一个拿着树枝的小男孩看见你，开始追。",
       "image": "assets/images/scenes/bad-kid.webp",
@@ -994,7 +994,7 @@
     },
     {
       "id": "old-cat-lesson",
-      "chapter": "Q11 · 30-33个月",
+      "chapter": "Q11 · 20-22个月",
       "title": "老猫示范的动作",
       "description": "老橘带你到铁栅栏前，把自己压扁、侧过肩膀，从最窄的缝里穿了过去，然后回头看你。",
       "image": "assets/images/scenes/old-cat-lesson.webp",
@@ -1049,7 +1049,7 @@
     },
     {
       "id": "plastic-waste",
-      "chapter": "Q12 · 33-36个月",
+      "chapter": "Q12 · 22-24个月",
       "title": "闻起来像鱼的袋子",
       "description": "垃圾桶边有一只闻起来像鱼的袋子。味道很香。",
       "image": "assets/images/scenes/plastic-waste.webp",
@@ -1095,7 +1095,7 @@
     },
     {
       "id": "mirror",
-      "chapter": "Q13 · 36-39个月",
+      "chapter": "Q13 · 24-26个月",
       "title": "墙边立着的东西",
       "description": "墙边立着一块亮亮的东西。里面有一只和你一模一样的猫，正盯着你看。",
       "image": "assets/images/scenes/mirror.webp",
@@ -1143,7 +1143,7 @@
     },
     {
       "id": "grapes",
-      "chapter": "Q14 · 39-42个月",
+      "chapter": "Q14 · 26-28个月",
       "title": "台阶上一小串圆圆的东西",
       "description": "有人把一小串圆圆的东西放在台阶上，闻起来很甜。",
       "image": "assets/images/scenes/grapes.webp",
@@ -1189,7 +1189,7 @@
     },
     {
       "id": "milk",
-      "chapter": "Q15 · 42-45个月",
+      "chapter": "Q15 · 28-30个月",
       "title": "门口那碗白色的东西",
       "description": "有人在门口放了一碗白色的东西，闻起来又香又滑。",
       "image": "assets/images/scenes/milk.webp",
@@ -1237,7 +1237,7 @@
     },
     {
       "id": "glue-trap",
-      "chapter": "Q16 · 45-48个月",
+      "chapter": "Q16 · 30-32个月",
       "title": "墙脚那块黄色的板子",
       "description": "墙脚放着一块黄色的板子，上面有几粒吃的。黏黏的味道很冲。",
       "image": "assets/images/scenes/glue-trap.webp",
@@ -1285,7 +1285,7 @@
     },
     {
       "id": "typhoon",
-      "chapter": "Q17 · 48-51个月",
+      "chapter": "Q17 · 32-34个月",
       "title": "风把整条街掀起来的那天",
       "description": "风把整条街的东西都掀了起来，广告牌在响。雨是横着下的。",
       "image": "assets/images/scenes/typhoon.webp",
@@ -1335,7 +1335,7 @@
     },
     {
       "id": "winter",
-      "chapter": "Q18 · 51-54个月",
+      "chapter": "Q18 · 34-36个月",
       "title": "最冷的那个冬天",
       "description": "水管冻上了，冷得你不想动。你藏起来的鱼干就在洞里。",
       "image": "assets/images/scenes/winter.webp",
@@ -1374,7 +1374,7 @@
     },
     {
       "id": "quiet-helper",
-      "chapter": "Q19 · 54-57个月",
+      "chapter": "Q19 · 36-38个月",
       "title": "放下东西就走的人",
       "description": "一个看不清脸的人放下了一只碗，走开几步，没有再靠近。碗里有吃剩的饭。",
       "image": "assets/images/scenes/quiet-helper.webp",
@@ -1435,7 +1435,7 @@
     },
     {
       "id": "fizzy-water",
-      "chapter": "Q20 · 57-60个月",
+      "chapter": "Q20 · 38-40个月",
       "title": "路边那瓶冒泡的水",
       "description": "一瓶没喝完的甜水倒在路边，一直在冒小泡。闻起来很甜。",
       "image": "assets/images/scenes/fizzy-water.webp",
@@ -1481,7 +1481,7 @@
     },
     {
       "id": "road",
-      "chapter": "Q21 · 60-63个月",
+      "chapter": "Q21 · 40-42个月",
       "title": "马路中间",
       "description": "你已经走到路中间，两边都有车在靠近，声音越来越近。",
       "image": "assets/images/scenes/road.webp",
@@ -1553,7 +1553,7 @@
     },
     {
       "id": "ac-unit",
-      "chapter": "Q22 · 63-66个月",
+      "chapter": "Q22 · 42-44个月",
       "title": "墙上那个吹热风的铁盒子",
       "description": "墙上的铁盒子一直在响，吹出来的风是热的。下面那块水泥台阶也是热的。",
       "image": "assets/images/scenes/ac-unit.webp",
@@ -1601,7 +1601,7 @@
     },
     {
       "id": "manhole",
-      "chapter": "Q23 · 66-69个月",
+      "chapter": "Q23 · 44-46个月",
       "title": "盖着水的圆盖子",
       "description": "雨停了，马路中间有一片浅水，水底下是一个圆圆的铁盖子。你看不出水有多深。",
       "image": "assets/images/scenes/manhole.webp",
@@ -1647,7 +1647,7 @@
     },
     {
       "id": "poison-bait",
-      "chapter": "Q24 · 69-72个月",
+      "chapter": "Q24 · 46-48个月",
       "title": "墙角那几粒",
       "description": "墙角放着几粒东西，闻起来有粮食的味道，又混着一点不对劲的甜。",
       "image": "assets/images/scenes/poison-bait.webp",
@@ -1693,7 +1693,7 @@
     },
     {
       "id": "wedding-petals",
-      "chapter": "Q25 · 72-75个月",
+      "chapter": "Q25 · 48-50个月",
       "title": "满地红色的小纸片",
       "description": "巷口那边很热闹，地上落满红色的小纸片和花瓣。有小孩在上面踩来踩去。",
       "image": "assets/images/scenes/wedding-petals.webp",
@@ -1741,7 +1741,7 @@
     },
     {
       "id": "earthworms",
-      "chapter": "Q26 · 75-78个月",
+      "chapter": "Q26 · 50-52个月",
       "title": "雨后地上扭动的东西",
       "description": "雨刚停，地上有好多条细细的、在扭的东西，一碰就缩。",
       "image": "assets/images/scenes/earthworms.webp",
@@ -1787,7 +1787,7 @@
     },
     {
       "id": "garbage-truck",
-      "chapter": "Q27 · 78-81个月",
+      "chapter": "Q27 · 52-54个月",
       "title": "每天早上响一次的大家伙",
       "description": "天刚亮，一辆很大的东西停在垃圾桶边，一直在响，还有人在往里面倒东西。",
       "image": "assets/images/scenes/garbage-truck.webp",
@@ -1850,7 +1850,7 @@
     },
     {
       "id": "balcony-ledge",
-      "chapter": "Q28 · 81-84个月",
+      "chapter": "Q28 · 54-56个月",
       "title": "楼外伸出来的那条窄路",
       "description": "楼外面伸出来一条很窄的边，贴着它走就能到旁边那栋楼。下面是水泥地。",
       "image": "assets/images/scenes/balcony-ledge.webp",
@@ -1912,7 +1912,7 @@
     },
     {
       "id": "sun-patch",
-      "chapter": "Q29 · 84-87个月",
+      "chapter": "Q29 · 56-58个月",
       "title": "晒得最暖的那块石板",
       "description": "下午的太阳把路边的石板晒得暖烘烘的。别的猫还没发现这里。",
       "image": "assets/images/scenes/sun-patch.webp",
@@ -1960,7 +1960,7 @@
     },
     {
       "id": "soft-cushion",
-      "chapter": "Q30 · 87-90个月",
+      "chapter": "Q30 · 58-60个月",
       "title": "墙根那块软软的东西",
       "description": "楼下的墙根多了一块软软的东西，晒过太阳，闻起来是干净的灰。",
       "image": "assets/images/scenes/soft-cushion.webp",
@@ -2006,7 +2006,7 @@
     },
     {
       "id": "cat-eater",
-      "chapter": "Q31 · 90-93个月",
+      "chapter": "Q31 · 60-62个月",
       "title": "巷口的铁笼",
       "description": "一个男人守在后巷，脚边放着一只铁笼。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -2105,7 +2105,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q32 · 93-96个月",
+      "chapter": "Q32 · 62-64个月",
       "title": "勒在脖子上的东西",
       "description": "一根细细的东西缠在脖子上。你越挣扎，它勒得越紧。",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -2153,7 +2153,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q33 · 96-99个月",
+      "chapter": "Q33 · 64-66个月",
       "title": "夜里开门的人",
       "description": "一个女人把门开了一条缝，灯光落在你的爪子前。你闻不出屋子里面是什么味道。",
       "image": "assets/images/scenes/door.webp",
@@ -2213,7 +2213,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q34 · 99-102个月",
+      "chapter": "Q34 · 66-68个月",
       "title": "夜里挡路的人",
       "description": "他站在巷口，手里拎着一个袋子。他没有让开，也没有说话。",
       "image": "assets/images/scenes/black-glove.webp",
@@ -2390,8 +2390,8 @@
   ],
   "catalog": {
     "eyebrow": "第十片异境微光已经苏醒",
-    "headline": "七年半，一只灰扑扑的白猫。",
-    "description": "30 个季度：纸箱、雨夜、狗和鹅、拿网的人、好心人，还有会照出猫的亮东西、圆圆的小果子、白色的碗、黄色的板子、被风掀起来的那天、最冷的冬天和晒得最暖的石板；最后几关是后巷的男人、脖子上的东西、那扇门和巷口挡路的人。",
+    "headline": "五年，一只灰扑扑的白猫。",
+    "description": "30 段街头生活：纸箱、雨夜、狗和鹅、拿网的人、好心人，还有会照出猫的亮东西、圆圆的小果子、白色的碗、黄色的板子、被风掀起来的那天、最冷的冬天和晒得最暖的石板；最后几关是后巷的男人、脖子上的东西、那扇门和巷口挡路的人。",
     "cardDescription": "武力、敏捷、魅力、友善度、健康、鱼干和寿命共同决定你的结局。",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",
