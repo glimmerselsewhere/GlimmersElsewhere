@@ -428,9 +428,10 @@
           "image": "assets/images/outcomes/fish-stall-observe.webp"
         },
         "steal": {
-          "text": "你叼起鱼就跑，尾巴比身体先转弯。",
+          "text": "你叼起鱼就跑，尾巴比身体先转弯。她知道是你拿的。",
           "stateChanges": {
-            "fish": 3
+            "fish": 3,
+            "friendliness": -1
           },
           "image": "assets/images/outcomes/fish-stall-steal.webp"
         }
@@ -463,9 +464,9 @@
           "icon": "B"
         },
         {
-          "id": "avoid",
-          "name": "绕开垃圾桶",
-          "hint": "不进他的地盘",
+          "id": "fish",
+          "name": "丢下一块鱼干",
+          "hint": "用食物换和平（消耗 1 鱼干）",
           "icon": "C"
         }
       ],
@@ -497,37 +498,28 @@
             "op": ">=",
             "success": {
               "text": "你把背拱成一座桥，大黄停住了。",
-              "stateChanges": {},
+              "stateChanges": {
+                "friendliness": -1
+              },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
             "failure": {
               "text": "你被撞了一下，翻进草丛里。",
               "stateChanges": {
                 "health": -3,
-                "fish": -1
+                "fish": -1,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-failure.webp"
             }
           }
         },
-        "avoid": {
-          "compare": {
-            "stat": "agility",
-            "enemyStat": "agility",
-            "op": ">=",
-            "success": {
-              "text": "你从花坛后面绕过去，大黄只闻到你的味道。",
-              "stateChanges": {},
-              "image": "assets/images/outcomes/dog-territory-avoid-success.webp"
-            },
-            "failure": {
-              "text": "你踩到空罐头，声音把大黄引了过来。",
-              "stateChanges": {
-                "health": -2
-              },
-              "image": "assets/images/outcomes/dog-territory-avoid-failure.webp"
-            }
-          }
+        "fish": {
+          "text": "你把鱼干丢在他脚边，他低头去闻。你从他背后走过去，谁都没有受伤。",
+          "stateChanges": {
+            "fish": -1
+          },
+          "image": "assets/images/outcomes/dog-territory-fish.webp"
         }
       }
     },
@@ -591,14 +583,17 @@
             "op": ">=",
             "success": {
               "text": "你压住她的翅膀，白霸退了一步。",
-              "stateChanges": {},
+              "stateChanges": {
+                "friendliness": -1
+              },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
             },
             "failure": {
               "text": "你被翅膀扫倒，胸口疼了很久。",
               "stateChanges": {
                 "health": -3,
-                "fish": -1
+                "fish": -1,
+                "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-failure.webp"
             }
@@ -1257,11 +1252,12 @@
       ],
       "outcomes": {
         "enter": {
-          "compare": {
-            "stat": "friendliness",
-            "enemyStat": "needsCatFriendliness",
-            "op": ">=",
-            "success": {
+          "tiers": [
+            {
+              "min": {
+                "friendliness": 4,
+                "charm": 6
+              },
               "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再流浪了。",
               "stateChanges": {
                 "health": 2,
@@ -1270,14 +1266,14 @@
               },
               "image": "assets/images/outcomes/adopter-enter-success.webp"
             },
-            "failure": {
-              "text": "你进门就压低身体，贴着墙根走。她看了你很久，最后还是轻轻把门关上了。",
+            {
+              "text": "你进门就压低身体，贴着墙根走。她看了看你打结的毛，又看了看你贴墙的样子，最后还是轻轻把门关上了。",
               "stateChanges": {
                 "friendliness": 1
               },
               "image": "assets/images/outcomes/adopter-enter-failure.webp"
             }
-          }
+          ]
         },
         "leave": {
           "text": "你退开半步，转身走进夜色。灯光在你身后慢慢关上。",
