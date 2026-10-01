@@ -3,7 +3,7 @@
   "title": "阿灰流浪记",
   "shortTitle": "阿灰流浪记",
   "subtitle": "48个月的街头猫生",
-  "description": "阿灰是一只灰扑扑的白猫。他在 48 个月里遇到鱼摊老太太、大黄、白霸、绝育队、诊所医生、猫肉贩子、小屁孩、虐猫者，和一个想把他留下的年轻女人。",
+  "description": "阿灰是一只灰扑扑的白猫。48 个月里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到铁笼、铁丝、台风和一扇不知道能不能进的门。",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -206,7 +206,7 @@
   "characters": [
     {
       "id": "fish-woman",
-      "name": "鱼摊老太太",
+      "name": "守鱼山的人",
       "role": "kind human",
       "strength": 2,
       "agility": 2
@@ -227,7 +227,7 @@
     },
     {
       "id": "neuter-worker",
-      "name": "绝育队年轻人",
+      "name": "拿网的年轻人",
       "role": "kind human",
       "strength": 6,
       "agility": 4
@@ -248,7 +248,7 @@
     },
     {
       "id": "cat-eater",
-      "name": "猫肉贩子",
+      "name": "后巷的男人",
       "role": "cat eater",
       "strength": 12,
       "agility": 5
@@ -262,7 +262,7 @@
     },
     {
       "id": "abuser",
-      "name": "虐猫者",
+      "name": "巷口的人",
       "role": "abuser",
       "strength": 10,
       "agility": 11
@@ -1834,7 +1834,7 @@
     {
       "id": "cat-martial-god",
       "title": "猫武神 · 一爪风雷",
-      "description": "你一爪落下，虐猫者化作飞灰。街道从此安静，猫武神坐在屋顶上看月亮。",
+      "description": "你一爪落下，巷口的人化作飞灰。街道从此安静，猫武神坐在屋顶上看月亮。",
       "all": [
         {
           "state": "strength",
@@ -1936,7 +1936,7 @@
   "catalog": {
     "eyebrow": "第十片异境微光已经苏醒",
     "headline": "48 个月，一只灰扑扑的白猫。",
-    "description": "16 个季度：先是纸箱和雨夜，然后是狗、鹅、绝育队和好心人；越到后面越难，最后两关是虐猫者和那扇门。",
+    "description": "16 个季度：纸箱、雨夜、狗和鹅、拿网的人、好心人，还有镜子、葡萄、牛奶、粘板、台风和冬天；越往后越难，最后两关是巷口挡路的人和那扇门。",
     "cardDescription": "武力、敏捷、魅力、友善度、健康、鱼干和寿命共同决定你的结局。",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",
