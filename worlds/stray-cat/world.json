@@ -2,13 +2,13 @@
   "id": "stray-cat",
   "title": "阿灰流浪记",
   "shortTitle": "阿灰流浪记",
-  "subtitle": "48个月的街头猫生",
-  "description": "阿灰是一只灰扑扑的白猫。48 个月里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到铁笼、铁丝、台风和一扇不知道能不能进的门。",
+  "subtitle": "七年半的街头猫生",
+  "description": "阿灰是一只灰扑扑的白猫。七年半里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到铁笼、勒住脖子东西、被风掀起来的那天，和一扇不知道能不能进的门。",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
     "tail": 4,
-    "sample": 9
+    "sample": 23
   },
   "music": "assets/audio/soft-paws-roam.mp3",
   "musicVolume": 0.12,
@@ -28,7 +28,7 @@
     "fish": 3,
     "friendliness": 1,
     "age": 0,
-    "lifespan": 48
+    "lifespan": 90
   },
   "states": [
     {
@@ -264,8 +264,8 @@
       "id": "abuser",
       "name": "巷口的人",
       "role": "abuser",
-      "strength": 10,
-      "agility": 11
+      "strength": 8,
+      "agility": 7
     },
     {
       "id": "old-orange",
@@ -356,9 +356,9 @@
       ],
       "outcomes": {
         "dry": {
-          "text": "车身挡住了大部分雨，你的毛慢慢变重。",
+          "text": "车身挡住了大部分雨。你把自己盘起来，一直睡到雨停。",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/rain-car-dry.webp"
         },
@@ -466,8 +466,8 @@
         },
         {
           "id": "fish",
-          "name": "丢下一块鱼干",
-          "hint": "用食物换和平（消耗 1 鱼干）",
+          "name": "丢出鱼干",
+          "hint": "要两块才够（消耗 2 鱼干）",
           "icon": "C"
         }
       ],
@@ -498,8 +498,9 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "你把背拱成一座桥，大黄停住了。",
+              "text": "你把背拱成一座桥，大黄停住了。你记住了这种站法。",
               "stateChanges": {
+                "strength": 1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
@@ -507,7 +508,7 @@
             "failure": {
               "text": "你被撞了一下，翻进草丛里。",
               "stateChanges": {
-                "health": -3,
+                "health": -2,
                 "fish": -1,
                 "friendliness": -1
               },
@@ -586,7 +587,7 @@
             "failure": {
               "text": "你绕得不够快，被白霸追着啄了两下。",
               "stateChanges": {
-                "health": -2
+                "health": -1
               },
               "image": "assets/images/outcomes/goose-river-avoid-failure.webp"
             }
@@ -598,8 +599,9 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "你压住她的翅膀，白霸退了一步。",
+              "text": "你压住她的翅膀，白霸退了一步。这一下让你知道了自己有多重。",
               "stateChanges": {
+                "strength": 1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
@@ -607,7 +609,7 @@
             "failure": {
               "text": "你被翅膀扫倒，胸口疼了很久。",
               "stateChanges": {
-                "health": -3,
+                "health": -2,
                 "fish": -1,
                 "friendliness": -1
               },
@@ -628,7 +630,7 @@
             "failure": {
               "text": "你被翅膀扫到，滚了两圈。",
               "stateChanges": {
-                "health": -3,
+                "health": -2,
                 "fish": -1
               },
               "image": "assets/images/outcomes/goose-river-run-failure.webp"
@@ -711,9 +713,9 @@
           }
         },
         "accept": {
-          "text": "年轻人把你放进笼子，动作很轻。醒来时你已经在原来的街角。",
+          "text": "年轻人把你放进笼子，动作很轻。醒来时你已经在原来的街角，身上干净了一点。",
           "stateChanges": {
-            "health": 3,
+            "health": 4,
             "lifespan": 6,
             "friendliness": 1
           },
@@ -756,9 +758,9 @@
       ],
       "outcomes": {
         "approach": {
-          "text": "她把鱼干放在地上，退开两步等你吃。",
+          "text": "她把鱼干放在地上，退开两步等你吃。你吃得很饱。",
           "stateChanges": {
-            "health": 1,
+            "health": 2,
             "fish": 1,
             "friendliness": 1
           },
@@ -843,8 +845,8 @@
     {
       "id": "bath-collar",
       "chapter": "Q9 · 24-27个月",
-      "title": "洗澡和项圈",
-      "description": "小女孩带你回家洗了一次澡，还给你戴上项圈。",
+      "title": "洗澡和脖子上的圈",
+      "description": "小女孩带你回家洗了一次澡，往你脖子上套了一个圈。",
       "image": "assets/images/scenes/kind-hand.webp",
       "actions": [
         {
@@ -855,7 +857,7 @@
         },
         {
           "id": "collar",
-          "name": "接受项圈",
+          "name": "接受脖子上的圈",
           "hint": "她说先戴着",
           "icon": "B"
         },
@@ -877,7 +879,7 @@
           "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
         "collar": {
-          "text": "项圈很轻，铃铛只响了一下。女孩说：先戴着，别弄丢。",
+          "text": "圈很轻，上面的小铃铛只响了一下。女孩说：先戴着，别弄丢。",
           "stateChanges": {
             "charm": 2,
             "fish": 1,
@@ -886,7 +888,7 @@
           "image": "assets/images/outcomes/bath-collar-collar.webp"
         },
         "resist": {
-          "text": "你抓了她一下，从窗户跳出去，项圈留在桌上。",
+          "text": "你抓了她一下，从窗户跳出去，那个圈留在桌上。",
           "stateChanges": {
             "friendliness": -1
           },
@@ -993,8 +995,8 @@
     {
       "id": "old-cat-lesson",
       "chapter": "Q11 · 30-33个月",
-      "title": "老猫的敏捷课",
-      "description": "老橘带你到铁栅栏前，教你怎么压低身体、侧肩、从最窄的缝里穿过去。",
+      "title": "老猫示范的动作",
+      "description": "老橘带你到铁栅栏前，把自己压扁、侧过肩膀，从最窄的缝里穿了过去，然后回头看你。",
       "image": "assets/images/scenes/old-cat-lesson.webp",
       "enemy": {
         "id": "old-orange",
@@ -1032,9 +1034,9 @@
           "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
         },
         "watch": {
-          "text": "你看清了他压低身体的角度。",
+          "text": "你看清了他压低身体的角度，自己也试着压了压肩膀。",
           "stateChanges": {
-            "agility": 1
+            "agility": 2
           },
           "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
         },
@@ -1048,8 +1050,8 @@
     {
       "id": "plastic-waste",
       "chapter": "Q12 · 33-36个月",
-      "title": "垃圾桶边的塑料袋",
-      "description": "垃圾桶边有一只闻起来像鱼的塑料袋。味道很香。",
+      "title": "闻起来像鱼的袋子",
+      "description": "垃圾桶边有一只闻起来像鱼的袋子。味道很香。",
       "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
@@ -1060,32 +1062,32 @@
         },
         {
           "id": "bite",
-          "name": "咬开塑料袋",
+          "name": "咬开袋子",
           "hint": "里面也许有鱼",
           "icon": "B"
         },
         {
           "id": "avoid",
-          "name": "绕开塑料袋",
+          "name": "绕开它",
           "hint": "不吃不明东西",
           "icon": "C"
         }
       ],
       "outcomes": {
         "sniff": {
-          "text": "你只闻到了鱼味和一点消毒水味。",
+          "text": "你只闻到鱼味，底下还压着一点冲鼻子的味道。",
           "stateChanges": {},
           "image": "assets/images/outcomes/plastic-waste-sniff.webp"
         },
         "bite": {
-          "text": "你吞下了一片软塑料。它卡在胃里，很疼。",
+          "text": "你吞下软软的一小片。它卡在胃里，很疼。",
           "stateChanges": {
-            "health": -5
+            "health": -4
           },
           "image": "assets/images/outcomes/plastic-waste-bite.webp"
         },
         "avoid": {
-          "text": "你绕开塑料袋，去找更安全的水。",
+          "text": "你绕开它，去找更安全的水。",
           "stateChanges": {},
           "image": "assets/images/outcomes/plastic-waste-avoid.webp"
         }
@@ -1094,8 +1096,8 @@
     {
       "id": "mirror",
       "chapter": "Q13 · 36-39个月",
-      "title": "墙边的镜子",
-      "description": "一面旧镜子靠在墙边。里面有一只和你一模一样的猫，正盯着你看。",
+      "title": "墙边立着的东西",
+      "description": "墙边立着一块亮亮的东西。里面有一只和你一模一样的猫，正盯着你看。",
       "image": "assets/images/scenes/mirror.webp",
       "actions": [
         {
@@ -1126,14 +1128,14 @@
           "image": "assets/images/outcomes/mirror-stare.webp"
         },
         "pounce": {
-          "text": "鼻子撞在冰凉的玻璃上，那只猫也撞了一下。",
+          "text": "鼻子撞在又冷又硬的东西上，那只猫也撞了一下。",
           "stateChanges": {
             "health": -1
           },
           "image": "assets/images/outcomes/mirror-pounce.webp"
         },
         "walk": {
-          "text": "你从镜子旁边走过去，没有回头。",
+          "text": "你从它旁边走过去，没有回头。",
           "stateChanges": {},
           "image": "assets/images/outcomes/mirror-walk.webp"
         }
@@ -1142,8 +1144,8 @@
     {
       "id": "grapes",
       "chapter": "Q14 · 39-42个月",
-      "title": "路边的一小串葡萄",
-      "description": "有人把一小串葡萄放在台阶上，闻起来很甜。你不知道猫不能吃这个。",
+      "title": "台阶上一小串圆圆的东西",
+      "description": "有人把一小串圆圆的东西放在台阶上，闻起来很甜。",
       "image": "assets/images/scenes/grapes.webp",
       "actions": [
         {
@@ -1188,8 +1190,8 @@
     {
       "id": "milk",
       "chapter": "Q15 · 42-45个月",
-      "title": "门口那碗牛奶",
-      "description": "有人在门口放了一碗牛奶，是好心。你不知道自己喝了会拉肚子。",
+      "title": "门口那碗白色的东西",
+      "description": "有人在门口放了一碗白色的东西，闻起来又香又滑。",
       "image": "assets/images/scenes/milk.webp",
       "actions": [
         {
@@ -1215,7 +1217,7 @@
         "drink": {
           "text": "奶很香。半夜你的肚子开始咕噜，第二天拉得很虚。",
           "stateChanges": {
-            "health": -4
+            "health": -3
           },
           "image": "assets/images/outcomes/milk-drink.webp"
         },
@@ -1236,8 +1238,8 @@
     {
       "id": "glue-trap",
       "chapter": "Q16 · 45-48个月",
-      "title": "角落里的粘板",
-      "description": "墙脚放着一块黄色的板子，上面有几粒吃的。你闻得到胶的味道。",
+      "title": "墙脚那块黄色的板子",
+      "description": "墙脚放着一块黄色的板子，上面有几粒吃的。黏黏的味道很冲。",
       "image": "assets/images/scenes/glue-trap.webp",
       "actions": [
         {
@@ -1263,7 +1265,7 @@
         "step": {
           "text": "四只爪子全粘住了。你撕掉一层毛才挣脱出来，脚掌一直在疼。",
           "stateChanges": {
-            "health": -4
+            "health": -3
           },
           "image": "assets/images/outcomes/glue-trap-step.webp"
         },
@@ -1284,7 +1286,7 @@
     {
       "id": "typhoon",
       "chapter": "Q17 · 48-51个月",
-      "title": "台风天",
+      "title": "风把整条街掀起来的那天",
       "description": "风把整条街的东西都掀了起来，广告牌在响。雨是横着下的。",
       "image": "assets/images/scenes/typhoon.webp",
       "actions": [
@@ -1311,7 +1313,7 @@
         "stairwell": {
           "text": "楼道里没有风。你抖掉身上的水，第一次睡了一整夜。",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/typhoon-stairwell.webp"
         },
@@ -1552,8 +1554,8 @@
     {
       "id": "ac-unit",
       "chapter": "Q22 · 63-66个月",
-      "title": "空调外机上的风",
-      "description": "墙上的铁盒子一直在转，吹出来的风是热的。下面那块水泥台阶也是热的。",
+      "title": "墙上那个吹热风的铁盒子",
+      "description": "墙上的铁盒子一直在响，吹出来的风是热的。下面那块水泥台阶也是热的。",
       "image": "assets/images/scenes/ac-unit.webp",
       "actions": [
         {
@@ -1579,7 +1581,7 @@
         "curl": {
           "text": "热风把你的毛吹得朝一个方向倒。你睡了一整个下午。",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/ac-unit-curl.webp"
         },
@@ -1693,7 +1695,7 @@
       "id": "wedding-petals",
       "chapter": "Q25 · 72-75个月",
       "title": "满地红色的小纸片",
-      "description": "巷口有人在办喜事，地上落满红色的小纸片和花瓣。有小孩在踩它们。",
+      "description": "巷口那边很热闹，地上落满红色的小纸片和花瓣。有小孩在上面踩来踩去。",
       "image": "assets/images/scenes/wedding-petals.webp",
       "actions": [
         {
@@ -1724,22 +1726,287 @@
           "image": "assets/images/outcomes/wedding-petals-chase.webp"
         },
         "sit": {
-          "text": "你坐在花瓣中间，有人往你旁边放了一块糖。",
+          "text": "你坐在花瓣中间，有人往你旁边放了一块糖。你吃了，脚下暖暖的。",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/wedding-petals-sit.webp"
         },
         "leave": {
-          "text": "你从人群外面绕过去，那边还在放鞭炮。",
+          "text": "你从人群外面绕过去，那边的响声一直没停。",
           "stateChanges": {},
           "image": "assets/images/outcomes/wedding-petals-leave.webp"
         }
       }
     },
     {
-      "id": "cat-eater",
+      "id": "earthworms",
       "chapter": "Q26 · 75-78个月",
+      "title": "雨后地上扭动的东西",
+      "description": "雨刚停，地上有好多条细细的、在扭的东西，一碰就缩。",
+      "image": "assets/images/scenes/earthworms.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "吃掉一条",
+          "hint": "会动，但是能吃",
+          "icon": "A"
+        },
+        {
+          "id": "play",
+          "name": "用爪子拨着玩",
+          "hint": "看它们缩起来",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "走开",
+          "hint": "不感兴趣",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "滑滑的，你一连吃了几条，肚子踏实了不少。",
+          "stateChanges": {
+            "health": 2
+          },
+          "image": "assets/images/outcomes/earthworms-eat.webp"
+        },
+        "play": {
+          "text": "你拨了很久，它们一条条缩成一团。水洼边被你踩得乱七八糟。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/earthworms-play.webp"
+        },
+        "leave": {
+          "text": "你踩着水洼走过去，去找更饱的东西。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/earthworms-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "garbage-truck",
+      "chapter": "Q27 · 78-81个月",
+      "title": "每天早上响一次的大家伙",
+      "description": "天刚亮，一辆很大的东西停在垃圾桶边，一直在响，还有人在往里面倒东西。",
+      "image": "assets/images/scenes/garbage-truck.webp",
+      "actions": [
+        {
+          "id": "wait",
+          "name": "等到它走",
+          "hint": "不靠近",
+          "icon": "A"
+        },
+        {
+          "id": "chase",
+          "name": "追着它跑一段",
+          "hint": "跑得比它快",
+          "icon": "B"
+        },
+        {
+          "id": "jump",
+          "name": "跳上旁边的垃圾桶",
+          "hint": "看清楚上面发生了什么",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "wait": {
+          "text": "它响了一会儿就开走了。你等到安静才过去翻。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/garbage-truck-wait.webp"
+        },
+        "chase": {
+          "text": "车轮溅起的水打湿了你的半边身子。",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/garbage-truck-chase.webp"
+        },
+        "jump": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "你稳稳跳上桶盖，看见里面的东西被倒空，然后跳下来捡到了两块肉。上下这一趟，你对自己的腿更有把握了。",
+              "stateChanges": {
+                "fish": 2,
+                "agility": 1
+              },
+              "image": "assets/images/outcomes/garbage-truck-jump-success.webp"
+            },
+            "failure": {
+              "text": "桶盖是滑的。你踩空跌进桶里，被人抖出来，摔在地上。",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/garbage-truck-jump-failure.webp"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "balcony-ledge",
+      "chapter": "Q28 · 81-84个月",
+      "title": "楼外伸出来的那条窄路",
+      "description": "楼外面伸出来一条很窄的边，贴着它走就能到旁边那栋楼。下面是水泥地。",
+      "image": "assets/images/scenes/balcony-ledge.webp",
+      "actions": [
+        {
+          "id": "ledge",
+          "name": "贴着边走过去",
+          "hint": "省一大段路",
+          "icon": "A"
+        },
+        {
+          "id": "roof",
+          "name": "爬回屋顶绕过去",
+          "hint": "稳一点",
+          "icon": "B"
+        },
+        {
+          "id": "back",
+          "name": "原路退回去",
+          "hint": "今天不走这里",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "ledge": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "你四只爪子一次也没有滑，几十步就走到了对面。走完这一趟，你的步子更稳了。",
+              "stateChanges": {
+                "agility": 1
+              },
+              "image": "assets/images/outcomes/balcony-ledge-ledge-success.webp"
+            },
+            "failure": {
+              "text": "后腿滑了一下，你挂在边沿，靠前爪扒着才爬上来。",
+              "stateChanges": {
+                "health": -3
+              },
+              "image": "assets/images/outcomes/balcony-ledge-ledge-failure.webp"
+            }
+          }
+        },
+        "roof": {
+          "text": "你绕了很远，从屋顶的斜坡上走过去，累但是稳。",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/balcony-ledge-roof.webp"
+        },
+        "back": {
+          "text": "你退回到房檐里侧，还是走楼梯下面那条路。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/balcony-ledge-back.webp"
+        }
+      }
+    },
+    {
+      "id": "sun-patch",
+      "chapter": "Q29 · 84-87个月",
+      "title": "晒得最暖的那块石板",
+      "description": "下午的太阳把路边的石板晒得暖烘烘的。别的猫还没发现这里。",
+      "image": "assets/images/scenes/sun-patch.webp",
+      "actions": [
+        {
+          "id": "sleep",
+          "name": "摊开睡一觉",
+          "hint": "睡到太阳换地方",
+          "icon": "A"
+        },
+        {
+          "id": "rest",
+          "name": "趴一会儿就走",
+          "hint": "不睡太沉",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "走开",
+          "hint": "还有别的事",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "sleep": {
+          "text": "你睡到四脚朝天，醒来时天快黑了，身上还是热的。",
+          "stateChanges": {
+            "health": 3
+          },
+          "image": "assets/images/outcomes/sun-patch-sleep.webp"
+        },
+        "rest": {
+          "text": "你趴了一会儿，耳朵一直听着四周。起来时步子比刚才轻。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/sun-patch-rest.webp"
+        },
+        "leave": {
+          "text": "你从石板上走过去，尾巴在阳光里甩了一下。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/sun-patch-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "soft-cushion",
+      "chapter": "Q30 · 87-90个月",
+      "title": "墙根那块软软的东西",
+      "description": "楼下的墙根多了一块软软的东西，晒过太阳，闻起来是干净的灰。",
+      "image": "assets/images/scenes/soft-cushion.webp",
+      "actions": [
+        {
+          "id": "sleep",
+          "name": "蜷上去睡一觉",
+          "hint": "比地面软",
+          "icon": "A"
+        },
+        {
+          "id": "claw",
+          "name": "抓两下试试",
+          "hint": "看看会不会动",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "走开",
+          "hint": "不属于我",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "sleep": {
+          "text": "你没有做梦，一觉睡到早上，骨头里的酸劲松开了。",
+          "stateChanges": {
+            "health": 2
+          },
+          "image": "assets/images/outcomes/soft-cushion-sleep.webp"
+        },
+        "claw": {
+          "text": "几团软东西飞起来，你追着它们玩了一会儿。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/soft-cushion-claw.webp"
+        },
+        "leave": {
+          "text": "你没有碰它。第二天下雨，它被浇透了。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/soft-cushion-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "cat-eater",
+      "chapter": "Q31 · 90-93个月",
       "title": "巷口的铁笼",
       "description": "一个男人守在后巷，脚边放着一只铁笼。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -1784,7 +2051,7 @@
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
-              "text": "你没有足够的力量。铁笼合上了，你去了猫的天堂。",
+              "text": "你没有足够的力量。铁笼合上了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "friendliness": -1,
@@ -1805,7 +2072,7 @@
               "image": "assets/images/outcomes/cat-eater-run-success.webp"
             },
             "failure": {
-              "text": "你没能逃开。铁笼合上了，你去了猫的天堂。",
+              "text": "你没能逃开。铁笼合上了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -1825,7 +2092,7 @@
               "image": "assets/images/outcomes/cat-eater-hide-success.webp"
             },
             "failure": {
-              "text": "纸箱被他踢翻。铁笼合上了，你去了猫的天堂。",
+              "text": "纸箱被他踢翻。铁笼合上了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -1838,8 +2105,8 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q27 · 78-81个月",
-      "title": "脖子上的铁丝",
+      "chapter": "Q32 · 93-96个月",
+      "title": "勒在脖子上的东西",
       "description": "一根细铁丝挂在脖子上。你越挣扎，它勒得越紧。",
       "image": "assets/images/scenes/wire-neck.webp",
       "actions": [
@@ -1886,7 +2153,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q28 · 81-84个月",
+      "chapter": "Q33 · 96-99个月",
       "title": "夜里开门的人",
       "description": "一个女人把门开了一条缝，灯光落在你的爪子前。你闻不出屋子里面是什么味道。",
       "image": "assets/images/scenes/door.webp",
@@ -1946,7 +2213,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q29 · 84-87个月",
+      "chapter": "Q34 · 99-102个月",
       "title": "夜里挡路的人",
       "description": "他站在巷口，手里拎着一个袋子。他没有让开，也没有说话。",
       "image": "assets/images/scenes/black-glove.webp",
@@ -1954,7 +2221,7 @@
         "id": "abuser",
         "name": "巷口的人",
         "strength": 8,
-        "agility": 8,
+        "agility": 7,
         "kind": "abuser"
       },
       "actions": [
@@ -1985,7 +2252,7 @@
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
-              "text": "你没有足够的力量。袋子扎紧了，你去了猫的天堂。",
+              "text": "你没有足够的力量。袋子扎紧了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "friendliness": -1,
@@ -2006,7 +2273,7 @@
               "image": "assets/images/outcomes/abuser-run-success.webp"
             },
             "failure": {
-              "text": "你没能逃开。袋子扎紧了，你去了猫的天堂。",
+              "text": "你没能逃开。袋子扎紧了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -2073,12 +2340,12 @@
         {
           "state": "strength",
           "operator": ">=",
-          "value": 8
+          "value": 7
         },
         {
           "state": "agility",
           "operator": ">=",
-          "value": 7
+          "value": 6
         }
       ],
       "image": "assets/images/endings/street-king.webp",
@@ -2108,7 +2375,7 @@
     },
     {
       "id": "heaven",
-      "title": "猫的天堂",
+      "title": "猫星",
       "description": "袋子后来打开了。里面没有猫，只有很软的光。",
       "all": [
         {
@@ -2123,8 +2390,8 @@
   ],
   "catalog": {
     "eyebrow": "第十片异境微光已经苏醒",
-    "headline": "48 个月，一只灰扑扑的白猫。",
-    "description": "16 个季度：纸箱、雨夜、狗和鹅、拿网的人、好心人，还有镜子、葡萄、牛奶、粘板、台风和冬天；越往后越难，最后两关是巷口挡路的人和那扇门。",
+    "headline": "七年半，一只灰扑扑的白猫。",
+    "description": "30 个季度：纸箱、雨夜、狗和鹅、拿网的人、好心人，还有会照出猫的亮东西、圆圆的小果子、白色的碗、黄色的板子、被风掀起来的那天、最冷的冬天和晒得最暖的石板；最后几关是后巷的男人、脖子上的东西、那扇门和巷口挡路的人。",
     "cardDescription": "武力、敏捷、魅力、友善度、健康、鱼干和寿命共同决定你的结局。",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",

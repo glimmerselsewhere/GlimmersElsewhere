@@ -2,13 +2,13 @@
   "id": "stray-cat",
   "title": "Ah Hui's Stray Life",
   "shortTitle": "Ah Hui",
-  "subtitle": "48 Months as a Stray",
-  "description": "Ah Hui is a dusty white cat. Over 48 months he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also iron cages, wire, typhoons, and one door he cannot read.",
+  "subtitle": "Seven and a Half Years as a Stray",
+  "description": "Ah Hui is a dusty white cat. Over seven and a half years he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also iron cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
     "tail": 4,
-    "sample": 9
+    "sample": 23
   },
   "music": "assets/audio/soft-paws-roam.mp3",
   "musicVolume": 0.12,
@@ -28,7 +28,7 @@
     "fish": 3,
     "friendliness": 1,
     "age": 0,
-    "lifespan": 48
+    "lifespan": 90
   },
   "states": [
     {
@@ -264,8 +264,8 @@
       "id": "abuser",
       "name": "The Man at the Alley Mouth",
       "role": "abuser",
-      "strength": 10,
-      "agility": 11
+      "strength": 8,
+      "agility": 7
     },
     {
       "id": "old-orange",
@@ -356,9 +356,9 @@
       ],
       "outcomes": {
         "dry": {
-          "text": "The car blocks most of the rain, though your fur grows heavy.",
+          "text": "The car blocks most of the rain. You curl up and sleep until it stops.",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/rain-car-dry.webp"
         },
@@ -466,8 +466,8 @@
         },
         {
           "id": "fish",
-          "name": "Drop a dried fish",
-          "hint": "Buy peace with food (costs 1 fish)",
+          "name": "Offer a dried fish",
+          "hint": "It takes two (costs 2 fish)",
           "icon": "C"
         }
       ],
@@ -498,8 +498,9 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "You arch your back like a bridge, and Big Yellow stops.",
+              "text": "You arch your back like a bridge, and Big Yellow stops. You remember how you stood.",
               "stateChanges": {
+                "strength": 1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
@@ -507,7 +508,7 @@
             "failure": {
               "text": "You are bumped aside and tumble into the grass.",
               "stateChanges": {
-                "health": -3,
+                "health": -2,
                 "fish": -1,
                 "friendliness": -1
               },
@@ -586,7 +587,7 @@
             "failure": {
               "text": "You are not fast enough, and White Tyrant pecks you twice.",
               "stateChanges": {
-                "health": -2
+                "health": -1
               },
               "image": "assets/images/outcomes/goose-river-avoid-failure.webp"
             }
@@ -598,8 +599,9 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "You pin her wing, and White Tyrant steps back.",
+              "text": "You pin her wing, and White Tyrant steps back. Now you know how much weight you carry.",
               "stateChanges": {
+                "strength": 1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
@@ -607,7 +609,7 @@
             "failure": {
               "text": "You are swept down by her wing, and your chest hurts for a long time.",
               "stateChanges": {
-                "health": -3,
+                "health": -2,
                 "fish": -1,
                 "friendliness": -1
               },
@@ -628,7 +630,7 @@
             "failure": {
               "text": "Her wing sweeps you, and you roll twice.",
               "stateChanges": {
-                "health": -3,
+                "health": -2,
                 "fish": -1
               },
               "image": "assets/images/outcomes/goose-river-run-failure.webp"
@@ -711,9 +713,9 @@
           }
         },
         "accept": {
-          "text": "The worker places you in a carrier, moving gently. You wake up back on your own corner.",
+          "text": "The worker places you in a carrier, moving gently. You wake up back on your own corner, a little cleaner than before.",
           "stateChanges": {
-            "health": 3,
+            "health": 4,
             "lifespan": 6,
             "friendliness": 1
           },
@@ -756,9 +758,9 @@
       ],
       "outcomes": {
         "approach": {
-          "text": "She puts the dried fish on the ground and steps back for you.",
+          "text": "She puts the dried fish on the ground and steps back for you. It is a full meal.",
           "stateChanges": {
-            "health": 1,
+            "health": 2,
             "fish": 1,
             "friendliness": 1
           },
@@ -843,8 +845,8 @@
     {
       "id": "bath-collar",
       "chapter": "Q9 · Months 24-27",
-      "title": "Bath and Collar",
-      "description": "The girl takes you home for a bath and puts a collar on you.",
+      "title": "The Bath and the Band Around the Neck",
+      "description": "The girl takes you home for a bath and puts a band around your neck.",
       "image": "assets/images/scenes/kind-hand.webp",
       "actions": [
         {
@@ -855,7 +857,7 @@
         },
         {
           "id": "collar",
-          "name": "Accept the collar",
+          "name": "Accept the band",
           "hint": "She says to keep it on",
           "icon": "B"
         },
@@ -877,7 +879,7 @@
           "image": "assets/images/outcomes/bath-collar-bath.webp"
         },
         "collar": {
-          "text": "The collar is light, and the bell rings only once. The girl says: keep it on, don't lose it.",
+          "text": "The band is light, and its little bell rings only once. The girl says: keep it on, don't lose it.",
           "stateChanges": {
             "charm": 2,
             "fish": 1,
@@ -886,7 +888,7 @@
           "image": "assets/images/outcomes/bath-collar-collar.webp"
         },
         "resist": {
-          "text": "You scratch her once and jump out the window, leaving the collar on the table.",
+          "text": "You scratch her once and jump out the window, leaving the band on the table.",
           "stateChanges": {
             "friendliness": -1
           },
@@ -993,8 +995,8 @@
     {
       "id": "old-cat-lesson",
       "chapter": "Q11 · Months 30-33",
-      "title": "The Old Cat's Agility Lesson",
-      "description": "Old Orange takes you to the iron fence and teaches you how to lower your body, angle your shoulders, and slip through the narrowest gap.",
+      "title": "The Move the Old Cat Shows You",
+      "description": "Old Orange takes you to the iron fence, flattens himself, angles his shoulders, slips through the narrowest gap, and looks back at you.",
       "image": "assets/images/scenes/old-cat-lesson.webp",
       "enemy": {
         "id": "old-orange",
@@ -1032,9 +1034,9 @@
           "image": "assets/images/outcomes/old-cat-lesson-follow.webp"
         },
         "watch": {
-          "text": "You see clearly how he lowers his body at an angle.",
+          "text": "You see how he lowers his body at an angle, and you try the same with your own shoulders.",
           "stateChanges": {
-            "agility": 1
+            "agility": 2
           },
           "image": "assets/images/outcomes/old-cat-lesson-watch.webp"
         },
@@ -1048,8 +1050,8 @@
     {
       "id": "plastic-waste",
       "chapter": "Q12 · Months 33-36",
-      "title": "The Plastic Bag by the Bins",
-      "description": "A plastic bag near the trash can smells like fish. It smells very good.",
+      "title": "The Bag That Smells of Fish",
+      "description": "A bag near the trash can smells like fish. It smells very good.",
       "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
@@ -1060,32 +1062,32 @@
         },
         {
           "id": "bite",
-          "name": "Bite the bag",
+          "name": "Bite it open",
           "hint": "There may be fish",
           "icon": "B"
         },
         {
           "id": "avoid",
-          "name": "Avoid the bag",
+          "name": "Leave it alone",
           "hint": "Do not eat unknown things",
           "icon": "C"
         }
       ],
       "outcomes": {
         "sniff": {
-          "text": "You only smell fish and a little disinfectant.",
+          "text": "You smell fish, with something sharp underneath.",
           "stateChanges": {},
           "image": "assets/images/outcomes/plastic-waste-sniff.webp"
         },
         "bite": {
-          "text": "You swallow a piece of soft plastic. It sticks in your stomach and hurts.",
+          "text": "You swallow a soft little piece. It sticks in your stomach and hurts.",
           "stateChanges": {
-            "health": -5
+            "health": -4
           },
           "image": "assets/images/outcomes/plastic-waste-bite.webp"
         },
         "avoid": {
-          "text": "You avoid the plastic bag and look for safer water.",
+          "text": "You leave it alone and look for safer water.",
           "stateChanges": {},
           "image": "assets/images/outcomes/plastic-waste-avoid.webp"
         }
@@ -1094,8 +1096,8 @@
     {
       "id": "mirror",
       "chapter": "Q13 · Months 36-39",
-      "title": "The Mirror Against the Wall",
-      "description": "An old mirror leans against the wall. A cat exactly like you is staring back.",
+      "title": "The Thing Leaning Against the Wall",
+      "description": "Something bright stands against the wall. A cat exactly like you is staring back out of it.",
       "image": "assets/images/scenes/mirror.webp",
       "actions": [
         {
@@ -1126,14 +1128,14 @@
           "image": "assets/images/outcomes/mirror-stare.webp"
         },
         "pounce": {
-          "text": "Your nose hits cold glass, and the other cat bumps into it too.",
+          "text": "Your nose bumps into something cold and hard, and the other cat bumps into it too.",
           "stateChanges": {
             "health": -1
           },
           "image": "assets/images/outcomes/mirror-pounce.webp"
         },
         "walk": {
-          "text": "You walk past the mirror without looking back.",
+          "text": "You walk past it without looking back.",
           "stateChanges": {},
           "image": "assets/images/outcomes/mirror-walk.webp"
         }
@@ -1142,8 +1144,8 @@
     {
       "id": "grapes",
       "chapter": "Q14 · Months 39-42",
-      "title": "A Small Bunch of Grapes",
-      "description": "Someone left a small bunch of grapes on the step. They smell very sweet. You do not know cats cannot eat them.",
+      "title": "A Small Bunch of Round Things",
+      "description": "Someone left a small bunch of round things on the step. They smell very sweet.",
       "image": "assets/images/scenes/grapes.webp",
       "actions": [
         {
@@ -1188,8 +1190,8 @@
     {
       "id": "milk",
       "chapter": "Q15 · Months 42-45",
-      "title": "The Bowl of Milk at the Door",
-      "description": "Someone left a bowl of milk at their door, meaning well. You do not know it will upset your stomach.",
+      "title": "The White Bowl at the Door",
+      "description": "Someone left a bowl of something white and smooth at their door. It smells rich.",
       "image": "assets/images/scenes/milk.webp",
       "actions": [
         {
@@ -1215,7 +1217,7 @@
         "drink": {
           "text": "The milk is rich. At midnight your belly starts rumbling, and the next day leaves you weak.",
           "stateChanges": {
-            "health": -4
+            "health": -3
           },
           "image": "assets/images/outcomes/milk-drink.webp"
         },
@@ -1236,8 +1238,8 @@
     {
       "id": "glue-trap",
       "chapter": "Q16 · Months 45-48",
-      "title": "The Sticky Board in the Corner",
-      "description": "A yellow board sits in the corner with a few crumbs on it. You can smell the glue.",
+      "title": "The Yellow Board in the Corner",
+      "description": "A yellow board sits in the corner with a few crumbs on it. A sticky smell comes off it.",
       "image": "assets/images/scenes/glue-trap.webp",
       "actions": [
         {
@@ -1263,7 +1265,7 @@
         "step": {
           "text": "All four paws stick fast. You tear out a layer of fur to get free, and your pads ache for days.",
           "stateChanges": {
-            "health": -4
+            "health": -3
           },
           "image": "assets/images/outcomes/glue-trap-step.webp"
         },
@@ -1284,7 +1286,7 @@
     {
       "id": "typhoon",
       "chapter": "Q17 · Months 48-51",
-      "title": "The Typhoon",
+      "title": "The Day the Wind Lifted the Whole Street",
       "description": "The wind lifts everything on the street and the signs rattle. The rain falls sideways.",
       "image": "assets/images/scenes/typhoon.webp",
       "actions": [
@@ -1311,7 +1313,7 @@
         "stairwell": {
           "text": "There is no wind in the stairwell. You shake off the water and sleep a whole night for once.",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/typhoon-stairwell.webp"
         },
@@ -1552,8 +1554,8 @@
     {
       "id": "ac-unit",
       "chapter": "Q22 · Months 63-66",
-      "title": "The Wind From the Air Conditioner",
-      "description": "The metal box on the wall keeps turning and blows out warm air. The concrete step under it is warm too.",
+      "title": "The Metal Box That Blows Warm Air",
+      "description": "The metal box on the wall keeps buzzing and blows out warm air. The concrete step under it is warm too.",
       "image": "assets/images/scenes/ac-unit.webp",
       "actions": [
         {
@@ -1579,7 +1581,7 @@
         "curl": {
           "text": "The warm air pushes your fur one way, and you sleep the whole afternoon.",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/ac-unit-curl.webp"
         },
@@ -1693,7 +1695,7 @@
       "id": "wedding-petals",
       "chapter": "Q25 · Months 72-75",
       "title": "Red Petals All Over the Ground",
-      "description": "Someone is celebrating at the mouth of the alley. Red petals and little paper pieces cover the ground, and children are stamping on them.",
+      "description": "It is busy at the mouth of the alley. Red petals and little paper pieces cover the ground, and children are stamping on them.",
       "image": "assets/images/scenes/wedding-petals.webp",
       "actions": [
         {
@@ -1724,22 +1726,287 @@
           "image": "assets/images/outcomes/wedding-petals-chase.webp"
         },
         "sit": {
-          "text": "You sit among the petals, and someone puts a sweet down beside you.",
+          "text": "You sit among the petals, and someone puts a sweet down beside you. You eat it, and your paws feel warm.",
           "stateChanges": {
-            "health": 1
+            "health": 2
           },
           "image": "assets/images/outcomes/wedding-petals-sit.webp"
         },
         "leave": {
-          "text": "You slip around the edge of the crowd while the firecrackers keep popping.",
+          "text": "You slip around the edge of the crowd while the bangs keep going.",
           "stateChanges": {},
           "image": "assets/images/outcomes/wedding-petals-leave.webp"
         }
       }
     },
     {
-      "id": "cat-eater",
+      "id": "earthworms",
       "chapter": "Q26 · Months 75-78",
+      "title": "The Things Wriggling on the Wet Ground",
+      "description": "The rain has just stopped. Thin wriggling things lie all over the ground, and they curl up when you touch them.",
+      "image": "assets/images/scenes/earthworms.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "Eat one",
+          "hint": "It moves, but it is food",
+          "icon": "A"
+        },
+        {
+          "id": "play",
+          "name": "Bat at them",
+          "hint": "Watch them curl",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Not interested",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "Slippery mouthfuls; you eat a few and your belly settles.",
+          "stateChanges": {
+            "health": 2
+          },
+          "image": "assets/images/outcomes/earthworms-eat.webp"
+        },
+        "play": {
+          "text": "You bat at them for a long time while they curl into balls, leaving the edge of the puddle churned up.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/earthworms-play.webp"
+        },
+        "leave": {
+          "text": "You walk past the puddle and go looking for something more filling.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/earthworms-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "garbage-truck",
+      "chapter": "Q27 · Months 78-81",
+      "title": "The Big Noisy Thing That Comes Every Morning",
+      "description": "At dawn a very big thing stops beside the bins. It keeps making noise, and someone is tipping things into it.",
+      "image": "assets/images/scenes/garbage-truck.webp",
+      "actions": [
+        {
+          "id": "wait",
+          "name": "Wait until it leaves",
+          "hint": "Keep away",
+          "icon": "A"
+        },
+        {
+          "id": "chase",
+          "name": "Chase it a little",
+          "hint": "You can outrun it",
+          "icon": "B"
+        },
+        {
+          "id": "jump",
+          "name": "Jump on the bins beside it",
+          "hint": "See what is happening up there",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "wait": {
+          "text": "It rattles for a while and drives off. You wait for quiet before going to look.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/garbage-truck-wait.webp"
+        },
+        "chase": {
+          "text": "The wheels throw up water and soak one whole side of you.",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/garbage-truck-chase.webp"
+        },
+        "jump": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "You land neatly on the lid, watch it get emptied, jump down, and find two pieces of meat. The climb leaves you more sure of your own legs.",
+              "stateChanges": {
+                "fish": 2,
+                "agility": 1
+              },
+              "image": "assets/images/outcomes/garbage-truck-jump-success.webp"
+            },
+            "failure": {
+              "text": "The lid is slippery. You fall in, get shaken out, and land hard on the ground.",
+              "stateChanges": {
+                "health": -2
+              },
+              "image": "assets/images/outcomes/garbage-truck-jump-failure.webp"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "balcony-ledge",
+      "chapter": "Q28 · Months 81-84",
+      "title": "The Narrow Path Along the Outside of the Building",
+      "description": "A very narrow edge runs along the outside of a building, straight to the next one. Concrete lies below.",
+      "image": "assets/images/scenes/balcony-ledge.webp",
+      "actions": [
+        {
+          "id": "ledge",
+          "name": "Walk along the edge",
+          "hint": "It saves a long way round",
+          "icon": "A"
+        },
+        {
+          "id": "roof",
+          "name": "Go back over the roofs",
+          "hint": "Safer",
+          "icon": "B"
+        },
+        {
+          "id": "back",
+          "name": "Go back the way you came",
+          "hint": "Not today",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "ledge": {
+          "compare": {
+            "stat": "agility",
+            "enemyStat": "agility",
+            "op": ">=",
+            "success": {
+              "text": "Not one paw slips, and a few dozen steps take you across. The crossing leaves your step steadier.",
+              "stateChanges": {
+                "agility": 1
+              },
+              "image": "assets/images/outcomes/balcony-ledge-ledge-success.webp"
+            },
+            "failure": {
+              "text": "A hind paw slips. You hang off the edge and only climb back up by hauling with your front paws.",
+              "stateChanges": {
+                "health": -3
+              },
+              "image": "assets/images/outcomes/balcony-ledge-ledge-failure.webp"
+            }
+          }
+        },
+        "roof": {
+          "text": "You take a long way round over the roof slope. Tiring, but steady.",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/balcony-ledge-roof.webp"
+        },
+        "back": {
+          "text": "You back to the safe side and take the path under the stairs instead.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/balcony-ledge-back.webp"
+        }
+      }
+    },
+    {
+      "id": "sun-patch",
+      "chapter": "Q29 · Months 84-87",
+      "title": "The Warmest Stone on the Path",
+      "description": "The afternoon sun has warmed a stone slab by the path. No other cat has found this spot yet.",
+      "image": "assets/images/scenes/sun-patch.webp",
+      "actions": [
+        {
+          "id": "sleep",
+          "name": "Stretch out and sleep",
+          "hint": "Sleep until the sun moves",
+          "icon": "A"
+        },
+        {
+          "id": "rest",
+          "name": "Rest a little",
+          "hint": "Do not sleep too deeply",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "There is other business",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "sleep": {
+          "text": "You sleep on your back. When you wake it is almost dark and your body is still warm.",
+          "stateChanges": {
+            "health": 3
+          },
+          "image": "assets/images/outcomes/sun-patch-sleep.webp"
+        },
+        "rest": {
+          "text": "You rest a little with your ears on the street, and stand up lighter than before.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/sun-patch-rest.webp"
+        },
+        "leave": {
+          "text": "You walk across the slab, your tail swinging through the sun.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/sun-patch-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "soft-cushion",
+      "chapter": "Q30 · Months 87-90",
+      "title": "The Soft Thing by the Wall",
+      "description": "A soft thing has appeared at the foot of the wall, sun-warmed and smelling of clean dust.",
+      "image": "assets/images/scenes/soft-cushion.webp",
+      "actions": [
+        {
+          "id": "sleep",
+          "name": "Curl up on it",
+          "hint": "Softer than the ground",
+          "icon": "A"
+        },
+        {
+          "id": "claw",
+          "name": "Give it a few claws",
+          "hint": "See if it moves",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Not mine",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "sleep": {
+          "text": "You do not dream. You sleep until morning, and the ache leaves your bones.",
+          "stateChanges": {
+            "health": 2
+          },
+          "image": "assets/images/outcomes/soft-cushion-sleep.webp"
+        },
+        "claw": {
+          "text": "Tufts of stuffing fly up, and you bat them around for a while.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/soft-cushion-claw.webp"
+        },
+        "leave": {
+          "text": "You leave it alone. The next day the rain soaks it through.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/soft-cushion-leave.webp"
+        }
+      }
+    },
+    {
+      "id": "cat-eater",
+      "chapter": "Q31 · Months 90-93",
       "title": "The Cage at the End of the Alley",
       "description": "A man guards the back alley with an iron cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -1784,7 +2051,7 @@
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
-              "text": "You do not have enough strength. The cage closes, and you go to cat heaven.",
+              "text": "You do not have enough strength. The cage closes, and you go to the Cat Star.",
               "stateChanges": {
                 "health": -100,
                 "friendliness": -1,
@@ -1805,7 +2072,7 @@
               "image": "assets/images/outcomes/cat-eater-run-success.webp"
             },
             "failure": {
-              "text": "You cannot escape. The cage closes, and you go to cat heaven.",
+              "text": "You cannot escape. The cage closes, and you go to the Cat Star.",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -1825,7 +2092,7 @@
               "image": "assets/images/outcomes/cat-eater-hide-success.webp"
             },
             "failure": {
-              "text": "He kicks the box over. The cage closes, and you go to cat heaven.",
+              "text": "He kicks the box over. The cage closes, and you go to the Cat Star.",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -1838,8 +2105,8 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q27 · Months 78-81",
-      "title": "Wire Around the Neck",
+      "chapter": "Q32 · Months 93-96",
+      "title": "The Thing Tight Around Your Neck",
       "description": "A thin wire is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
       "actions": [
@@ -1886,7 +2153,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q28 · Months 81-84",
+      "chapter": "Q33 · Months 96-99",
       "title": "The Person Who Opens the Door",
       "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
@@ -1946,7 +2213,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q29 · Months 84-87",
+      "chapter": "Q34 · Months 99-102",
       "title": "The Man Blocking the Alley",
       "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",
@@ -1954,7 +2221,7 @@
         "id": "abuser",
         "name": "The Man at the Alley Mouth",
         "strength": 8,
-        "agility": 8,
+        "agility": 7,
         "kind": "abuser"
       },
       "actions": [
@@ -1985,7 +2252,7 @@
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
             "failure": {
-              "text": "You do not have enough strength. The sack is tied shut, and you go to cat heaven.",
+              "text": "You do not have enough strength. The sack is tied shut, and you go to the Cat Star.",
               "stateChanges": {
                 "health": -100,
                 "friendliness": -1,
@@ -2006,7 +2273,7 @@
               "image": "assets/images/outcomes/abuser-run-success.webp"
             },
             "failure": {
-              "text": "You cannot escape. The sack is tied shut, and you go to cat heaven.",
+              "text": "You cannot escape. The sack is tied shut, and you go to the Cat Star.",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -2073,12 +2340,12 @@
         {
           "state": "strength",
           "operator": ">=",
-          "value": 8
+          "value": 7
         },
         {
           "state": "agility",
           "operator": ">=",
-          "value": 7
+          "value": 6
         }
       ],
       "image": "assets/images/endings/street-king.webp",
@@ -2108,7 +2375,7 @@
     },
     {
       "id": "heaven",
-      "title": "Cat Heaven",
+      "title": "The Cat Star",
       "description": "The sack opens later. There is no cat inside, only very soft light.",
       "all": [
         {
@@ -2123,8 +2390,8 @@
   ],
   "catalog": {
     "eyebrow": "A tenth glimmer has awakened",
-    "headline": "48 months, one dusty white cat.",
-    "description": "Sixteen quarters: a box, a rainy night, dogs and geese, people with nets, kind people — plus mirrors, grapes, milk, glue boards, typhoons and winter. It only gets harder: the last two quarters are the man blocking the alley and that door.",
+    "headline": "Seven and a half years, one dusty white cat.",
+    "description": "Thirty quarters: a box, a rainy night, dogs and geese, people with nets, kind people — plus something bright that shows a cat, small round fruit, a white bowl, a yellow board, the day the wind lifted the street, the coldest winter and the warmest stone. The last quarters are the man in the back alley, the thing around your neck, that door, and the man at the alley mouth.",
     "cardDescription": "Strength, agility, charm, friendliness, health, dried fish, and lifespan decide your ending.",
     "cardIcon": "●",
     "cardLabel": "WORLD 10",
