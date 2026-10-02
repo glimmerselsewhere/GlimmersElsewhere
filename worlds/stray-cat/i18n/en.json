@@ -2460,6 +2460,7 @@
     "finalContinueButton": "See the ending",
     "replayButton": "Adventure again",
     "keepsakeLabel": "Ending figurine",
-    "keepsakeGetHint": "3D printed · a figurine in your hands"
+    "keepsakeGetHint": "3D printed · a figurine in your hands",
+    "hideBackToCatalog": true
   }
 }
