@@ -792,6 +792,9 @@ function labelStaticDom() {
     const v = worldUi(el.dataset.i18n, t(el.dataset.i18n));
     if (typeof v === "string") el.textContent = v;
   });
+  // A world can be shipped as a standalone game: hide the catalogue doors.
+  const hideBack = Boolean(world?.ui?.hideBackToCatalog);
+  document.querySelectorAll("[data-back-catalog]").forEach(button => { button.hidden = hideBack; });
   const meters = document.getElementById("meters");
   if (meters) meters.setAttribute("aria-label", t("waterLabel"));
   const stage = document.getElementById("visualStage");
@@ -1469,12 +1472,9 @@ function lifeSummaryMarkup() {
 
 function renderMeters() {
   const definitions = content().states || Object.keys(state).map((id, index) => ({ id, label: id, color: index ? "#6d9e75" : "#d8654c", max: 14 }));
-  // Five stats stay on one row for the stray cat: strength, agility, charm,
-  // health, and friendliness (dried fish rides in the progress line instead).
-  // 猫武神 pushes the numbers past 10000, so those chips get wider columns.
-  const maxColumns = world?.id === "stray-cat" ? 5 : 3;
-  const hugeValue = definitions.some(definition => Math.abs(Number(state[definition.id] || 0)) >= 1000);
-  const columns = hugeValue ? Math.min(3, maxColumns, definitions.length) : Math.min(maxColumns, definitions.length);
+  // Six stats for the stray cat (strength, agility, charm, health, fish,
+  // friendliness) sit as two tidy rows of three.
+  const columns = Math.min(3, definitions.length);
   $("meters").style.gridTemplateColumns = `repeat(${columns}, minmax(0, 1fr))`;
   $("meters").innerHTML = definitions.map(definition => `
     <div class="meter" style="--meter-color:${definition.color || '#6b4bb9'}"><span><b>${definition.label}</b><em>${state[definition.id] || 0}</em></span><i><u style="width:${Math.min(100, (state[definition.id] || 0) / (definition.max || 10) * 100)}%"></u></i></div>`).join("");
@@ -1495,7 +1495,7 @@ function renderScene() {
     const months = lang === "en" ? `${age}/${lifespan}mo` : `${age}/${lifespan}月`;
     // Kept tight on purpose: this line must not wrap onto a second row on a phone.
     // Friendliness has its own meter next to the other five stats.
-    $("sceneProgress").textContent = `${sceneIndex + 1}/${current.scenes.length} · ${months} · 🐟${state.fish || 0}`;
+    $("sceneProgress").textContent = lang === "en" ? `Event ${sceneIndex + 1}` : `第 ${sceneIndex + 1} 个事件`;
   } else {
     $("sceneProgress").textContent = `${String(sceneIndex + 1).padStart(2, "0")} / ${String(current.scenes.length).padStart(2, "0")}`;
   }
