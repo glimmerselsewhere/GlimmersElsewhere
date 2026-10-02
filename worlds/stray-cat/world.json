@@ -2464,7 +2464,7 @@
       "title": "屋顶上的猫武神",
       "story": "一爪落下，巷口安静了。他成了这条街的传说。",
       "glb": "assets/models/figurine-v2-thunder-roof.glb",
-      "shareImage": "app/share/figurine-v2-thunder-roof-source.webp",
+      "shareImage": "app/share/figurine-v2-thunder-roof-source.png",
       "preview": "assets/models/figurine-v2-thunder-roof-source.webp"
     },
     {
@@ -2473,7 +2473,7 @@
       "title": "被窝里的阿灰",
       "story": "被子是暖的，他四脚朝天睡到中午，没有人再让他出去。",
       "glb": "assets/models/figurine-v2-blanket-sleep.glb",
-      "shareImage": "app/share/figurine-v2-blanket-sleep-source.webp",
+      "shareImage": "app/share/figurine-v2-blanket-sleep-source.png",
       "preview": "assets/models/figurine-v2-blanket-sleep-source.webp"
     },
     {
@@ -2482,7 +2482,7 @@
       "title": "柜台边的小值班",
       "story": "小孩哭的时候，柜台上坐着一只白猫陪着他们。",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
-      "shareImage": "app/share/figurine-v2-clinic-helper-source.webp",
+      "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
     {
@@ -2491,7 +2491,7 @@
       "title": "大桶上的王",
       "story": "这条街分成了两半，他坐在左边的王座上。",
       "glb": "assets/models/figurine-v2-bin-king.glb",
-      "shareImage": "app/share/figurine-v2-bin-king-source.webp",
+      "shareImage": "app/share/figurine-v2-bin-king-source.png",
       "preview": "assets/models/figurine-v2-bin-king-source.webp"
     },
     {
@@ -2500,7 +2500,7 @@
       "title": "灯柱下的猫",
       "story": "没有人知道他的名字，但他认得每一条屋檐。",
       "glb": "assets/models/figurine-v2-streetlight-cat.glb",
-      "shareImage": "app/share/figurine-v2-streetlight-cat-source.webp",
+      "shareImage": "app/share/figurine-v2-streetlight-cat-source.png",
       "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
     },
     {
@@ -2509,7 +2509,7 @@
       "title": "纸箱里的暖光",
       "story": "病把他带走了，但那个纸箱一直是暖的。",
       "glb": "assets/models/figurine-v2-warm-box.glb",
-      "shareImage": "app/share/figurine-v2-warm-box-source.webp",
+      "shareImage": "app/share/figurine-v2-warm-box-source.png",
       "preview": "assets/models/figurine-v2-warm-box-source.webp"
     },
     {
@@ -2518,7 +2518,7 @@
       "title": "猫星上的光",
       "story": "袋子打开了，里面没有猫，只有一小片很软的光。",
       "glb": "assets/models/figurine-v2-cat-star.glb",
-      "shareImage": "app/share/figurine-v2-cat-star-source.webp",
+      "shareImage": "app/share/figurine-v2-cat-star-source.png",
       "preview": "assets/models/figurine-v2-cat-star-source.webp"
     }
   ],
