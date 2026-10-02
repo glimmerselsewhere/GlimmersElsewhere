@@ -678,7 +678,7 @@ function showStrayTalentSelect() {
   const confirmBtn = $("strayTalentConfirm");
   const updateConfirm = () => {
     confirmBtn.disabled = !selected;
-    confirmBtn.textContent = lang === "en" ? "Start the stray life" : "开始流浪";
+    confirmBtn.textContent = lang === "en" ? "Start the adventure" : "开始冒险";
     confirmBtn.classList.toggle("is-ready", Boolean(selected));
   };
   updateConfirm();

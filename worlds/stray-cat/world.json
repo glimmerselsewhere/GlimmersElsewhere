@@ -3,7 +3,7 @@
   "title": "阿灰流浪记",
   "shortTitle": "阿灰流浪记",
   "subtitle": "五年的街头猫生",
-  "description": "阿灰是一只灰扑扑的白猫。五年里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到铁笼、勒住脖子东西、被风掀起来的那天，和一扇不知道能不能进的门。",
+  "description": "阿灰是一只灰扑扑的白猫。五年里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到笼子、勒在脖子上的东西、被风掀起来的那天，和一扇不知道能不能进的门。",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -241,7 +241,7 @@
     },
     {
       "id": "doctor",
-      "name": "诊所医生",
+      "name": "白大褂的人",
       "role": "kind human",
       "strength": 4,
       "agility": 4
@@ -331,13 +331,13 @@
     {
       "id": "rain-car",
       "chapter": "Q2 · 2-4个月",
-      "title": "雨夜车底",
-      "description": "雨把街面打成一片亮。你钻进车底，水从轮胎边流过去。",
+      "title": "雨夜里的大家伙底下",
+      "description": "雨把街面打成一片亮。你钻进一个大家伙的肚子下面，水从它四只圆脚边流过去。",
       "image": "assets/images/scenes/rain-car.webp",
       "actions": [
         {
           "id": "dry",
-          "name": "贴着车底取暖",
+          "name": "贴着它取暖",
           "hint": "别再淋湿",
           "icon": "A"
         },
@@ -356,7 +356,7 @@
       ],
       "outcomes": {
         "dry": {
-          "text": "车身挡住了大部分雨。你把自己盘起来，一直睡到雨停。",
+          "text": "大家伙挡住了大部分雨。你把自己盘起来，一直睡到雨停。",
           "stateChanges": {
             "health": 2
           },
@@ -392,7 +392,7 @@
       "actions": [
         {
           "id": "wait",
-          "name": "在摊边等",
+          "name": "在鱼山边等",
           "hint": "不急着靠近",
           "icon": "A"
         },
@@ -442,7 +442,7 @@
       "id": "dog-territory",
       "chapter": "Q4 · 6-8个月",
       "title": "大黄的领地",
-      "description": "流浪狗大黄守着垃圾桶。他看见你就会追。",
+      "description": "大黄守着路口那几只大桶。他看见你就会追。",
       "image": "assets/images/scenes/dog-territory.webp",
       "enemy": {
         "id": "big-yellow",
@@ -508,7 +508,6 @@
               "text": "你被撞了一下，翻进草丛里。",
               "stateChanges": {
                 "health": -2,
-                "fish": -1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-failure.webp"
@@ -528,7 +527,7 @@
               "image": "assets/images/outcomes/dog-territory-fish-success.webp"
             },
             {
-              "text": "你只凑出一块鱼干。他还是扑了你一下，但鱼干让他松了口，伤得不重。",
+              "text": "你手里的鱼干不够两块。他还是扑了你一下，但很快松了口，伤得不重。",
               "fishOffset": {
                 "need": 2,
                 "health": -3
@@ -608,7 +607,6 @@
               "text": "你被翅膀扫倒，胸口疼了很久。",
               "stateChanges": {
                 "health": -2,
-                "fish": -1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-failure.webp"
@@ -628,8 +626,7 @@
             "failure": {
               "text": "你被翅膀扫到，滚了两圈。",
               "stateChanges": {
-                "health": -2,
-                "fish": -1
+                "health": -2
               },
               "image": "assets/images/outcomes/goose-river-run-failure.webp"
             }
@@ -653,7 +650,7 @@
       "actions": [
         {
           "id": "hide",
-          "name": "钻进车底",
+          "name": "钻到大家伙底下",
           "hint": "别被网住",
           "icon": "A"
         },
@@ -677,7 +674,7 @@
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "你贴着排气管藏住，网落空了。",
+              "text": "你贴着它烫烫的肚子藏住，网落空了。",
               "stateChanges": {},
               "image": "assets/images/outcomes/neuter-van-hide-success.webp"
             },
@@ -783,7 +780,7 @@
       "id": "clinic",
       "chapter": "Q8 · 14-16个月",
       "title": "白大褂的人",
-      "description": "一个穿白大褂的人把手放在你的背上。屋里有药水的味道。",
+      "description": "一个穿白大褂的人把手放在你的背上。屋里有股又冲又干净的味道。",
       "image": "assets/images/scenes/clinic.webp",
       "enemy": {
         "id": "doctor",
@@ -814,7 +811,7 @@
       ],
       "outcomes": {
         "treat": {
-          "text": "她给你上药，又放了一碗水。你让她碰了你的后颈。",
+          "text": "她给你抹了凉凉的东西，又放了一碗水。你让她碰了你的后颈。",
           "stateChanges": {
             "health": 5,
             "lifespan": 4,
@@ -824,7 +821,7 @@
           "image": "assets/images/outcomes/clinic-treat.webp"
         },
         "hide": {
-          "text": "你躲进椅子下面，她把药放在你旁边。",
+          "text": "你躲进椅子下面，她把一小包凉凉的东西放在你旁边。",
           "stateChanges": {
             "health": 1
           },
@@ -1049,7 +1046,7 @@
       "id": "plastic-waste",
       "chapter": "Q12 · 22-24个月",
       "title": "闻起来像鱼的袋子",
-      "description": "垃圾桶边有一只闻起来像鱼的袋子。味道很香。",
+      "description": "大桶边有一只闻起来像鱼的袋子。味道很香。",
       "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
@@ -1254,7 +1251,7 @@
         },
         {
           "id": "avoid",
-          "name": "闻到胶味就走",
+          "name": "闻着不对就走",
           "hint": "不对劲",
           "icon": "C"
         }
@@ -1285,18 +1282,18 @@
       "id": "typhoon",
       "chapter": "Q17 · 32-34个月",
       "title": "风把整条街掀起来的那天",
-      "description": "风把整条街的东西都掀了起来，广告牌在响。雨是横着下的。",
+      "description": "风把整条街的东西都掀了起来，墙上的大牌子被吹得直响。雨是横着下的。",
       "image": "assets/images/scenes/typhoon.webp",
       "actions": [
         {
           "id": "stairwell",
-          "name": "钻进楼道",
+          "name": "钻进楼里躲着",
           "hint": "先躲起来",
           "icon": "A"
         },
         {
           "id": "under-car",
-          "name": "趴到车底",
+          "name": "趴到大家伙底下",
           "hint": "那里一直是干的",
           "icon": "B"
         },
@@ -1309,14 +1306,14 @@
       ],
       "outcomes": {
         "stairwell": {
-          "text": "楼道里没有风。你抖掉身上的水，第一次睡了一整夜。",
+          "text": "楼里没有风。你抖掉身上的水，第一次睡了一整夜。",
           "stateChanges": {
             "health": 2
           },
           "image": "assets/images/outcomes/typhoon-stairwell.webp"
         },
         "under-car": {
-          "text": "水从轮胎边灌进来，你半身泡在冷水里，天亮时爪子发麻。",
+          "text": "水从它的圆脚边灌进来，你半身泡在冷水里，天亮时爪子发麻。",
           "stateChanges": {
             "health": -2
           },
@@ -1352,14 +1349,14 @@
               "min": {
                 "fish": 6
               },
-              "text": "你把攒了一年的鱼干全吃了，靠着暖气管道撑过最冷的几天。",
+              "text": "你把攒了一年的鱼干全吃了，靠着那根热管子撑过最冷的几天。",
               "stateChanges": {
                 "fish": -6
               },
               "image": "assets/images/outcomes/winter-store-success.webp"
             },
             {
-              "text": "洞里的鱼干不够吃。你只能饿着熬，吃掉的鱼干勉强抵掉了一些消耗。",
+              "text": "藏起来的鱼干不够吃。你只能饿着熬过去。",
               "fishOffset": {
                 "need": 6,
                 "health": -6
@@ -1480,8 +1477,8 @@
     {
       "id": "road",
       "chapter": "Q21 · 40-42个月",
-      "title": "马路中间",
-      "description": "你已经走到路中间，两边都有车在靠近，声音越来越近。",
+      "title": "两边都在响的地方",
+      "description": "你已经走到那片又宽又硬的地中间，两边都有响声在靠近。",
       "image": "assets/images/scenes/road.webp",
       "actions": [
         {
@@ -1498,7 +1495,7 @@
         },
         {
           "id": "back",
-          "name": "退回原来的路边",
+          "name": "退回刚才的边上",
           "hint": "今天不过去",
           "icon": "C"
         }
@@ -1510,12 +1507,12 @@
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "你等到两辆车之间的一小段安静，几步穿了过去。",
+              "text": "你等到两阵响声之间的一小段安静，几步穿了过去。",
               "stateChanges": {},
               "image": "assets/images/outcomes/road-wait-success.webp"
             },
             "failure": {
-              "text": "你等得太久，一辆车按了喇叭，你贴着轮胎边滚到对面。",
+              "text": "你等得太久，一个很响的声音追上来，你贴着圆脚边滚到对面。",
               "stateChanges": {
                 "health": -2
               },
@@ -1534,7 +1531,7 @@
               "image": "assets/images/outcomes/road-dash-success.webp"
             },
             "failure": {
-              "text": "车轮擦到你的后腿，你在路边躺了很久才站起来。",
+              "text": "一只圆脚擦到你的后腿，你在一旁躺了很久才站起来。",
               "stateChanges": {
                 "health": -6
               },
@@ -1543,7 +1540,7 @@
           }
         },
         "back": {
-          "text": "你退回刚才那堵墙根。这条马路今天先不过了。",
+          "text": "你退回刚才那堵墙根。这块地方今天先不过去了。",
           "stateChanges": {},
           "image": "assets/images/outcomes/road-back.webp"
         }
@@ -1558,7 +1555,7 @@
       "actions": [
         {
           "id": "curl",
-          "name": "缩在风口下面",
+          "name": "缩在热风下面",
           "hint": "这里最暖",
           "icon": "A"
         },
@@ -1601,7 +1598,7 @@
       "id": "manhole",
       "chapter": "Q23 · 44-46个月",
       "title": "盖着水的圆盖子",
-      "description": "雨停了，马路中间有一片浅水，水底下是一个圆圆的铁盖子。你看不出水有多深。",
+      "description": "雨停了，那片又宽又硬的地中间有一片浅水，水底下是一个圆圆的铁盖子。你看不出水有多深。",
       "image": "assets/images/scenes/manhole.webp",
       "actions": [
         {
@@ -1618,7 +1615,7 @@
         },
         {
           "id": "around",
-          "name": "绕到人行道上",
+          "name": "绕开它走",
           "hint": "不冒这个险",
           "icon": "C"
         }
@@ -1637,7 +1634,7 @@
           "image": "assets/images/outcomes/manhole-paw.webp"
         },
         "around": {
-          "text": "你绕到人行道上，多走了几步，毛还是干的。",
+          "text": "你绕到旁边干的地方，多走了几步，毛还是干的。",
           "stateChanges": {},
           "image": "assets/images/outcomes/manhole-around.webp"
         }
@@ -1678,7 +1675,7 @@
           "image": "assets/images/outcomes/poison-bait-eat.webp"
         },
         "sniff": {
-          "text": "你闻出了那点药味，把这几粒记住了，再也没碰过。",
+          "text": "你闻出了藏在香味里的不对劲，把这几粒记住了，再也没碰过。",
           "stateChanges": {},
           "image": "assets/images/outcomes/poison-bait-sniff.webp"
         },
@@ -1787,7 +1784,7 @@
       "id": "garbage-truck",
       "chapter": "Q27 · 52-54个月",
       "title": "每天早上响一次的大家伙",
-      "description": "天刚亮，一辆很大的东西停在垃圾桶边，一直在响，还有人在往里面倒东西。",
+      "description": "天刚亮，一个很大的东西停在大桶边，一直在响，还有人在往里面倒东西。",
       "image": "assets/images/scenes/garbage-truck.webp",
       "actions": [
         {
@@ -1804,7 +1801,7 @@
         },
         {
           "id": "jump",
-          "name": "跳上旁边的垃圾桶",
+          "name": "跳上旁边那只大桶",
           "hint": "看清楚上面发生了什么",
           "icon": "C"
         }
@@ -1816,7 +1813,7 @@
           "image": "assets/images/outcomes/garbage-truck-wait.webp"
         },
         "chase": {
-          "text": "车轮溅起的水打湿了你的半边身子。",
+          "text": "它的圆脚溅起的水打湿了你的半边身子。",
           "stateChanges": {
             "health": -1
           },
@@ -1899,7 +1896,7 @@
           "image": "assets/images/outcomes/balcony-ledge-roof.webp"
         },
         "back": {
-          "text": "你退回到房檐里侧，还是走楼梯下面那条路。",
+          "text": "你退回到房檐里侧，还是走下面那串台阶。",
           "stateChanges": {},
           "image": "assets/images/outcomes/balcony-ledge-back.webp"
         }
@@ -2002,8 +1999,8 @@
     {
       "id": "cat-eater",
       "chapter": "Q31 · 60-62个月",
-      "title": "巷口的铁笼",
-      "description": "一个男人守在后巷，脚边放着一只铁笼。他没有让开。",
+      "title": "巷口的那只笼子",
+      "description": "一个男人守在后巷，脚边放着一只笼子。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
         "id": "cat-eater",
@@ -2039,14 +2036,14 @@
             "enemyStat": "strength",
             "op": ">=",
             "success": {
-              "text": "你的爪子划过他的手背，铁笼掉在地上。",
+              "text": "你的爪子划过他的手背，笼子掉在地上。",
               "stateChanges": {
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
             "failure": {
-              "text": "你没有足够的力量。铁笼合上了，你去了猫星。",
+              "text": "你没有足够的力量。笼子合上了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "friendliness": -1,
@@ -2067,7 +2064,7 @@
               "image": "assets/images/outcomes/cat-eater-run-success.webp"
             },
             "failure": {
-              "text": "你没能逃开。铁笼合上了，你去了猫星。",
+              "text": "你没能逃开。笼子合上了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -2087,7 +2084,7 @@
               "image": "assets/images/outcomes/cat-eater-hide-success.webp"
             },
             "failure": {
-              "text": "纸箱被他踢翻。铁笼合上了，你去了猫星。",
+              "text": "纸箱被他踢翻。笼子合上了，你去了猫星。",
               "stateChanges": {
                 "health": -100,
                 "forcedEnding": "heaven"
@@ -2182,7 +2179,7 @@
                 "friendliness": 4,
                 "charm": 6
               },
-              "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再流浪了。",
+              "text": "她蹲下来，让你先闻她的手指。地板很暖，门在你身后合上——你不用再在外面过了。",
               "stateChanges": {
                 "health": 2,
                 "fish": 2,
@@ -2315,8 +2312,8 @@
     },
     {
       "id": "clinic",
-      "title": "诊所猫",
-      "description": "你成了诊所里的白猫，负责在打针时陪小孩坐着。",
+      "title": "柜台上的白猫",
+      "description": "你留在了那个又白又干净的地方。小孩哭的时候，你会坐到他们旁边。",
       "all": [
         {
           "state": "health",
@@ -2330,7 +2327,7 @@
     {
       "id": "street-king",
       "title": "巷子的王",
-      "description": "你和老橘分掉这条街，垃圾桶两边各有一个王座。",
+      "description": "你和老橘分掉这条街，大桶两边各有一个王座。",
       "all": [
         {
           "state": "strength",
@@ -2349,7 +2346,7 @@
     {
       "id": "night-legend",
       "title": "没有人带走你",
-      "description": "你还是住在同一条街上。垃圾桶、屋檐、车底，你都熟。没有人带走你，也没有人知道你叫什么。你把自己缩得更小一点，等下一个冬天过去。",
+      "description": "你还是住在同一条街上。大桶、屋檐、大家伙底下，你都熟。没有人带走你，也没有人知道你叫什么。你把自己缩得更小一点，等下一个冬天过去。",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
       "video": "assets/videos/night-legend-ending-v1.mp4"
@@ -2357,7 +2354,7 @@
     {
       "id": "sick",
       "title": "没撑过这个冬天",
-      "description": "病一直没有好。最后一个很冷的早上，你在暖气管道边的纸箱里蜷成一团，再没有站起来。你只活了 {age} 个月，街上的猫很多都是这样。",
+      "description": "病一直没有好。最后一个很冷的早上，你在那根热管子边的纸箱里蜷成一团，再没有站起来。你只活了 {age} 个月，街上的猫很多都是这样。",
       "all": [
         {
           "state": "forcedEnding",
@@ -2418,15 +2415,15 @@
     {
       "id": "figurine-clinic-helper",
       "endingId": "clinic",
-      "title": "诊所的小值班",
-      "story": "打针的孩子不哭了，因为柜台上坐着一只白猫。",
+      "title": "柜台边的小值班",
+      "story": "小孩哭的时候，柜台上坐着一只白猫陪着他们。",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
     {
       "id": "figurine-bin-king",
       "endingId": "street-king",
-      "title": "垃圾桶上的王",
+      "title": "大桶上的王",
       "story": "这条街分成了两半，他坐在左边的王座上。",
       "glb": "assets/models/figurine-v2-bin-king.glb",
       "preview": "assets/models/figurine-v2-bin-king-source.webp"
@@ -2434,7 +2431,7 @@
     {
       "id": "figurine-streetlight-cat",
       "endingId": "night-legend",
-      "title": "路灯下的猫",
+      "title": "灯柱下的猫",
       "story": "没有人知道他的名字，但他认得每一条屋檐。",
       "glb": "assets/models/figurine-v2-streetlight-cat.glb",
       "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
@@ -2458,10 +2455,10 @@
   ],
   "ui": {
     "backToCatalog": "← 返回目录",
-    "introButton": "开始流浪",
+    "introButton": "开始冒险",
     "continueButton": "继续走",
     "finalContinueButton": "看看结局",
-    "replayButton": "再流浪一次",
+    "replayButton": "再冒险一次",
     "keepsakeLabel": "获得结局手办",
     "keepsakeGetHint": "3D 打印 · 做成手办"
   }
