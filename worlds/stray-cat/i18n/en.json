@@ -2404,56 +2404,56 @@
       "endingId": "cat-martial-god",
       "title": "The Cat Martial God on the Roof",
       "story": "One paw falls, the alley falls quiet — and he becomes the legend of this street.",
-      "glb": "assets/models/figurine-thunder-roof.glb",
-      "preview": "assets/models/figurine-thunder-roof-source.webp"
+      "glb": "assets/models/figurine-v2-thunder-roof.glb",
+      "preview": "assets/models/figurine-v2-thunder-roof-source.webp"
     },
     {
       "id": "figurine-blanket-sleep",
       "endingId": "home",
       "title": "Ah Hui in the Blanket",
       "story": "The blanket is warm. He sleeps on his back until noon, and no one sends him out again.",
-      "glb": "assets/models/figurine-blanket-sleep.glb",
-      "preview": "assets/models/figurine-blanket-sleep-source.webp"
+      "glb": "assets/models/figurine-v2-blanket-sleep.glb",
+      "preview": "assets/models/figurine-v2-blanket-sleep-source.webp"
     },
     {
       "id": "figurine-clinic-helper",
       "endingId": "clinic",
       "title": "The Little Helper at the Clinic",
       "story": "The children stop crying at their shots, because a white cat sits on the counter.",
-      "glb": "assets/models/figurine-clinic-helper.glb",
-      "preview": "assets/models/figurine-clinic-helper-source.webp"
+      "glb": "assets/models/figurine-v2-clinic-helper.glb",
+      "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
     {
       "id": "figurine-bin-king",
       "endingId": "street-king",
       "title": "The King on the Bins",
       "story": "The street is split in two, and he sits on the throne on the left side.",
-      "glb": "assets/models/figurine-bin-king.glb",
-      "preview": "assets/models/figurine-bin-king-source.webp"
+      "glb": "assets/models/figurine-v2-bin-king.glb",
+      "preview": "assets/models/figurine-v2-bin-king-source.webp"
     },
     {
       "id": "figurine-streetlight-cat",
       "endingId": "night-legend",
       "title": "The Cat Under the Streetlight",
       "story": "Nobody knows his name, but he knows every eave in the neighbourhood.",
-      "glb": "assets/models/figurine-streetlight-cat.glb",
-      "preview": "assets/models/figurine-streetlight-cat-source.webp"
+      "glb": "assets/models/figurine-v2-streetlight-cat.glb",
+      "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
     },
     {
       "id": "figurine-warm-box",
       "endingId": "sick",
       "title": "Warm Light in the Box",
       "story": "The illness took him, but that cardboard box stayed warm.",
-      "glb": "assets/models/figurine-warm-box.glb",
-      "preview": "assets/models/figurine-warm-box-source.webp"
+      "glb": "assets/models/figurine-v2-warm-box.glb",
+      "preview": "assets/models/figurine-v2-warm-box-source.webp"
     },
     {
       "id": "figurine-cat-star",
       "endingId": "heaven",
       "title": "The Light on the Cat Star",
       "story": "The sack opens, and there is no cat inside — only a small, very soft light.",
-      "glb": "assets/models/figurine-cat-star.glb",
-      "preview": "assets/models/figurine-cat-star-source.webp"
+      "glb": "assets/models/figurine-v2-cat-star.glb",
+      "preview": "assets/models/figurine-v2-cat-star-source.webp"
     }
   ],
   "ui": {
