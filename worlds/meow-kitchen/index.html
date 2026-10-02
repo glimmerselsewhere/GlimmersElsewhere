@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5eee1">
   <title>咪其林异界食堂 · Glimmers of Elsewhere</title>
-  <link rel="stylesheet" href="../../app/style.css?v=21">
+  <link rel="stylesheet" href="../../app/style.css?v=22">
 </head>
 <body>
   <main id="app" class="app-shell" aria-live="polite">
@@ -144,6 +144,7 @@
             <span data-i18n="keepsakeGet">拿到它</span>
             <small data-i18n="keepsakeGetHint">3D 打印 · 做成实物</small>
           </a>
+          <button id="shelfOpen" class="shelf-open" type="button" data-i18n="shelfOpen">我的手办柜</button>
         </div>
         <details id="tuntunBox" class="tuntun" hidden>
           <summary data-i18n="tuntunSummary">彩蛋：一只真实的猫</summary>
@@ -158,6 +159,17 @@
     </section>
     <audio id="worldMusic" loop preload="metadata"></audio>
 
+    <div id="shelfModal" class="ks-modal shelf-modal" hidden>
+      <div class="ks-backdrop" data-shelf-close></div>
+      <section class="ks-panel shelf-panel" role="dialog" aria-modal="true" aria-labelledby="shelfTitle">
+        <header class="ks-head">
+          <div><p class="eyebrow" data-i18n="shelfEyebrow">已收集的结局</p><h2 id="shelfTitle" data-i18n="shelfTitle">手办柜</h2><p id="shelfCount" class="shelf-count"></p></div>
+          <button id="shelfClose" class="ks-close" type="button" aria-label="Close" data-shelf-close>×</button>
+        </header>
+        <div id="shelfGrid" class="shelf-grid"></div>
+        <footer class="shelf-foot"><button id="shelfContinue" class="shelf-continue" type="button" data-i18n="shelfContinue">继续冒险</button></footer>
+      </section>
+    </div>
     <div id="keepsakeModal" class="ks-modal" hidden>
       <div class="ks-backdrop" data-ks-close></div>
       <section class="ks-panel" role="dialog" aria-modal="true" aria-labelledby="ksTitle">
@@ -187,7 +199,7 @@
       </section>
     </div>
   </main>
-  <script>window.__WORLD_ID__="meow-kitchen";</script><script src="../../app/app.js?v=30"></script>
+  <script>window.__WORLD_ID__="meow-kitchen";</script><script src="../../app/app.js?v=31"></script>
   <script type="module" src="../../app/keepsake-viewer.js?v=2"></script>
 </body>
 </html>

@@ -193,6 +193,12 @@ const STRINGS = {
     keepsakeGet: "Get it",
     keepsakeGetHint: "3D print · made real",
     keepsakeImage: "Download image",
+    shelfOpen: "My figurines",
+    shelfEyebrow: "Collected endings",
+    shelfTitle: "The figurine shelf",
+    shelfLocked: "Not unlocked yet",
+    shelfView: "View in 3D",
+    shelfContinue: "Back to the adventure",
     tuntunSummary: "Hidden page: a real cat",
     ksLoading: "Loading the 3D model…",
     soundLabel: "Toggle sound",
@@ -235,6 +241,13 @@ const STRINGS = {
     keepsakeDownload: "下载 GLB",
     keepsakeGet: "拿到它",
     keepsakeGetHint: "3D 打印 · 做成实物",
+    keepsakeImage: "下载图片",
+    shelfOpen: "我的手办柜",
+    shelfEyebrow: "已收集的结局",
+    shelfTitle: "手办柜",
+    shelfLocked: "还没解锁",
+    shelfView: "转一转",
+    shelfContinue: "继续冒险",
     tuntunSummary: "彩蛋：一只真实的猫",
     ksLoading: "正在载入 3D 模型…",
     soundLabel: "切换声音",
@@ -1809,6 +1822,7 @@ function showEnding() {
   const ending = world?.mode === "life"
     ? chooseLifeEnding()
     : content().endings.find(endingMatches) || content().endings.at(-1);
+  noteUnlock(world?.id, ending.id);
   // Endings may quote the run: {age}, {lifespan} and {fish} are filled in here.
   const fillEndingText = (text = "") => String(text)
     .replace(/\{age\}/g, String(Math.round(Number(state.age || 0))))
@@ -1923,6 +1937,87 @@ function showEnding() {
   }
 }
 
+/* ---------- 手办柜：纯前端记录（localStorage），不需要登录或后端 ---------- */
+const SHELF_KEY = "glimmers-shelf-v1";
+
+function readShelf() {
+  try { return JSON.parse(localStorage.getItem(SHELF_KEY) || "{}") || {}; } catch { return {}; }
+}
+
+function noteUnlock(worldId, endingId) {
+  if (!worldId || !endingId) return;
+  const shelf = readShelf();
+  const list = Array.isArray(shelf[worldId]) ? shelf[worldId] : [];
+  if (!list.includes(endingId)) {
+    list.push(endingId);
+    shelf[worldId] = list;
+    try { localStorage.setItem(SHELF_KEY, JSON.stringify(shelf)); } catch {}
+  }
+}
+
+function renderShelf() {
+  const grid = $("shelfGrid");
+  if (!grid) return;
+  const keepsakes = content().keepsakes || [];
+  const unlocked = new Set(readShelf()[world?.id] || []);
+  grid.innerHTML = keepsakes.map((keepsake, index) => {
+    const open = unlocked.has(keepsake.endingId);
+    const title = lang === "en" && keepsake.titleEn ? keepsake.titleEn : keepsake.title;
+    const story = lang === "en" && keepsake.storyEn ? keepsake.storyEn : keepsake.story;
+    const preview = keepsake.preview ? worldAsset(keepsake.preview) : "";
+    return `<article class="shelf-card${open ? "" : " is-locked"}">
+      <div class="shelf-thumb">${open && preview ? `<img src="${escapeHtml(preview)}" alt="">` : "<span>?</span>"}</div>
+      <div class="shelf-copy">
+        <small>NO.${index + 1}</small>
+        <strong>${open ? escapeHtml(title) : escapeHtml(t("shelfLocked"))}</strong>
+        ${open && story ? `<em>${escapeHtml(story)}</em>` : ""}
+      </div>
+      ${open ? `<button class="shelf-view" type="button" data-shelf-view="${escapeHtml(keepsake.id)}">${escapeHtml(t("shelfView"))}</button>` : ""}
+    </article>`;
+  }).join("");
+  const total = keepsakes.length;
+  $("shelfCount").textContent = lang === "en" ? `${unlocked.size} / ${total} collected` : `已收集 ${unlocked.size} / ${total}`;
+  grid.querySelectorAll("[data-shelf-view]").forEach(button => {
+    button.addEventListener("click", () => {
+      const keepsake = keepsakes.find(item => item.id === button.dataset.shelfView);
+      if (keepsake) openKeepsakeFor(keepsake);
+    });
+  });
+}
+
+function openShelf() {
+  const modal = $("shelfModal");
+  if (!modal) return;
+  renderShelf();
+  modal.hidden = false;
+  document.body.classList.add("ks-open");
+}
+
+function closeShelf() {
+  const modal = $("shelfModal");
+  if (!modal || modal.hidden) return;
+  modal.hidden = true;
+  document.body.classList.remove("ks-open");
+}
+
+function openKeepsakeFor(keepsake) {
+  const glbUrl = `${worldAsset(keepsake.glb)}?v=20260928`;
+  const keepsakeTitle = lang === "en" && keepsake.titleEn ? keepsake.titleEn : keepsake.title;
+  const storyText = lang === "en" && keepsake.storyEn ? keepsake.storyEn : keepsake.story;
+  $("ksTitle").textContent = keepsakeTitle;
+  const story = $("ksStory");
+  story.textContent = storyText || "";
+  story.hidden = !storyText;
+  $("ksDownload").href = glbUrl;
+  const shareUrl = keepsake.shareImage ? rootUrl(keepsake.shareImage) : "";
+  const imageLink = $("ksImage");
+  if (imageLink) {
+    if (shareUrl) { imageLink.href = shareUrl; imageLink.download = shareUrl.split("/").pop(); imageLink.hidden = false; }
+    else { imageLink.hidden = true; }
+  }
+  openKeepsake();
+}
+
 function openKeepsake() {
   const box = $("keepsakeBox");
   if (!box || box.hidden) return;
@@ -2006,7 +2101,10 @@ async function bootDirectWorld(nextLang, worldId) {
     video.play().catch(() => {});
   });
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
-  document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
+  $("shelfOpen")?.addEventListener("click", openShelf);
+  $("shelfContinue")?.addEventListener("click", closeShelf);
+  document.querySelectorAll("[data-shelf-close]").forEach(el => el.addEventListener("click", closeShelf));
+  document.addEventListener("keydown", event => { if (event.key === "Escape") { closeKeepsake(); closeShelf(); } });
   $("soundToggle").addEventListener("click", toggleSound);
   $("textToggle")?.addEventListener("click", toggleTextBoost);
   applyTextBoost();
@@ -2037,7 +2135,10 @@ async function bootPlayer(nextLang) {
   $("replayButton").addEventListener("click", replay);
   $("keepsakeOpen").addEventListener("click", openKeepsake);
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
-  document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
+  $("shelfOpen")?.addEventListener("click", openShelf);
+  $("shelfContinue")?.addEventListener("click", closeShelf);
+  document.querySelectorAll("[data-shelf-close]").forEach(el => el.addEventListener("click", closeShelf));
+  document.addEventListener("keydown", event => { if (event.key === "Escape") { closeKeepsake(); closeShelf(); } });
   $("replayEndingVideo")?.addEventListener("click", () => {
     const video = $("endingVideo");
     if (!video || video.hidden) return;
