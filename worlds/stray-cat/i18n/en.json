@@ -2374,8 +2374,8 @@
     },
     {
       "id": "clinic",
-      "title": "The White Cat on the Counter",
-      "description": "You never hide from people and never hiss; the white house has known you for a long time. You never fell ill either. When children cry, you go and sit beside them.",
+      "title": "The White Cat in the White Room",
+      "description": "You never hide from people and never hiss; the white house has known you for a long time. You never fell ill either. When children cry, you climb out of your basket and go and sit beside them.",
       "all": [
         {
           "state": "health",
@@ -2479,8 +2479,8 @@
     {
       "id": "figurine-clinic-helper",
       "endingId": "clinic",
-      "title": "The Little Helper by the Counter",
-      "story": "When the children cry, a white cat sits on the counter to keep them company.",
+      "title": "The White Cat in the Basket",
+      "story": "When the children cry, the white cat in the basket sits up and watches over them.",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
       "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
