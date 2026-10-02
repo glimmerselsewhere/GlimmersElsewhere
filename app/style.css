@@ -301,6 +301,9 @@ body.ks-open { overflow: hidden; }
 
 @media (min-width: 501px) {
   body { padding: 18px 0; }
+  /* Desktop: the painted cover is square — show the whole picture in a rounded frame. */
+  .opening-image { flex: 0 0 auto; aspect-ratio: 1 / 1; width: min(100%, 470px); margin: auto auto 0; border-radius: 22px; object-fit: contain; box-shadow: 0 18px 50px rgba(0,0,0,.28); }
+  .opening-enter { width: min(100%, 470px); margin: 18px auto auto; }
   .app-shell { min-height: calc(100dvh - 36px); border-radius: 28px; }
   .catalog-view, .intro-view, .game-view, .ending-view { min-height: calc(100dvh - 36px); }
 }
