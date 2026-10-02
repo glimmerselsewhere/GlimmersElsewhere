@@ -1,0 +1,520 @@
+{
+  "id": "chapter-2",
+  "title": "第二篇 · 奇食图鉴",
+  "subtitle": "先看它活着的样子，再决定怎么做得好吃",
+  "initialState": {
+    "wonder": 0,
+    "appetite": 0,
+    "respect": 0
+  },
+  "states": [
+    {
+      "id": "wonder",
+      "label": "惊奇",
+      "description": "这道菜有多不可思议",
+      "color": "#6d78c8",
+      "chipBackground": "#e2e4f8",
+      "max": 15
+    },
+    {
+      "id": "appetite",
+      "label": "食欲",
+      "description": "看完有多想吃一口",
+      "color": "#d1577a",
+      "chipBackground": "#fadfe7",
+      "max": 15
+    },
+    {
+      "id": "respect",
+      "label": "敬意",
+      "description": "对食材的尊重与感谢",
+      "color": "#5f9e78",
+      "chipBackground": "#dcf0e2",
+      "max": 15
+    }
+  ],
+  "actions": [
+    {
+      "id": "ice-congee",
+      "name": "做成一道菜",
+      "plain": "做菜",
+      "icon": "菜"
+    },
+    {
+      "id": "frost-crisp",
+      "name": "做成另一道菜",
+      "plain": "做菜",
+      "icon": "菜"
+    },
+    {
+      "id": "frost-sashimi",
+      "name": "做成第三道菜",
+      "plain": "做菜",
+      "icon": "菜"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "frost-dragon",
+      "chapter": "第一页",
+      "object": "frost-dragon",
+      "image": "assets/images/creatures/frost-dragon.webp",
+      "title": "冰霜巨龙在打呼，呼出的气结成了霜",
+      "description": "图鉴第一页：冰霜巨龙。它睡着时呼出的寒气会在洞口堆成霜米，蜕下的旧鳞薄得像糖片。咪其林厨师的规矩：只取它愿意给的部分。",
+      "actions": [
+        {
+          "id": "ice-congee",
+          "name": "冰霜龙息粥",
+          "plain": "冰霜龙息粥",
+          "hint": "用洞口的霜米加龙息余温，小火慢煨成会冒冷气的冰粥",
+          "icon": "菜"
+        },
+        {
+          "id": "frost-crisp",
+          "name": "霜鳞糖片",
+          "plain": "霜鳞糖片",
+          "hint": "把龙蜕下的旧鳞裹一层野蜜，冷火快炙成透明糖片",
+          "icon": "菜"
+        },
+        {
+          "id": "frost-sashimi",
+          "name": "雪莓龙脍",
+          "plain": "雪莓龙脍",
+          "hint": "取自然脱落的龙尾冻肉薄切，配雪莓汁冰镇",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "ice-congee": {
+          "image": "assets/images/dishes/frost-dragon-ice-congee.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 2,
+            "respect": 3
+          },
+          "text": "冰粥端上来时还在冒冷气，舀一勺能看见霜米在碗里慢慢化开。巨龙翻了个身，把洞口又堆高了一点霜米，算是续费。",
+          "impact": "hero"
+        },
+        "frost-crisp": {
+          "image": "assets/images/dishes/frost-dragon-frost-crisp.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 3,
+            "respect": 1
+          },
+          "text": "糖片对着光看是透明的，咬下去咔嚓一声，凉气从喉咙一路跑到尾巴尖。巨龙被咔嚓声吵醒，看了一眼，又满意地睡回去了。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "糖片对着光看是透明的，咬下去咔嚓一声，凉气从喉咙一路跑到尾巴尖。巨龙被咔嚓声吵醒，看了一眼，又满意地睡回去了。"
+            },
+            {
+              "weight": 1,
+              "text": "糖片比想象中更脆，裂开的声音惊起了一窝雪雀。巨龙翻了个身，把洞口的霜米又堆高了一截。"
+            }
+          ]
+        },
+        "frost-sashimi": {
+          "image": "assets/images/dishes/frost-dragon-frost-sashimi.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 3,
+            "respect": 2
+          },
+          "text": "薄切的冻肉在雪莓汁里泛着粉光，入口即化，凉而不冰。你在图鉴上认真写了一行：感谢今日份的龙。",
+          "impact": "hero"
+        }
+      }
+    },
+    {
+      "id": "cloud-sheep",
+      "chapter": "第二页",
+      "object": "cloud-sheep",
+      "image": "assets/images/creatures/cloud-sheep.webp",
+      "title": "云绵羊的毛，是棉花糖味的",
+      "description": "图鉴第二页：云绵羊。它的羊毛其实是凝住的甜云，每年春天自己掉一层。掉下来的云可以直接吃，但厨师想做得更体面一点。",
+      "actions": [
+        {
+          "id": "cloud-tea",
+          "name": "云绵奶盖茶",
+          "plain": "云绵奶盖茶",
+          "hint": "把春落的云毛轻轻打发，铺在热红茶上做成会浮起来的奶盖",
+          "icon": "菜"
+        },
+        {
+          "id": "cloud-roll",
+          "name": "棉花糖云卷",
+          "plain": "棉花糖云卷",
+          "hint": "云毛拉成细丝，卷进烤脆的云片里，切成一小卷一小卷",
+          "icon": "菜"
+        },
+        {
+          "id": "cloud-soup",
+          "name": "云绒浓汤",
+          "plain": "云绒浓汤",
+          "hint": "云毛撕碎融进南瓜浓汤，汤面会浮着一层绒绒的云",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "cloud-tea": {
+          "image": "assets/images/dishes/cloud-sheep-cloud-tea.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 3,
+            "respect": 2
+          },
+          "text": "奶盖在茶面上浮成一小朵云，喝的时候先碰到凉的甜，再碰到热的茶。云绵羊在旁边看着，耳朵愉快地抖了抖。",
+          "impact": "hero"
+        },
+        "cloud-roll": {
+          "image": "assets/images/dishes/cloud-sheep-cloud-roll.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 2,
+            "respect": 2
+          },
+          "text": "云卷切面是一圈一圈的白色绒毛，咬下去先脆后绵，甜得很轻。你把第一卷放回了云绵羊面前的盘子里。",
+          "impact": "hero"
+        },
+        "cloud-soup": {
+          "image": "assets/images/dishes/cloud-sheep-cloud-soup.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 2,
+            "respect": 3
+          },
+          "text": "浓汤表面的云绒会跟着勺子慢慢旋开，喝完整个人都暖乎乎的。云绵羊喝完自己那一碗，咩了一声，表示明年还来。",
+          "impact": "hero"
+        }
+      }
+    },
+    {
+      "id": "lava-snail",
+      "chapter": "第三页",
+      "object": "lava-snail",
+      "image": "assets/images/creatures/lava-snail.webp",
+      "title": "岩浆蜗牛背着一口天然小锅",
+      "description": "图鉴第三页：岩浆蜗牛。它的壳里存着一汪温热的矿物汤，走到哪儿炖到哪儿。它非常乐意分享——只要帮它把壳擦干净。",
+      "actions": [
+        {
+          "id": "shell-gratin",
+          "name": "壳焗菌菇菜",
+          "plain": "壳焗菌菇菜",
+          "hint": "借蜗牛壳里的余温，把菌菇和奶酪放进壳口焗到起泡",
+          "icon": "菜"
+        },
+        {
+          "id": "lava-soup",
+          "name": "熔岩矿物浓汤",
+          "plain": "熔岩矿物浓汤",
+          "hint": "取一小碗壳里的矿物汤，加烤蒜和香草煮开，最后淋一点奶油",
+          "icon": "菜"
+        },
+        {
+          "id": "lava-pudding",
+          "name": "焦糖岩浆布丁",
+          "plain": "焦糖岩浆布丁",
+          "hint": "用壳温把布丁表面焦糖化，敲开时里面还会缓缓流心",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "shell-gratin": {
+          "image": "assets/images/dishes/lava-snail-shell-gratin.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 3,
+            "respect": 1
+          },
+          "text": "奶酪在壳口咕嘟咕嘟鼓起泡，拉丝能拉到一个手掌那么长。蜗牛探出头检查了自己的壳，表示焗得很均匀。",
+          "impact": "hero"
+        },
+        "lava-soup": {
+          "image": "assets/images/dishes/lava-snail-lava-soup.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 3,
+            "respect": 2
+          },
+          "text": "浓汤是漂亮的橙红色，喝下去从喉咙暖到脚底，还带一点矿物的咸香。你给蜗牛的壳擦得锃亮作为回礼。",
+          "impact": "hero"
+        },
+        "lava-pudding": {
+          "image": "assets/images/dishes/lava-snail-lava-pudding.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 2,
+            "respect": 2
+          },
+          "text": "敲开焦糖壳的一瞬间，流心顺着缺口慢慢淌下来，像一小道安静的岩浆。蜗牛盯着流心看了很久，似乎也想来一勺。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "敲开焦糖壳的一瞬间，流心顺着缺口慢慢淌下来，像一小道安静的岩浆。蜗牛盯着流心看了很久，似乎也想来一勺。"
+            },
+            {
+              "weight": 1,
+              "text": "焦糖壳裂开时冒出一小股甜烟。蜗牛把头缩回去又伸出来，这是它今天第三次改变主意。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "starlight-jelly",
+      "chapter": "第四页",
+      "object": "starlight-jelly",
+      "image": "assets/images/creatures/starlight-jelly.webp",
+      "title": "星光水母会在夜里自己发光",
+      "description": "图鉴第四页：星光水母。它伞盖下的小触手会凝出亮晶晶的星屑果冻，掉进海里就化了，所以要在它浮出水面时接住。",
+      "actions": [
+        {
+          "id": "star-jelly",
+          "name": "星光果冻",
+          "plain": "星光果冻",
+          "hint": "接住自然掉落的星屑果冻，冰镇后直接装盘，顶上放一小片薄荷",
+          "icon": "菜"
+        },
+        {
+          "id": "night-noodles",
+          "name": "夜光冷面",
+          "plain": "夜光冷面",
+          "hint": "用星屑果冻化成水揉进面里，面条会在暗处微微发亮",
+          "icon": "菜"
+        },
+        {
+          "id": "star-soda",
+          "name": "星屑汽水",
+          "plain": "星屑汽水",
+          "hint": "把星屑果冻放进气泡水，看着它一颗一颗往上浮",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "star-jelly": {
+          "image": "assets/images/dishes/starlight-jelly-star-jelly.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 2,
+            "respect": 2
+          },
+          "text": "果冻在盘子里微微发亮，像把一小片夜空盛了出来。水母在旁边的水盆里闪了一下，像是在签名。",
+          "impact": "hero"
+        },
+        "night-noodles": {
+          "image": "assets/images/dishes/starlight-jelly-night-noodles.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 3,
+            "respect": 1
+          },
+          "text": "关掉灯之后，整碗面泛着温柔的蓝光，挑起来还会拖出一条光丝。你决定以后晚餐都关灯吃。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "关掉灯之后，整碗面泛着温柔的蓝光，挑起来还会拖出一条光丝。你决定以后晚餐都关灯吃。"
+            },
+            {
+              "weight": 1,
+              "text": "面条亮起来的瞬间，水母在旁边的水盆里鼓了一下掌。你决定假装没看见。"
+            }
+          ]
+        },
+        "star-soda": {
+          "image": "assets/images/dishes/starlight-jelly-star-soda.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 3,
+            "respect": 2
+          },
+          "text": "星屑在气泡里一颗颗上浮，撞到杯壁又弹开，喝一口会在舌尖啪地炸开一点甜。水母看着杯子，似乎觉得自己的果冻很有出息。",
+          "impact": "hero"
+        }
+      }
+    },
+    {
+      "id": "honey-deer",
+      "chapter": "第五页",
+      "object": "honey-deer",
+      "image": "assets/images/creatures/honey-deer.webp",
+      "title": "蜜菇鹿的角上，长着会流蜜的蘑菇",
+      "description": "图鉴第五页：蜜菇鹿。它鹿角上共生的蜜菇熟透时会自己滴蜜，鹿会主动把头低到锅边——它喜欢闻煮东西的蒸汽。",
+      "actions": [
+        {
+          "id": "honey-roast",
+          "name": "蜜菇烤厚片",
+          "plain": "蜜菇烤厚片",
+          "hint": "取熟透自落的蜜菇切厚片，小火烤到边缘焦糖化，撒一点盐",
+          "icon": "菜"
+        },
+        {
+          "id": "deer-stew",
+          "name": "蜜菇鹿角炖菜",
+          "plain": "蜜菇鹿角炖菜",
+          "hint": "用滴落的蜜和根茎蔬菜慢炖一锅，起锅前放整朵蜜菇",
+          "icon": "菜"
+        },
+        {
+          "id": "honey-candy",
+          "name": "蜜菇琥珀糖",
+          "plain": "蜜菇琥珀糖",
+          "hint": "把蜜菇汁熬成糖浆，倒进模具凝成透明的琥珀糖",
+          "icon": "菜"
+        }
+      ],
+      "outcomes": {
+        "honey-roast": {
+          "image": "assets/images/dishes/honey-deer-honey-roast.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 3,
+            "respect": 2
+          },
+          "text": "厚片烤到边缘焦亮，咬下去先是咸，然后蜜味才慢慢追上来。蜜菇鹿低头闻了闻锅，满意地打了个响鼻。",
+          "impact": "hero"
+        },
+        "deer-stew": {
+          "image": "assets/images/dishes/honey-deer-deer-stew.webp",
+          "stateChanges": {
+            "wonder": 2,
+            "appetite": 2,
+            "respect": 3
+          },
+          "text": "炖菜的汤色是深深的琥珀色，蔬菜吸饱了蜜香，甜咸平衡得刚刚好。鹿把整朵蜜菇留给了你，自己喝汤。",
+          "impact": "hero",
+          "variants": [
+            {
+              "weight": 2,
+              "text": "炖菜的汤色是深深的琥珀色，蔬菜吸饱了蜜香，甜咸平衡得刚刚好。鹿把整朵蜜菇留给了你，自己喝汤。"
+            },
+            {
+              "weight": 1,
+              "text": "炖菜炖到一半时，蜜菇鹿自己凑过来闻了闻，然后满意地打了个响鼻。你知道这锅稳了。"
+            }
+          ]
+        },
+        "honey-candy": {
+          "image": "assets/images/dishes/honey-deer-honey-candy.webp",
+          "stateChanges": {
+            "wonder": 3,
+            "appetite": 2,
+            "respect": 2
+          },
+          "text": "琥珀糖对着光看能看见里面细小的菇纹，含在嘴里会慢慢化出一整片森林的味道。你把第一颗糖放在了鹿角旁边。",
+          "impact": "hero"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "guide",
+      "title": "异界食材图鉴 · 主编",
+      "video": "assets/videos/guide-ending-v1.mp4",
+      "image": "assets/images/dishes/frost-dragon-frost-crisp.webp",
+      "all": [
+        {
+          "state": "wonder",
+          "operator": ">=",
+          "value": 11
+        },
+        {
+          "state": "appetite",
+          "operator": ">=",
+          "value": 11
+        },
+        {
+          "state": "respect",
+          "operator": ">=",
+          "value": 11
+        }
+      ],
+      "description": "图鉴的最后一页写着：每一种食材都愿意再见到你。冰霜巨龙、云绵羊、岩浆蜗牛、星光水母和蜜菇鹿都在页脚留了印子，而你的名字印在封面。"
+    },
+    {
+      "id": "appetite-legend",
+      "title": "胃口传遍大陆的试吃官",
+      "video": "assets/videos/appetite-legend-ending-v1.mp4",
+      "image": "assets/images/dishes/starlight-jelly-night-noodles.webp",
+      "all": [
+        {
+          "state": "appetite",
+          "operator": ">=",
+          "value": 13
+        },
+        {
+          "state": "appetite",
+          "operator": ">",
+          "otherState": "wonder"
+        },
+        {
+          "state": "appetite",
+          "operator": ">",
+          "otherState": "respect"
+        }
+      ],
+      "description": "你做的菜有一种本事：让人还没看见就先咽口水。图鉴因此多了一个附录，叫「看完会饿」，附录厚得快要装不下了。"
+    },
+    {
+      "id": "respect-first",
+      "title": "敬畏每一口",
+      "video": "assets/videos/respect-first-ending-v1.mp4",
+      "image": "assets/images/dishes/honey-deer-deer-stew.webp",
+      "all": [],
+      "description": "每次开火之前，你都会先对食材说一声谢谢。异界生物们口口相传：那口小锅做出来的东西，吃起来是被人珍惜的味道。"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "guide-book",
+      "endingId": "guide",
+      "title": "异界食材图鉴·随身小书",
+      "glb": "assets/models/guide-book.glb",
+      "preview": "assets/models/guide-book-source.webp"
+    },
+    {
+      "id": "glow-bowl",
+      "endingId": "appetite-legend",
+      "title": "夜光面碗信物",
+      "glb": "assets/models/glow-bowl.glb",
+      "preview": "assets/models/glow-bowl-source.webp"
+    },
+    {
+      "id": "thanks-leaf",
+      "endingId": "respect-first",
+      "title": "谢食材木牌信物",
+      "glb": "assets/models/thanks-leaf.glb",
+      "preview": "assets/models/thanks-leaf-source.webp"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "wonder-8",
+      "state": "wonder",
+      "at": 8,
+      "eyebrow": "THRESHOLD",
+      "title": "后厨开始传阅你的笔记",
+      "text": "连最挑剔的长老都翻看了你的食材记录——他们想照着做。"
+    },
+    {
+      "id": "appetite-8",
+      "state": "appetite",
+      "at": 8,
+      "eyebrow": "THRESHOLD",
+      "title": "客人开始在门外排队",
+      "text": "香气翻过了古堡的墙，湖对岸的人也闻到了。"
+    },
+    {
+      "id": "respect-8",
+      "state": "respect",
+      "at": 8,
+      "eyebrow": "THRESHOLD",
+      "title": "食材开始主动来找你",
+      "text": "有一只云绵羊蹲在门口，看起来像是自愿的。"
+    }
+  ]
+}

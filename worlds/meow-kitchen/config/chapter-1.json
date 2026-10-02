@@ -1,0 +1,527 @@
+{
+  "id": "chapter-1",
+  "title": "第一篇 · 异界开锅",
+  "subtitle": "炖 / 烤 / 盘，三种做法喂饱五个种族",
+  "initialState": {
+    "flavor": 0,
+    "crave": 0,
+    "bond": 0
+  },
+  "states": [
+    {
+      "id": "flavor",
+      "label": "风味",
+      "description": "料理本身有多好吃，火候与调味的功力",
+      "color": "#d8822f",
+      "chipBackground": "#fbe6c8",
+      "max": 17
+    },
+    {
+      "id": "crave",
+      "label": "馋度",
+      "description": "香气和卖相让人多想吃一口",
+      "color": "#d1577a",
+      "chipBackground": "#fadfe7",
+      "max": 19
+    },
+    {
+      "id": "bond",
+      "label": "情谊",
+      "description": "各族食客被这顿饭暖到的程度",
+      "color": "#5f9e78",
+      "chipBackground": "#dcf0e2",
+      "max": 17
+    }
+  ],
+  "actions": [
+    {
+      "id": "simmer",
+      "name": "小火慢炖",
+      "plain": "炖",
+      "icon": "炖"
+    },
+    {
+      "id": "sear",
+      "name": "猛火炙烤",
+      "plain": "烤",
+      "icon": "烤"
+    },
+    {
+      "id": "plate",
+      "name": "认真摆盘",
+      "plain": "盘",
+      "icon": "盘"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "arrival",
+      "chapter": "序章",
+      "object": "arrival",
+      "image": "assets/images/scenes/arrival.webp",
+      "title": "掉进异界，锅还在背上",
+      "description": "云层的裂缝把你和一口小锅一起吞了下去。醒来时，森林里的光带着蜂蜜味，面前有一只饿到快要化掉的小史莱姆。",
+      "actions": [
+        {
+          "id": "soup",
+          "name": "先煮一锅热汤",
+          "plain": "煮汤",
+          "hint": "锅有了，水有了，剩下的交给火",
+          "icon": "汤"
+        }
+      ],
+      "outcomes": {
+        "soup": {
+          "image": "assets/images/outcomes/arrival-soup.webp",
+          "stateChanges": {
+            "flavor": 1,
+            "crave": 1,
+            "bond": 1
+          },
+          "text": "野葱、蘑菇，加上史莱姆自己掉下来的一小块果冻，一起煮开。它喝完，身体从半透明变成了暖暖的琥珀色，然后跟着你走了。"
+        }
+      }
+    },
+    {
+      "id": "elf-pancake",
+      "chapter": "第一道",
+      "object": "elf-pancake",
+      "image": "assets/images/scenes/elf-pancake.webp",
+      "title": "精灵的露水薄饼，三百年没变过味",
+      "description": "银叶林的精灵递来一张薄得透光的露水薄饼，很礼貌地说：「这就是我们的全部料理。」说这句话的时候，她的耳朵垂了下去。",
+      "actions": [
+        {
+          "id": "simmer",
+          "name": "淋蜂蜜，小火慢煨",
+          "plain": "蜜煨",
+          "hint": "让甜味渗进每一层薄饼",
+          "icon": "蜜"
+        },
+        {
+          "id": "sear",
+          "name": "平底锅煎到边缘微焦",
+          "plain": "煎",
+          "hint": "焦边是香气的开关",
+          "icon": "煎"
+        },
+        {
+          "id": "plate",
+          "name": "用月光花瓣摆盘",
+          "plain": "摆盘",
+          "hint": "先让眼睛吃饱",
+          "icon": "盘"
+        }
+      ],
+      "outcomes": {
+        "simmer": {
+          "image": "assets/images/outcomes/elf-pancake-simmer.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 1,
+            "bond": 2
+          },
+          "text": "蜂蜜在锅里化成琥珀色的小泡，薄饼吸饱之后变得柔软发亮。精灵咬了一口，很久没说话，然后很小声地问：「这个……还能再来一张吗？」"
+        },
+        "sear": {
+          "image": "assets/images/outcomes/elf-pancake-sear.webp",
+          "stateChanges": {
+            "flavor": 3,
+            "crave": 2,
+            "bond": 0
+          },
+          "text": "锅边响起细密的滋滋声，薄饼边缘卷起一圈金棕，咬下去先是脆的，然后是软的。整片银叶林都闻到了它们从没闻过的味道。"
+        },
+        "plate": {
+          "image": "assets/images/outcomes/elf-pancake-plate.webp",
+          "stateChanges": {
+            "flavor": 1,
+            "crave": 3,
+            "bond": 1
+          },
+          "text": "花瓣一圈圈叠上去，最后撒一小撮烤碎的坚果。精灵举着它对着月光看了很久，转了三圈，始终舍不得下口。"
+        }
+      }
+    },
+    {
+      "id": "dwarf-mushroom",
+      "chapter": "第二道",
+      "object": "dwarf-mushroom",
+      "image": "assets/images/scenes/dwarf-mushroom.webp",
+      "title": "矮人的石头菌菇，敲一下会响",
+      "description": "矮人把一块地底菌菇放上砧板，用锤子敲了敲，发出很清脆的一声。「我们祖祖辈辈都这么吃。」他说得非常认真，牙也非常好。",
+      "actions": [
+        {
+          "id": "simmer",
+          "name": "盖上锅盖慢炖三个钟头",
+          "plain": "慢炖",
+          "hint": "硬的东西只是需要时间",
+          "icon": "炖"
+        },
+        {
+          "id": "sear",
+          "name": "切成薄片，猛火干煸",
+          "plain": "干煸",
+          "hint": "薄到透光就不会硬",
+          "icon": "煸"
+        },
+        {
+          "id": "plate",
+          "name": "磨成粉，烤一炉面包",
+          "plain": "烤包",
+          "hint": "把石头变成云朵",
+          "icon": "包"
+        }
+      ],
+      "outcomes": {
+        "simmer": {
+          "image": "assets/images/outcomes/dwarf-mushroom-simmer.webp",
+          "stateChanges": {
+            "flavor": 3,
+            "crave": 1,
+            "bond": 2
+          },
+          "text": "锅盖跳了很久，菌菇最后变得像炖透的牛筋一样会弹。矮人用胡子擦了一次眼睛，坚持说是被蒸汽熏的。"
+        },
+        "sear": {
+          "image": "assets/images/outcomes/dwarf-mushroom-sear.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 3,
+            "bond": 0
+          },
+          "text": "薄片下锅的一瞬间爆出一阵焦香，边缘卷成小波浪，咬下去咔的一声，然后在舌头上化开。整个矿洞的人都在偷偷咽口水。"
+        },
+        "plate": {
+          "image": "assets/images/outcomes/dwarf-mushroom-plate.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 2,
+            "bond": 2
+          },
+          "text": "菌菇粉混进面团，烤出一炉深棕色的圆面包，掰开时热气涌出来，内里软得能按出指印。矮人当场把配方刻在了矿壁上。"
+        }
+      }
+    },
+    {
+      "id": "orc-bbq",
+      "chapter": "第三道",
+      "object": "orc-bbq",
+      "image": "assets/images/scenes/orc-bbq.webp",
+      "title": "兽人的篝火，永远烤过头",
+      "description": "兽人部落的烤肉外黑内生，他们已经这样吃了很多年，并且坚称这就是「勇士的味道」。一个小兽人偷偷把焦的部分削掉，才敢咬第一口。",
+      "actions": [
+        {
+          "id": "simmer",
+          "name": "把火压小，低温慢烤",
+          "plain": "慢烤",
+          "hint": "耐心比火大更重要",
+          "icon": "慢"
+        },
+        {
+          "id": "sear",
+          "name": "香草腌一夜再上火",
+          "plain": "香草腌",
+          "hint": "先让味道住进去",
+          "icon": "香"
+        },
+        {
+          "id": "plate",
+          "name": "切小块串起来，一人一串",
+          "plain": "串烧",
+          "hint": "分着吃会更香",
+          "icon": "串"
+        }
+      ],
+      "outcomes": {
+        "simmer": {
+          "image": "assets/images/outcomes/orc-bbq-simmer.webp",
+          "stateChanges": {
+            "flavor": 3,
+            "crave": 1,
+            "bond": 2
+          },
+          "text": "火压到只剩红炭，肉慢慢变得一按就出汁。酋长切开的一瞬间愣住了——里面是均匀的粉色，一点也没生，汁水顺着刀背往下流。"
+        },
+        "sear": {
+          "image": "assets/images/outcomes/orc-bbq-sear.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 3,
+            "bond": 1
+          },
+          "text": "迷迭香、蒜和一点点蜂蜜在肉表面结成亮亮的壳，火一舔就滋滋作响。香气冲上树梢，隔壁部落翻过山头过来问在煮什么。"
+        },
+        "plate": {
+          "image": "assets/images/outcomes/orc-bbq-plate.webp",
+          "stateChanges": {
+            "flavor": 1,
+            "crave": 2,
+            "bond": 3
+          },
+          "text": "肉切成小块串在细枝上，每人一串，谁也不必抢最后一块。小兽人们排着队，第一次安安静静地吃完了一顿饭。"
+        }
+      }
+    },
+    {
+      "id": "halfling-tea",
+      "chapter": "第四道",
+      "object": "halfling-tea",
+      "image": "assets/images/scenes/halfling-tea.webp",
+      "title": "半身人的下午茶，糖罐空了",
+      "description": "半身人一天要吃四餐，第四餐是下午茶。今天出了大事：糖罐见底。整个村子的圆门都敞开着，所有人一起发愁。",
+      "actions": [
+        {
+          "id": "simmer",
+          "name": "熬一锅甜浆果糖",
+          "plain": "熬糖",
+          "hint": "甜是可以自己做的",
+          "icon": "熬"
+        },
+        {
+          "id": "sear",
+          "name": "烤蜂巢，取野蜜",
+          "plain": "取蜜",
+          "hint": "野蜂的存货更香",
+          "icon": "蜜"
+        },
+        {
+          "id": "plate",
+          "name": "叠一座小圆饼塔",
+          "plain": "叠塔",
+          "hint": "高度会让心情变好",
+          "icon": "塔"
+        }
+      ],
+      "outcomes": {
+        "simmer": {
+          "image": "assets/images/outcomes/halfling-tea-simmer.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 2,
+            "bond": 2
+          },
+          "text": "浆果在小锅里咕嘟咕嘟，慢慢熬成浓稠的紫红色糖浆，浇在热饼上时会顺着纹路一点点流开，把整张饼染成好看的紫色。"
+        },
+        "sear": {
+          "image": "assets/images/outcomes/halfling-tea-sear.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 3,
+            "bond": 1
+          },
+          "text": "蜂巢烤过之后，蜜自己流了出来，金黄、拉丝，还带一点烟熏味。半身人们把勺子都舔干净了，然后很庄重地舔了第二遍。"
+        },
+        "plate": {
+          "image": "assets/images/outcomes/halfling-tea-plate.webp",
+          "stateChanges": {
+            "flavor": 1,
+            "crave": 2,
+            "bond": 3
+          },
+          "text": "小圆饼一层一层叠成塔，顶上放一颗完整的红浆果。所有人都先鼓了掌，才开始吃，连窗外的蜂都停在玻璃上没走。"
+        }
+      }
+    },
+    {
+      "id": "maze-pudding",
+      "chapter": "第五道",
+      "object": "maze-pudding",
+      "image": "assets/images/scenes/maze-pudding.webp",
+      "title": "迷宫里那只迷路的行走布丁",
+      "description": "石造迷宫的第七层没有怪物，只有一只走来走去的布丁。它跟着你走了很久，然后小声说：它也想回家，可是想不起来家在哪里。",
+      "actions": [
+        {
+          "id": "simmer",
+          "name": "煮碗热汤，陪它慢慢想",
+          "plain": "热汤",
+          "hint": "记忆是被暖出来的",
+          "icon": "汤"
+        },
+        {
+          "id": "sear",
+          "name": "把它掉的果冻烤成脆片",
+          "plain": "脆片",
+          "hint": "路上也要有好吃的",
+          "icon": "脆"
+        },
+        {
+          "id": "plate",
+          "name": "照它的样子做一份甜点",
+          "plain": "同款",
+          "hint": "熟悉的样子会让人安心",
+          "icon": "似"
+        }
+      ],
+      "outcomes": {
+        "simmer": {
+          "image": "assets/images/outcomes/maze-pudding-simmer.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 1,
+            "bond": 3
+          },
+          "text": "热汤下肚，布丁慢慢变回淡淡的焦糖色。它忽然跳了起来：家的方向，就在那道会渗水的石壁后面。它一路蹦蹦跳跳地给你们带路。"
+        },
+        "sear": {
+          "image": "assets/images/outcomes/maze-pudding-sear.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 3,
+            "bond": 0
+          },
+          "text": "掉落的果冻在锅里化成糖浆，冷却后变成透亮的脆片，咬下去咔嚓一声，甜得刚好。布丁看着自己的碎片变成零食，骄傲地鼓了起来。"
+        },
+        "plate": {
+          "image": "assets/images/outcomes/maze-pudding-plate.webp",
+          "stateChanges": {
+            "flavor": 1,
+            "crave": 2,
+            "bond": 3
+          },
+          "text": "你照着它的形状做了一份一模一样的小布丁，浇上焦糖。它抱着那份甜点说，这就是家的味道，然后带你们走出了迷宫。"
+        }
+      }
+    },
+    {
+      "id": "dragon-feast",
+      "chapter": "终章",
+      "object": "dragon-feast",
+      "image": "assets/images/scenes/dragon-feast.webp",
+      "title": "龙的古堡，几百年没开过火",
+      "description": "银龙守着满屋子的金银，却已经几百年没吃过一顿热饭。今晚精灵、矮人、兽人和半身人都到了，长桌上只有一口小锅，和一整座宝库。",
+      "actions": [
+        {
+          "id": "simmer",
+          "name": "一锅慢炖，把所有种族的食材都放进去",
+          "plain": "大锅炖",
+          "hint": "一起煮，才是一起吃",
+          "icon": "锅"
+        },
+        {
+          "id": "sear",
+          "name": "请龙亲自吐一次火",
+          "plain": "龙息炙",
+          "hint": "世界上只有一座这样的炉子",
+          "icon": "焰"
+        },
+        {
+          "id": "plate",
+          "name": "做一场三层高的咪其林盛宴",
+          "plain": "盛宴",
+          "hint": "让这一天值得被记住",
+          "icon": "宴"
+        }
+      ],
+      "outcomes": {
+        "simmer": {
+          "image": "assets/images/outcomes/dragon-feast-simmer.webp",
+          "stateChanges": {
+            "flavor": 2,
+            "crave": 1,
+            "bond": 3
+          },
+          "text": "精灵的蜂蜜、矮人的菌菇、兽人的烤肉和半身人的糖浆，在同一锅里慢慢合流。龙把整张脸凑到锅边，很久没有说话，只用尾巴轻轻敲着地板。"
+        },
+        "sear": {
+          "image": "assets/images/outcomes/dragon-feast-sear.webp",
+          "stateChanges": {
+            "flavor": 3,
+            "crave": 2,
+            "bond": 1
+          },
+          "text": "龙息只喷了一秒，锅里的表面就结成一层漂亮的焦糖壳。敲开时热气涌出来，所有种族同时发出了同一个声音。"
+        },
+        "plate": {
+          "image": "assets/images/outcomes/dragon-feast-plate.webp",
+          "stateChanges": {
+            "flavor": 1,
+            "crave": 3,
+            "bond": 2
+          },
+          "text": "三层高塔从下往上分别是菌菇面包、蜜汁烤肉和浆果布丁，顶上插着一面用锅铲做的小旗。龙绕着它走了三圈，才敢下第一口。"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "three-star",
+      "title": "咪其林三星 · 异界食堂开张",
+      "video": "assets/videos/three-star-ending-v1.mp4",
+      "image": "assets/images/endings/three-star.webp",
+      "all": [
+        {
+          "state": "flavor",
+          "operator": ">=",
+          "value": 12
+        },
+        {
+          "state": "crave",
+          "operator": ">=",
+          "value": 12
+        },
+        {
+          "state": "bond",
+          "operator": ">=",
+          "value": 12
+        }
+      ],
+      "description": "龙把古堡最亮的一层让了出来。精灵管甜、矮人管火候、兽人管串、半身人管一天吃四餐，而你是这里的主厨，锅铲别在腰上。门口挂着三颗星星，是用旧锅底的铜片打磨的。"
+    },
+    {
+      "id": "aroma",
+      "title": "让整片大陆排队的香气",
+      "video": "assets/videos/aroma-ending-v1.mp4",
+      "image": "assets/images/endings/aroma.webp",
+      "all": [
+        {
+          "state": "crave",
+          "operator": ">=",
+          "value": 15
+        },
+        {
+          "state": "crave",
+          "operator": ">=",
+          "otherState": "flavor"
+        },
+        {
+          "state": "crave",
+          "operator": ">=",
+          "otherState": "bond"
+        }
+      ],
+      "description": "那股香气翻过山头，越过了银叶林。第二天早上，古堡门前的队伍排到了湖对岸。龙负责维持秩序，并且每二十分钟提醒一次：不许插队，不许催锅。"
+    },
+    {
+      "id": "homemade",
+      "title": "暖到心里的家常菜",
+      "video": "assets/videos/homemade-ending-v1.mp4",
+      "image": "assets/images/endings/homemade.webp",
+      "all": [],
+      "description": "没有开幕式，也没有招牌。矮人自己搬来了长凳，精灵带了蜜，兽人负责看火，半身人一天来四次。你只煮一锅热汤，谁进门都先盛一碗，然后再说话。"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "three-star-pot",
+      "endingId": "three-star",
+      "title": "咪其林三星铜锅徽",
+      "glb": "assets/models/three-star-pot.glb",
+      "preview": "assets/models/three-star-pot-source.webp"
+    },
+    {
+      "id": "aroma-bell",
+      "endingId": "aroma",
+      "title": "大陆排队金铃",
+      "glb": "assets/models/aroma-bell.glb",
+      "preview": "assets/models/aroma-bell-source.webp"
+    },
+    {
+      "id": "homemade-ladle",
+      "endingId": "homemade",
+      "title": "家常汤勺信物",
+      "glb": "assets/models/homemade-ladle.glb",
+      "preview": "assets/models/homemade-ladle-source.webp"
+    }
+  ]
+}

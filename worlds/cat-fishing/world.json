@@ -1,0 +1,846 @@
+{
+  "id": "cat-fishing",
+  "title": "猫猫钓鱼",
+  "shortTitle": "猫猫钓鱼",
+  "subtitle": "静静等一竿，好奇下一竿",
+  "description": "一个午后，一只猫，一根竹竿。每一竿都不知道会钓上来什么——也许是小鲫鱼，也许是月光锦鲤。",
+  "music": "assets/audio/marmalades-pond-day.mp3",
+  "musicVolume": 0.12,
+  "assetBase": "worlds/cat-fishing/",
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "开始钓鱼",
+    "continueButton": "下一竿",
+    "finalContinueButton": "收竿回家",
+    "replayButton": "再钓一次"
+  },
+  "catalog": {
+    "eyebrow": "第八片异境微光已经苏醒",
+    "cardDescription": "一个午后，一只猫，一根竹竿。每一竿都不知道会钓上来什么。",
+    "cardIcon": "钓",
+    "cardLabel": "WORLD 08",
+    "cardGradient": [
+      "#7ec8a0",
+      "#3a8a6a",
+      "#1a4a3a"
+    ],
+    "cardAccent": "#f0d080",
+    "actionSummary": "抛竿 · 等待 · 捞起"
+  },
+  "initialState": {
+    "patience": 0,
+    "luck": 0,
+    "catch": 0
+  },
+  "states": [
+    {
+      "id": "patience",
+      "label": "耐心",
+      "description": "等得越久，收竿越稳",
+      "color": "#6a9e78",
+      "chipBackground": "#d8f0e2",
+      "max": 12
+    },
+    {
+      "id": "luck",
+      "label": "运气",
+      "description": "稀有鱼上钩的概率",
+      "color": "#d8a838",
+      "chipBackground": "#faecc8",
+      "max": 12
+    },
+    {
+      "id": "catch",
+      "label": "收获",
+      "description": "今天钓到了几条",
+      "color": "#d8654c",
+      "chipBackground": "#f7d6cf",
+      "max": 12
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first-catch",
+      "state": "catch",
+      "at": 1,
+      "eyebrow": "THRESHOLD",
+      "title": "开张了",
+      "text": "第一条鱼上岸。它不大，但它是你的。"
+    },
+    {
+      "id": "patience-5",
+      "state": "patience",
+      "at": 5,
+      "eyebrow": "THRESHOLD",
+      "title": "猫的耐心",
+      "text": "你已经可以在浮漂不动的时候保持静止超过三分钟了。这对一只猫来说非常了不起。"
+    },
+    {
+      "id": "luck-5",
+      "state": "luck",
+      "at": 5,
+      "eyebrow": "THRESHOLD",
+      "title": "今天运气很好",
+      "text": "你换了好几个位置，每次都觉得'这边肯定有鱼'——而每次你都是对的。"
+    },
+    {
+      "id": "catch-5",
+      "state": "catch",
+      "at": 5,
+      "eyebrow": "THRESHOLD",
+      "title": "满桶了",
+      "text": "水桶已经快装不下了。鱼在里面挤来挤去，你蹲在旁边数了一遍，又数了一遍。"
+    }
+  ],
+  "actions": [
+    {
+      "id": "shore",
+      "name": "坐在岸边",
+      "plain": "岸边",
+      "icon": "岸"
+    },
+    {
+      "id": "bridge",
+      "name": "跳上小桥",
+      "plain": "桥上",
+      "icon": "桥"
+    },
+    {
+      "id": "reeds",
+      "name": "钻进芦苇丛",
+      "plain": "芦苇",
+      "icon": "苇"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "arrival",
+      "chapter": "第零幕",
+      "object": "arrival",
+      "image": "assets/images/scenes/arrival.webp",
+      "title": "来到池塘",
+      "description": "午后的池塘很安静，蜻蜓在水面上画圈。你叼着一根竹竿，尾巴慢慢摇——今天是钓鱼的日子。",
+      "actions": [
+        {
+          "id": "shore",
+          "name": "坐在岸边",
+          "plain": "坐在岸边",
+          "hint": "最稳，适合观察",
+          "icon": "坐"
+        },
+        {
+          "id": "bridge",
+          "name": "跳上小桥",
+          "plain": "跳上小桥",
+          "hint": "视野最好",
+          "icon": "跳"
+        },
+        {
+          "id": "reeds",
+          "name": "钻进芦苇丛",
+          "plain": "钻进芦苇丛",
+          "hint": "隐蔽，鱼不容易发现你",
+          "icon": "钻"
+        }
+      ],
+      "outcomes": {
+        "shore": {
+          "image": "assets/images/scenes/arrival.webp",
+          "stateChanges": {
+            "patience": 1,
+            "luck": 0,
+            "catch": 0
+          },
+          "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+          "variants": [
+            {
+              "weight": 3,
+              "image": "assets/images/fish/silver-crucian.webp",
+              "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+              "video": "assets/videos/silver-crucian.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/chubby-carp.webp",
+              "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+              "video": "assets/videos/chubby-carp.mp4"
+            }
+          ]
+        },
+        "bridge": {
+          "image": "assets/images/scenes/arrival.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 1,
+            "catch": 0
+          },
+          "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+          "variants": [
+            {
+              "weight": 3,
+              "image": "assets/images/fish/chubby-carp.webp",
+              "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+              "video": "assets/videos/chubby-carp.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/red-koi.webp",
+              "text": "一条红锦鲤！红白相间，像水里的火焰。你蹲下来看了很久。",
+              "video": "assets/videos/red-koi.mp4"
+            }
+          ]
+        },
+        "reeds": {
+          "image": "assets/images/scenes/arrival.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 2,
+            "catch": 0
+          },
+          "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+          "variants": [
+            {
+              "weight": 3,
+              "image": "assets/images/fish/loach.webp",
+              "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+              "video": "assets/videos/loach.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/silver-crucian.webp",
+              "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+              "video": "assets/videos/silver-crucian.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet-water",
+      "chapter": "第一幕",
+      "object": "quiet-water",
+      "image": "assets/images/scenes/quiet-water.webp",
+      "title": "水面很安静",
+      "description": "浮漂静静地漂着。没有风，没有鱼，只有水草的影子在晃。你开始怀疑这池塘里到底有没有鱼。",
+      "actions": [
+        {
+          "id": "worm",
+          "name": "挂虫饵",
+          "plain": "挂虫饵",
+          "hint": "经典，什么鱼都吃",
+          "icon": "挂"
+        },
+        {
+          "id": "dough",
+          "name": "揉面团",
+          "plain": "揉面团",
+          "hint": "自己捏的，闻起来很香",
+          "icon": "揉"
+        },
+        {
+          "id": "fish-bait",
+          "name": "用小鱼干",
+          "plain": "用小鱼干",
+          "hint": "舍不得，但舍不得就是动力",
+          "icon": "用"
+        }
+      ],
+      "outcomes": {
+        "worm": {
+          "image": "assets/images/scenes/quiet-water.webp",
+          "stateChanges": {
+            "patience": 1,
+            "luck": 1,
+            "catch": 0
+          },
+          "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+          "variants": [
+            {
+              "weight": 3,
+              "image": "assets/images/fish/silver-crucian.webp",
+              "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+              "video": "assets/videos/silver-crucian.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/spotted-bass.webp",
+              "text": "一条花斑鱼！身上有好看的花纹，看起来很强壮。你有点舍不得。",
+              "video": "assets/videos/spotted-bass.mp4"
+            }
+          ]
+        },
+        "dough": {
+          "image": "assets/images/scenes/quiet-water.webp",
+          "stateChanges": {
+            "patience": 2,
+            "luck": 0,
+            "catch": 0
+          },
+          "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/chubby-carp.webp",
+              "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+              "video": "assets/videos/chubby-carp.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/black-catfish.webp",
+              "text": "一条黑鲶鱼，胡子比你的还长。它看了你一眼，好像在说'放了我'。",
+              "video": "assets/videos/black-catfish.mp4"
+            }
+          ]
+        },
+        "fish-bait": {
+          "image": "assets/images/scenes/quiet-water.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 3,
+            "catch": 0
+          },
+          "text": "一条红锦鲤！红白相间，像水里的火焰。你蹲下来看了很久。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/red-koi.webp",
+              "text": "一条红锦鲤！红白相间，像水里的火焰。你蹲下来看了很久。",
+              "video": "assets/videos/red-koi.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/golden-arowana.webp",
+              "text": "一条金龙鱼！——鳞片像金币一样闪闪发光。你屏住了呼吸。",
+              "video": "assets/videos/golden-arowana.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "float-moved",
+      "chapter": "第二幕",
+      "object": "float-moved",
+      "image": "assets/images/scenes/float-moved.webp",
+      "title": "浮漂动了",
+      "description": "浮漂猛地往下一沉。水面炸开一圈涟漪——有东西咬钩了！你的耳朵瞬间竖了起来。",
+      "actions": [
+        {
+          "id": "pull-now",
+          "name": "立刻拉竿",
+          "plain": "立刻拉竿",
+          "hint": "快准狠",
+          "icon": "立"
+        },
+        {
+          "id": "wait-three",
+          "name": "等三秒再拉",
+          "plain": "等三秒再拉",
+          "hint": "让它咬实",
+          "icon": "等"
+        },
+        {
+          "id": "move-spot",
+          "name": "换一个位置",
+          "plain": "换一个位置",
+          "hint": "也许这边没鱼",
+          "icon": "换"
+        }
+      ],
+      "outcomes": {
+        "pull-now": {
+          "image": "assets/images/scenes/float-moved.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 1,
+            "catch": 1
+          },
+          "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/silver-crucian.webp",
+              "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+              "video": "assets/videos/silver-crucian.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/loach.webp",
+              "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+              "video": "assets/videos/loach.mp4"
+            }
+          ]
+        },
+        "wait-three": {
+          "image": "assets/images/scenes/float-moved.webp",
+          "stateChanges": {
+            "patience": 2,
+            "luck": 0,
+            "catch": 2
+          },
+          "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/chubby-carp.webp",
+              "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+              "video": "assets/videos/chubby-carp.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/spotted-bass.webp",
+              "text": "一条花斑鱼！身上有好看的花纹，看起来很强壮。你有点舍不得。",
+              "video": "assets/videos/spotted-bass.mp4"
+            }
+          ]
+        },
+        "move-spot": {
+          "image": "assets/images/scenes/float-moved.webp",
+          "stateChanges": {
+            "patience": 1,
+            "luck": 2,
+            "catch": 0
+          },
+          "text": "一条黑鲶鱼，胡子比你的还长。它看了你一眼，好像在说'放了我'。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/black-catfish.webp",
+              "text": "一条黑鲶鱼，胡子比你的还长。它看了你一眼，好像在说'放了我'。",
+              "video": "assets/videos/black-catfish.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/blue-betta.webp",
+              "text": "一条蓝斗鱼，蓝色的鳍像丝绸一样飘。它在你的水桶里转了一圈，好像在表演。",
+              "video": "assets/videos/blue-betta.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "big-fish",
+      "chapter": "第三幕",
+      "object": "big-fish",
+      "image": "assets/images/scenes/big-fish.webp",
+      "title": "好像是大家伙",
+      "description": "竹竿弯成了一张弓。水下的东西又重又倔，线绷得嗡嗡响。你把整个身体都压在了竿上，尾巴翘得笔直。",
+      "actions": [
+        {
+          "id": "hard-pull",
+          "name": "用力硬拉",
+          "plain": "用力硬拉",
+          "hint": "相信猫的力量",
+          "icon": "用"
+        },
+        {
+          "id": "let-line",
+          "name": "先放线让它跑",
+          "plain": "先放线让它跑",
+          "hint": "等它累了再收",
+          "icon": "先"
+        },
+        {
+          "id": "paw-slap",
+          "name": "用爪子拍它",
+          "plain": "用爪子拍它",
+          "hint": "直接上手",
+          "icon": "用"
+        }
+      ],
+      "outcomes": {
+        "hard-pull": {
+          "image": "assets/images/scenes/big-fish.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 0,
+            "catch": 3
+          },
+          "text": "一条花斑鱼！身上有好看的花纹，看起来很强壮。你有点舍不得。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/spotted-bass.webp",
+              "text": "一条花斑鱼！身上有好看的花纹，看起来很强壮。你有点舍不得。",
+              "video": "assets/videos/spotted-bass.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/golden-arowana.webp",
+              "text": "一条金龙鱼！——鳞片像金币一样闪闪发光。你屏住了呼吸。",
+              "video": "assets/videos/golden-arowana.mp4"
+            }
+          ]
+        },
+        "let-line": {
+          "image": "assets/images/scenes/big-fish.webp",
+          "stateChanges": {
+            "patience": 3,
+            "luck": 0,
+            "catch": 2
+          },
+          "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/chubby-carp.webp",
+              "text": "一条胖鲤鱼——圆滚滚的，看起来吃了很多，你有点羡慕。",
+              "video": "assets/videos/chubby-carp.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/red-koi.webp",
+              "text": "一条红锦鲤！红白相间，像水里的火焰。你蹲下来看了很久。",
+              "video": "assets/videos/red-koi.mp4"
+            }
+          ]
+        },
+        "paw-slap": {
+          "image": "assets/images/scenes/big-fish.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 2,
+            "catch": 1
+          },
+          "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+          "variants": [
+            {
+              "weight": 3,
+              "image": "assets/images/fish/loach.webp",
+              "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+              "video": "assets/videos/loach.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/black-catfish.webp",
+              "text": "一条黑鲶鱼，胡子比你的还长。它看了你一眼，好像在说'放了我'。",
+              "video": "assets/videos/black-catfish.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "noon-break",
+      "chapter": "第四幕",
+      "object": "noon-break",
+      "image": "assets/images/scenes/noon-break.webp",
+      "title": "午休时间",
+      "description": "太阳到了头顶，石头被晒得暖烘烘的。你趴在上面，肚子一起一伏。竹竿还插在水里，但你已经不太关心它了。",
+      "actions": [
+        {
+          "id": "keep-fishing",
+          "name": "继续钓",
+          "plain": "继续钓",
+          "hint": "还有大鱼没钓到",
+          "icon": "继"
+        },
+        {
+          "id": "sun-bathe",
+          "name": "先晒太阳",
+          "plain": "先晒太阳",
+          "hint": "钓鱼不如晒太阳",
+          "icon": "先"
+        },
+        {
+          "id": "change-bait",
+          "name": "换个更好的饵",
+          "plain": "换个更好的饵",
+          "hint": "也许刚才的饵不够香",
+          "icon": "换"
+        }
+      ],
+      "outcomes": {
+        "keep-fishing": {
+          "image": "assets/images/scenes/noon-break.webp",
+          "stateChanges": {
+            "patience": 2,
+            "luck": 0,
+            "catch": 1
+          },
+          "text": "一条花斑鱼！身上有好看的花纹，看起来很强壮。你有点舍不得。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/spotted-bass.webp",
+              "text": "一条花斑鱼！身上有好看的花纹，看起来很强壮。你有点舍不得。",
+              "video": "assets/videos/spotted-bass.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/electric-eel.webp",
+              "text": "一条电鳗！——你刚碰到它就被电了一下，毛发全炸了。但它确实是你钓到的。",
+              "video": "assets/videos/electric-eel.mp4"
+            }
+          ]
+        },
+        "sun-bathe": {
+          "image": "assets/images/scenes/noon-break.webp",
+          "stateChanges": {
+            "patience": 1,
+            "luck": 1,
+            "catch": 0
+          },
+          "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+          "variants": [
+            {
+              "weight": 1,
+              "image": "assets/images/fish/silver-crucian.webp",
+              "text": "一条银鲫鱼——小小的，亮亮的，很诚实的一条鱼。",
+              "video": "assets/videos/silver-crucian.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/moonlight-koi.webp",
+              "text": "月光锦鲤……它身上泛着银白色的光，像把月亮的一角捞了上来。整个池塘都安静了。",
+              "video": "assets/videos/moonlight-koi.mp4"
+            }
+          ]
+        },
+        "change-bait": {
+          "image": "assets/images/scenes/noon-break.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 2,
+            "catch": 0
+          },
+          "text": "一条红锦鲤！红白相间，像水里的火焰。你蹲下来看了很久。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/red-koi.webp",
+              "text": "一条红锦鲤！红白相间，像水里的火焰。你蹲下来看了很久。",
+              "video": "assets/videos/red-koi.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/golden-arowana.webp",
+              "text": "一条金龙鱼！——鳞片像金币一样闪闪发光。你屏住了呼吸。",
+              "video": "assets/videos/golden-arowana.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "last-cast",
+      "chapter": "终幕",
+      "object": "last-cast",
+      "image": "assets/images/scenes/last-cast.webp",
+      "title": "最后一竿",
+      "description": "太阳开始往山那边走了，池塘变成金色。你决定再抛最后一竿——不是因为还没钓够，是因为这个时刻太好了。",
+      "actions": [
+        {
+          "id": "deep-water",
+          "name": "抛向深水",
+          "plain": "抛向深水",
+          "hint": "最远的地方",
+          "icon": "抛"
+        },
+        {
+          "id": "shallow",
+          "name": "抛向浅水",
+          "plain": "抛向浅水",
+          "hint": "试试运气",
+          "icon": "抛"
+        },
+        {
+          "id": "under-bridge",
+          "name": "抛向桥底",
+          "plain": "抛向桥底",
+          "hint": "听说大鱼都在桥底下",
+          "icon": "抛"
+        }
+      ],
+      "outcomes": {
+        "deep-water": {
+          "image": "assets/images/scenes/last-cast.webp",
+          "stateChanges": {
+            "patience": 1,
+            "luck": 1,
+            "catch": 2
+          },
+          "text": "一条金龙鱼！——鳞片像金币一样闪闪发光。你屏住了呼吸。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/golden-arowana.webp",
+              "text": "一条金龙鱼！——鳞片像金币一样闪闪发光。你屏住了呼吸。",
+              "video": "assets/videos/golden-arowana.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/moonlight-koi.webp",
+              "text": "月光锦鲤……它身上泛着银白色的光，像把月亮的一角捞了上来。整个池塘都安静了。",
+              "video": "assets/videos/moonlight-koi.mp4"
+            }
+          ]
+        },
+        "shallow": {
+          "image": "assets/images/scenes/last-cast.webp",
+          "stateChanges": {
+            "patience": 0,
+            "luck": 2,
+            "catch": 1
+          },
+          "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/loach.webp",
+              "text": "一条泥鳅——滑溜溜的，在你爪子里扭了三下就弹回水里了。但你确实碰到了它。",
+              "video": "assets/videos/loach.mp4"
+            },
+            {
+              "weight": 2,
+              "image": "assets/images/fish/blue-betta.webp",
+              "text": "一条蓝斗鱼，蓝色的鳍像丝绸一样飘。它在你的水桶里转了一圈，好像在表演。",
+              "video": "assets/videos/blue-betta.mp4"
+            }
+          ]
+        },
+        "under-bridge": {
+          "image": "assets/images/scenes/last-cast.webp",
+          "stateChanges": {
+            "patience": 2,
+            "luck": 0,
+            "catch": 2
+          },
+          "text": "一条电鳗！——你刚碰到它就被电了一下，毛发全炸了。但它确实是你钓到的。",
+          "variants": [
+            {
+              "weight": 2,
+              "image": "assets/images/fish/electric-eel.webp",
+              "text": "一条电鳗！——你刚碰到它就被电了一下，毛发全炸了。但它确实是你钓到的。",
+              "video": "assets/videos/electric-eel.mp4"
+            },
+            {
+              "weight": 1,
+              "image": "assets/images/fish/moonlight-koi.webp",
+              "text": "月光锦鲤……它身上泛着银白色的光，像把月亮的一角捞了上来。整个池塘都安静了。",
+              "video": "assets/videos/moonlight-koi.mp4"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "big-catch",
+      "title": "满载而归",
+      "video": "assets/videos/golden-arowana.mp4",
+      "image": "assets/images/fish/golden-arowana.webp",
+      "all": [
+        {
+          "state": "catch",
+          "operator": ">=",
+          "value": 4
+        }
+      ],
+      "description": "水桶沉得你叼不动。你在池塘边站了一会儿，看着里面的鱼挤来挤去，然后决定分一条给门口的那只三花。"
+    },
+    {
+      "id": "rare-catch",
+      "title": "传说中的那一竿",
+      "video": "assets/videos/moonlight-koi.mp4",
+      "image": "assets/images/fish/moonlight-koi.webp",
+      "all": [
+        {
+          "state": "luck",
+          "operator": ">=",
+          "value": 5
+        }
+      ],
+      "description": "你钓到了月光锦鲤。整个下午的安静、等待和换位置，都是为了让这一竿发生。"
+    },
+    {
+      "id": "sunny-day",
+      "title": "今天的收获是晒太阳",
+      "video": "assets/videos/red-koi.mp4",
+      "image": "assets/images/scenes/noon-break.webp",
+      "all": [],
+      "description": "水桶里只有两三条小鱼，但你的毛被太阳晒得暖烘烘的，肚子里装满了面团和蒲公英。钓鱼的意义从来不只是鱼。"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "silver-crucian",
+      "endingId": "sunny-day",
+      "title": "银鲫鱼",
+      "glb": "assets/images/fish/silver-crucian.webp",
+      "preview": "assets/images/fish/silver-crucian.webp"
+    },
+    {
+      "id": "chubby-carp",
+      "endingId": "big-catch",
+      "title": "胖鲤鱼",
+      "glb": "assets/images/fish/chubby-carp.webp",
+      "preview": "assets/images/fish/chubby-carp.webp"
+    },
+    {
+      "id": "red-koi",
+      "endingId": "sunny-day",
+      "title": "红锦鲤",
+      "glb": "assets/images/fish/red-koi.webp",
+      "preview": "assets/images/fish/red-koi.webp"
+    },
+    {
+      "id": "black-catfish",
+      "endingId": "big-catch",
+      "title": "黑鲶鱼",
+      "glb": "assets/images/fish/black-catfish.webp",
+      "preview": "assets/images/fish/black-catfish.webp"
+    },
+    {
+      "id": "loach",
+      "endingId": "sunny-day",
+      "title": "泥鳅",
+      "glb": "assets/images/fish/loach.webp",
+      "preview": "assets/images/fish/loach.webp"
+    },
+    {
+      "id": "spotted-bass",
+      "endingId": "big-catch",
+      "title": "花斑鱼",
+      "glb": "assets/images/fish/spotted-bass.webp",
+      "preview": "assets/images/fish/spotted-bass.webp"
+    },
+    {
+      "id": "golden-arowana",
+      "endingId": "big-catch",
+      "title": "金龙鱼",
+      "glb": "assets/images/fish/golden-arowana.webp",
+      "preview": "assets/images/fish/golden-arowana.webp"
+    },
+    {
+      "id": "blue-betta",
+      "endingId": "rare-catch",
+      "title": "蓝斗鱼",
+      "glb": "assets/images/fish/blue-betta.webp",
+      "preview": "assets/images/fish/blue-betta.webp"
+    },
+    {
+      "id": "electric-eel",
+      "endingId": "rare-catch",
+      "title": "电鳗",
+      "glb": "assets/images/fish/electric-eel.webp",
+      "preview": "assets/images/fish/electric-eel.webp"
+    },
+    {
+      "id": "moonlight-koi",
+      "endingId": "rare-catch",
+      "title": "月光锦鲤",
+      "glb": "assets/images/fish/moonlight-koi.webp",
+      "preview": "assets/images/fish/moonlight-koi.webp"
+    }
+  ]
+}
