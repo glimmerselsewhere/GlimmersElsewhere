@@ -407,3 +407,17 @@ body.text-boost[data-world-id="stray-cat"] .scene-description { font-size: 16px;
 body.text-boost[data-world-id="stray-cat"] .choice-button strong { font-size: 17px; }
 body.text-boost[data-world-id="stray-cat"] .choice-button small { font-size: 13px; }
 body.text-boost[data-world-id="stray-cat"] .outcome-panel > p { font-size: 16px; }
+/* 大字版也放大顶部：世界名、事件计数、属性条、章节与对手信息、圆形按钮 */
+body.text-boost .world-mini small { font-size: 14px; }
+body.text-boost .world-mini strong { font-size: 15px; }
+body.text-boost[data-world-id="stray-cat"] .world-mini strong { font-size: 15px; }
+body.text-boost .meter span { font-size: 13px; }
+body.text-boost .meter em { font-size: 18px; }
+body.text-boost[data-world-id="stray-cat"] .meter span { font-size: 12px; letter-spacing: 0; }
+body.text-boost[data-world-id="stray-cat"] .meter em { font-size: 18px; }
+body.text-boost .scene-copy p { font-size: 13px; }
+body.text-boost .enemy-stats strong { font-size: 15px; }
+body.text-boost .enemy-stats span { font-size: 14px; }
+body.text-boost[data-world-id="stray-cat"] .enemy-stats strong { font-size: 14px; }
+body.text-boost[data-world-id="stray-cat"] .enemy-stats span { font-size: 13px; }
+body.text-boost .icon-button.compact { width: 42px; height: 42px; font-size: 16px; }
