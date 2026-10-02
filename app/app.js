@@ -192,6 +192,7 @@ const STRINGS = {
     keepsakeDownload: "Download GLB",
     keepsakeGet: "Get it",
     keepsakeGetHint: "3D print · made real",
+    keepsakeImage: "Download image",
     tuntunSummary: "Hidden page: a real cat",
     ksLoading: "Loading the 3D model…",
     soundLabel: "Toggle sound",
@@ -1599,11 +1600,11 @@ function installViewportHeightSync() {
 
 /* Every keepsake can be turned into a real object over on jujubit: the game
    funnels there instead of integrating their API. */
-const JUJUBIT_URL = "https://jujubit.ai/";
+const KEEPSAKE_STORE_URL = "https://studio.tripo3d.ai/?utm_source=creator_invite&utm_medium=linkcopy&utm_campaign=2KAS1J&utm_content=4750541";
 function setKeepsakeGetLinks() {
   for (const id of ["keepsakeGet", "ksGet"]) {
     const link = $(id);
-    if (link) link.href = JUJUBIT_URL;
+    if (link) link.href = KEEPSAKE_STORE_URL;
   }
 }
 
@@ -1893,6 +1894,18 @@ function showEnding() {
     }
     $("keepsakeDownload").href = glbUrl;
     $("ksDownload").href = glbUrl;
+    const shareUrl = keepsake.shareImage ? rootUrl(keepsake.shareImage) : "";
+    for (const id of ["keepsakeImage", "ksImage"]) {
+      const link = $(id);
+      if (!link) continue;
+      if (shareUrl) {
+        link.href = shareUrl;
+        link.download = shareUrl.split("/").pop();
+        link.hidden = false;
+      } else {
+        link.hidden = true;
+      }
+    }
     $("ksTitle").textContent = keepsakeTitle;
     const thumb = $("keepsakeThumb");
     if (keepsake.preview) { thumb.src = worldAsset(keepsake.preview); thumb.hidden = false; }
