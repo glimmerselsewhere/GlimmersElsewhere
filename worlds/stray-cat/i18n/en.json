@@ -1,9 +1,9 @@
 {
   "id": "stray-cat",
-  "title": "Ah Hui's Stray Life",
-  "shortTitle": "Ah Hui",
+  "title": "Little Grey on the Street",
+  "shortTitle": "Little Grey",
   "subtitle": "Five Years as a Stray",
-  "description": "Ah Hui is a dusty white cat. Over five years on the street he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
+  "description": "Little Grey is a dusty white cat. Over five years on the street he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -282,7 +282,7 @@
       "id": "cardboard",
       "chapter": "Q1 · Months 0-2",
       "title": "The First Sound in the Box",
-      "description": "Ah Hui was born in a cardboard box behind a convenience store. His fur is white, but dust makes him look gray.",
+      "description": "Little Grey was born in a cardboard box behind a convenience store. His fur is white, but dust makes him look gray.",
       "image": "assets/images/scenes/cardboard.webp",
       "actions": [
         {
@@ -2470,7 +2470,7 @@
     {
       "id": "figurine-blanket-sleep",
       "endingId": "home",
-      "title": "Ah Hui in the Blanket",
+      "title": "Little Grey in the Blanket",
       "story": "The blanket is warm. He sleeps on his back until noon, and no one sends him out again.",
       "glb": "assets/models/figurine-v2-blanket-sleep.glb",
       "shareImage": "app/share/figurine-v2-blanket-sleep-source.png",

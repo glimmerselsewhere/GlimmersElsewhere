@@ -1,9 +1,9 @@
 {
   "id": "stray-cat",
-  "title": "阿灰流浪记",
-  "shortTitle": "阿灰流浪记",
+  "title": "街上的小灰",
+  "shortTitle": "街上的小灰",
   "subtitle": "五年的街头猫生",
-  "description": "阿灰是一只灰扑扑的白猫。五年里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到笼子、勒在脖子上的东西、被风掀起来的那天，和一扇不知道能不能进的门。",
+  "description": "小灰是一只灰扑扑的白猫。五年里，他会遇到狗、鹅、拿网的人、好心人、守鱼山的人，也会遇到笼子、勒在脖子上的东西、被风掀起来的那天，和一扇不知道能不能进的门。",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -282,7 +282,7 @@
       "id": "cardboard",
       "chapter": "Q1 · 0-2个月",
       "title": "纸箱里的第一声",
-      "description": "阿灰出生在便利店后的纸箱里。他的毛本来是白的，灰尘让他看起来灰扑扑。",
+      "description": "小灰出生在便利店后的纸箱里。他的毛本来是白的，灰尘让他看起来灰扑扑。",
       "image": "assets/images/scenes/cardboard.webp",
       "actions": [
         {
@@ -2470,7 +2470,7 @@
     {
       "id": "figurine-blanket-sleep",
       "endingId": "home",
-      "title": "被窝里的阿灰",
+      "title": "被窝里的小灰",
       "story": "被子是暖的，他四脚朝天睡到中午，没有人再让他出去。",
       "glb": "assets/models/figurine-v2-blanket-sleep.glb",
       "shareImage": "app/share/figurine-v2-blanket-sleep-source.png",
