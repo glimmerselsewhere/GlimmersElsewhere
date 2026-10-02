@@ -28,6 +28,7 @@
     "health": 8,
     "fish": 3,
     "friendliness": 1,
+    "fights": 0,
     "age": 0,
     "lifespan": 60
   },
@@ -265,8 +266,8 @@
       "id": "abuser",
       "name": "巷口的人",
       "role": "abuser",
-      "strength": 8,
-      "agility": 7
+      "strength": 9,
+      "agility": 8
     },
     {
       "id": "old-orange",
@@ -501,7 +502,8 @@
             "success": {
               "text": "你把背拱成一座桥，大黄停住了。",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
@@ -600,7 +602,8 @@
             "success": {
               "text": "你压住她的翅膀，白霸退了一步。",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
             },
@@ -934,7 +937,8 @@
             "success": {
               "text": "你抓住树枝，把他吓退了。他的哭声跟了你两条街。",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/kid-fight-success.webp"
             },
@@ -1044,8 +1048,63 @@
       }
     },
     {
-      "id": "plastic-waste",
+      "id": "strength-lesson",
       "chapter": "Q12 · 22-24个月",
+      "title": "老橘爬上了墙头",
+      "description": "老橘往上一蹿，前爪扒住墙头，把整个身体拉了上去；他在墙上站了一下，又跳回你面前。他朝你抬了抬下巴，像在等你试。",
+      "image": "assets/images/scenes/strength-lesson.webp",
+      "enemy": {
+        "id": "old-orange",
+        "name": "老橘",
+        "strength": 7,
+        "agility": 8,
+        "kind": "mentor cat"
+      },
+      "actions": [
+        {
+          "id": "train",
+          "name": "跟着练几次",
+          "hint": "把整个身体吊起来",
+          "icon": "A"
+        },
+        {
+          "id": "try",
+          "name": "试两下",
+          "hint": "能撑多久算多久",
+          "icon": "B"
+        },
+        {
+          "id": "ignore",
+          "name": "不理他",
+          "hint": "自己找路",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "train": {
+          "text": "你练到爪子发酸。回去的路上，你觉得自己吊得住更重的东西了。",
+          "stateChanges": {
+            "strength": 3
+          },
+          "image": "assets/images/outcomes/strength-lesson-train.webp"
+        },
+        "try": {
+          "text": "你试了两下，前爪比之前挂得住一点。",
+          "stateChanges": {
+            "strength": 1
+          },
+          "image": "assets/images/outcomes/strength-lesson-try.webp"
+        },
+        "ignore": {
+          "text": "你从墙根走过去，没有停。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/strength-lesson-ignore.webp"
+        }
+      }
+    },
+    {
+      "id": "plastic-waste",
+      "chapter": "Q13 · 24-26个月",
       "title": "闻起来像鱼的袋子",
       "description": "大桶边有一只闻起来像鱼的袋子。味道很香。",
       "image": "assets/images/scenes/plastic-waste.webp",
@@ -1091,7 +1150,7 @@
     },
     {
       "id": "mirror",
-      "chapter": "Q13 · 24-26个月",
+      "chapter": "Q14 · 26-28个月",
       "title": "墙边立着的东西",
       "description": "墙边立着一块亮亮的东西。里面有一只和你一模一样的猫，正盯着你看。",
       "image": "assets/images/scenes/mirror.webp",
@@ -1139,7 +1198,7 @@
     },
     {
       "id": "grapes",
-      "chapter": "Q14 · 26-28个月",
+      "chapter": "Q15 · 28-30个月",
       "title": "台阶上一小串圆圆的东西",
       "description": "有人把一小串圆圆的东西放在台阶上，闻起来很甜。",
       "image": "assets/images/scenes/grapes.webp",
@@ -1185,7 +1244,7 @@
     },
     {
       "id": "milk",
-      "chapter": "Q15 · 28-30个月",
+      "chapter": "Q16 · 30-32个月",
       "title": "门口那碗白色的东西",
       "description": "有人在门口放了一碗白色的东西，闻起来又香又滑。",
       "image": "assets/images/scenes/milk.webp",
@@ -1233,7 +1292,7 @@
     },
     {
       "id": "glue-trap",
-      "chapter": "Q16 · 30-32个月",
+      "chapter": "Q17 · 32-34个月",
       "title": "墙脚那块黄色的板子",
       "description": "墙脚放着一块黄色的板子，上面有几粒吃的。黏黏的味道很冲。",
       "image": "assets/images/scenes/glue-trap.webp",
@@ -1281,7 +1340,7 @@
     },
     {
       "id": "typhoon",
-      "chapter": "Q17 · 32-34个月",
+      "chapter": "Q18 · 34-36个月",
       "title": "风把整条街掀起来的那天",
       "description": "风把整条街的东西都掀了起来，墙上的大牌子被吹得直响。雨是横着下的。",
       "image": "assets/images/scenes/typhoon.webp",
@@ -1331,7 +1390,7 @@
     },
     {
       "id": "winter",
-      "chapter": "Q18 · 34-36个月",
+      "chapter": "Q19 · 36-38个月",
       "title": "最冷的那个冬天",
       "description": "水管冻上了，冷得你不想动。你藏起来的鱼干就在洞里。",
       "image": "assets/images/scenes/winter.webp",
@@ -1370,7 +1429,7 @@
     },
     {
       "id": "quiet-helper",
-      "chapter": "Q19 · 36-38个月",
+      "chapter": "Q20 · 38-40个月",
       "title": "放下东西就走的人",
       "description": "一个看不清脸的人放下了一只碗，走开几步，没有再靠近。碗里有吃剩的饭。",
       "image": "assets/images/scenes/quiet-helper.webp",
@@ -1431,7 +1490,7 @@
     },
     {
       "id": "fizzy-water",
-      "chapter": "Q20 · 38-40个月",
+      "chapter": "Q21 · 40-42个月",
       "title": "路边那瓶冒泡的水",
       "description": "一瓶没喝完的甜水倒在路边，一直在冒小泡。闻起来很甜。",
       "image": "assets/images/scenes/fizzy-water.webp",
@@ -1477,7 +1536,7 @@
     },
     {
       "id": "road",
-      "chapter": "Q21 · 40-42个月",
+      "chapter": "Q22 · 42-44个月",
       "title": "两边都在响的地方",
       "description": "你已经走到那片又宽又硬的地中间，两边都有响声在靠近。",
       "image": "assets/images/scenes/road.webp",
@@ -1549,7 +1608,7 @@
     },
     {
       "id": "ac-unit",
-      "chapter": "Q22 · 42-44个月",
+      "chapter": "Q23 · 44-46个月",
       "title": "墙上那个吹热风的铁盒子",
       "description": "墙上的铁盒子一直在响，吹出来的风是热的。下面那块水泥台阶也是热的。",
       "image": "assets/images/scenes/ac-unit.webp",
@@ -1597,7 +1656,7 @@
     },
     {
       "id": "manhole",
-      "chapter": "Q23 · 44-46个月",
+      "chapter": "Q24 · 46-48个月",
       "title": "盖着水的圆盖子",
       "description": "雨停了，那片又宽又硬的地中间有一片浅水，水底下是一个圆圆的铁盖子。你看不出水有多深。",
       "image": "assets/images/scenes/manhole.webp",
@@ -1643,7 +1702,7 @@
     },
     {
       "id": "poison-bait",
-      "chapter": "Q24 · 46-48个月",
+      "chapter": "Q25 · 48-50个月",
       "title": "墙角那几粒",
       "description": "墙角放着几粒东西，闻起来有粮食的味道，又混着一点不对劲的甜。",
       "image": "assets/images/scenes/poison-bait.webp",
@@ -1689,7 +1748,7 @@
     },
     {
       "id": "wedding-petals",
-      "chapter": "Q25 · 48-50个月",
+      "chapter": "Q26 · 50-52个月",
       "title": "满地红色的小纸片",
       "description": "巷口那边很热闹，地上落满红色的小纸片和花瓣。有小孩在上面踩来踩去。",
       "image": "assets/images/scenes/wedding-petals.webp",
@@ -1737,7 +1796,7 @@
     },
     {
       "id": "earthworms",
-      "chapter": "Q26 · 50-52个月",
+      "chapter": "Q27 · 52-54个月",
       "title": "雨后地上扭动的东西",
       "description": "雨刚停，地上有好多条细细的、在扭的东西，一碰就缩。",
       "image": "assets/images/scenes/earthworms.webp",
@@ -1783,7 +1842,7 @@
     },
     {
       "id": "garbage-truck",
-      "chapter": "Q27 · 52-54个月",
+      "chapter": "Q28 · 54-56个月",
       "title": "每天早上响一次的大家伙",
       "description": "天刚亮，一个很大的东西停在大桶边，一直在响，还有人在往里面倒东西。",
       "image": "assets/images/scenes/garbage-truck.webp",
@@ -1845,7 +1904,7 @@
     },
     {
       "id": "balcony-ledge",
-      "chapter": "Q28 · 54-56个月",
+      "chapter": "Q29 · 56-58个月",
       "title": "楼外伸出来的那条窄路",
       "description": "楼外面伸出来一条很窄的边，贴着它走就能到旁边那栋楼。下面是水泥地。",
       "image": "assets/images/scenes/balcony-ledge.webp",
@@ -1905,7 +1964,7 @@
     },
     {
       "id": "sun-patch",
-      "chapter": "Q29 · 56-58个月",
+      "chapter": "Q30 · 58-60个月",
       "title": "晒得最暖的那块石板",
       "description": "下午的太阳把路边的石板晒得暖烘烘的。别的猫还没发现这里。",
       "image": "assets/images/scenes/sun-patch.webp",
@@ -1953,7 +2012,7 @@
     },
     {
       "id": "soft-cushion",
-      "chapter": "Q30 · 58-60个月",
+      "chapter": "Q31 · 60-62个月",
       "title": "墙根那块软软的东西",
       "description": "楼下的墙根多了一块软软的东西，晒过太阳，闻起来是干净的灰。",
       "image": "assets/images/scenes/soft-cushion.webp",
@@ -1999,7 +2058,7 @@
     },
     {
       "id": "cat-eater",
-      "chapter": "Q31 · 60-62个月",
+      "chapter": "Q32 · 62-64个月",
       "title": "巷口的那只笼子",
       "description": "一个男人守在后巷，脚边放着一只笼子。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -2039,7 +2098,8 @@
             "success": {
               "text": "你的爪子划过他的手背，笼子掉在地上。",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
@@ -2098,7 +2158,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q32 · 62-64个月",
+      "chapter": "Q33 · 64-66个月",
       "title": "勒在脖子上的东西",
       "description": "一根细细的东西缠在脖子上。你越挣扎，它勒得越紧。",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -2146,7 +2206,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q33 · 64-66个月",
+      "chapter": "Q34 · 66-68个月",
       "title": "夜里开门的人",
       "description": "一个女人把门开了一条缝，灯光落在你的爪子前。你闻不出屋子里面是什么味道。",
       "image": "assets/images/scenes/door.webp",
@@ -2206,15 +2266,15 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q34 · 66-68个月",
+      "chapter": "Q35 · 68-70个月",
       "title": "夜里挡路的人",
       "description": "他站在巷口，手里拎着一个袋子。他没有让开，也没有说话。",
       "image": "assets/images/scenes/black-glove.webp",
       "enemy": {
         "id": "abuser",
         "name": "巷口的人",
-        "strength": 8,
-        "agility": 7,
+        "strength": 9,
+        "agility": 8,
         "kind": "abuser"
       },
       "actions": [
@@ -2240,7 +2300,8 @@
             "success": {
               "text": "你的爪子划过他的手背，袋子掉在地上。",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
@@ -2314,12 +2375,17 @@
     {
       "id": "clinic",
       "title": "柜台上的白猫",
-      "description": "你留在了那个又白又干净的地方。小孩哭的时候，你会坐到他们旁边。",
+      "description": "你对人从不躲、不炸毛，白房子的人早就认得你；你也没有病倒过。小孩哭的时候，你会坐到他们旁边。",
       "all": [
         {
           "state": "health",
           "operator": ">=",
           "value": 9
+        },
+        {
+          "state": "friendliness",
+          "operator": ">=",
+          "value": 4
         }
       ],
       "image": "assets/images/endings/clinic.webp",
@@ -2328,17 +2394,12 @@
     {
       "id": "street-king",
       "title": "巷子的王",
-      "description": "你和老橘分掉这条街，大桶两边各有一个王座。",
+      "description": "你打赢过足够多的对手。你和老橘分掉这条街，大桶两边各有一个王座。",
       "all": [
         {
-          "state": "strength",
+          "state": "fights",
           "operator": ">=",
-          "value": 7
-        },
-        {
-          "state": "agility",
-          "operator": ">=",
-          "value": 6
+          "value": 2
         }
       ],
       "image": "assets/images/endings/street-king.webp",
@@ -2346,8 +2407,8 @@
     },
     {
       "id": "night-legend",
-      "title": "没有人带走你",
-      "description": "你还是住在同一条街上。大桶、屋檐、大家伙底下，你都熟。没有人带走你，也没有人知道你叫什么。你把自己缩得更小一点，等下一个冬天过去。",
+      "title": "在街上过完了一生",
+      "description": "你在同一条街上过完了这一生。大桶、屋檐、大家伙底下，你都熟。没有人给你起过名字，但这条街上的猫都认识你。你活了 {age} 个月。最后一个冬天过去以后，你没有再站起来——这一次不是病，只是老了。",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
       "video": "assets/videos/night-legend-ending-v1.mp4"

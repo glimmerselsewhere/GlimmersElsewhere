@@ -28,6 +28,7 @@
     "health": 8,
     "fish": 3,
     "friendliness": 1,
+    "fights": 0,
     "age": 0,
     "lifespan": 60
   },
@@ -265,8 +266,8 @@
       "id": "abuser",
       "name": "The Man at the Alley Mouth",
       "role": "abuser",
-      "strength": 8,
-      "agility": 7
+      "strength": 9,
+      "agility": 8
     },
     {
       "id": "old-orange",
@@ -501,7 +502,8 @@
             "success": {
               "text": "You arch your back like a bridge, and Big Yellow stops.",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/dog-territory-fight-success.webp"
             },
@@ -600,7 +602,8 @@
             "success": {
               "text": "You pin her wing, and White Tyrant steps back.",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/goose-river-fight-success.webp"
             },
@@ -934,7 +937,8 @@
             "success": {
               "text": "You grab the stick and scare him off. His crying follows you for two blocks.",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/kid-fight-success.webp"
             },
@@ -1044,8 +1048,63 @@
       }
     },
     {
-      "id": "plastic-waste",
+      "id": "strength-lesson",
       "chapter": "Q12 · Months 22-24",
+      "title": "Old Orange Pulls Himself Up the Wall",
+      "description": "Old Orange springs up, hooks his front paws over the wall, and pulls his whole body up. He stands there a moment, then drops back down in front of you and tips his chin, waiting for you to try.",
+      "image": "assets/images/scenes/strength-lesson.webp",
+      "enemy": {
+        "id": "old-orange",
+        "name": "Old Orange",
+        "strength": 7,
+        "agility": 8,
+        "kind": "mentor cat"
+      },
+      "actions": [
+        {
+          "id": "train",
+          "name": "Practise with him",
+          "hint": "Hang your whole body up",
+          "icon": "A"
+        },
+        {
+          "id": "try",
+          "name": "Try a couple",
+          "hint": "Stay up as long as you can",
+          "icon": "B"
+        },
+        {
+          "id": "ignore",
+          "name": "Ignore him",
+          "hint": "Find your own way",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "train": {
+          "text": "You practise until your paws ache. On the way back you feel you can press down heavier things than before.",
+          "stateChanges": {
+            "strength": 3
+          },
+          "image": "assets/images/outcomes/strength-lesson-train.webp"
+        },
+        "try": {
+          "text": "You try twice, and your front paws hold on a little better than before.",
+          "stateChanges": {
+            "strength": 1
+          },
+          "image": "assets/images/outcomes/strength-lesson-try.webp"
+        },
+        "ignore": {
+          "text": "You walk along the wall and do not stop.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/strength-lesson-ignore.webp"
+        }
+      }
+    },
+    {
+      "id": "plastic-waste",
+      "chapter": "Q13 · Months 24-26",
       "title": "The Bag That Smells of Fish",
       "description": "A bag near the big bins smells like fish. It smells very good.",
       "image": "assets/images/scenes/plastic-waste.webp",
@@ -1091,7 +1150,7 @@
     },
     {
       "id": "mirror",
-      "chapter": "Q13 · Months 24-26",
+      "chapter": "Q14 · Months 26-28",
       "title": "The Thing Leaning Against the Wall",
       "description": "Something bright stands against the wall. A cat exactly like you is staring back out of it.",
       "image": "assets/images/scenes/mirror.webp",
@@ -1139,7 +1198,7 @@
     },
     {
       "id": "grapes",
-      "chapter": "Q14 · Months 26-28",
+      "chapter": "Q15 · Months 28-30",
       "title": "A Small Bunch of Round Things",
       "description": "Someone left a small bunch of round things on the step. They smell very sweet.",
       "image": "assets/images/scenes/grapes.webp",
@@ -1185,7 +1244,7 @@
     },
     {
       "id": "milk",
-      "chapter": "Q15 · Months 28-30",
+      "chapter": "Q16 · Months 30-32",
       "title": "The White Bowl at the Door",
       "description": "Someone left a bowl of something white and smooth at their door. It smells rich.",
       "image": "assets/images/scenes/milk.webp",
@@ -1233,7 +1292,7 @@
     },
     {
       "id": "glue-trap",
-      "chapter": "Q16 · Months 30-32",
+      "chapter": "Q17 · Months 32-34",
       "title": "The Yellow Board in the Corner",
       "description": "A yellow board sits in the corner with a few crumbs on it. A sticky smell comes off it.",
       "image": "assets/images/scenes/glue-trap.webp",
@@ -1281,7 +1340,7 @@
     },
     {
       "id": "typhoon",
-      "chapter": "Q17 · Months 32-34",
+      "chapter": "Q18 · Months 34-36",
       "title": "The Day the Wind Lifted the Whole Street",
       "description": "The wind lifts everything on the street and the big signs on the walls rattle. The rain falls sideways.",
       "image": "assets/images/scenes/typhoon.webp",
@@ -1331,7 +1390,7 @@
     },
     {
       "id": "winter",
-      "chapter": "Q18 · Months 34-36",
+      "chapter": "Q19 · Months 36-38",
       "title": "The Coldest Winter",
       "description": "The pipes are frozen and it is too cold to move. Your store of dried fish is in your hiding place.",
       "image": "assets/images/scenes/winter.webp",
@@ -1370,7 +1429,7 @@
     },
     {
       "id": "quiet-helper",
-      "chapter": "Q19 · Months 36-38",
+      "chapter": "Q20 · Months 38-40",
       "title": "The Person Who Leaves Things and Walks Away",
       "description": "A person whose face you cannot see sets down a bowl, steps back, and does not come closer. There is leftover rice in it.",
       "image": "assets/images/scenes/quiet-helper.webp",
@@ -1431,7 +1490,7 @@
     },
     {
       "id": "fizzy-water",
-      "chapter": "Q20 · Months 38-40",
+      "chapter": "Q21 · Months 40-42",
       "title": "The Bubbling Bottle on the Pavement",
       "description": "A half-finished sweet drink lies on the pavement, still fizzing. It smells sweet.",
       "image": "assets/images/scenes/fizzy-water.webp",
@@ -1477,7 +1536,7 @@
     },
     {
       "id": "road",
-      "chapter": "Q21 · Months 40-42",
+      "chapter": "Q22 · Months 42-44",
       "title": "The Place with Noise on Both Sides",
       "description": "You are in the middle of the wide hard ground, and the noise is closing in from both sides.",
       "image": "assets/images/scenes/road.webp",
@@ -1549,7 +1608,7 @@
     },
     {
       "id": "ac-unit",
-      "chapter": "Q22 · Months 42-44",
+      "chapter": "Q23 · Months 44-46",
       "title": "The Metal Box That Blows Warm Air",
       "description": "The metal box on the wall keeps buzzing and blows out warm air. The concrete step under it is warm too.",
       "image": "assets/images/scenes/ac-unit.webp",
@@ -1597,7 +1656,7 @@
     },
     {
       "id": "manhole",
-      "chapter": "Q23 · Months 44-46",
+      "chapter": "Q24 · Months 46-48",
       "title": "The Round Cover Under the Water",
       "description": "The rain has stopped. A shallow sheet of water sits on the wide hard ground with a round iron cover underneath. You cannot tell how deep it is.",
       "image": "assets/images/scenes/manhole.webp",
@@ -1643,7 +1702,7 @@
     },
     {
       "id": "poison-bait",
-      "chapter": "Q24 · Months 46-48",
+      "chapter": "Q25 · Months 48-50",
       "title": "Those Few Grains in the Corner",
       "description": "A few grains lie in the corner. They smell of grain, with something sweet and wrong underneath.",
       "image": "assets/images/scenes/poison-bait.webp",
@@ -1689,7 +1748,7 @@
     },
     {
       "id": "wedding-petals",
-      "chapter": "Q25 · Months 48-50",
+      "chapter": "Q26 · Months 50-52",
       "title": "Red Petals All Over the Ground",
       "description": "It is busy at the mouth of the alley. Red petals and little paper pieces cover the ground, and children are stamping on them.",
       "image": "assets/images/scenes/wedding-petals.webp",
@@ -1737,7 +1796,7 @@
     },
     {
       "id": "earthworms",
-      "chapter": "Q26 · Months 50-52",
+      "chapter": "Q27 · Months 52-54",
       "title": "The Things Wriggling on the Wet Ground",
       "description": "The rain has just stopped. Thin wriggling things lie all over the ground, and they curl up when you touch them.",
       "image": "assets/images/scenes/earthworms.webp",
@@ -1783,7 +1842,7 @@
     },
     {
       "id": "garbage-truck",
-      "chapter": "Q27 · Months 52-54",
+      "chapter": "Q28 · Months 54-56",
       "title": "The Big Noisy Thing That Comes Every Morning",
       "description": "At dawn a very big thing stops beside the big bins. It keeps making noise, and someone is tipping things into it.",
       "image": "assets/images/scenes/garbage-truck.webp",
@@ -1845,7 +1904,7 @@
     },
     {
       "id": "balcony-ledge",
-      "chapter": "Q28 · Months 54-56",
+      "chapter": "Q29 · Months 56-58",
       "title": "The Narrow Path Along the Outside of the Building",
       "description": "A very narrow edge runs along the outside of a building, straight to the next one. Concrete lies below.",
       "image": "assets/images/scenes/balcony-ledge.webp",
@@ -1905,7 +1964,7 @@
     },
     {
       "id": "sun-patch",
-      "chapter": "Q29 · Months 56-58",
+      "chapter": "Q30 · Months 58-60",
       "title": "The Warmest Stone on the Path",
       "description": "The afternoon sun has warmed a stone slab by the path. No other cat has found this spot yet.",
       "image": "assets/images/scenes/sun-patch.webp",
@@ -1953,7 +2012,7 @@
     },
     {
       "id": "soft-cushion",
-      "chapter": "Q30 · Months 58-60",
+      "chapter": "Q31 · Months 60-62",
       "title": "The Soft Thing by the Wall",
       "description": "A soft thing has appeared at the foot of the wall, sun-warmed and smelling of clean dust.",
       "image": "assets/images/scenes/soft-cushion.webp",
@@ -1999,7 +2058,7 @@
     },
     {
       "id": "cat-eater",
-      "chapter": "Q31 · Months 60-62",
+      "chapter": "Q32 · Months 62-64",
       "title": "The Cage at the End of the Alley",
       "description": "A man guards the back alley with a cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -2039,7 +2098,8 @@
             "success": {
               "text": "Your claws cross the back of his hand, and the cage drops.",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/cat-eater-fight-success.webp"
             },
@@ -2098,7 +2158,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q32 · Months 62-64",
+      "chapter": "Q33 · Months 64-66",
       "title": "The Thing Tight Around Your Neck",
       "description": "Something thin is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -2146,7 +2206,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q33 · Months 64-66",
+      "chapter": "Q34 · Months 66-68",
       "title": "The Person Who Opens the Door",
       "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
@@ -2206,15 +2266,15 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q34 · Months 66-68",
+      "chapter": "Q35 · Months 68-70",
       "title": "The Man Blocking the Alley",
       "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",
       "enemy": {
         "id": "abuser",
         "name": "The Man at the Alley Mouth",
-        "strength": 8,
-        "agility": 7,
+        "strength": 9,
+        "agility": 8,
         "kind": "abuser"
       },
       "actions": [
@@ -2240,7 +2300,8 @@
             "success": {
               "text": "Your claws cross the back of his hand, and the sack drops.",
               "stateChanges": {
-                "friendliness": -1
+                "friendliness": -1,
+                "fights": 1
               },
               "image": "assets/images/outcomes/abuser-fight-success.webp"
             },
@@ -2314,12 +2375,17 @@
     {
       "id": "clinic",
       "title": "The White Cat on the Counter",
-      "description": "You stay in the clean white place. When children cry, you go and sit beside them.",
+      "description": "You never hide from people and never hiss; the white house has known you for a long time. You never fell ill either. When children cry, you go and sit beside them.",
       "all": [
         {
           "state": "health",
           "operator": ">=",
           "value": 9
+        },
+        {
+          "state": "friendliness",
+          "operator": ">=",
+          "value": 4
         }
       ],
       "image": "assets/images/endings/clinic.webp",
@@ -2328,17 +2394,12 @@
     {
       "id": "street-king",
       "title": "King of the Alley",
-      "description": "You and Old Orange split the street, one throne on each side of the big bins.",
+      "description": "You have beaten enough rivals. You and Old Orange split the street, one throne on each side of the big bins.",
       "all": [
         {
-          "state": "strength",
+          "state": "fights",
           "operator": ">=",
-          "value": 7
-        },
-        {
-          "state": "agility",
-          "operator": ">=",
-          "value": 6
+          "value": 2
         }
       ],
       "image": "assets/images/endings/street-king.webp",
@@ -2346,8 +2407,8 @@
     },
     {
       "id": "night-legend",
-      "title": "Nobody Took You Home",
-      "description": "You still live on the same street. The big bins, the eaves, the space under big things — you know them all. Nobody took you home, and nobody knows your name. You curl up a little smaller and wait for the next winter to pass.",
+      "title": "A Whole Life on the Street",
+      "description": "You lived your whole life on the same street. The big bins, the eaves, the space under big things — you knew them all. Nobody ever gave you a name, but every cat on this street knew you. You lived {age} months. After one last winter you did not get up again — not from illness this time, just from age.",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
       "video": "assets/videos/night-legend-ending-v1.mp4"
