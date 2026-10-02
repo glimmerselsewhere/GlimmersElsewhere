@@ -2464,7 +2464,7 @@
       "title": "The Cat Martial God on the Roof",
       "story": "One paw falls, the alley falls quiet — and he becomes the legend of this street.",
       "glb": "assets/models/figurine-v2-thunder-roof.glb",
-      "shareImage": "app/share/figurine-v2-thunder-roof-source.webp",
+      "shareImage": "app/share/figurine-v2-thunder-roof-source.png",
       "preview": "assets/models/figurine-v2-thunder-roof-source.webp"
     },
     {
@@ -2473,7 +2473,7 @@
       "title": "Ah Hui in the Blanket",
       "story": "The blanket is warm. He sleeps on his back until noon, and no one sends him out again.",
       "glb": "assets/models/figurine-v2-blanket-sleep.glb",
-      "shareImage": "app/share/figurine-v2-blanket-sleep-source.webp",
+      "shareImage": "app/share/figurine-v2-blanket-sleep-source.png",
       "preview": "assets/models/figurine-v2-blanket-sleep-source.webp"
     },
     {
@@ -2482,7 +2482,7 @@
       "title": "The Little Helper by the Counter",
       "story": "When the children cry, a white cat sits on the counter to keep them company.",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
-      "shareImage": "app/share/figurine-v2-clinic-helper-source.webp",
+      "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
     {
@@ -2491,7 +2491,7 @@
       "title": "The King on the Big Bin",
       "story": "The street is split in two, and he sits on the throne on the left side.",
       "glb": "assets/models/figurine-v2-bin-king.glb",
-      "shareImage": "app/share/figurine-v2-bin-king-source.webp",
+      "shareImage": "app/share/figurine-v2-bin-king-source.png",
       "preview": "assets/models/figurine-v2-bin-king-source.webp"
     },
     {
@@ -2500,7 +2500,7 @@
       "title": "The Cat Under the Lamp Post",
       "story": "Nobody knows his name, but he knows every eave in the neighbourhood.",
       "glb": "assets/models/figurine-v2-streetlight-cat.glb",
-      "shareImage": "app/share/figurine-v2-streetlight-cat-source.webp",
+      "shareImage": "app/share/figurine-v2-streetlight-cat-source.png",
       "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
     },
     {
@@ -2509,7 +2509,7 @@
       "title": "Warm Light in the Box",
       "story": "The illness took him, but that cardboard box stayed warm.",
       "glb": "assets/models/figurine-v2-warm-box.glb",
-      "shareImage": "app/share/figurine-v2-warm-box-source.webp",
+      "shareImage": "app/share/figurine-v2-warm-box-source.png",
       "preview": "assets/models/figurine-v2-warm-box-source.webp"
     },
     {
@@ -2518,7 +2518,7 @@
       "title": "The Light on the Cat Star",
       "story": "The sack opens, and there is no cat inside — only a small, very soft light.",
       "glb": "assets/models/figurine-v2-cat-star.glb",
-      "shareImage": "app/share/figurine-v2-cat-star-source.webp",
+      "shareImage": "app/share/figurine-v2-cat-star-source.png",
       "preview": "assets/models/figurine-v2-cat-star-source.webp"
     }
   ],
