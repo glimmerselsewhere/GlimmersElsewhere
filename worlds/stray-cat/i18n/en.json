@@ -3,7 +3,7 @@
   "title": "Ah Hui's Stray Life",
   "shortTitle": "Ah Hui",
   "subtitle": "Five Years as a Stray",
-  "description": "Ah Hui is a dusty white cat. Over five years on the street he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also iron cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
+  "description": "Ah Hui is a dusty white cat. Over five years on the street he meets dogs, geese, people with nets, kind people, the keeper of a fish mountain — and also cages, something tight around his neck, a day the wind lifted the street, and one door he cannot read.",
   "mode": null,
   "sceneShuffle": {
     "head": 3,
@@ -241,7 +241,7 @@
     },
     {
       "id": "doctor",
-      "name": "Clinic Doctor",
+      "name": "The Person in the White Coat",
       "role": "kind human",
       "strength": 4,
       "agility": 4
@@ -331,8 +331,8 @@
     {
       "id": "rain-car",
       "chapter": "Q2 · Months 2-4",
-      "title": "Under the Car",
-      "description": "Rain turns the street into one bright sheet. You slip under a car while water streams past the tires.",
+      "title": "Under the Big Thing in the Rain",
+      "description": "Rain turns the street into one bright sheet. You slip under a big thing while water streams past its four round feet.",
       "image": "assets/images/scenes/rain-car.webp",
       "actions": [
         {
@@ -356,7 +356,7 @@
       ],
       "outcomes": {
         "dry": {
-          "text": "The car blocks most of the rain. You curl up and sleep until it stops.",
+          "text": "The big thing blocks most of the rain. You curl up and sleep until it stops.",
           "stateChanges": {
             "health": 2
           },
@@ -442,7 +442,7 @@
       "id": "dog-territory",
       "chapter": "Q4 · Months 6-8",
       "title": "Big Yellow's Territory",
-      "description": "The stray dog Big Yellow guards the trash cans. He will chase you on sight.",
+      "description": "Big Yellow guards the big bins by the crossing. He will chase you on sight.",
       "image": "assets/images/scenes/dog-territory.webp",
       "enemy": {
         "id": "big-yellow",
@@ -508,7 +508,6 @@
               "text": "You are bumped aside and tumble into the grass.",
               "stateChanges": {
                 "health": -2,
-                "fish": -1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/dog-territory-fight-failure.webp"
@@ -528,7 +527,7 @@
               "image": "assets/images/outcomes/dog-territory-fish-success.webp"
             },
             {
-              "text": "You only manage to offer one scrap. He still snaps at you, but the fish makes him let go sooner and the bite is shallow.",
+              "text": "You do not have two scraps to offer. He still snaps at you, but he lets go quickly and the bite is shallow.",
               "fishOffset": {
                 "need": 2,
                 "health": -3
@@ -608,7 +607,6 @@
               "text": "You are swept down by her wing, and your chest hurts for a long time.",
               "stateChanges": {
                 "health": -2,
-                "fish": -1,
                 "friendliness": -1
               },
               "image": "assets/images/outcomes/goose-river-fight-failure.webp"
@@ -628,8 +626,7 @@
             "failure": {
               "text": "Her wing sweeps you, and you roll twice.",
               "stateChanges": {
-                "health": -2,
-                "fish": -1
+                "health": -2
               },
               "image": "assets/images/outcomes/goose-river-run-failure.webp"
             }
@@ -677,7 +674,7 @@
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "You hide beside the exhaust pipe, and the net misses.",
+              "text": "You hide against its warm belly, and the net misses.",
               "stateChanges": {},
               "image": "assets/images/outcomes/neuter-van-hide-success.webp"
             },
@@ -783,7 +780,7 @@
       "id": "clinic",
       "chapter": "Q8 · Months 14-16",
       "title": "The Person in the White Coat",
-      "description": "A person in a white coat rests a hand on your back. The room smells of medicine.",
+      "description": "A person in a white coat rests a hand on your back. The room smells sharp and clean.",
       "image": "assets/images/scenes/clinic.webp",
       "enemy": {
         "id": "doctor",
@@ -814,7 +811,7 @@
       ],
       "outcomes": {
         "treat": {
-          "text": "She treats your wounds and sets out a bowl of water. You let her touch the back of your neck.",
+          "text": "She dabs something cool on your wounds and sets out a bowl of water. You let her touch the back of your neck.",
           "stateChanges": {
             "health": 5,
             "lifespan": 4,
@@ -824,7 +821,7 @@
           "image": "assets/images/outcomes/clinic-treat.webp"
         },
         "hide": {
-          "text": "You hide under the chair, and she places the medicine beside you.",
+          "text": "You hide under the chair, and she places a little cool pack beside you.",
           "stateChanges": {
             "health": 1
           },
@@ -1049,7 +1046,7 @@
       "id": "plastic-waste",
       "chapter": "Q12 · Months 22-24",
       "title": "The Bag That Smells of Fish",
-      "description": "A bag near the trash can smells like fish. It smells very good.",
+      "description": "A bag near the big bins smells like fish. It smells very good.",
       "image": "assets/images/scenes/plastic-waste.webp",
       "actions": [
         {
@@ -1254,7 +1251,7 @@
         },
         {
           "id": "avoid",
-          "name": "Smell the glue and leave",
+          "name": "Smell something wrong and leave",
           "hint": "Something is wrong",
           "icon": "C"
         }
@@ -1285,18 +1282,18 @@
       "id": "typhoon",
       "chapter": "Q17 · Months 32-34",
       "title": "The Day the Wind Lifted the Whole Street",
-      "description": "The wind lifts everything on the street and the signs rattle. The rain falls sideways.",
+      "description": "The wind lifts everything on the street and the big signs on the walls rattle. The rain falls sideways.",
       "image": "assets/images/scenes/typhoon.webp",
       "actions": [
         {
           "id": "stairwell",
-          "name": "Get into the stairwell",
+          "name": "Hide inside the building",
           "hint": "Hide first",
           "icon": "A"
         },
         {
           "id": "under-car",
-          "name": "Lie under a car",
+          "name": "Lie under a big thing",
           "hint": "It is usually dry there",
           "icon": "B"
         },
@@ -1309,14 +1306,14 @@
       ],
       "outcomes": {
         "stairwell": {
-          "text": "There is no wind in the stairwell. You shake off the water and sleep a whole night for once.",
+          "text": "There is no wind inside the building. You shake off the water and sleep a whole night for once.",
           "stateChanges": {
             "health": 2
           },
           "image": "assets/images/outcomes/typhoon-stairwell.webp"
         },
         "under-car": {
-          "text": "Water pours in past the tyres. You spend the night half in cold water, and by morning your paws are numb.",
+          "text": "Water pours in past its round feet. You spend the night half in cold water, and by morning your paws are numb.",
           "stateChanges": {
             "health": -2
           },
@@ -1352,14 +1349,14 @@
               "min": {
                 "fish": 6
               },
-              "text": "You eat the whole year's store of dried fish and lean against the heating pipe to outlast the coldest days.",
+              "text": "You eat the whole year's store of dried fish and lean against the warm pipe to outlast the coldest days.",
               "stateChanges": {
                 "fish": -6
               },
               "image": "assets/images/outcomes/winter-store-success.webp"
             },
             {
-              "text": "There is not enough in your hiding place. You go hungry, though what you did eat offsets some of the damage.",
+              "text": "There is not enough in your hiding place. You just have to go hungry and endure it.",
               "fishOffset": {
                 "need": 6,
                 "health": -6
@@ -1480,8 +1477,8 @@
     {
       "id": "road",
       "chapter": "Q21 · Months 40-42",
-      "title": "The Middle of the Road",
-      "description": "You are already in the middle of the road. Cars are coming from both sides, and the sound is getting closer.",
+      "title": "The Place with Noise on Both Sides",
+      "description": "You are in the middle of the wide hard ground, and the noise is closing in from both sides.",
       "image": "assets/images/scenes/road.webp",
       "actions": [
         {
@@ -1498,7 +1495,7 @@
         },
         {
           "id": "back",
-          "name": "Back to the kerb",
+          "name": "Back to the edge",
           "hint": "Not today",
           "icon": "C"
         }
@@ -1510,12 +1507,12 @@
             "enemyStat": "agility",
             "op": ">=",
             "success": {
-              "text": "You wait for the small silence between two cars and cross in a few steps.",
+              "text": "You wait for the small silence between two rushes of noise and cross in a few steps.",
               "stateChanges": {},
               "image": "assets/images/outcomes/road-wait-success.webp"
             },
             "failure": {
-              "text": "You wait too long; a horn blares and you roll to the far side right beside a tyre.",
+              "text": "You wait too long; a loud sound chases you and you roll to the far side right beside a round foot.",
               "stateChanges": {
                 "health": -2
               },
@@ -1534,7 +1531,7 @@
               "image": "assets/images/outcomes/road-dash-success.webp"
             },
             "failure": {
-              "text": "A wheel clips your hind leg and you lie on the kerb for a long time before you can stand.",
+              "text": "A round foot clips your hind leg and you lie at the edge for a long time before you can stand.",
               "stateChanges": {
                 "health": -6
               },
@@ -1543,7 +1540,7 @@
           }
         },
         "back": {
-          "text": "You back up to the wall you came from. The road can wait until tomorrow.",
+          "text": "You back up to the wall you came from. This ground can wait until tomorrow.",
           "stateChanges": {},
           "image": "assets/images/outcomes/road-back.webp"
         }
@@ -1601,7 +1598,7 @@
       "id": "manhole",
       "chapter": "Q23 · Months 44-46",
       "title": "The Round Cover Under the Water",
-      "description": "The rain has stopped. A shallow sheet of water sits in the road with a round iron cover underneath. You cannot tell how deep it is.",
+      "description": "The rain has stopped. A shallow sheet of water sits on the wide hard ground with a round iron cover underneath. You cannot tell how deep it is.",
       "image": "assets/images/scenes/manhole.webp",
       "actions": [
         {
@@ -1637,7 +1634,7 @@
           "image": "assets/images/outcomes/manhole-paw.webp"
         },
         "around": {
-          "text": "You take the pavement instead. A few more steps, but your fur stays dry.",
+          "text": "You go around on a dry patch instead. A few more steps, but your fur stays dry.",
           "stateChanges": {},
           "image": "assets/images/outcomes/manhole-around.webp"
         }
@@ -1678,7 +1675,7 @@
           "image": "assets/images/outcomes/poison-bait-eat.webp"
         },
         "sniff": {
-          "text": "You pick out the medicine smell, remember it, and never touch anything like it again.",
+          "text": "You pick out the wrongness under the smell, remember it, and never touch anything like it again.",
           "stateChanges": {},
           "image": "assets/images/outcomes/poison-bait-sniff.webp"
         },
@@ -1787,7 +1784,7 @@
       "id": "garbage-truck",
       "chapter": "Q27 · Months 52-54",
       "title": "The Big Noisy Thing That Comes Every Morning",
-      "description": "At dawn a very big thing stops beside the bins. It keeps making noise, and someone is tipping things into it.",
+      "description": "At dawn a very big thing stops beside the big bins. It keeps making noise, and someone is tipping things into it.",
       "image": "assets/images/scenes/garbage-truck.webp",
       "actions": [
         {
@@ -1804,7 +1801,7 @@
         },
         {
           "id": "jump",
-          "name": "Jump on the bins beside it",
+          "name": "Jump on the big bin beside it",
           "hint": "See what is happening up there",
           "icon": "C"
         }
@@ -1816,7 +1813,7 @@
           "image": "assets/images/outcomes/garbage-truck-wait.webp"
         },
         "chase": {
-          "text": "The wheels throw up water and soak one whole side of you.",
+          "text": "Its round feet throw up water and soak one whole side of you.",
           "stateChanges": {
             "health": -1
           },
@@ -1899,7 +1896,7 @@
           "image": "assets/images/outcomes/balcony-ledge-roof.webp"
         },
         "back": {
-          "text": "You back to the safe side and take the path under the stairs instead.",
+          "text": "You back to the safe side and take the steps below instead.",
           "stateChanges": {},
           "image": "assets/images/outcomes/balcony-ledge-back.webp"
         }
@@ -2003,7 +2000,7 @@
       "id": "cat-eater",
       "chapter": "Q31 · Months 60-62",
       "title": "The Cage at the End of the Alley",
-      "description": "A man guards the back alley with an iron cage beside his foot. He does not step aside.",
+      "description": "A man guards the back alley with a cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
       "enemy": {
         "id": "cat-eater",
@@ -2182,7 +2179,7 @@
                 "friendliness": 4,
                 "charm": 6
               },
-              "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to stray again.",
+              "text": "She crouches and lets you sniff her fingers first. The floor is warm, and the door closes behind you — you never have to live outside again.",
               "stateChanges": {
                 "health": 2,
                 "fish": 2,
@@ -2315,8 +2312,8 @@
     },
     {
       "id": "clinic",
-      "title": "The Clinic Cat",
-      "description": "You become the clinic's white cat, sitting with children during injections.",
+      "title": "The White Cat on the Counter",
+      "description": "You stay in the clean white place. When children cry, you go and sit beside them.",
       "all": [
         {
           "state": "health",
@@ -2330,7 +2327,7 @@
     {
       "id": "street-king",
       "title": "King of the Alley",
-      "description": "You and Old Orange split the street, one throne on each side of the trash cans.",
+      "description": "You and Old Orange split the street, one throne on each side of the big bins.",
       "all": [
         {
           "state": "strength",
@@ -2349,7 +2346,7 @@
     {
       "id": "night-legend",
       "title": "Nobody Took You Home",
-      "description": "You still live on the same street. The bins, the eaves, the space under cars — you know them all. Nobody took you home, and nobody knows your name. You curl up a little smaller and wait for the next winter to pass.",
+      "description": "You still live on the same street. The big bins, the eaves, the space under big things — you know them all. Nobody took you home, and nobody knows your name. You curl up a little smaller and wait for the next winter to pass.",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
       "video": "assets/videos/night-legend-ending-v1.mp4"
@@ -2357,7 +2354,7 @@
     {
       "id": "sick",
       "title": "Did Not Last the Winter",
-      "description": "The illness never really left you. On one very cold morning you curled into a ball in a cardboard box beside the heating pipe and did not get up again. You lived only {age} months. That is how it goes for many cats on this street.",
+      "description": "The illness never really left you. On one very cold morning you curled into a ball in a cardboard box beside the warm pipe and did not get up again. You lived only {age} months. That is how it goes for many cats on this street.",
       "all": [
         {
           "state": "forcedEnding",
@@ -2418,15 +2415,15 @@
     {
       "id": "figurine-clinic-helper",
       "endingId": "clinic",
-      "title": "The Little Helper at the Clinic",
-      "story": "The children stop crying at their shots, because a white cat sits on the counter.",
+      "title": "The Little Helper by the Counter",
+      "story": "When the children cry, a white cat sits on the counter to keep them company.",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
     {
       "id": "figurine-bin-king",
       "endingId": "street-king",
-      "title": "The King on the Bins",
+      "title": "The King on the Big Bin",
       "story": "The street is split in two, and he sits on the throne on the left side.",
       "glb": "assets/models/figurine-v2-bin-king.glb",
       "preview": "assets/models/figurine-v2-bin-king-source.webp"
@@ -2434,7 +2431,7 @@
     {
       "id": "figurine-streetlight-cat",
       "endingId": "night-legend",
-      "title": "The Cat Under the Streetlight",
+      "title": "The Cat Under the Lamp Post",
       "story": "Nobody knows his name, but he knows every eave in the neighbourhood.",
       "glb": "assets/models/figurine-v2-streetlight-cat.glb",
       "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
@@ -2458,10 +2455,10 @@
   ],
   "ui": {
     "backToCatalog": "← Worlds",
-    "introButton": "Begin the stray life",
+    "introButton": "Begin the adventure",
     "continueButton": "Keep walking",
     "finalContinueButton": "See the ending",
-    "replayButton": "Stray again",
+    "replayButton": "Adventure again",
     "keepsakeLabel": "Ending figurine",
     "keepsakeGetHint": "3D printed · a figurine in your hands"
   }
