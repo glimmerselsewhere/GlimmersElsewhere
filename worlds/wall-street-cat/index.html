@@ -54,6 +54,7 @@
     <section id="introView" class="intro-view" hidden>
       <div class="intro-topbar">
         <button class="back-button" data-back-catalog type="button">← 返回世界</button>
+        <button id="shelfOpenIntro" class="icon-button compact shelf-icon" data-shelf-open type="button" aria-label="我的手办柜"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h7v6H4zM15 14h5v6h-5zM6.5 7h1M11 7h1M15.5 7h1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button id="langToggleIntro" class="icon-button compact lang-button" type="button" aria-label="Switch language">EN</button>
       </div>
       <iframe id="openingFrame" class="opening-frame" title="异界开场" scrolling="no" sandbox="allow-scripts"></iframe>
@@ -73,6 +74,7 @@
         <button class="back-button compact" data-back-catalog type="button">← 世界</button>
         <div class="world-mini"><small id="worldMiniTitle">唯咪独尊</small><strong id="sceneProgress">01 / 07</strong></div>
         <div class="header-actions">
+          <button id="shelfOpenGame" class="icon-button compact shelf-icon" data-shelf-open type="button" aria-label="我的手办柜"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h7v6H4zM15 14h5v6h-5zM6.5 7h1M11 7h1M15.5 7h1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button id="textToggle" class="icon-button compact text-toggle" type="button" aria-label="放大文字">A＋</button>
           <button id="langToggleGame" class="icon-button compact lang-button" type="button" aria-label="Switch language">EN</button>
           <button id="soundToggle" class="icon-button compact" type="button" aria-label="切换声音">♫</button>
@@ -144,7 +146,7 @@
             <span data-i18n="keepsakeGet">拿到它</span>
             <small data-i18n="keepsakeGetHint">3D 打印 · 做成实物</small>
           </a>
-          <button id="shelfOpen" class="shelf-open" type="button" data-i18n="shelfOpen">我的手办柜</button>
+          <button id="shelfOpen" class="shelf-open" type="button" data-shelf-open data-i18n="shelfOpen">我的手办柜</button>
         </div>
         <details id="tuntunBox" class="tuntun" hidden>
           <summary data-i18n="tuntunSummary">彩蛋：一只真实的猫</summary>
@@ -199,7 +201,7 @@
       </section>
     </div>
   </main>
-  <script>window.__WORLD_ID__="wall-street-cat";</script><script src="../../app/app.js?v=31"></script>
+  <script>window.__WORLD_ID__="wall-street-cat";</script><script src="../../app/app.js?v=32"></script>
   <script type="module" src="../../app/keepsake-viewer.js?v=2"></script>
 </body>
 </html>

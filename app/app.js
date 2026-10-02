@@ -820,6 +820,7 @@ function labelStaticDom() {
   const set = (sel, text) => { const el = document.querySelector(sel); if (el && text) el.textContent = text; };
   set("#sceneMissing", lang === "en" ? "Scene image could not load" : "场景图片暂时没有加载出来");
   set(".ending-card .eyebrow", t("endingEyebrow"));
+  document.querySelectorAll("[data-shelf-open]").forEach(el => el.setAttribute("aria-label", t("shelfOpen")));
   // A world can rename shared labels (Ah Hui's endings hand out figurines, not keepsakes).
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = worldUi(el.dataset.i18n, t(el.dataset.i18n));
@@ -2101,7 +2102,7 @@ async function bootDirectWorld(nextLang, worldId) {
     video.play().catch(() => {});
   });
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
-  $("shelfOpen")?.addEventListener("click", openShelf);
+  document.querySelectorAll("[data-shelf-open]").forEach(el => el.addEventListener("click", openShelf));
   $("shelfContinue")?.addEventListener("click", closeShelf);
   document.querySelectorAll("[data-shelf-close]").forEach(el => el.addEventListener("click", closeShelf));
   document.addEventListener("keydown", event => { if (event.key === "Escape") { closeKeepsake(); closeShelf(); } });
@@ -2135,7 +2136,7 @@ async function bootPlayer(nextLang) {
   $("replayButton").addEventListener("click", replay);
   $("keepsakeOpen").addEventListener("click", openKeepsake);
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
-  $("shelfOpen")?.addEventListener("click", openShelf);
+  document.querySelectorAll("[data-shelf-open]").forEach(el => el.addEventListener("click", openShelf));
   $("shelfContinue")?.addEventListener("click", closeShelf);
   document.querySelectorAll("[data-shelf-close]").forEach(el => el.addEventListener("click", closeShelf));
   document.addEventListener("keydown", event => { if (event.key === "Escape") { closeKeepsake(); closeShelf(); } });

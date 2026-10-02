@@ -441,3 +441,6 @@ body.text-boost .icon-button.compact { width: 42px; height: 42px; font-size: 16p
 .shelf-foot { padding: 12px 20px 18px; }
 .shelf-continue { width: 100%; padding: 13px; border: 0; border-radius: 14px; background: rgba(255,255,255,.14); color: #f6ecdc; font: inherit; font-weight: 800; cursor: pointer; }
 .shelf-continue:hover { background: rgba(255,255,255,.24); }
+
+/* 手办柜图标按钮 */
+.shelf-icon svg { width: 17px; height: 17px; }
