@@ -1,0 +1,62 @@
+{
+  "id": "animal-chubby-courage",
+  "title": "肥嘟嘟",
+  "hintSounds": [
+    "胆",
+    "嘟"
+  ],
+  "correctOptionId": "chubby-cat",
+  "mysteryImage": "assets/level-002/mysteries/animal-chubby-courage-cat.webp",
+  "rotation": 0,
+  "voiceStyle": "zh_female_chunribu_uranus_bigtts",
+  "options": [
+    {
+      "id": "chubby-dog",
+      "text": "汪的胆子肥嘟嘟",
+      "image": "assets/level-002/options/chubby-dog.webp",
+      "voiceSrc": "assets/audio/voices/chubby-dog.mp3"
+    },
+    {
+      "id": "chubby-cat",
+      "text": "咪的胆子肥嘟嘟",
+      "image": "assets/level-002/options/chubby-cat.webp",
+      "voiceSrc": "assets/audio/voices/chubby-cat.mp3"
+    },
+    {
+      "id": "chubby-mouse",
+      "text": "吱的胆子肥嘟嘟",
+      "image": "assets/level-002/options/chubby-mouse.webp",
+      "voiceSrc": "assets/audio/voices/chubby-mouse.mp3"
+    }
+  ],
+  "mysteryImages": {
+    "medium": "assets/level-002/mysteries/animal-chubby-courage-cat.webp"
+  },
+  "randomizeCorrectAnswer": false,
+  "answerVariants": [
+    {
+      "optionId": "chubby-cat",
+      "variants": [
+        {
+          "id": "fixed-cast-01",
+          "image": "assets/level-002/options/chubby-cat.webp",
+          "mysteryImages": {
+            "medium": "assets/level-002/mysteries/animal-chubby-courage-cat.webp"
+          }
+        }
+      ]
+    }
+  ],
+  "authoring": {
+    "sourceType": "internal-fixed-character-reference-edit",
+    "referenceStyle": "rounded-soft-vinyl-3d",
+    "maskMode": "nano-black-background-binary",
+    "mysteryMode": "nano-direct-calico",
+    "visualPrompts": [
+      "输入图片是唯一的角色身份与材质参考。严格保持同一角色的脸、眼睛、耳朵、鼻子、配色、体型、圆润连续曲面和光滑细腻的3D软胶手办材质，只改变姿态和当前场景。角色必须仍然双脚站立或按要求坐下，拥有两条清楚可活动的手臂。不要毛茸茸，不要写实毛发，不要低多边形切面。可爱、轻松、有喜感，不性感、不凶恶。正方形构图，完整主体位于画面内，暖白背景，无文字、无水印。输入图中这只浅棕和奶油白配色、垂耳、圆润的拟人中华田园小奶狗。小奶狗刚刚顽皮拆家，站在一个被扯开的小靠垫旁，一只爪子还轻轻按着靠垫，少量填充棉露出。它看向镜头，表情无辜又大胆，绝对不要凶。靠垫与角色接触，作为一个紧凑完整主体。",
+      "输入图片是唯一的角色身份与材质参考。严格保持同一角色的脸、眼睛、耳朵、鼻子、配色、体型、圆润连续曲面和光滑细腻的3D软胶手办材质，只改变姿态和当前场景。角色必须仍然双脚站立或按要求坐下，拥有两条清楚可活动的手臂。不要毛茸茸，不要写实毛发，不要低多边形切面。可爱、轻松、有喜感，不性感、不凶恶。正方形构图，完整主体位于画面内，暖白背景，无文字、无水印。输入图中这只暖白底、橙色与深灰黑色块、三角耳、圆润的拟人三花猫。三花猫刚刚用爪子打翻一个透明水杯，杯子紧贴在脚边，少量水洒出并与杯子和脚边连成紧凑主体。它看向镜头，表情无辜又大胆。",
+      "输入图片是唯一的角色身份与材质参考。严格保持同一角色的脸、眼睛、耳朵、鼻子、配色、体型、圆润连续曲面和光滑细腻的3D软胶手办材质，只改变姿态和当前场景。角色必须仍然双脚站立或按要求坐下，拥有两条清楚可活动的手臂。不要毛茸茸，不要写实毛发，不要低多边形切面。可爱、轻松、有喜感，不性感、不凶恶。正方形构图，完整主体位于画面内，暖白背景，无文字、无水印。输入图中这只浅灰和奶油白配色、大圆耳、粉色鼻子、圆润的拟人小老鼠。小老鼠正抱着一小块奶酪偷偷走开，回头看向镜头，表情无辜又大胆。奶酪被双臂抱住，与角色连成一个完整主体。"
+    ],
+    "manualReviewRequired": true
+  }
+}

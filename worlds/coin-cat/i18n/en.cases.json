@@ -1,0 +1,50 @@
+{
+  "qin-polarbear": {
+    "title": "Guess what this cat is acting out",
+    "options": [
+      { "text": "Qin Shi Huang riding a polar bear" },
+      { "text": "Qin Shubao is also called Qin Qiong" },
+      { "text": "A celery stalk punches an Iron-Armor Chrysalis" }
+    ]
+  },
+  "chinese-can-fly": {
+    "title": "Guess what this cat is acting out",
+    "options": [
+      { "text": "Chinese people can fly" },
+      { "text": "Chinese people doing karaoke" },
+      { "text": "Chinese people having a picnic" }
+    ]
+  },
+  "chubby-courage": {
+    "title": "Guess what this cat is acting out",
+    "options": [
+      { "text": "How come your nerve goes squeak-squeak" },
+      { "text": "How come your nerve goes woof-woof" },
+      { "text": "How come your nerve goes meow-meow" }
+    ]
+  },
+  "animal-figure": {
+    "title": "Guess what this cat is acting out",
+    "options": [
+      { "text": "A dog with a fabulous figure" },
+      { "text": "A cat with a fabulous figure" },
+      { "text": "A mouse with a fabulous figure" }
+    ]
+  },
+  "animal-chubby-courage": {
+    "title": "Guess what this cat is acting out",
+    "options": [
+      { "text": "A dog whose nerve is all pudge" },
+      { "text": "A cat whose nerve is all pudge" },
+      { "text": "A mouse whose nerve is all pudge" }
+    ]
+  },
+  "animal-check-cards": {
+    "title": "Guess what this cat is acting out",
+    "options": [
+      { "text": "The dog wants to check the cards" },
+      { "text": "The cat wants to check the cards" },
+      { "text": "The mouse wants to check the cards" }
+    ]
+  }
+}

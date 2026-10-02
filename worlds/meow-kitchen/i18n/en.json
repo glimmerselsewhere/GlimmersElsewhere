@@ -1,0 +1,29 @@
+{
+  "title": "Meowchelin Isekai Kitchen",
+  "shortTitle": "Meowchelin Kitchen",
+  "subtitle": "A western-fantasy cat cooking adventure",
+  "description": "A ginger cat falls into a sword-and-sorcery world with a small pot on its back. Elves have eaten the same tasteless pancake for three hundred years, dwarves chew mushrooms that clang, orcs burn every roast to charcoal, and the dragon guarding all that treasure hasn't had a hot meal in centuries. The cat is not here to fight. It's here to open a kitchen.",
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Lift the lid",
+    "continueButton": "Serve the next dish",
+    "finalContinueButton": "Begin the feast",
+    "replayButton": "Light the fire again"
+  },
+  "catalog": {
+    "eyebrow": "A fourth glimmer has woken up",
+    "headline": "The world is big, and plenty of races will sit down to eat.",
+    "description": "A ginger cat falls into a sword-and-sorcery world with a pot on its back. Elves, dwarves, orcs, halflings and a dragon all eat badly - so it's opening a kitchen.",
+    "cardDescription": "Elves have eaten the same dew pancake for three hundred years, dwarves chew mushrooms that sound like stone, and the dragon has never had a hot meal. One ginger cat with one small pot plans to fix all of it.",
+    "cardIcon": "Pot",
+    "actionSummary": "Simmer · Sear · Plate"
+  },
+  "levels": [
+    {
+      "title": "Chapter 1 · Lighting the First Fire"
+    },
+    {
+      "title": "Chapter 2 · Guide to Strange Foods"
+    }
+  ]
+}

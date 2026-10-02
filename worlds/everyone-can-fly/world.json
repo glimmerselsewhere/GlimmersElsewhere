@@ -1,0 +1,463 @@
+{
+  "id": "everyone-can-fly",
+  "title": "中国猫能飞",
+  "shortTitle": "中国猫能飞",
+  "subtitle": "下班轻功通勤指南",
+  "description": "一只猫六点打卡下班，要在晚饭凉掉之前飞回家。运河、竹林、城墙、屋顶、最后一百米——每段路只有一种功夫管用，选错就当场出洋相。",
+  "music": "assets/audio/kungfu-commute.mp3",
+  "assetBase": "worlds/everyone-can-fly/",
+  "endingVideo": null,
+  "cover": {
+    "default": "assets/cover/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover/cover.webp"
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "introButton": "推开窗",
+    "continueButton": "继续赶路",
+    "finalContinueButton": "落地",
+    "replayButton": "再飞一次"
+  },
+  "catalog": {
+    "eyebrow": "第六片异境微光已经苏醒",
+    "headline": "下班了，飞回家。",
+    "description": "一只猫六点打卡，要在晚饭凉掉之前飞回家。",
+    "cardDescription": "运河、竹林、城墙、屋顶、最后一百米。每段路只有一种轻功管用——选错就当场翻车。",
+    "cardIcon": "飞",
+    "cardLabel": "WORLD 06",
+    "cardGradient": [
+      "#7fc7c0",
+      "#2f6f86",
+      "#20304f"
+    ],
+    "cardAccent": "#f7d582",
+    "actionSummary": "轻功 · 狼狈 · 回家吃饭"
+  },
+  "initialState": {
+    "qinggong": 0,
+    "mishap": 0
+  },
+  "states": [
+    {
+      "id": "qinggong",
+      "label": "轻功",
+      "description": "选对功夫的次数",
+      "color": "#2f8f86",
+      "chipBackground": "#d7f0ec",
+      "max": 5
+    },
+    {
+      "id": "mishap",
+      "label": "狼狈",
+      "description": "当场翻车的次数",
+      "color": "#c05a4a",
+      "chipBackground": "#f8ded6",
+      "max": 5
+    }
+  ],
+  "actions": [
+    {
+      "id": "water-stride",
+      "name": "水上漂",
+      "plain": "水上漂",
+      "icon": "水"
+    },
+    {
+      "id": "cloud-ladder",
+      "name": "梯云纵",
+      "plain": "梯云纵",
+      "icon": "云"
+    },
+    {
+      "id": "wall-climb",
+      "name": "壁虎游墙功",
+      "plain": "游墙",
+      "icon": "墙"
+    },
+    {
+      "id": "tile-step",
+      "name": "踏瓦无痕",
+      "plain": "踏瓦",
+      "icon": "瓦"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "clock-out",
+      "chapter": "搭",
+      "object": "clock-out",
+      "image": "assets/images/scenes/01-clockout.webp",
+      "title": "六点整，下班",
+      "description": "打卡机响了一声。家在江对面，晚饭六点半。你推开窗——今天飞回去。",
+      "actions": [
+        {
+          "id": "take-off",
+          "name": "跳上窗台",
+          "plain": "起飞",
+          "hint": "尾巴一甩就离地",
+          "icon": "飞"
+        }
+      ],
+      "outcomes": {
+        "take-off": {
+          "image": "assets/images/outcomes/clock-out-take-off.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 0
+          },
+          "text": "你踩上窗台，毛被风掀起来。第一段路是运河，水面比路快。"
+        }
+      }
+    },
+    {
+      "id": "canal",
+      "chapter": "第一关",
+      "object": "canal",
+      "image": "assets/images/scenes/02-canal.webp",
+      "title": "过运河：水面比路快",
+      "description": "运河水很静，中间一排石墩。隔着二十丈，对岸的树已经在招手。",
+      "actions": [
+        {
+          "id": "water-stride",
+          "name": "水上漂",
+          "plain": "水上漂",
+          "hint": "踩着水面点过去",
+          "icon": "功"
+        },
+        {
+          "id": "wall-climb",
+          "name": "壁虎游墙功",
+          "plain": "壁虎游墙功",
+          "hint": "贴墙走——可这里没有墙",
+          "icon": "功"
+        },
+        {
+          "id": "cloud-ladder",
+          "name": "梯云纵",
+          "plain": "梯云纵",
+          "hint": "借一股劲往上蹿",
+          "icon": "功"
+        }
+      ],
+      "outcomes": {
+        "water-stride": {
+          "image": "assets/images/outcomes/canal-water-stride.webp",
+          "stateChanges": {
+            "qinggong": 1,
+            "mishap": 0
+          },
+          "text": "脚尖在水皮上点了七下，人已经到对岸。鞋没湿。"
+        },
+        "wall-climb": {
+          "image": "assets/images/outcomes/canal-wall-climb.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你抱住一根桥桩滑进水里，尾巴全湿了。好消息：你会游泳。"
+        },
+        "cloud-ladder": {
+          "image": "assets/images/outcomes/canal-cloud-ladder.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你蹿得很高，然后落回原岸。对岸的树还是二十丈远。"
+        }
+      }
+    },
+    {
+      "id": "bamboo",
+      "chapter": "第二关",
+      "object": "bamboo",
+      "image": "assets/images/scenes/03-bamboo.webp",
+      "title": "穿竹林：竹子会回弹",
+      "description": "一片毛竹林，风一吹整片都在晃。竹梢最高的地方，能看见家的方向。",
+      "actions": [
+        {
+          "id": "cloud-ladder",
+          "name": "梯云纵",
+          "plain": "梯云纵",
+          "hint": "竹梢上连续借力",
+          "icon": "功"
+        },
+        {
+          "id": "water-stride",
+          "name": "水上漂",
+          "plain": "水上漂",
+          "hint": "可这里没有水",
+          "icon": "功"
+        },
+        {
+          "id": "wave-step",
+          "name": "凌波微步",
+          "plain": "凌波微步",
+          "hint": "脚下要有水波才行",
+          "icon": "功"
+        }
+      ],
+      "outcomes": {
+        "cloud-ladder": {
+          "image": "assets/images/outcomes/bamboo-cloud-ladder.webp",
+          "stateChanges": {
+            "qinggong": 1,
+            "mishap": 0
+          },
+          "text": "三根竹梢，三次借力，你从竹林顶上飞过去，还顺手惊起一群鸟。"
+        },
+        "water-stride": {
+          "image": "assets/images/outcomes/bamboo-water-stride.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你朝空地一蹬——没有水，只有土。脸先着地。"
+        },
+        "wave-step": {
+          "image": "assets/images/outcomes/bamboo-wave-step.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你在空中找水波，什么都没踩着，直接卡进两根竹子中间。"
+        }
+      }
+    },
+    {
+      "id": "city-wall",
+      "chapter": "第三关",
+      "object": "city-wall",
+      "image": "assets/images/scenes/04-citywall.webp",
+      "title": "翻老城墙：垂直的一道坎",
+      "description": "城墙很高，砖缝里长着草。绕过去要多走半个钟头，直接上就快得多。",
+      "actions": [
+        {
+          "id": "wall-climb",
+          "name": "壁虎游墙功",
+          "plain": "壁虎游墙功",
+          "hint": "贴着砖缝往上",
+          "icon": "功"
+        },
+        {
+          "id": "water-stride",
+          "name": "水上漂",
+          "plain": "水上漂",
+          "hint": "这是墙，不是水",
+          "icon": "功"
+        },
+        {
+          "id": "tile-step",
+          "name": "踏瓦无痕",
+          "plain": "踏瓦无痕",
+          "hint": "可墙顶上没有瓦",
+          "icon": "功"
+        }
+      ],
+      "outcomes": {
+        "wall-climb": {
+          "image": "assets/images/outcomes/city-wall-wall-climb.webp",
+          "stateChanges": {
+            "qinggong": 1,
+            "mishap": 0
+          },
+          "text": "爪尖扣住砖缝，一竖一竖往上蹭，六十步的墙，你用了二十秒。"
+        },
+        "water-stride": {
+          "image": "assets/images/outcomes/city-wall-water-stride.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你在墙根找水，找到一滩积水，踩进去两寸。整只爪子泥了。"
+        },
+        "tile-step": {
+          "image": "assets/images/outcomes/city-wall-tile-step.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你跳上墙头，踩到一片松动的砖，哗啦一声滑下来。"
+        }
+      }
+    },
+    {
+      "id": "rooftops",
+      "chapter": "第四关",
+      "object": "rooftops",
+      "image": "assets/images/scenes/05-rooftops.webp",
+      "title": "屋顶群：猫的主场",
+      "description": "一片老房子连在一起，瓦片、晾衣绳、猫道，全是你的地盘。",
+      "actions": [
+        {
+          "id": "tile-step",
+          "name": "踏瓦无痕",
+          "plain": "踏瓦无痕",
+          "hint": "从瓦上轻轻点过",
+          "icon": "功"
+        },
+        {
+          "id": "wall-climb",
+          "name": "壁虎游墙功",
+          "plain": "壁虎游墙功",
+          "hint": "从楼侧面爬过去",
+          "icon": "功"
+        },
+        {
+          "id": "cloud-ladder",
+          "name": "梯云纵",
+          "plain": "梯云纵",
+          "hint": "借劲往上蹿",
+          "icon": "功"
+        }
+      ],
+      "outcomes": {
+        "tile-step": {
+          "image": "assets/images/outcomes/rooftops-tile-step.webp",
+          "stateChanges": {
+            "qinggong": 1,
+            "mishap": 0
+          },
+          "text": "你在瓦上只留了浅浅两点，一整片屋顶没惊动任何一个人。"
+        },
+        "wall-climb": {
+          "image": "assets/images/outcomes/rooftops-wall-climb.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "侧面爬得动，可是两层楼之间的空档跨不过去，你悬在半空晃了很久。"
+        },
+        "cloud-ladder": {
+          "image": "assets/images/outcomes/rooftops-cloud-ladder.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你蹿上去了，一头撞进别人家的晾衣绳。衬衫、袜子、和你一起缠在半空。"
+        }
+      }
+    },
+    {
+      "id": "last-100",
+      "chapter": "最后一关",
+      "object": "last-100",
+      "image": "assets/images/scenes/06-last100.webp",
+      "title": "最后一百米：楼下就是家",
+      "description": "自家阳台亮着灯，饭香飘到六楼。一百米，垂直往下。",
+      "actions": [
+        {
+          "id": "cat-landing",
+          "name": "猫式落地",
+          "plain": "猫式落地",
+          "hint": "什么都不用——你本来就是猫",
+          "icon": "功"
+        },
+        {
+          "id": "water-stride",
+          "name": "水上漂",
+          "plain": "水上漂",
+          "hint": "楼下是水泥地",
+          "icon": "功"
+        },
+        {
+          "id": "cloud-ladder",
+          "name": "梯云纵",
+          "plain": "梯云纵",
+          "hint": "最后一跳借劲上蹿",
+          "icon": "功"
+        }
+      ],
+      "outcomes": {
+        "cat-landing": {
+          "image": "assets/images/outcomes/last-100-cat-landing.webp",
+          "stateChanges": {
+            "qinggong": 1,
+            "mishap": 0
+          },
+          "text": "你松了劲，四只爪子稳稳落在阳台上。这一招谁都学不会。"
+        },
+        "water-stride": {
+          "image": "assets/images/outcomes/last-100-water-stride.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你在水泥地上找水花，摔了个屁股蹲。楼上有人开窗看了一眼。"
+        },
+        "cloud-ladder": {
+          "image": "assets/images/outcomes/last-100-cloud-ladder.webp",
+          "stateChanges": {
+            "qinggong": 0,
+            "mishap": 1
+          },
+          "text": "你上蹿了三层，挂上了更高那家的晾衣绳。饭香在下面。"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "perfect",
+      "title": "晚饭还是热的",
+      "video": "assets/videos/perfect-ending-v1.mp4",
+      "image": "assets/images/endings/perfect.webp",
+      "all": [
+        {
+          "state": "mishap",
+          "operator": "=",
+          "value": 0
+        }
+      ],
+      "description": "六点二十九分，你落在自家阳台上，一次没摔。汤刚端上桌。人类抬头看了你一眼，说：今天怎么这么快？"
+    },
+    {
+      "id": "late",
+      "title": "迟到的轻功大师",
+      "video": "assets/videos/late-ending-v1.mp4",
+      "image": "assets/images/endings/late.webp",
+      "all": [
+        {
+          "state": "mishap",
+          "operator": "<=",
+          "value": 2
+        }
+      ],
+      "description": "你到家了，湿了一半。饭还温着。人类递来一条毛巾，你假装是被雨淋的。"
+    },
+    {
+      "id": "give-up",
+      "title": "明天再练吧",
+      "video": "assets/videos/give-up-ending-v1.mp4",
+      "image": "assets/images/endings/giveup.webp",
+      "all": [],
+      "description": "最后一次翻车之后你搭了末班公交。到家时汤凉了，人类正在看电视。今天没飞成——明天再练。"
+    }
+  ],
+  "musicVolume": 0.12,
+  "keepsakes": [
+    {
+      "id": "perfect-warm-bowl-medal",
+      "endingId": "perfect",
+      "title": "热饭碗勋章",
+      "glb": "assets/models/perfect-warm-bowl-medal.glb",
+      "preview": "assets/models/perfect-warm-bowl-medal-source.webp"
+    },
+    {
+      "id": "late-rain-badge",
+      "endingId": "late",
+      "title": "雨落迟到徽章",
+      "glb": "assets/models/late-rain-badge.glb",
+      "preview": "assets/models/late-rain-badge-source.webp"
+    },
+    {
+      "id": "give-up-bus-pass",
+      "endingId": "give-up",
+      "title": "末班车票",
+      "glb": "assets/models/give-up-bus-pass.glb",
+      "preview": "assets/models/give-up-bus-pass-source.webp"
+    }
+  ]
+}

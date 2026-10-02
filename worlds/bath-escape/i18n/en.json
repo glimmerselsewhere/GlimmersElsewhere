@@ -1,0 +1,119 @@
+{
+  "title": "Not Today, Human",
+  "shortTitle": "Bath Escape",
+  "subtitle": "The great cat bath escape",
+  "description": "The human is coming with a towel and orange shampoo. Use every cat instinct to dodge the traps disguised as safe spots, and escape to the roof — or end up in the bathtub.",
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Run!",
+    "continueButton": "Keep running",
+    "finalContinueButton": "See the ending",
+    "replayButton": "Escape again"
+  },
+  "catalog": {
+    "eyebrow": "A sixth glimmer has woken up",
+    "cardDescription": "A towel, a bottle of orange shampoo, and a human who has decided it's bath day. Five rooms, fifteen choices, five traps.",
+    "cardIcon": "Bath",
+    "cardLabel": "WORLD 06",
+    "actionSummary": "Hide · Jump · Run"
+  },
+  "states": [
+    {"label": "Progress", "description": "How close to the roof you are"},
+    {"label": "Danger", "description": "How close the human is to catching you"}
+  ],
+  "actions": [
+    {"name": "Sprint", "plain": "Go", "icon": "Go"},
+    {"name": "Hide", "plain": "Hide", "icon": "Hide"},
+    {"name": "Looks safe…", "plain": "?", "icon": "?"}
+  ],
+  "scenes": [
+    {
+      "chapter": "Act 1",
+      "title": "The towel appears",
+      "description": "A sunny afternoon. The human walks toward you holding a yellow towel. The air smells of orange shampoo — a cat's most hated smell.",
+      "actions": [
+        {"name": "Jump onto the bookshelf", "plain": "Jump", "hint": "Two steps to the top, out of reach"},
+        {"name": "Slide under the sofa", "plain": "Hide", "hint": "Classic cat move, everyone knows it"},
+        {"name": "Climb into that cardboard box", "plain": "?", "hint": "Cats love boxes, right?"}
+      ],
+      "outcomes": {
+        "fast": {"text": "You vault onto the bookshelf in two bounds. The human tiptoes and still misses by half an arm. You watch her pace from your high ground."},
+        "safe": {"text": "You slide silently under the sofa, tail tucked in just in time. The human's slippers walk past your eyes, pause for two seconds, then move on."},
+        "trap": {"text": "You climb into the box. A wave of citrus hits you — the shampoo bottle is right next to it. The human picks up the box, smiling."}
+      }
+    },
+    {
+      "chapter": "Act 2",
+      "title": "The human is searching",
+      "description": "You slip into the hallway. One door after another opens. The footsteps have a rhythm now — the human is doing a systematic sweep.",
+      "actions": [
+        {"name": "Dash through while they bend down", "plain": "Dash", "hint": "Floor-level sprint, one second to cross"},
+        {"name": "Jump into the laundry basket", "plain": "Hide", "hint": "Nobody digs through dirty laundry"},
+        {"name": "Hide in the shoe cabinet", "plain": "?", "hint": "The door is closed, that means safe"}
+      ],
+      "outcomes": {
+        "fast": {"text": "You sprint low across the floor. The human grabs only a tuft of floating fur as she bends down. Your hind paws are already on kitchen tile."},
+        "safe": {"text": "You land in the laundry basket and cover yourself with an old sock. The human walks past, opens a cabinet nearby, and doesn't look here."},
+        "trap": {"text": "You squeeze into the shoe cabinet, but the light leaking through the gap is coming from the bathroom. The human reaches in for slippers. You make eye contact."}
+      }
+    },
+    {
+      "chapter": "Act 3",
+      "title": "The treat can rattles",
+      "description": "A treat bag rustles in the kitchen. That sound usually means good things, but the air still smells of citrus. A pair of slippers sits next to the food bowl.",
+      "actions": [
+        {"name": "Leap from windowsill to fridge", "plain": "Leap", "hint": "The high road is the safe road"},
+        {"name": "Hide behind the trash can", "plain": "Hide", "hint": "Smelly cover, nobody checks"},
+        {"name": "Go eat the cat food", "plain": "?", "hint": "Food is always the right answer"}
+      ],
+      "outcomes": {
+        "fast": {"text": "You jump from the windowsill onto the fridge in one bound. The human rattles the can below; you look down at the top of her head."},
+        "safe": {"text": "You crouch behind the trash can. The smell is strong, but the cover is good. The human stands there for a moment, then leaves."},
+        "trap": {"text": "You walk toward the food bowl. The slippers next to it move — the human bursts out from behind the counter, towel already in hand."}
+      }
+    },
+    {
+      "chapter": "Act 4",
+      "title": "The door to outside",
+      "description": "The balcony door is open a crack, and wind from outside blows in. A thick blanket hangs from the drying pole, all four corners clamped tight with clips. A small shadow sits behind the flower pots.",
+      "actions": [
+        {"name": "Jump onto the drying pole", "plain": "Jump", "hint": "Cat balance will not fail you"},
+        {"name": "Hide behind the flower pots", "plain": "Hide", "hint": "Wait for the human to leave"},
+        {"name": "Burrow into the hanging blanket", "plain": "?", "hint": "Blankets are soft and cozy"}
+      ],
+      "outcomes": {
+        "fast": {"text": "You leap onto the drying pole and walk a perfect straight line. The human reaches up from below and misses by a full body length."},
+        "safe": {"text": "You tuck yourself behind a flower pot. One large leaf covers you perfectly. The human glances at the balcony and walks away without bending down."},
+        "trap": {"text": "You burrow into the blanket. All four corners are clamped tight — it's a bag. The human picks up the whole thing, cat and all."}
+      }
+    },
+    {
+      "chapter": "Act 5",
+      "title": "One step left",
+      "description": "You stand on the balcony railing. The neighboring roof is two meters away. Below, the human calls your name softly, holding the treat can. Wind blows from the rooftops, carrying the smell of freedom.",
+      "actions": [
+        {"name": "Jump to the neighboring roof", "plain": "Jump", "hint": "This leap is freedom"},
+        {"name": "Hide behind the AC unit", "plain": "Hide", "hint": "Wait until it's dark"},
+        {"name": "Look back at the human", "plain": "?", "hint": "Just one look"}
+      ],
+      "outcomes": {
+        "fast": {"text": "You leap. You land on the neighboring roof tiles, solid and sure. Wind runs through your fur. The human sighs from the railing."},
+        "safe": {"text": "You squeeze into the gap between the AC unit and the wall, and wait until it's completely dark. Under moonlight, you walk gracefully down the fire escape."},
+        "trap": {"text": "You look back. Just one look — you lock eyes. Your body stops listening to your brain, and the human gently picks you up."}
+      }
+    }
+  ],
+  "endings": [
+    {"title": "Roof Freedom",
+     "description": "You sit on the highest ridge tile, watching the sunset paint the whole street orange. Down below, the human is still holding the towel on the balcony. You lick your front paw. Today, you are free."},
+    {"title": "Not Today",
+     "description": "You're curled up deep inside a pile of old sweaters in the closet, only two ears and two bright eyes visible. The human gives up the search and says 'tomorrow, then.' Tomorrow is tomorrow's problem — not today."},
+    {"title": "Bubble Crown",
+     "description": "Bubbles pile on top of your head like a small mountain. The water is warm, the towel is soft, and the human looks very pleased. Your expression is blank. You know that some things can never be undone."}
+  ],
+  "keepsakes": [
+    {"title": "Rooftop Feather Pass"},
+    {"title": "Survivor Towel Loop"},
+    {"title": "Bubble Crown"}
+  ]
+}
