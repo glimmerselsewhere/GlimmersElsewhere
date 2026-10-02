@@ -1907,6 +1907,11 @@ function showEnding() {
       modalStory.textContent = modalStoryText || "";
       modalStory.hidden = !modalStoryText;
     }
+    const storeUrl = keepsake.meshUrl || KEEPSAKE_STORE_URL;
+    const cardGet = $("keepsakeGet");
+    if (cardGet) cardGet.href = storeUrl;
+    const modalGet = $("ksGet");
+    if (modalGet) modalGet.href = storeUrl;
     $("keepsakeDownload").href = glbUrl;
     $("ksDownload").href = glbUrl;
     const shareUrl = keepsake.shareImage ? rootUrl(keepsake.shareImage) : "";
@@ -2003,6 +2008,9 @@ function closeShelf() {
 
 function openKeepsakeFor(keepsake) {
   const glbUrl = `${worldAsset(keepsake.glb)}?v=20260928`;
+  const storeUrl = keepsake.meshUrl || KEEPSAKE_STORE_URL;
+  const modalGet = $("ksGet");
+  if (modalGet) modalGet.href = storeUrl;
   const keepsakeTitle = lang === "en" && keepsake.titleEn ? keepsake.titleEn : keepsake.title;
   const storyText = lang === "en" && keepsake.storyEn ? keepsake.storyEn : keepsake.story;
   $("ksTitle").textContent = keepsakeTitle;
