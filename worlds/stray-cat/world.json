@@ -2374,8 +2374,8 @@
     },
     {
       "id": "clinic",
-      "title": "柜台上的白猫",
-      "description": "你对人从不躲、不炸毛，白房子的人早就认得你；你也没有病倒过。小孩哭的时候，你会坐到他们旁边。",
+      "title": "白房子里的白猫",
+      "description": "你对人从不躲、不炸毛，白房子的人早就认得你；你也没有病倒过。小孩哭的时候，你会从篮子里出来，坐到他们旁边。",
       "all": [
         {
           "state": "health",
@@ -2479,8 +2479,8 @@
     {
       "id": "figurine-clinic-helper",
       "endingId": "clinic",
-      "title": "柜台边的小值班",
-      "story": "小孩哭的时候，柜台上坐着一只白猫陪着他们。",
+      "title": "篮子里的白猫",
+      "story": "小孩哭的时候，篮子里的白猫会坐起来看着他们。",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
       "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
