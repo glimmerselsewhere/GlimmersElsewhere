@@ -394,3 +394,16 @@ body.is-playing .app-shell { height: var(--app-vh, 100dvh); min-height: 0; overf
 /* talent badges in life summary */
 .talent-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .talent-badges span { padding: 4px 10px; border-radius: 8px; background: rgba(245,217,138,.2); color: #e0b96b; font-size: 10px; font-weight: 700; }
+
+/* ---------- 大字版：点 A＋ 放大，点 A－ 缩小 ---------- */
+body.text-boost .scene-copy h2 { font-size: 28px; line-height: 1.3; }
+body.text-boost .scene-description { font-size: 17px; line-height: 1.7; }
+body.text-boost .choice-button strong { font-size: 18px; }
+body.text-boost .choice-button small { font-size: 14px; }
+body.text-boost .outcome-panel > p { font-size: 17px; line-height: 1.7; }
+body.text-boost .ending-card > p { font-size: 16px; line-height: 1.7; }
+body.text-boost[data-world-id="stray-cat"] .scene-copy h2 { font-size: 26px; }
+body.text-boost[data-world-id="stray-cat"] .scene-description { font-size: 16px; }
+body.text-boost[data-world-id="stray-cat"] .choice-button strong { font-size: 17px; }
+body.text-boost[data-world-id="stray-cat"] .choice-button small { font-size: 13px; }
+body.text-boost[data-world-id="stray-cat"] .outcome-panel > p { font-size: 16px; }

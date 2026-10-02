@@ -10,6 +10,7 @@
     "tail": 4,
     "sample": 23
   },
+  "shuffleActions": false,
   "music": "assets/audio/soft-paws-roam.mp3",
   "musicVolume": 0.12,
   "assetBase": "worlds/stray-cat/",

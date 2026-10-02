@@ -106,6 +106,25 @@ function maybeShuffleActions(actions) {
   return shuffled;
 }
 
+const TEXT_BOOST_KEY = "glimmers-text-boost";
+
+function applyTextBoost() {
+  const on = localStorage.getItem(TEXT_BOOST_KEY) === "1";
+  document.body.classList.toggle("text-boost", on);
+  const button = document.getElementById("textToggle");
+  if (button) {
+    button.textContent = on ? "A－" : "A＋";
+    button.setAttribute("aria-label", lang === "en" ? (on ? "Shrink text" : "Enlarge text") : (on ? "缩小文字" : "放大文字"));
+    button.title = button.getAttribute("aria-label");
+  }
+}
+
+function toggleTextBoost() {
+  const on = localStorage.getItem(TEXT_BOOST_KEY) === "1";
+  localStorage.setItem(TEXT_BOOST_KEY, on ? "0" : "1");
+  applyTextBoost();
+}
+
 function updateSoundButtons() {
   [$('catalogSound'), $('soundToggle')].forEach(button => {
     button.setAttribute("aria-label", t("soundLabel"));
@@ -1976,6 +1995,8 @@ async function bootDirectWorld(nextLang, worldId) {
   document.querySelectorAll("[data-ks-close]").forEach(el => el.addEventListener("click", closeKeepsake));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeKeepsake(); });
   $("soundToggle").addEventListener("click", toggleSound);
+  $("textToggle")?.addEventListener("click", toggleTextBoost);
+  applyTextBoost();
   document.querySelectorAll(".lang-button").forEach(button => button.addEventListener("click", async () => {
     setLang(lang === "en" ? "zh" : "en");
     await loadPlatformText();
@@ -2012,6 +2033,8 @@ async function bootPlayer(nextLang) {
   });
   $("catalogSound").addEventListener("click", toggleSound);
   $("soundToggle").addEventListener("click", toggleSound);
+  $("textToggle")?.addEventListener("click", toggleTextBoost);
+  applyTextBoost();
   document.querySelectorAll(".lang-button").forEach(button => button.addEventListener("click", async () => {
     setLang(lang === "en" ? "zh" : "en");
     const configPath = selectedWorldEntry?.config;
