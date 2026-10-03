@@ -2057,8 +2057,666 @@
       }
     },
     {
+      "id": "rival-cat",
+      "title": "石板上来了大猫",
+      "description": "你常睡的暖石板被一只胖狸花占了。它把尾巴搭在边上，看着你。",
+      "image": "assets/images/scenes/rival-cat.webp",
+      "enemy": {
+        "id": "fat-tabby",
+        "name": "胖狸花",
+        "strength": 6,
+        "agility": 5,
+        "kind": "rival cat"
+      },
+      "actions": [
+        {
+          "id": "fight",
+          "name": "拱起背",
+          "hint": "争回这块石板",
+          "icon": "A"
+        },
+        {
+          "id": "wait",
+          "name": "蹲在旁边等",
+          "hint": "等它自己走",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "换一块背风的墙根",
+          "hint": "不惹这只大猫",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "你先拱背，它先眨眼。狸花跳下石板，走得很慢。",
+              "stateChanges": {
+                "friendliness": -1,
+                "fights": 1
+              },
+              "image": "assets/images/outcomes/rival-cat-fight-success.webp"
+            },
+            "failure": {
+              "text": "它一巴掌把你按在地上。你的耳朵烫了很久。",
+              "stateChanges": {
+                "health": -2,
+                "friendliness": -1
+              },
+              "image": "assets/images/outcomes/rival-cat-fight-failure.webp"
+            }
+          }
+        },
+        "wait": {
+          "text": "它睡到太阳偏了才走。石板上还留着一点暖。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/rival-cat-wait.webp"
+        },
+        "leave": {
+          "text": "新的墙根背风，只是晒不到太阳。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/rival-cat-leave.webp"
+        }
+      },
+      "chapter": "Q32 · 62-64个月"
+    },
+    {
+      "id": "weasel",
+      "title": "墙根边的长尾巴",
+      "description": "夜里，一条细长的影子从墙洞钻出来，嘴里叼着半条鱼。它看见了你，没有松口。",
+      "image": "assets/images/scenes/weasel.webp",
+      "enemy": {
+        "id": "weasel",
+        "name": "黄鼠狼",
+        "strength": 5,
+        "agility": 8,
+        "kind": "weasel"
+      },
+      "actions": [
+        {
+          "id": "fight",
+          "name": "扑上去",
+          "hint": "把鱼抢回来",
+          "icon": "A"
+        },
+        {
+          "id": "hiss",
+          "name": "呲牙吓它",
+          "hint": "看看谁先让",
+          "icon": "B"
+        },
+        {
+          "id": "pass",
+          "name": "贴墙让开",
+          "hint": "今晚不打架",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "它丢下鱼，缩回洞里。你比它大，道理就这么简单。",
+              "stateChanges": {
+                "friendliness": -1,
+                "fights": 1,
+                "fish": 1
+              },
+              "image": "assets/images/outcomes/weasel-fight-success.webp"
+            },
+            "failure": {
+              "text": "它咬了你一口，翻上墙头。那半条鱼是它的了。",
+              "stateChanges": {
+                "health": -2,
+                "friendliness": -1
+              },
+              "image": "assets/images/outcomes/weasel-fight-failure.webp"
+            }
+          }
+        },
+        "hiss": {
+          "text": "你们对视了很久。它叼紧鱼，贴着另一面墙走了。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/weasel-hiss.webp"
+        },
+        "pass": {
+          "text": "你的胡子擦过它的尾巴。谁都没有停。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/weasel-pass.webp"
+        }
+      },
+      "chapter": "Q33 · 64-66个月"
+    },
+    {
+      "id": "drain-rat",
+      "title": "管子口的大老鼠",
+      "description": "墙角的管子口边晾着一小堆鱼头。一只比巴掌还大的老鼠守在旁边，胡子先动了。",
+      "image": "assets/images/scenes/drain-rat.webp",
+      "enemy": {
+        "id": "big-rat",
+        "name": "大老鼠",
+        "strength": 4,
+        "agility": 6,
+        "kind": "rat"
+      },
+      "actions": [
+        {
+          "id": "fight",
+          "name": "扑过去",
+          "hint": "把它赶回管子里",
+          "icon": "A"
+        },
+        {
+          "id": "snatch",
+          "name": "叼一块就跑",
+          "hint": "快进快出",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "转身走开",
+          "hint": "不值当",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "你按住它的尾巴，它尖叫着钻回管子。鱼头归你了。",
+              "stateChanges": {
+                "friendliness": -1,
+                "fights": 1,
+                "fish": 1
+              },
+              "image": "assets/images/outcomes/drain-rat-fight-success.webp"
+            },
+            "failure": {
+              "text": "它一口咬住你的爪子。你甩开它时，撞翻了整堆鱼头。",
+              "stateChanges": {
+                "health": -2,
+                "friendliness": -1
+              },
+              "image": "assets/images/outcomes/drain-rat-fight-failure.webp"
+            }
+          }
+        },
+        "snatch": {
+          "text": "你叼起一块就跳开。它在后面叫了两声，没有追。",
+          "stateChanges": {
+            "fish": 1
+          },
+          "image": "assets/images/outcomes/drain-rat-snatch.webp"
+        },
+        "leave": {
+          "text": "鱼头的味道跟着你走了半条街，然后散了。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/drain-rat-leave.webp"
+        }
+      },
+      "chapter": "Q34 · 66-68个月"
+    },
+    {
+      "id": "food-bowl",
+      "title": "门口那碗小圆粒",
+      "description": "一户人的门口放着一只浅碗，里面是闻起来像粮食和鱼的小圆粒。",
+      "image": "assets/images/scenes/food-bowl.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "吃几口",
+          "hint": "今天不饿肚子",
+          "icon": "A"
+        },
+        {
+          "id": "wait",
+          "name": "坐在旁边等",
+          "hint": "看是谁放的",
+          "icon": "B"
+        },
+        {
+          "id": "sniff",
+          "name": "闻一闻就走",
+          "hint": "不碰没见过的",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "小圆粒是脆的，你吃到一半就想喝水。",
+          "stateChanges": {
+            "health": 2
+          },
+          "image": "assets/images/outcomes/food-bowl-eat.webp"
+        },
+        "wait": {
+          "text": "一个拎袋子的人走过来添了满碗，没有赶你。",
+          "stateChanges": {
+            "friendliness": 1
+          },
+          "image": "assets/images/outcomes/food-bowl-wait.webp"
+        },
+        "sniff": {
+          "text": "气味很整齐，不像巷子里捡来的东西。你还是走开了。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/food-bowl-sniff.webp"
+        }
+      },
+      "chapter": "Q35 · 68-70个月"
+    },
+    {
+      "id": "roof-drip",
+      "title": "屋檐还滴着水",
+      "description": "雨停了，水珠一颗一颗从屋檐上落下来，正好砸在墙根的石头上。",
+      "image": "assets/images/scenes/roof-drip.webp",
+      "actions": [
+        {
+          "id": "drink",
+          "name": "接住喝",
+          "hint": "水是干净的",
+          "icon": "A"
+        },
+        {
+          "id": "shake",
+          "name": "甩掉一身潮气",
+          "hint": "让毛蓬回来",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "继续走路",
+          "hint": "今晚还有地方要去",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drink": {
+          "text": "水一口一口地落。你把舌头凑上去，喝了个半饱。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/roof-drip-drink.webp"
+        },
+        "shake": {
+          "text": "水珠从你身上飞出去，在暮色里亮了一下。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/roof-drip-shake.webp"
+        },
+        "leave": {
+          "text": "石板越滴越亮，你走的时候没有回头。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/roof-drip-leave.webp"
+        }
+      },
+      "chapter": "Q36 · 70-72个月"
+    },
+    {
+      "id": "fur-care",
+      "title": "太阳底下的那身毛",
+      "description": "墙根有一小块没有风的太阳。你身上的毛打了几个结。",
+      "image": "assets/images/scenes/fur-care.webp",
+      "actions": [
+        {
+          "id": "groom",
+          "name": "把结一个一个舔开",
+          "hint": "慢一点",
+          "icon": "A"
+        },
+        {
+          "id": "scratch",
+          "name": "挠两下就算了",
+          "hint": "差不多就行",
+          "icon": "B"
+        },
+        {
+          "id": "nap",
+          "name": "先晒着睡一觉",
+          "hint": "毛明天再说",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "groom": {
+          "text": "结开以后，白毛重新蓬起来。路过的脚步慢了半拍。",
+          "stateChanges": {
+            "charm": 1
+          },
+          "image": "assets/images/outcomes/fur-care-groom.webp"
+        },
+        "scratch": {
+          "text": "两个结变成了三个。你假装没看见。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/fur-care-scratch.webp"
+        },
+        "nap": {
+          "text": "太阳把背烘得暖烘烘，你睡到影子爬上了墙。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/fur-care-nap.webp"
+        }
+      },
+      "chapter": "Q37 · 72-74个月"
+    },
+    {
+      "id": "fish-bones",
+      "title": "破袋子里的鱼骨头",
+      "description": "墙角的破袋子漏出鱼味。骨头上还挂着没剔干净的一点肉。",
+      "image": "assets/images/scenes/fish-bones.webp",
+      "actions": [
+        {
+          "id": "lick",
+          "name": "一点一点地舔",
+          "hint": "别咬到骨头",
+          "icon": "A"
+        },
+        {
+          "id": "tear",
+          "name": "咬开袋子翻一翻",
+          "hint": "说不定下面还有",
+          "icon": "B"
+        },
+        {
+          "id": "pass",
+          "name": "绕开",
+          "hint": "闻着像扎嘴的东西",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "lick": {
+          "text": "你小心地舔下那点肉，喉咙里干净地咽了下去。",
+          "stateChanges": {
+            "fish": 1
+          },
+          "image": "assets/images/outcomes/fish-bones-lick.webp"
+        },
+        "tear": {
+          "text": "碎骨头扎在你嘴里，你甩了半天的头。",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/fish-bones-tear.webp"
+        },
+        "pass": {
+          "text": "袋子就放在那里，谁想吃谁去。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/fish-bones-pass.webp"
+        }
+      },
+      "chapter": "Q38 · 74-76个月"
+    },
+    {
+      "id": "pond",
+      "title": "水里橙红的影子",
+      "description": "池塘的水很浅，一群橙红色的影子贴着水面打转。",
+      "image": "assets/images/scenes/pond.webp",
+      "actions": [
+        {
+          "id": "paw",
+          "name": "伸爪去捞",
+          "hint": "快一点，再快一点",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "蹲在岸边看",
+          "hint": "今天只看",
+          "icon": "B"
+        },
+        {
+          "id": "walk",
+          "name": "沿着水边走",
+          "hint": "水里的事不掺和",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "paw": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 7
+              },
+              "text": "你的爪子比水花还快。一条影子被你拍上了岸。",
+              "stateChanges": {
+                "fish": 2
+              },
+              "image": "assets/images/outcomes/pond-paw-success.webp"
+            },
+            {
+              "text": "水花溅了你一脸。影子散开，又在一圈外聚回来。",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/pond-paw-failure.webp"
+            }
+          ]
+        },
+        "watch": {
+          "text": "你看着它们转了一圈又一圈，直到太阳把水面照成一片金。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/pond-watch.webp"
+        },
+        "walk": {
+          "text": "水边的风比巷子里凉。你慢慢走完了整条岸。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/pond-walk.webp"
+        }
+      },
+      "chapter": "Q39 · 76-78个月"
+    },
+    {
+      "id": "sticky-gum",
+      "title": "地上那块黏黏的",
+      "description": "地上有一小块圆圆的、黏黏的东西，在太阳下发亮。",
+      "image": "assets/images/scenes/sticky-gum.webp",
+      "actions": [
+        {
+          "id": "step",
+          "name": "踩上去",
+          "hint": "看起来挺好玩",
+          "icon": "A"
+        },
+        {
+          "id": "poke",
+          "name": "用爪子拨一拨",
+          "hint": "隔着点距离",
+          "icon": "B"
+        },
+        {
+          "id": "around",
+          "name": "绕开",
+          "hint": "没必要碰",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "step": {
+          "text": "黏东西全沾在爪垫和毛上。你舔了一路，越舔越黏。",
+          "stateChanges": {
+            "charm": -1
+          },
+          "image": "assets/images/outcomes/sticky-gum-step.webp"
+        },
+        "poke": {
+          "text": "它粘住了你一只爪子。你甩了七下才甩掉。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/sticky-gum-poke.webp"
+        },
+        "around": {
+          "text": "你从它旁边绕过去。它还在那里发亮，像什么事都没有。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/sticky-gum-around.webp"
+        }
+      },
+      "chapter": "Q40 · 78-80个月"
+    },
+    {
+      "id": "eave-corner",
+      "title": "屋檐下已经有猫了",
+      "description": "雨又下起来，屋檐下只剩一小块干地方。一只黄眼睛的黑猫已经趴在那里。",
+      "image": "assets/images/scenes/eave-corner.webp",
+      "actions": [
+        {
+          "id": "share",
+          "name": "贴着它趴下",
+          "hint": "挤一挤就够",
+          "icon": "A"
+        },
+        {
+          "id": "stare",
+          "name": "盯着它看",
+          "hint": "等它让位",
+          "icon": "B"
+        },
+        {
+          "id": "go",
+          "name": "转身走进雨里",
+          "hint": "换个地方",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "share": {
+          "text": "它没有动。雨声把两只猫盖在同一块干地方。",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/eave-corner-share.webp"
+        },
+        "stare": {
+          "text": "它看了回来，然后把尾巴卷紧了一点。位置没有变大。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/eave-corner-stare.webp"
+        },
+        "go": {
+          "text": "雨点打在你背上，你走得像平时一样快。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/eave-corner-go.webp"
+        }
+      },
+      "chapter": "Q41 · 80-82个月"
+    },
+    {
+      "id": "wall-drill",
+      "title": "老橘走的窄墙",
+      "description": "老橘沿着一道窄墙走了一趟，跳下来，回头看你。",
+      "image": "assets/images/scenes/wall-drill.webp",
+      "enemy": {
+        "id": "old-orange",
+        "name": "老橘",
+        "strength": 7,
+        "agility": 8,
+        "kind": "mentor cat"
+      },
+      "actions": [
+        {
+          "id": "drill",
+          "name": "跟着走三个来回",
+          "hint": "走到步子稳为止",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "看它走两趟",
+          "hint": "先看懂再试",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "看一会儿就走",
+          "hint": "今天不练",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drill": {
+          "text": "第三个来回，你的爪子落下去没有声音。老橘没有再回头。",
+          "stateChanges": {
+            "agility": 3
+          },
+          "image": "assets/images/outcomes/wall-drill-drill.webp"
+        },
+        "watch": {
+          "text": "你把它落脚的地方一个一个记住了。",
+          "stateChanges": {
+            "agility": 2
+          },
+          "image": "assets/images/outcomes/wall-drill-watch.webp"
+        },
+        "leave": {
+          "text": "窄墙在你眼里越走越细。你转身去了别处。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/wall-drill-leave.webp"
+        }
+      },
+      "chapter": "Q42 · 82-84个月"
+    },
+    {
+      "id": "firecrackers",
+      "title": "噼里啪啦的巷口",
+      "description": "红色的碎屑铺了半条巷子，响声一阵接一阵，停不下来。",
+      "image": "assets/images/scenes/firecrackers.webp",
+      "actions": [
+        {
+          "id": "hide",
+          "name": "缩进墙缝",
+          "hint": "等它响完",
+          "icon": "A"
+        },
+        {
+          "id": "dash",
+          "name": "一口气穿过去",
+          "hint": "不敢停",
+          "icon": "B"
+        },
+        {
+          "id": "watch",
+          "name": "退远一点看",
+          "hint": "今晚绕路",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "hide": {
+          "text": "墙缝正好是一只猫的宽度。响声在缝口外面来来去去。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/firecrackers-hide.webp"
+        },
+        "dash": {
+          "text": "你贴着地冲过去，一步踩进红屑里，又被下一声炸回了墙边。",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/firecrackers-dash.webp"
+        },
+        "watch": {
+          "text": "你隔着半个街口看红屑往下落。声音传到这里，已经钝了。",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/firecrackers-watch.webp"
+        }
+      },
+      "chapter": "Q43 · 84-86个月"
+    },
+    {
       "id": "cat-eater",
-      "chapter": "Q32 · 62-64个月",
+      "chapter": "Q44 · 86-88个月",
       "title": "巷口的那只笼子",
       "description": "一个男人守在后巷，脚边放着一只笼子。他没有让开。",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -2158,7 +2816,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q33 · 64-66个月",
+      "chapter": "Q45 · 88-90个月",
       "title": "勒在脖子上的东西",
       "description": "一根细细的东西缠在脖子上。你越挣扎，它勒得越紧。",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -2206,7 +2864,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q34 · 66-68个月",
+      "chapter": "Q46 · 90-92个月",
       "title": "夜里开门的人",
       "description": "一个女人把门开了一条缝，灯光落在你的爪子前。你闻不出屋子里面是什么味道。",
       "image": "assets/images/scenes/door.webp",
@@ -2266,7 +2924,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q35 · 68-70个月",
+      "chapter": "Q47 · 92-94个月",
       "title": "夜里挡路的人",
       "description": "他站在巷口，手里拎着一个袋子。他没有让开，也没有说话。",
       "image": "assets/images/scenes/black-glove.webp",
