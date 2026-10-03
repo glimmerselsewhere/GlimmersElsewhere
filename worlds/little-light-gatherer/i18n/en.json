@@ -1,0 +1,584 @@
+{
+  "id": "little-light-gatherer",
+  "title": "The Little Light Gatherer and the Grey Giant",
+  "shortTitle": "The Little Light Gatherer and the Grey Giant",
+  "subtitle": "Gathering the light, piece by piece",
+  "description": "The Grey Giant has stolen the morning, so little Man sets out with a tin box to gather the scattered light. Everything he sees is a fairy tale—until the final page gently turns.",
+  "mode": null,
+  "shuffleActions": false,
+  "assetBase": "worlds/little-light-gatherer/",
+  "cover": {
+    "default": "assets/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover.webp"
+  },
+  "initialState": {
+    "courage": 1,
+    "imagination": 5,
+    "bond": 2
+  },
+  "states": [
+    {
+      "id": "courage",
+      "label": "Courage",
+      "description": "灰巨人打喷嚏时，还敢继续往前走的程度",
+      "color": "#f4c97b",
+      "chipBackground": "#eef2f7",
+      "max": 12
+    },
+    {
+      "id": "imagination",
+      "label": "Imagination",
+      "description": "把可怕的东西变成童话的能力，想象越足，世界越亮",
+      "color": "#f08a5d",
+      "chipBackground": "#eef2f7",
+      "max": 12
+    },
+    {
+      "id": "bond",
+      "label": "Bond",
+      "description": "与骑士、引路人和沿途人们的连结有多深",
+      "color": "#a8bed4",
+      "chipBackground": "#eef2f7",
+      "max": 12
+    }
+  ],
+  "actions": [
+    {
+      "id": "courage",
+      "name": "勇气",
+      "plain": "勇气",
+      "icon": "✦"
+    },
+    {
+      "id": "imagination",
+      "name": "想象",
+      "plain": "想象",
+      "icon": "✦"
+    },
+    {
+      "id": "bond",
+      "name": "羁绊",
+      "plain": "羁绊",
+      "icon": "✦"
+    }
+  ],
+  "characters": [
+    {
+      "id": "hero",
+      "name": "小满",
+      "role": "hero",
+      "strength": 5,
+      "agility": 5
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapter": "Stage 1",
+      "title": "Paper Helmet",
+      "description": "Man holds his tin box as the iron knight takes his hand.",
+      "image": "assets/images/scenes/scene-01.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Straighten helmet",
+          "hint": "Stand taller",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Ask if he's afraid",
+          "hint": "Seek honesty",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Count the marbles",
+          "hint": "Steady yourself",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "The big helmet makes him stand straighter.",
+          "stateChanges": {
+            "courage": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-01-a1.webp"
+        },
+        "a2": {
+          "text": "The knight admits fear, but will not let go.",
+          "stateChanges": {
+            "bond": 2
+          },
+          "image": "assets/images/outcomes/scene-01-a2.webp"
+        },
+        "a3": {
+          "text": "Marbles clink like tiny stars.",
+          "stateChanges": {
+            "imagination": 1,
+            "courage": -1
+          },
+          "image": "assets/images/outcomes/scene-01-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-02",
+      "chapter": "Stage 2",
+      "title": "The Giant Sneezes",
+      "description": "A far boom becomes the giant's sneeze and festival sparks.",
+      "image": "assets/images/scenes/scene-02.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Hold the knight's hand",
+          "hint": "Keep walking",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Name the giant",
+          "hint": "Naming softens fear",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Cover his ears",
+          "hint": "Wait it out",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "His hand sweats, but his feet keep going.",
+          "stateChanges": {
+            "courage": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-02-a1.webp"
+        },
+        "a2": {
+          "text": "Named Grey, the boom seems less fierce.",
+          "stateChanges": {
+            "imagination": 2
+          },
+          "image": "assets/images/outcomes/scene-02-a2.webp"
+        },
+        "a3": {
+          "text": "The knight waits beside him without rushing.",
+          "stateChanges": {
+            "courage": -1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-02-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-03",
+      "chapter": "Stage 3",
+      "title": "Sleeping Castle",
+      "description": "The tower-less castle seems deep under a sleeping spell.",
+      "image": "assets/images/scenes/scene-03.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Whisper good morning",
+          "hint": "Greet softly",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Pick up a light",
+          "hint": "Into the box",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Avoid the steps",
+          "hint": "Take the safe path",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "A lifted curtain answers like a nod.",
+          "stateChanges": {
+            "imagination": 2
+          },
+          "image": "assets/images/outcomes/scene-03-a1.webp"
+        },
+        "a2": {
+          "text": "A bright pebble becomes the first light.",
+          "stateChanges": {
+            "courage": 1,
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-03-a2.webp"
+        },
+        "a3": {
+          "text": "The knight walks outside him like a moving wall.",
+          "stateChanges": {
+            "bond": 1,
+            "courage": -1
+          },
+          "image": "assets/images/outcomes/scene-03-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-04",
+      "chapter": "Stage 4",
+      "title": "Night Bird",
+      "description": "A long call overhead is the night bird guarding dreams.",
+      "image": "assets/images/scenes/scene-04.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Wave to the bird",
+          "hint": "It keeps watch",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Hide under the cloak",
+          "hint": "Hiding is allowed",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Listen to his tune",
+          "hint": "The song is nearer",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "He waves, sure the bird has seen him.",
+          "stateChanges": {
+            "imagination": 1,
+            "courage": 1
+          },
+          "image": "assets/images/outcomes/scene-04-a1.webp"
+        },
+        "a2": {
+          "text": "Under the cloak he waits until the call fades.",
+          "stateChanges": {
+            "courage": -1
+          },
+          "image": "assets/images/outcomes/scene-04-a2.webp"
+        },
+        "a3": {
+          "text": "He leans on the armor and matches the song.",
+          "stateChanges": {
+            "bond": 2
+          },
+          "image": "assets/images/outcomes/scene-04-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-05",
+      "chapter": "Stage 5",
+      "title": "The Dragon's Home",
+      "description": "A warm crowded cave must be a dragon's borrowed home.",
+      "image": "assets/images/scenes/scene-05.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Share a marble",
+          "hint": "Light can be shared",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Thank the dragon",
+          "hint": "Thank the host",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Hide behind the knight",
+          "hint": "Someone shields him",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "A candy wrapper trades places with a marble.",
+          "stateChanges": {
+            "bond": 2
+          },
+          "image": "assets/images/outcomes/scene-05-a1.webp"
+        },
+        "a2": {
+          "text": "His bow earns a smile and a warmer seat.",
+          "stateChanges": {
+            "imagination": 2,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-05-a2.webp"
+        },
+        "a3": {
+          "text": "No one rushes him while the knight stands in front.",
+          "stateChanges": {
+            "courage": -1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-05-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-06",
+      "chapter": "Stage 6",
+      "title": "Lantern Guide",
+      "description": "A small lantern makes the next step perfectly clear.",
+      "image": "assets/images/scenes/scene-06.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Follow the lamp",
+          "hint": "The lamp knows",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Ask where light comes from",
+          "hint": "Light is borrowed",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Look into the box",
+          "hint": "He glows too",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "He counts steps as the tin box softly answers.",
+          "stateChanges": {
+            "courage": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-06-a1.webp"
+        },
+        "a2": {
+          "text": "Borrowed light, the guide says, can be shared.",
+          "stateChanges": {
+            "imagination": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-06-a2.webp"
+        },
+        "a3": {
+          "text": "With light in the box, he feels like a small lamp.",
+          "stateChanges": {
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-06-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-07",
+      "chapter": "Stage 7",
+      "title": "Pieces Along the Way",
+      "description": "People press marbles, wrappers, a candle, and a photo into his hand.",
+      "image": "assets/images/scenes/scene-07.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Thank each person",
+          "hint": "Thanks are light",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Tell a warm story",
+          "hint": "Share the tale",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Clutch the tin box",
+          "hint": "Keep every piece",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "Each thank-you warms the pieces, and the knight's eyes.",
+          "stateChanges": {
+            "bond": 2,
+            "courage": 1
+          },
+          "image": "assets/images/outcomes/scene-07-a1.webp"
+        },
+        "a2": {
+          "text": "They do not laugh; they only nod at his story.",
+          "stateChanges": {
+            "imagination": 2
+          },
+          "image": "assets/images/outcomes/scene-07-a2.webp"
+        },
+        "a3": {
+          "text": "The box grows heavy, but he never lifts the lid.",
+          "stateChanges": {
+            "courage": 1,
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-07-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-08",
+      "chapter": "Stage 8",
+      "title": "The Door Before Dawn",
+      "description": "A far door is almost bright: the station where the sun dozes.",
+      "image": "assets/images/scenes/scene-08.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "Walk toward the door",
+          "hint": "Meet the morning",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "Look back at the kingdom",
+          "hint": "One last look",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "Hold the box to his chest",
+          "hint": "Light against his heart",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "The sky pales; the knight's hand still holds his.",
+          "stateChanges": {
+            "courage": 2,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-08-a1.webp"
+        },
+        "a2": {
+          "text": "The kingdom stays grey, but their shadows warm.",
+          "stateChanges": {
+            "imagination": 1,
+            "courage": 1
+          },
+          "image": "assets/images/outcomes/scene-08-a2.webp"
+        },
+        "a3": {
+          "text": "A thin glow leaks, as if someone waits beyond the door.",
+          "stateChanges": {
+            "bond": 1,
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-08-a3.webp"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-dawn",
+      "title": "Dawn Station",
+      "description": "The knight was a tired young rescuer, the giant the city's war. Adults played along to see him through the night. His mother opens her arms at dawn station.",
+      "all": [
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 6
+        },
+        {
+          "state": "bond",
+          "operator": ">=",
+          "value": 6
+        }
+      ],
+      "image": "assets/images/endings/ending-dawn.webp"
+    },
+    {
+      "id": "ending-story",
+      "title": "The Story Closes",
+      "description": "The sun was never stolen. War held the city, and a rescuer led Man through it. Kindness kept the tale alive. His mother waits quietly at dawn station.",
+      "all": [
+        {
+          "state": "imagination",
+          "operator": ">=",
+          "value": 10
+        }
+      ],
+      "image": "assets/images/endings/ending-story.webp"
+    },
+    {
+      "id": "ending-ordinary",
+      "title": "Warm in the Palm",
+      "description": "The night ends. Not a knight, but a weary young man guided him. The ruins hold no monster, only a protected road. His mother waits at the evacuation dawn station.",
+      "all": [],
+      "image": "assets/images/endings/ending-ordinary.webp"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "figurine-dawn-station-embrace",
+      "endingId": "ending-dawn",
+      "title": "Dawn Holds Him",
+      "story": "Man stands on the round base with his tin box, cloak pooling, as dawn seems to hold him.",
+      "glb": "assets/models/figurine-dawn-station-embrace.glb",
+      "preview": "assets/models/figurine-dawn-station-embrace-source.webp",
+      "shareImage": "worlds/little-light-gatherer/assets/models/figurine-dawn-station-embrace-source.webp"
+    },
+    {
+      "id": "figurine-story-gently-closes",
+      "endingId": "ending-story",
+      "title": "Tale Closes Soft",
+      "story": "Still in his paper helm and cloak, Man leans on a book from the base and softly closes the tale.",
+      "glb": "assets/models/figurine-story-gently-closes.glb",
+      "preview": "assets/models/figurine-story-gently-closes-source.webp",
+      "shareImage": "worlds/little-light-gatherer/assets/models/figurine-story-gently-closes-source.webp"
+    },
+    {
+      "id": "figurine-warm-palm-wrapper",
+      "endingId": "ending-ordinary",
+      "title": "Palm Still Warm",
+      "story": "Man stands on the little round base, palm open, candy wrapper and marbles joined in a warm knot.",
+      "glb": "assets/models/figurine-warm-palm-wrapper.glb",
+      "preview": "assets/models/figurine-warm-palm-wrapper-source.webp",
+      "shareImage": "worlds/little-light-gatherer/assets/models/figurine-warm-palm-wrapper-source.webp"
+    }
+  ],
+  "catalog": {
+    "eyebrow": "新的异境微光已经苏醒",
+    "cardDescription": "灰巨人偷走了早晨，小满背着铁皮盒出发，要把散落在王国里的光一片片捡回来。他看见的一切都是童话——直到最后一页被轻轻翻开。",
+    "cardIcon": "✦",
+    "cardGradient": [
+      "#f4c97b",
+      "#f08a5d",
+      "#a8bed4"
+    ],
+    "cardAccent": "#fff3d6",
+    "actionSummary": "Courage · Imagination · Bond"
+  },
+  "ui": {
+    "backToCatalog": "← Worlds",
+    "introButton": "Begin the adventure",
+    "continueButton": "Continue",
+    "finalContinueButton": "See the ending",
+    "replayButton": "Adventure again",
+    "hideBackToCatalog": true
+  }
+}

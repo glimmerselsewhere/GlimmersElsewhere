@@ -1,0 +1,706 @@
+{
+  "id": "little-light-gatherer",
+  "title": "小小拾光者与灰巨人",
+  "titleEn": "The Little Light Gatherer and the Grey Giant",
+  "shortTitle": "小小拾光者与灰巨人",
+  "shortTitleEn": "The Little Light Gatherer and the Grey Giant",
+  "subtitle": "把光一片一片捡回来",
+  "subtitleEn": "Gathering the light, piece by piece",
+  "description": "灰巨人偷走了早晨，小满背着铁皮盒出发，要把散落在王国里的光一片片捡回来。他看见的一切都是童话——直到最后一页被轻轻翻开。",
+  "descriptionEn": "The Grey Giant has stolen the morning, so little Man sets out with a tin box to gather the scattered light. Everything he sees is a fairy tale—until the final page gently turns.",
+  "mode": null,
+  "shuffleActions": false,
+  "assetBase": "worlds/little-light-gatherer/",
+  "cover": {
+    "default": "assets/cover.webp"
+  },
+  "opening": {
+    "mode": "image",
+    "image": "assets/cover.webp"
+  },
+  "initialState": {
+    "courage": 1,
+    "imagination": 5,
+    "bond": 2
+  },
+  "states": [
+    {
+      "id": "courage",
+      "label": "勇气",
+      "labelEn": "Courage",
+      "description": "灰巨人打喷嚏时，还敢继续往前走的程度",
+      "color": "#f4c97b",
+      "chipBackground": "#eef2f7",
+      "max": 12
+    },
+    {
+      "id": "imagination",
+      "label": "想象",
+      "labelEn": "Imagination",
+      "description": "把可怕的东西变成童话的能力，想象越足，世界越亮",
+      "color": "#f08a5d",
+      "chipBackground": "#eef2f7",
+      "max": 12
+    },
+    {
+      "id": "bond",
+      "label": "羁绊",
+      "labelEn": "Bond",
+      "description": "与骑士、引路人和沿途人们的连结有多深",
+      "color": "#a8bed4",
+      "chipBackground": "#eef2f7",
+      "max": 12
+    }
+  ],
+  "actions": [
+    {
+      "id": "courage",
+      "name": "勇气",
+      "plain": "勇气",
+      "icon": "✦"
+    },
+    {
+      "id": "imagination",
+      "name": "想象",
+      "plain": "想象",
+      "icon": "✦"
+    },
+    {
+      "id": "bond",
+      "name": "羁绊",
+      "plain": "羁绊",
+      "icon": "✦"
+    }
+  ],
+  "characters": [
+    {
+      "id": "hero",
+      "name": "小满",
+      "nameEn": "小满",
+      "role": "hero",
+      "strength": 5,
+      "agility": 5
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapter": "第 1 关",
+      "chapterEn": "Stage 1",
+      "title": "纸箱头盔",
+      "titleEn": "Paper Helmet",
+      "description": "小满披着旧窗帘，抱紧铁皮盒。铁甲骑士牵起他的手，王国还在睡。",
+      "descriptionEn": "Man holds his tin box as the iron knight takes his hand.",
+      "image": "assets/images/scenes/scene-01.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "把头盔戴正",
+          "nameEn": "Straighten helmet",
+          "hint": "戴正就勇敢",
+          "hintEn": "Stand taller",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "问问骑士怕不怕",
+          "nameEn": "Ask if he's afraid",
+          "hint": "想听真话",
+          "hintEn": "Seek honesty",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "先数一数弹珠",
+          "nameEn": "Count the marbles",
+          "hint": "先安抚自己",
+          "hintEn": "Steady yourself",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "头盔有点大，他却把背挺直了。骑士轻轻扶正纸箱的边。",
+          "textEn": "The big helmet makes him stand straighter.",
+          "stateChanges": {
+            "courage": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-01-a1.webp"
+        },
+        "a2": {
+          "text": "骑士低声说，他也怕，但会一直牵着他。小满点点头。",
+          "textEn": "The knight admits fear, but will not let go.",
+          "stateChanges": {
+            "bond": 2
+          },
+          "image": "assets/images/outcomes/scene-01-a2.webp"
+        },
+        "a3": {
+          "text": "弹珠轻轻碰撞，像很小的星星。他暂时不去看远方。",
+          "textEn": "Marbles clink like tiny stars.",
+          "stateChanges": {
+            "imagination": 1,
+            "courage": -1
+          },
+          "image": "assets/images/outcomes/scene-01-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-02",
+      "chapter": "第 2 关",
+      "chapterEn": "Stage 2",
+      "title": "巨人打喷嚏",
+      "titleEn": "The Giant Sneezes",
+      "description": "远处轰地响了一声。小满说，那是灰巨人在打喷嚏，节庆的烟花也亮了。",
+      "descriptionEn": "A far boom becomes the giant's sneeze and festival sparks.",
+      "image": "assets/images/scenes/scene-02.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "捏紧骑士的手",
+          "nameEn": "Hold the knight's hand",
+          "hint": "一起往前",
+          "hintEn": "Keep walking",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "给巨人取个名",
+          "nameEn": "Name the giant",
+          "hint": "名字能消怕",
+          "hintEn": "Naming softens fear",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "蹲下捂住耳朵",
+          "nameEn": "Cover his ears",
+          "hint": "等响声过去",
+          "hintEn": "Wait it out",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "掌心都是汗，脚步却没有停。骑士把斗篷往他肩上拢了拢。",
+          "textEn": "His hand sweats, but his feet keep going.",
+          "stateChanges": {
+            "courage": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-02-a1.webp"
+        },
+        "a2": {
+          "text": "他给巨人取名灰灰。叫出名字后，巨响好像没那么凶。",
+          "textEn": "Named Grey, the boom seems less fierce.",
+          "stateChanges": {
+            "imagination": 2
+          },
+          "image": "assets/images/outcomes/scene-02-a2.webp"
+        },
+        "a3": {
+          "text": "他蹲着等巨响走远。骑士没有催，只在旁边静静陪着。",
+          "textEn": "The knight waits beside him without rushing.",
+          "stateChanges": {
+            "courage": -1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-02-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-03",
+      "chapter": "第 3 关",
+      "chapterEn": "Stage 3",
+      "title": "沉睡城堡",
+      "titleEn": "Sleeping Castle",
+      "description": "城堡缺了塔尖，窗户都闭着眼。小满觉得，这里中了很长的睡眠咒。",
+      "descriptionEn": "The tower-less castle seems deep under a sleeping spell.",
+      "image": "assets/images/scenes/scene-03.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "轻声说早安",
+          "nameEn": "Whisper good morning",
+          "hint": "礼貌唤醒",
+          "hintEn": "Greet softly",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "捡起一粒光",
+          "nameEn": "Pick up a light",
+          "hint": "收入盒中",
+          "hintEn": "Into the box",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "绕开沉睡石阶",
+          "nameEn": "Avoid the steps",
+          "hint": "走稳一点",
+          "hintEn": "Take the safe path",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "他对着闭紧的窗问好。风掀起帘角，像有人在轻轻点头。",
+          "textEn": "A lifted curtain answers like a nod.",
+          "stateChanges": {
+            "imagination": 2
+          },
+          "image": "assets/images/outcomes/scene-03-a1.webp"
+        },
+        "a2": {
+          "text": "脚边躺着一颗亮石子。他捧进铁皮盒，当作第一片光。",
+          "textEn": "A bright pebble becomes the first light.",
+          "stateChanges": {
+            "courage": 1,
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-03-a2.webp"
+        },
+        "a3": {
+          "text": "他绕开沉睡的石阶。骑士走在外侧，像一堵会移动的墙。",
+          "textEn": "The knight walks outside him like a moving wall.",
+          "stateChanges": {
+            "bond": 1,
+            "courage": -1
+          },
+          "image": "assets/images/outcomes/scene-03-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-04",
+      "chapter": "第 4 关",
+      "chapterEn": "Stage 4",
+      "title": "守夜大鸟",
+      "titleEn": "Night Bird",
+      "description": "长长的鸣声掠过头顶。小满说，守夜大鸟在提醒大家，先别把梦叫醒。",
+      "descriptionEn": "A long call overhead is the night bird guarding dreams.",
+      "image": "assets/images/scenes/scene-04.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "跟大鸟挥挥手",
+          "nameEn": "Wave to the bird",
+          "hint": "它在护夜",
+          "hintEn": "It keeps watch",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "把斗篷罩住头",
+          "nameEn": "Hide under the cloak",
+          "hint": "躲一躲也好",
+          "hintEn": "Hiding is allowed",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "听骑士哼小调",
+          "nameEn": "Listen to his tune",
+          "hint": "歌比鸣声近",
+          "hintEn": "The song is nearer",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "他朝天上用力挥手。鸣声还在，他却觉得大鸟看见他了。",
+          "textEn": "He waves, sure the bird has seen him.",
+          "stateChanges": {
+            "imagination": 1,
+            "courage": 1
+          },
+          "image": "assets/images/outcomes/scene-04-a1.webp"
+        },
+        "a2": {
+          "text": "斗篷里又暗又稳。等长鸣远去，他才悄悄露出一只眼。",
+          "textEn": "Under the cloak he waits until the call fades.",
+          "stateChanges": {
+            "courage": -1
+          },
+          "image": "assets/images/outcomes/scene-04-a2.webp"
+        },
+        "a3": {
+          "text": "骑士的歌又低又慢。小满靠着铁甲，把脚步慢慢跟上。",
+          "textEn": "He leans on the armor and matches the song.",
+          "stateChanges": {
+            "bond": 2
+          },
+          "image": "assets/images/outcomes/scene-04-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-05",
+      "chapter": "第 5 关",
+      "chapterEn": "Stage 5",
+      "title": "火龙的家",
+      "titleEn": "The Dragon's Home",
+      "description": "洞穴里挤着许多人，火光暖暖的。小满相信，是火龙把家借给了大家。",
+      "descriptionEn": "A warm crowded cave must be a dragon's borrowed home.",
+      "image": "assets/images/scenes/scene-05.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "分出一颗弹珠",
+          "nameEn": "Share a marble",
+          "hint": "光可以分",
+          "hintEn": "Light can be shared",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "给火龙道个谢",
+          "nameEn": "Thank the dragon",
+          "hint": "借住要道谢",
+          "hintEn": "Thank the host",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "躲到骑士身后",
+          "nameEn": "Hide behind the knight",
+          "hint": "有人挡着",
+          "hintEn": "Someone shields him",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "姐姐用糖纸换走一颗弹珠。两片光在盒子里轻轻碰响。",
+          "textEn": "A candy wrapper trades places with a marble.",
+          "stateChanges": {
+            "bond": 2
+          },
+          "image": "assets/images/outcomes/scene-05-a1.webp"
+        },
+        "a2": {
+          "text": "他朝最暖的角落鞠躬。有人笑了笑，默默把位置让开。",
+          "textEn": "His bow earns a smile and a warmer seat.",
+          "stateChanges": {
+            "imagination": 2,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-05-a2.webp"
+        },
+        "a3": {
+          "text": "骑士挡在他身前。洞穴很挤，却没有人催他离开。",
+          "textEn": "No one rushes him while the knight stands in front.",
+          "stateChanges": {
+            "courage": -1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-05-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-06",
+      "chapter": "第 6 关",
+      "chapterEn": "Stage 6",
+      "title": "提灯的人",
+      "titleEn": "Lantern Guide",
+      "description": "岔路口站着提灯的人。灯光很小，却把小满的下一步，照得清清楚楚。",
+      "descriptionEn": "A small lantern makes the next step perfectly clear.",
+      "image": "assets/images/scenes/scene-06.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "跟着灯光走",
+          "nameEn": "Follow the lamp",
+          "hint": "灯知道路",
+          "hintEn": "The lamp knows",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "问问灯从哪来",
+          "nameEn": "Ask where light comes from",
+          "hint": "光是借来的",
+          "hintEn": "Light is borrowed",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "看看自己的盒子",
+          "nameEn": "Look into the box",
+          "hint": "自己也发亮",
+          "hintEn": "He glows too",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "小灯一晃一晃向前。小满数着步子，铁皮盒轻轻应和。",
+          "textEn": "He counts steps as the tin box softly answers.",
+          "stateChanges": {
+            "courage": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-06-a1.webp"
+        },
+        "a2": {
+          "text": "引路人说，这盏灯是借来的。借来的光，也能再分出去。",
+          "textEn": "Borrowed light, the guide says, can be shared.",
+          "stateChanges": {
+            "imagination": 1,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-06-a2.webp"
+        },
+        "a3": {
+          "text": "盒子里已经有了几片光。他忽然觉得，自己也像小灯。",
+          "textEn": "With light in the box, he feels like a small lamp.",
+          "stateChanges": {
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-06-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-07",
+      "chapter": "第 7 关",
+      "chapterEn": "Stage 7",
+      "title": "沿途的碎片",
+      "titleEn": "Pieces Along the Way",
+      "description": "人们把弹珠、糖纸、小蜡烛和一张小小照片，轻轻放进他的手心。",
+      "descriptionEn": "People press marbles, wrappers, a candle, and a photo into his hand.",
+      "image": "assets/images/scenes/scene-07.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "对每个人道谢",
+          "nameEn": "Thank each person",
+          "hint": "谢意也是光",
+          "hintEn": "Thanks are light",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "编个温暖故事",
+          "nameEn": "Tell a warm story",
+          "hint": "讲给大家",
+          "hintEn": "Share the tale",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "把铁皮盒抱紧",
+          "nameEn": "Clutch the tin box",
+          "hint": "一片不漏",
+          "hintEn": "Keep every piece",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "每道一声谢谢，碎片就暖一点。骑士的眼睛也亮了亮。",
+          "textEn": "Each thank-you warms the pieces, and the knight's eyes.",
+          "stateChanges": {
+            "bond": 2,
+            "courage": 1
+          },
+          "image": "assets/images/outcomes/scene-07-a1.webp"
+        },
+        "a2": {
+          "text": "他说那是太阳的鳞片。听的人没有笑话他，只轻轻点头。",
+          "textEn": "They do not laugh; they only nod at his story.",
+          "stateChanges": {
+            "imagination": 2
+          },
+          "image": "assets/images/outcomes/scene-07-a2.webp"
+        },
+        "a3": {
+          "text": "铁皮盒变得沉甸甸。他走得慢，盖子却一次也没松开。",
+          "textEn": "The box grows heavy, but he never lifts the lid.",
+          "stateChanges": {
+            "courage": 1,
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-07-a3.webp"
+        }
+      }
+    },
+    {
+      "id": "scene-08",
+      "chapter": "第 8 关",
+      "chapterEn": "Stage 8",
+      "title": "将亮的门",
+      "titleEn": "The Door Before Dawn",
+      "description": "远方有一扇将亮未亮的门。小满轻声说，那是太阳打瞌睡的车站。",
+      "descriptionEn": "A far door is almost bright: the station where the sun dozes.",
+      "image": "assets/images/scenes/scene-08.webp",
+      "actions": [
+        {
+          "id": "a1",
+          "name": "朝那扇门走去",
+          "nameEn": "Walk toward the door",
+          "hint": "去见早晨",
+          "hintEn": "Meet the morning",
+          "icon": "A"
+        },
+        {
+          "id": "a2",
+          "name": "回头望望王国",
+          "nameEn": "Look back at the kingdom",
+          "hint": "再看一眼",
+          "hintEn": "One last look",
+          "icon": "B"
+        },
+        {
+          "id": "a3",
+          "name": "把盒子抱到胸前",
+          "nameEn": "Hold the box to his chest",
+          "hint": "光贴着心口",
+          "hintEn": "Light against his heart",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "a1": {
+          "text": "天色淡了一点。骑士走得很慢，手却一直没有松开。",
+          "textEn": "The sky pales; the knight's hand still holds his.",
+          "stateChanges": {
+            "courage": 2,
+            "bond": 1
+          },
+          "image": "assets/images/outcomes/scene-08-a1.webp"
+        },
+        "a2": {
+          "text": "王国仍是灰的。可盒子里的光，把两个人的影子染暖了。",
+          "textEn": "The kingdom stays grey, but their shadows warm.",
+          "stateChanges": {
+            "imagination": 1,
+            "courage": 1
+          },
+          "image": "assets/images/outcomes/scene-08-a2.webp"
+        },
+        "a3": {
+          "text": "盖缝里漏出细光。好像有谁，就在门的那边轻轻等着。",
+          "textEn": "A thin glow leaks, as if someone waits beyond the door.",
+          "stateChanges": {
+            "bond": 1,
+            "imagination": 1
+          },
+          "image": "assets/images/outcomes/scene-08-a3.webp"
+        }
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-dawn",
+      "title": "黎明车站",
+      "titleEn": "Dawn Station",
+      "description": "铁甲其实是疲惫的年轻救援者，灰巨人是城中的战火。大人们陪他演完童话，把他安全送过黑夜。妈妈在黎明车站张开双臂。",
+      "descriptionEn": "The knight was a tired young rescuer, the giant the city's war. Adults played along to see him through the night. His mother opens her arms at dawn station.",
+      "all": [
+        {
+          "state": "courage",
+          "operator": ">=",
+          "value": 6
+        },
+        {
+          "state": "bond",
+          "operator": ">=",
+          "value": 6
+        }
+      ],
+      "image": "assets/images/endings/ending-dawn.webp"
+    },
+    {
+      "id": "ending-story",
+      "title": "故事合上",
+      "titleEn": "The Story Closes",
+      "description": "太阳不曾被偷走。城市正在经历战火，救援者一路牵着小满。人们用善意陪他相信童话。妈妈就在黎明车站，安静地等他。",
+      "descriptionEn": "The sun was never stolen. War held the city, and a rescuer led Man through it. Kindness kept the tale alive. His mother waits quietly at dawn station.",
+      "all": [
+        {
+          "state": "imagination",
+          "operator": ">=",
+          "value": 10
+        }
+      ],
+      "image": "assets/images/endings/ending-story.webp"
+    },
+    {
+      "id": "ending-ordinary",
+      "title": "掌心还暖",
+      "titleEn": "Warm in the Palm",
+      "description": "夜走完了。护送他的不是骑士，是很累的年轻人。废墟没有怪物，只有被人护住的路。妈妈在撤离的黎明车站等他，糖纸仍暖着。",
+      "descriptionEn": "The night ends. Not a knight, but a weary young man guided him. The ruins hold no monster, only a protected road. His mother waits at the evacuation dawn station.",
+      "all": [],
+      "image": "assets/images/endings/ending-ordinary.webp"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "figurine-dawn-station-embrace",
+      "endingId": "ending-dawn",
+      "title": "黎明接住他",
+      "titleEn": "Dawn Holds Him",
+      "story": "小满抱紧铁皮盒站上圆座，旧窗帘斗篷垂落，像被黎明的双臂轻轻接住。",
+      "storyEn": "Man stands on the round base with his tin box, cloak pooling, as dawn seems to hold him.",
+      "glb": "assets/models/figurine-dawn-station-embrace.glb",
+      "preview": "assets/models/figurine-dawn-station-embrace-source.webp",
+      "shareImage": "worlds/little-light-gatherer/assets/models/figurine-dawn-station-embrace-source.webp"
+    },
+    {
+      "id": "figurine-story-gently-closes",
+      "endingId": "ending-story",
+      "title": "童话合上了",
+      "titleEn": "Tale Closes Soft",
+      "story": "小满仍戴纸盔披斗篷，靠着底座升起的大书，把亮闪闪的故事轻轻合拢。",
+      "storyEn": "Still in his paper helm and cloak, Man leans on a book from the base and softly closes the tale.",
+      "glb": "assets/models/figurine-story-gently-closes.glb",
+      "preview": "assets/models/figurine-story-gently-closes-source.webp",
+      "shareImage": "worlds/little-light-gatherer/assets/models/figurine-story-gently-closes-source.webp"
+    },
+    {
+      "id": "figurine-warm-palm-wrapper",
+      "endingId": "ending-ordinary",
+      "title": "掌心还暖着",
+      "titleEn": "Palm Still Warm",
+      "story": "小满站在小圆座上摊开手心，糖纸与玻璃弹珠连成暖暖的一小团。",
+      "storyEn": "Man stands on the little round base, palm open, candy wrapper and marbles joined in a warm knot.",
+      "glb": "assets/models/figurine-warm-palm-wrapper.glb",
+      "preview": "assets/models/figurine-warm-palm-wrapper-source.webp",
+      "shareImage": "worlds/little-light-gatherer/assets/models/figurine-warm-palm-wrapper-source.webp"
+    }
+  ],
+  "catalog": {
+    "eyebrow": "新的异境微光已经苏醒",
+    "cardDescription": "灰巨人偷走了早晨，小满背着铁皮盒出发，要把散落在王国里的光一片片捡回来。他看见的一切都是童话——直到最后一页被轻轻翻开。",
+    "cardIcon": "✦",
+    "cardGradient": [
+      "#f4c97b",
+      "#f08a5d",
+      "#a8bed4"
+    ],
+    "cardAccent": "#fff3d6",
+    "actionSummary": "勇气 · 想象 · 羁绊",
+    "actionSummaryEn": "Courage · Imagination · Bond"
+  },
+  "ui": {
+    "backToCatalog": "← 返回目录",
+    "backToCatalogEn": "← Worlds",
+    "introButton": "开始冒险",
+    "introButtonEn": "Begin the adventure",
+    "continueButton": "继续",
+    "continueButtonEn": "Continue",
+    "finalContinueButton": "看看结局",
+    "finalContinueButtonEn": "See the ending",
+    "replayButton": "再冒险一次",
+    "replayButtonEn": "Adventure again",
+    "hideBackToCatalog": true
+  }
+}
