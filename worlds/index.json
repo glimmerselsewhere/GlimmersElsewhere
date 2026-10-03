@@ -8,6 +8,14 @@
   },
   "worlds": [
     {
+      "id": "stray-cat",
+      "config": "stray-cat/world.json",
+      "status": "ready",
+      "titleEn": "Little Grey on the Street",
+      "subtitleEn": "Five years on one street",
+      "descriptionEn": "Little Grey, a dusty white cat, meets dogs, geese, people with nets, kind people, a cat meat dealer, plastic waste, wire, and an abuser on one street."
+    },
+    {
       "id": "jade-cat",
       "config": "jade-cat/world.json",
       "status": "ready",
@@ -22,14 +30,6 @@
       "titleEn": "Nine Lives Academy",
       "subtitleEn": "Magic Academy · A Cat Life Simulator",
       "descriptionEn": "A moonmoth carries an ordinary house cat into the Nine Lives Academy. Choose a profession, manage dried fish, explore dungeons and dragon hoards, and decide how close to stand to a false god hidden in an old chapel across 10 major endings."
-    },
-    {
-      "id": "stray-cat",
-      "config": "stray-cat/world.json",
-      "status": "ready",
-      "titleEn": "Little Grey on the Street",
-      "subtitleEn": "Five years on one street",
-      "descriptionEn": "Little Grey, a dusty white cat, meets dogs, geese, people with nets, kind people, a cat meat dealer, plastic waste, wire, and an abuser on one street."
     },
     {
       "id": "meow-supreme",
