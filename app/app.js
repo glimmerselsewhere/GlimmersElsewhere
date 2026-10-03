@@ -1226,9 +1226,11 @@ function renderLifeEvent() {
   const unit = content().lifespanUnit || 10;
   const ageYears = Math.round((state.age || 0) * unit);
   const lifespanYears = Math.round((state.lifespan || 0) * unit);
+  // Keep this line short: on phones the header shares width with four buttons,
+  // and long strings wrapped the back button onto two lines.
   $("sceneProgress").textContent = (lang === "en"
-    ? `${realmLabel} · Age ${ageYears}/${lifespanYears}y`
-    : `${realmLabel} · 年龄 ${ageYears}/${lifespanYears}年`) + ` · 🐟${fish}`;
+    ? `${realmLabel} · ${ageYears}/${lifespanYears}y`
+    : `${realmLabel} · ${ageYears}/${lifespanYears}年`) + ` · 🐟${fish}`;
   $("sceneTitle").textContent = event.title || event.event || "";
   $("sceneDescription").textContent = event.event || event.description || "";
   $("outcomePanel").hidden = true;
