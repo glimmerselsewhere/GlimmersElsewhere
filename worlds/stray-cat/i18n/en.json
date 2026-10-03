@@ -2057,8 +2057,666 @@
       }
     },
     {
+      "id": "rival-cat",
+      "title": "The Big Cat on the Warm Stone",
+      "description": "A fat tabby has taken the warm stone you always sleep on. Its tail hangs over the edge, and it watches you.",
+      "image": "assets/images/scenes/rival-cat.webp",
+      "enemy": {
+        "id": "fat-tabby",
+        "name": "The Fat Tabby",
+        "strength": 6,
+        "agility": 5,
+        "kind": "rival cat"
+      },
+      "actions": [
+        {
+          "id": "fight",
+          "name": "Arch your back",
+          "hint": "Take the stone back",
+          "icon": "A"
+        },
+        {
+          "id": "wait",
+          "name": "Wait beside it",
+          "hint": "Wait for it to leave",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Find another corner",
+          "hint": "Avoid the big cat",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "You arch first; it blinks first. The tabby climbs down slowly and walks off.",
+              "stateChanges": {
+                "friendliness": -1,
+                "fights": 1
+              },
+              "image": "assets/images/outcomes/rival-cat-fight-success.webp"
+            },
+            "failure": {
+              "text": "One swat pins you to the ground. Your ears stay hot for a long time.",
+              "stateChanges": {
+                "health": -2,
+                "friendliness": -1
+              },
+              "image": "assets/images/outcomes/rival-cat-fight-failure.webp"
+            }
+          }
+        },
+        "wait": {
+          "text": "It sleeps until the sun tilts, then leaves. A little warmth is still left in the stone.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/rival-cat-wait.webp"
+        },
+        "leave": {
+          "text": "The new corner blocks the wind, but the sun never reaches it.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/rival-cat-leave.webp"
+        }
+      },
+      "chapter": "Q32 · Months 62-64"
+    },
+    {
+      "id": "weasel",
+      "title": "The Long Tail by the Wall",
+      "description": "At night a slender shadow slips out of a hole in the wall with half a fish in its mouth. It sees you and does not let go.",
+      "image": "assets/images/scenes/weasel.webp",
+      "enemy": {
+        "id": "weasel",
+        "name": "The Weasel",
+        "strength": 5,
+        "agility": 8,
+        "kind": "weasel"
+      },
+      "actions": [
+        {
+          "id": "fight",
+          "name": "Pounce",
+          "hint": "Take the fish back",
+          "icon": "A"
+        },
+        {
+          "id": "hiss",
+          "name": "Hiss at it",
+          "hint": "See who backs off first",
+          "icon": "B"
+        },
+        {
+          "id": "pass",
+          "name": "Slide past along the wall",
+          "hint": "No fight tonight",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "It drops the fish and slips back into the hole. You are bigger; that is the whole argument.",
+              "stateChanges": {
+                "friendliness": -1,
+                "fights": 1,
+                "fish": 1
+              },
+              "image": "assets/images/outcomes/weasel-fight-success.webp"
+            },
+            "failure": {
+              "text": "It bites you and scrambles over the wall. The half fish is its now.",
+              "stateChanges": {
+                "health": -2,
+                "friendliness": -1
+              },
+              "image": "assets/images/outcomes/weasel-fight-failure.webp"
+            }
+          }
+        },
+        "hiss": {
+          "text": "You stare each other down. It grips the fish tighter and slips away along the other wall.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/weasel-hiss.webp"
+        },
+        "pass": {
+          "text": "Your whiskers brush its tail. Neither of you stops.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/weasel-pass.webp"
+        }
+      },
+      "chapter": "Q33 · Months 64-66"
+    },
+    {
+      "id": "drain-rat",
+      "title": "The Big Rat at the Pipe Mouth",
+      "description": "A small pile of fish heads is drying by the pipe mouth at the foot of the wall. A rat bigger than your paw guards it, whiskers twitching first.",
+      "image": "assets/images/scenes/drain-rat.webp",
+      "enemy": {
+        "id": "big-rat",
+        "name": "The Big Rat",
+        "strength": 4,
+        "agility": 6,
+        "kind": "rat"
+      },
+      "actions": [
+        {
+          "id": "fight",
+          "name": "Pounce",
+          "hint": "Chase it back into the pipe",
+          "icon": "A"
+        },
+        {
+          "id": "snatch",
+          "name": "Snatch one and run",
+          "hint": "In and out fast",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk away",
+          "hint": "Not worth it",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "fight": {
+          "compare": {
+            "stat": "strength",
+            "enemyStat": "strength",
+            "op": ">=",
+            "success": {
+              "text": "You pin its tail; it squeals and darts back into the pipe. The fish heads are yours.",
+              "stateChanges": {
+                "friendliness": -1,
+                "fights": 1,
+                "fish": 1
+              },
+              "image": "assets/images/outcomes/drain-rat-fight-success.webp"
+            },
+            "failure": {
+              "text": "It sinks its teeth into your paw. Shaking it off, you knock the whole pile over.",
+              "stateChanges": {
+                "health": -2,
+                "friendliness": -1
+              },
+              "image": "assets/images/outcomes/drain-rat-fight-failure.webp"
+            }
+          }
+        },
+        "snatch": {
+          "text": "You grab one and leap clear. It squeaks twice behind you, but does not follow.",
+          "stateChanges": {
+            "fish": 1
+          },
+          "image": "assets/images/outcomes/drain-rat-snatch.webp"
+        },
+        "leave": {
+          "text": "The smell of fish heads follows you half a street, then fades.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/drain-rat-leave.webp"
+        }
+      },
+      "chapter": "Q34 · Months 66-68"
+    },
+    {
+      "id": "food-bowl",
+      "title": "The Bowl of Little Round Pieces by the Door",
+      "description": "A shallow bowl sits by someone's door, full of little round pieces that smell of grain and fish.",
+      "image": "assets/images/scenes/food-bowl.webp",
+      "actions": [
+        {
+          "id": "eat",
+          "name": "Eat a few",
+          "hint": "Not hungry today",
+          "icon": "A"
+        },
+        {
+          "id": "wait",
+          "name": "Sit and wait",
+          "hint": "See who fills it",
+          "icon": "B"
+        },
+        {
+          "id": "sniff",
+          "name": "Sniff and leave",
+          "hint": "Not today",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "eat": {
+          "text": "The little pieces crunch, and halfway through you want water.",
+          "stateChanges": {
+            "health": 2
+          },
+          "image": "assets/images/outcomes/food-bowl-eat.webp"
+        },
+        "wait": {
+          "text": "A person with a bag comes by and fills the bowl, and does not shoo you away.",
+          "stateChanges": {
+            "friendliness": 1
+          },
+          "image": "assets/images/outcomes/food-bowl-wait.webp"
+        },
+        "sniff": {
+          "text": "The smell is neat, not like anything found in the alley. You walk on.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/food-bowl-sniff.webp"
+        }
+      },
+      "chapter": "Q35 · Months 68-70"
+    },
+    {
+      "id": "roof-drip",
+      "title": "Water Still Dripping from the Eave",
+      "description": "The rain has stopped, and drops fall one by one from the eave, landing right on the stone below.",
+      "image": "assets/images/scenes/roof-drip.webp",
+      "actions": [
+        {
+          "id": "drink",
+          "name": "Drink the drops",
+          "hint": "The water is clean",
+          "icon": "A"
+        },
+        {
+          "id": "shake",
+          "name": "Shake off the damp",
+          "hint": "Fluff up again",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Walk on",
+          "hint": "Somewhere to be",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drink": {
+          "text": "Drop by drop, you catch the water on your tongue until half full.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/roof-drip-drink.webp"
+        },
+        "shake": {
+          "text": "Drops fly off your fur and flash once in the dusk.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/roof-drip-shake.webp"
+        },
+        "leave": {
+          "text": "The stone grows brighter with every drop. You do not look back.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/roof-drip-leave.webp"
+        }
+      },
+      "chapter": "Q36 · Months 70-72"
+    },
+    {
+      "id": "fur-care",
+      "title": "The Coat in the Sun",
+      "description": "A windless patch of sun lies along the wall. A few knots have worked their way into your coat.",
+      "image": "assets/images/scenes/fur-care.webp",
+      "actions": [
+        {
+          "id": "groom",
+          "name": "Work the knots out",
+          "hint": "Slow work",
+          "icon": "A"
+        },
+        {
+          "id": "scratch",
+          "name": "Give it two scratches",
+          "hint": "Good enough",
+          "icon": "B"
+        },
+        {
+          "id": "nap",
+          "name": "Nap in the sun first",
+          "hint": "Tomorrow",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "groom": {
+          "text": "Once the knots give way, your pale fur fluffs up again. Passersby slow for half a step.",
+          "stateChanges": {
+            "charm": 1
+          },
+          "image": "assets/images/outcomes/fur-care-groom.webp"
+        },
+        "scratch": {
+          "text": "Two knots become three. You pretend not to notice.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/fur-care-scratch.webp"
+        },
+        "nap": {
+          "text": "The sun bakes your back warm, and you sleep until the shadow climbs the wall.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/fur-care-nap.webp"
+        }
+      },
+      "chapter": "Q37 · Months 72-74"
+    },
+    {
+      "id": "fish-bones",
+      "title": "Fish Bones in a Torn Bag",
+      "description": "A torn bag in the corner smells of fish. A little meat still hangs on the bones.",
+      "image": "assets/images/scenes/fish-bones.webp",
+      "actions": [
+        {
+          "id": "lick",
+          "name": "Lick carefully",
+          "hint": "Mind the bones",
+          "icon": "A"
+        },
+        {
+          "id": "tear",
+          "name": "Tear the bag open",
+          "hint": "Maybe there is more",
+          "icon": "B"
+        },
+        {
+          "id": "pass",
+          "name": "Walk past",
+          "hint": "Smells like a sore mouth",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "lick": {
+          "text": "You lick the scraps off carefully, and they go down clean.",
+          "stateChanges": {
+            "fish": 1
+          },
+          "image": "assets/images/outcomes/fish-bones-lick.webp"
+        },
+        "tear": {
+          "text": "A shard of bone catches in your mouth, and you shake your head for a long time.",
+          "stateChanges": {
+            "health": -2
+          },
+          "image": "assets/images/outcomes/fish-bones-tear.webp"
+        },
+        "pass": {
+          "text": "The bag stays where it is. Whoever wants it can have it.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/fish-bones-pass.webp"
+        }
+      },
+      "chapter": "Q38 · Months 74-76"
+    },
+    {
+      "id": "pond",
+      "title": "Orange Shadows in the Water",
+      "description": "The pond is shallow, and orange shadows circle just beneath the surface.",
+      "image": "assets/images/scenes/pond.webp",
+      "actions": [
+        {
+          "id": "paw",
+          "name": "Reach in with a paw",
+          "hint": "Faster than the splash",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "Watch from the bank",
+          "hint": "Just watching",
+          "icon": "B"
+        },
+        {
+          "id": "walk",
+          "name": "Walk on along the bank",
+          "hint": "Not your business",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "paw": {
+          "tiers": [
+            {
+              "min": {
+                "agility": 7
+              },
+              "text": "Your paw moves faster than the splash. One shadow lands on the bank.",
+              "stateChanges": {
+                "fish": 2
+              },
+              "image": "assets/images/outcomes/pond-paw-success.webp"
+            },
+            {
+              "text": "The splash hits your face. The shadows scatter, then gather again one circle out.",
+              "stateChanges": {
+                "health": -1
+              },
+              "image": "assets/images/outcomes/pond-paw-failure.webp"
+            }
+          ]
+        },
+        "watch": {
+          "text": "You watch them circle again and again, until the sun turns the water to gold.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/pond-watch.webp"
+        },
+        "walk": {
+          "text": "The wind off the water is cooler than the alley. You walk the whole bank slowly.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/pond-walk.webp"
+        }
+      },
+      "chapter": "Q39 · Months 76-78"
+    },
+    {
+      "id": "sticky-gum",
+      "title": "The Sticky Patch on the Ground",
+      "description": "A small round sticky patch on the ground shines in the sun.",
+      "image": "assets/images/scenes/sticky-gum.webp",
+      "actions": [
+        {
+          "id": "step",
+          "name": "Step on it",
+          "hint": "It looks harmless",
+          "icon": "A"
+        },
+        {
+          "id": "poke",
+          "name": "Poke it with a paw",
+          "hint": "From a distance",
+          "icon": "B"
+        },
+        {
+          "id": "around",
+          "name": "Walk around it",
+          "hint": "No need to touch it",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "step": {
+          "text": "It sticks to your pads and fur. You lick at it all the way home, and it only gets stickier.",
+          "stateChanges": {
+            "charm": -1
+          },
+          "image": "assets/images/outcomes/sticky-gum-step.webp"
+        },
+        "poke": {
+          "text": "It grabs one paw. It takes seven shakes to get free.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/sticky-gum-poke.webp"
+        },
+        "around": {
+          "text": "You step around it. It still shines there as if nothing happened.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/sticky-gum-around.webp"
+        }
+      },
+      "chapter": "Q40 · Months 78-80"
+    },
+    {
+      "id": "eave-corner",
+      "title": "Another Cat Has the Spot",
+      "description": "It starts to rain again. Only one dry patch is left under the eave, and a black cat with yellow eyes is already lying there.",
+      "image": "assets/images/scenes/eave-corner.webp",
+      "actions": [
+        {
+          "id": "share",
+          "name": "Lie down beside it",
+          "hint": "There is room if you squeeze",
+          "icon": "A"
+        },
+        {
+          "id": "stare",
+          "name": "Stare at it",
+          "hint": "Wait it out",
+          "icon": "B"
+        },
+        {
+          "id": "go",
+          "name": "Walk back into the rain",
+          "hint": "Somewhere else",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "share": {
+          "text": "It does not move. The rain covers both cats in the same dry patch.",
+          "stateChanges": {
+            "health": 1
+          },
+          "image": "assets/images/outcomes/eave-corner-share.webp"
+        },
+        "stare": {
+          "text": "It stares back and curls its tail a little tighter. The spot does not grow.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/eave-corner-stare.webp"
+        },
+        "go": {
+          "text": "Rain taps your back, and you walk as fast as always.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/eave-corner-go.webp"
+        }
+      },
+      "chapter": "Q41 · Months 80-82"
+    },
+    {
+      "id": "wall-drill",
+      "title": "The Narrow Wall Old Orange Walks",
+      "description": "Old Orange walks the length of a narrow wall, drops down, and looks back at you.",
+      "image": "assets/images/scenes/wall-drill.webp",
+      "enemy": {
+        "id": "old-orange",
+        "name": "Old Orange",
+        "strength": 7,
+        "agility": 8,
+        "kind": "mentor cat"
+      },
+      "actions": [
+        {
+          "id": "drill",
+          "name": "Walk three lengths behind it",
+          "hint": "Until your steps stop wobbling",
+          "icon": "A"
+        },
+        {
+          "id": "watch",
+          "name": "Watch it walk twice",
+          "hint": "Watch first",
+          "icon": "B"
+        },
+        {
+          "id": "leave",
+          "name": "Watch a little, then leave",
+          "hint": "Not today",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "drill": {
+          "text": "On the third length your paws land without a sound. Old Orange does not look back again.",
+          "stateChanges": {
+            "agility": 3
+          },
+          "image": "assets/images/outcomes/wall-drill-drill.webp"
+        },
+        "watch": {
+          "text": "You memorize, one by one, the places its paws land.",
+          "stateChanges": {
+            "agility": 2
+          },
+          "image": "assets/images/outcomes/wall-drill-watch.webp"
+        },
+        "leave": {
+          "text": "The narrow wall grows thinner in your sight. You turn and go elsewhere.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/wall-drill-leave.webp"
+        }
+      },
+      "chapter": "Q42 · Months 82-84"
+    },
+    {
+      "id": "firecrackers",
+      "title": "The Crackling Alley Mouth",
+      "description": "Red scraps cover half the alley, and the bangs come one burst after another.",
+      "image": "assets/images/scenes/firecrackers.webp",
+      "actions": [
+        {
+          "id": "hide",
+          "name": "Tuck into the wall crack",
+          "hint": "Wait it out",
+          "icon": "A"
+        },
+        {
+          "id": "dash",
+          "name": "Dash across",
+          "hint": "Do not stop",
+          "icon": "B"
+        },
+        {
+          "id": "watch",
+          "name": "Watch from far off",
+          "hint": "Take the long way",
+          "icon": "C"
+        }
+      ],
+      "outcomes": {
+        "hide": {
+          "text": "The crack is exactly one cat wide. The bangs pass back and forth outside it.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/firecrackers-hide.webp"
+        },
+        "dash": {
+          "text": "You shoot across low, one paw in the red scraps, and the next bang knocks you back to the wall.",
+          "stateChanges": {
+            "health": -1
+          },
+          "image": "assets/images/outcomes/firecrackers-dash.webp"
+        },
+        "watch": {
+          "text": "From half a street away you watch the red scraps fall. By the time the sound reaches you, it is dull.",
+          "stateChanges": {},
+          "image": "assets/images/outcomes/firecrackers-watch.webp"
+        }
+      },
+      "chapter": "Q43 · Months 84-86"
+    },
+    {
       "id": "cat-eater",
-      "chapter": "Q32 · Months 62-64",
+      "chapter": "Q44 · Months 86-88",
       "title": "The Cage at the End of the Alley",
       "description": "A man guards the back alley with a cage beside his foot. He does not step aside.",
       "image": "assets/images/scenes/cat-meat-dealer.webp",
@@ -2158,7 +2816,7 @@
     },
     {
       "id": "wire-neck",
-      "chapter": "Q33 · Months 64-66",
+      "chapter": "Q45 · Months 88-90",
       "title": "The Thing Tight Around Your Neck",
       "description": "Something thin is caught around your neck. The more you struggle, the tighter it pulls.",
       "image": "assets/images/scenes/wire-neck.webp",
@@ -2206,7 +2864,7 @@
     },
     {
       "id": "adopter",
-      "chapter": "Q34 · Months 66-68",
+      "chapter": "Q46 · Months 90-92",
       "title": "The Person Who Opens the Door",
       "description": "A woman opens the door a crack, and light falls in front of your paws. You cannot smell what is inside the room.",
       "image": "assets/images/scenes/door.webp",
@@ -2266,7 +2924,7 @@
     },
     {
       "id": "abuser",
-      "chapter": "Q35 · Months 68-70",
+      "chapter": "Q47 · Months 92-94",
       "title": "The Man Blocking the Alley",
       "description": "He stands at the mouth of the alley with a sack in his hand. He does not step aside, and he says nothing.",
       "image": "assets/images/scenes/black-glove.webp",
