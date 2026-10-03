@@ -2373,25 +2373,6 @@
       "image": "assets/images/endings/home.webp"
     },
     {
-      "id": "clinic",
-      "title": "The Cat Who Comforts the Children",
-      "description": "You never hide from people and never hiss; the people in white coats have known you for a long time. You never fell ill either. When children cry, you climb out of your basket and go and sit beside them.",
-      "all": [
-        {
-          "state": "health",
-          "operator": ">=",
-          "value": 9
-        },
-        {
-          "state": "friendliness",
-          "operator": ">=",
-          "value": 4
-        }
-      ],
-      "image": "assets/images/endings/clinic.webp",
-      "video": "assets/videos/clinic-ending-v1.mp4"
-    },
-    {
       "id": "street-king",
       "title": "King of the Alley",
       "description": "You have beaten nearly every rival on this street. You and Old Orange split the street, one throne on each side of the big bins.",
@@ -2407,7 +2388,7 @@
     },
     {
       "id": "night-legend",
-      "title": "An Old Cat on the Street",
+      "title": "Old Grey on the Street",
       "description": "You lived your whole life on the same street. The big bins, the eaves, the space under big things — you knew them all. Nobody ever gave you a name, but every cat on this street knew you. You lived {age} months. After one last winter you did not get up again — not from illness this time, just from age.",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
@@ -2477,16 +2458,6 @@
       "meshUrl": "https://studio.tripo3d.ai/3d-model/1127f986-c783-4f5f-8898-cd7932f31818?invite_code=2KAS1J",
       "shareImage": "app/share/figurine-v2-blanket-sleep-source.png",
       "preview": "assets/models/figurine-v2-blanket-sleep-source.webp"
-    },
-    {
-      "id": "figurine-clinic-helper",
-      "endingId": "clinic",
-      "title": "The White Cat in the Basket",
-      "story": "When the children cry, the white cat in the basket sits up and watches over them.",
-      "glb": "assets/models/figurine-v2-clinic-helper.glb",
-      "meshUrl": "https://studio.tripo3d.ai/3d-model/2ff6c859-fe70-4f4b-9054-e5371196422c?invite_code=2KAS1J",
-      "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
-      "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
     {
       "id": "figurine-bin-king",
