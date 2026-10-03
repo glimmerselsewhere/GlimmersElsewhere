@@ -16,6 +16,18 @@
     "cardIcon": "F",
     "actionSummary": "Cast · Wait · Reel"
   },
+  "keepsakes": [
+    { "title": "Silver Crucian" },
+    { "title": "Chubby Carp" },
+    { "title": "Red Koi" },
+    { "title": "Black Catfish" },
+    { "title": "Loach" },
+    { "title": "Spotted Bass" },
+    { "title": "Golden Arowana" },
+    { "title": "Blue Betta" },
+    { "title": "Electric Eel" },
+    { "title": "Moonlight Koi" }
+  ],
   "milestones": [
     {
       "id": "first-catch",
