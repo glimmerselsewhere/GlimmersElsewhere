@@ -578,7 +578,6 @@
     "introButton": "Begin the adventure",
     "continueButton": "Continue",
     "finalContinueButton": "See the ending",
-    "replayButton": "Adventure again",
-    "hideBackToCatalog": true
+    "replayButton": "Adventure again"
   }
 }

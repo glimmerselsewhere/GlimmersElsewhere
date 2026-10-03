@@ -3165,7 +3165,6 @@
     "finalContinueButton": "看看结局",
     "replayButton": "再冒险一次",
     "keepsakeLabel": "获得结局手办",
-    "keepsakeGetHint": "3D 打印 · 做成手办",
-    "hideBackToCatalog": true
+    "keepsakeGetHint": "3D 打印 · 做成手办"
   }
 }
