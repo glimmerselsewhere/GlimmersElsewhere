@@ -2484,6 +2484,7 @@
       "title": "篮子里的白猫",
       "story": "小孩哭的时候，篮子里的白猫会坐起来看着他们。",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
+      "meshUrl": "https://studio.tripo3d.ai/3d-model/2ff6c859-fe70-4f4b-9054-e5371196422c?invite_code=2KAS1J",
       "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
@@ -2503,6 +2504,7 @@
       "title": "灯柱下的猫",
       "story": "没有人知道他的名字，但他认得每一条屋檐。",
       "glb": "assets/models/figurine-v2-streetlight-cat.glb",
+      "meshUrl": "https://studio.tripo3d.ai/3d-model/be295dab-d76e-4555-91ab-ef9dee027168?invite_code=2KAS1J",
       "shareImage": "app/share/figurine-v2-streetlight-cat-source.png",
       "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
     },

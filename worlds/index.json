@@ -92,6 +92,15 @@
       "id": "wall-street-cat",
       "config": "wall-street-cat/world.json",
       "status": "ready"
+    },
+    {
+      "id": "little-light-gatherer",
+      "config": "little-light-gatherer/world.json",
+      "status": "ready",
+      "title": "小小拾光者与灰巨人",
+      "titleEn": "The Little Light Gatherer and the Grey Giant",
+      "subtitleEn": "Gathering the light, piece by piece",
+      "descriptionEn": "The Grey Giant has stolen the morning, so little Man sets out with a tin box to gather the scattered light. Everything he sees is a fairy tale—until the final page gently turns."
     }
   ]
 }
