@@ -22,7 +22,7 @@
     "image": "assets/cover/cover.webp"
   },
   "initialState": {
-    "strength": 3,
+    "strength": 4,
     "agility": 5,
     "charm": 4,
     "health": 8,
@@ -210,14 +210,14 @@
       "id": "fish-woman",
       "name": "Keeper of the Fish Mountain",
       "role": "kind human",
-      "strength": 2,
+      "strength": 55,
       "agility": 2
     },
     {
       "id": "big-yellow",
       "name": "Big Yellow",
       "role": "stray dog",
-      "strength": 7,
+      "strength": 28,
       "agility": 5
     },
     {
@@ -231,49 +231,49 @@
       "id": "neuter-worker",
       "name": "The Young Person With a Net",
       "role": "kind human",
-      "strength": 6,
+      "strength": 65,
       "agility": 4
     },
     {
       "id": "girl",
       "name": "Petting Girl",
       "role": "kind human",
-      "strength": 3,
+      "strength": 25,
       "agility": 3
     },
     {
       "id": "doctor",
       "name": "The Person in the White Coat",
       "role": "kind human",
-      "strength": 4,
+      "strength": 55,
       "agility": 4
     },
     {
       "id": "cat-eater",
       "name": "The Man in the Back Alley",
       "role": "cat eater",
-      "strength": 12,
+      "strength": 65,
       "agility": 5
     },
     {
       "id": "kid",
       "name": "Mischievous Kid",
       "role": "kid",
-      "strength": 4,
+      "strength": 30,
       "agility": 3
     },
     {
       "id": "abuser",
       "name": "The Man at the Alley Mouth",
       "role": "abuser",
-      "strength": 9,
+      "strength": 70,
       "agility": 8
     },
     {
       "id": "old-orange",
       "name": "Old Orange",
       "role": "rival cat",
-      "strength": 7,
+      "strength": 5,
       "agility": 8
     }
   ],
@@ -387,7 +387,7 @@
       "enemy": {
         "id": "fish-woman",
         "name": "The Keeper of the Fish Mountain",
-        "strength": 2,
+        "strength": 55,
         "agility": 2,
         "kind": "kind human"
       },
@@ -449,7 +449,7 @@
       "enemy": {
         "id": "big-yellow",
         "name": "Big Yellow",
-        "strength": 7,
+        "strength": 28,
         "agility": 5,
         "kind": "stray dog"
       },
@@ -647,7 +647,7 @@
       "enemy": {
         "id": "neuter-worker",
         "name": "The Young Person With a Net",
-        "strength": 6,
+        "strength": 65,
         "agility": 4,
         "kind": "kind human"
       },
@@ -731,7 +731,7 @@
       "enemy": {
         "id": "girl",
         "name": "Little Girl",
-        "strength": 3,
+        "strength": 25,
         "agility": 3,
         "kind": "kind human"
       },
@@ -789,7 +789,7 @@
       "enemy": {
         "id": "doctor",
         "name": "The Person in the White Coat",
-        "strength": 4,
+        "strength": 55,
         "agility": 4,
         "kind": "kind human"
       },
@@ -904,7 +904,7 @@
       "enemy": {
         "id": "kid",
         "name": "The Kid With a Stick",
-        "strength": 4,
+        "strength": 30,
         "agility": 3,
         "kind": "kid"
       },
@@ -1001,7 +1001,7 @@
       "enemy": {
         "id": "old-orange",
         "name": "Old Orange",
-        "strength": 7,
+        "strength": 5,
         "agility": 8,
         "kind": "mentor cat"
       },
@@ -1056,7 +1056,7 @@
       "enemy": {
         "id": "old-orange",
         "name": "Old Orange",
-        "strength": 7,
+        "strength": 5,
         "agility": 8,
         "kind": "mentor cat"
       },
@@ -2135,7 +2135,7 @@
       "enemy": {
         "id": "weasel",
         "name": "The Weasel",
-        "strength": 5,
+        "strength": 1,
         "agility": 8,
         "kind": "weasel"
       },
@@ -2205,7 +2205,7 @@
       "enemy": {
         "id": "big-rat",
         "name": "The Big Rat",
-        "strength": 4,
+        "strength": 1,
         "agility": 6,
         "kind": "rat"
       },
@@ -2621,7 +2621,7 @@
       "enemy": {
         "id": "old-orange",
         "name": "Old Orange",
-        "strength": 7,
+        "strength": 5,
         "agility": 8,
         "kind": "mentor cat"
       },
@@ -2723,7 +2723,7 @@
       "enemy": {
         "id": "cat-eater",
         "name": "The Man in the Back Alley",
-        "strength": 12,
+        "strength": 65,
         "agility": 5,
         "kind": "cat eater"
       },
@@ -2871,7 +2871,7 @@
       "enemy": {
         "id": "adopter",
         "name": "The Person Who Opens the Door",
-        "strength": 3,
+        "strength": 50,
         "agility": 3,
         "kind": "kind human",
         "needsCatFriendliness": 4
@@ -2931,7 +2931,7 @@
       "enemy": {
         "id": "abuser",
         "name": "The Man at the Alley Mouth",
-        "strength": 9,
+        "strength": 70,
         "agility": 8,
         "kind": "abuser"
       },
