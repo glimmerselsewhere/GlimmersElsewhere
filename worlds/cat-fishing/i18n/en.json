@@ -16,6 +16,16 @@
     "cardIcon": "F",
     "actionSummary": "Cast · Wait · Reel"
   },
+  "states": [
+    { "label": "Patience", "description": "The longer you wait, the steadier the cast." },
+    { "label": "Luck", "description": "The chance of a rare fish." },
+    { "label": "Catch", "description": "How many fish you landed today." }
+  ],
+  "actions": [
+    { "name": "Sit on the shore", "plain": "Shore" },
+    { "name": "Hop onto the bridge", "plain": "Bridge" },
+    { "name": "Slip into the reeds", "plain": "Reeds" }
+  ],
   "keepsakes": [
     { "title": "Silver Crucian" },
     { "title": "Chubby Carp" },

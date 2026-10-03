@@ -91,6 +91,11 @@
       "id": "morality-neg",
       "title": "Dark energy grows",
       "text": "A dark vein surfaces on your jade pendant."
+    },
+    {
+      "id": "luck-8",
+      "title": "Fortune favors the cat",
+      "text": "Every step lands on spirit grass. The elders begin to suspect you were born with a third eye."
     }
   ],
   "events": [
