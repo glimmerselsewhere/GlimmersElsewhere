@@ -1869,9 +1869,12 @@ function showEnding() {
     image.hidden = true;
     $("endingArt").hidden = false;
   }
-  const keepsake = content().keepsakes?.find(item => item.endingId === ending.id) || content().keepsakes?.[0] || world.keepsakes?.find(item => item.endingId === ending.id) || world.keepsakes?.[0];
-  // The keepsake box always shows: worlds without a 3D model still offer the
-  // "获得这个信物" link out to jujubit.
+  // Strict ending match only — the old "first keepsake" fallback handed the
+  // wrong figurine to endings that have none (four nine-lives endings showed
+  // the cat-god seal). Endings without a keepsake fall back to the link-only
+  // box with the "拿到它" door.
+  const keepsake = content().keepsakes?.find(item => item.endingId === ending.id)
+    || world.keepsakes?.find(item => item.endingId === ending.id);
   $("keepsakeBox").hidden = false;
   $("keepsakeBox").classList.toggle("is-link-only", !keepsake);
   setKeepsakeGetLinks();
