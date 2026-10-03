@@ -2356,7 +2356,7 @@
     },
     {
       "id": "home",
-      "title": "The Young Person's Home",
+      "title": "Stray No More",
       "description": "You sleep on your back on the bed, belly to the ceiling. No one sends you out again.",
       "realPhotos": {
         "image": "assets/images/endings/tuntun-collage.webp",
@@ -2374,8 +2374,8 @@
     },
     {
       "id": "clinic",
-      "title": "The White Cat in the White Room",
-      "description": "You never hide from people and never hiss; the white house has known you for a long time. You never fell ill either. When children cry, you climb out of your basket and go and sit beside them.",
+      "title": "The Cat Who Comforts the Children",
+      "description": "You never hide from people and never hiss; the people in white coats have known you for a long time. You never fell ill either. When children cry, you climb out of your basket and go and sit beside them.",
       "all": [
         {
           "state": "health",
@@ -2394,12 +2394,12 @@
     {
       "id": "street-king",
       "title": "King of the Alley",
-      "description": "You have beaten enough rivals. You and Old Orange split the street, one throne on each side of the big bins.",
+      "description": "You have beaten nearly every rival on this street. You and Old Orange split the street, one throne on each side of the big bins.",
       "all": [
         {
           "state": "fights",
           "operator": ">=",
-          "value": 2
+          "value": 4
         }
       ],
       "image": "assets/images/endings/street-king.webp",
@@ -2407,7 +2407,7 @@
     },
     {
       "id": "night-legend",
-      "title": "A Whole Life on the Street",
+      "title": "An Old Cat on the Street",
       "description": "You lived your whole life on the same street. The big bins, the eaves, the space under big things — you knew them all. Nobody ever gave you a name, but every cat on this street knew you. You lived {age} months. After one last winter you did not get up again — not from illness this time, just from age.",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
@@ -2484,6 +2484,7 @@
       "title": "The White Cat in the Basket",
       "story": "When the children cry, the white cat in the basket sits up and watches over them.",
       "glb": "assets/models/figurine-v2-clinic-helper.glb",
+      "meshUrl": "https://studio.tripo3d.ai/3d-model/2ff6c859-fe70-4f4b-9054-e5371196422c?invite_code=2KAS1J",
       "shareImage": "app/share/figurine-v2-clinic-helper-source.png",
       "preview": "assets/models/figurine-v2-clinic-helper-source.webp"
     },
@@ -2503,6 +2504,7 @@
       "title": "The Cat Under the Lamp Post",
       "story": "Nobody knows his name, but he knows every eave in the neighbourhood.",
       "glb": "assets/models/figurine-v2-streetlight-cat.glb",
+      "meshUrl": "https://studio.tripo3d.ai/3d-model/be295dab-d76e-4555-91ab-ef9dee027168?invite_code=2KAS1J",
       "shareImage": "app/share/figurine-v2-streetlight-cat-source.png",
       "preview": "assets/models/figurine-v2-streetlight-cat-source.webp"
     },

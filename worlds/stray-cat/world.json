@@ -2356,7 +2356,7 @@
     },
     {
       "id": "home",
-      "title": "年轻人的家",
+      "title": "流浪到此为止",
       "description": "你四脚朝天睡在床上，肚皮朝着天花板。没有人再让你出去。",
       "realPhotos": {
         "image": "assets/images/endings/tuntun-collage.webp",
@@ -2374,8 +2374,8 @@
     },
     {
       "id": "clinic",
-      "title": "白房子里的白猫",
-      "description": "你对人从不躲、不炸毛，白房子的人早就认得你；你也没有病倒过。小孩哭的时候，你会从篮子里出来，坐到他们旁边。",
+      "title": "哄小孩的猫",
+      "description": "你对人从不躲、不炸毛，白大褂的人早就认得你；你也没有病倒过。小孩哭的时候，你会从篮子里出来，坐到他们旁边。",
       "all": [
         {
           "state": "health",
@@ -2394,12 +2394,12 @@
     {
       "id": "street-king",
       "title": "巷子的王",
-      "description": "你打赢过足够多的对手。你和老橘分掉这条街，大桶两边各有一个王座。",
+      "description": "你打赢过这条街上几乎所有的对手。你和老橘分掉这条街，大桶两边各有一个王座。",
       "all": [
         {
           "state": "fights",
           "operator": ">=",
-          "value": 2
+          "value": 4
         }
       ],
       "image": "assets/images/endings/street-king.webp",
@@ -2407,7 +2407,7 @@
     },
     {
       "id": "night-legend",
-      "title": "在街上过完了一生",
+      "title": "街上的老猫",
       "description": "你在同一条街上过完了这一生。大桶、屋檐、大家伙底下，你都熟。没有人给你起过名字，但这条街上的猫都认识你。你活了 {age} 个月。最后一个冬天过去以后，你没有再站起来——这一次不是病，只是老了。",
       "all": [],
       "image": "assets/images/endings/night-legend.webp",
