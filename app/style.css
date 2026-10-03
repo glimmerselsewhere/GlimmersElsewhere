@@ -174,6 +174,17 @@ body[data-world-id="stray-cat"] .meter em { font-size: 14px; }
 body[data-world-id="stray-cat"] .meter > i { display: none; }
 /* The quarters + months + fish line must stay on one row even in English. */
 body[data-world-id="stray-cat"] .world-mini strong { font-size: 11.5px; letter-spacing: -.01em; }
+/* Life-sim worlds carry a longer realm/age line; keep it and the back button on one line. */
+body[data-world-id="jade-cat"] .game-header .back-button.compact,
+body[data-world-id="nine-lives-academy"] .game-header .back-button.compact { white-space: nowrap; }
+body[data-world-id="jade-cat"] .world-mini strong,
+body[data-world-id="nine-lives-academy"] .world-mini strong { font-size: 11.5px; letter-spacing: -.01em; }
+/* Two-row header for life worlds: buttons on the first row, title + progress on
+   a full-width second row, so nothing wraps mid-phrase on narrow screens. */
+body[data-world-id="jade-cat"] .game-header,
+body[data-world-id="nine-lives-academy"] .game-header { flex-wrap: wrap; row-gap: 4px; }
+body[data-world-id="jade-cat"] .world-mini,
+body[data-world-id="nine-lives-academy"] .world-mini { order: 3; flex: 1 1 100%; }
 body[data-world-id="stray-cat"] .scene-copy { min-height: 52px; margin-bottom: 5px; }
 body[data-world-id="stray-cat"] .scene-copy h2 { font-size: 20px; }
 body[data-world-id="stray-cat"] .enemy-stats { margin-top: 4px; gap: 5px; }
