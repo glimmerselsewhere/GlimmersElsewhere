@@ -2173,6 +2173,34 @@
       "title": "祭典暖枕",
       "glb": "assets/models/sleepy-pillow.glb",
       "preview": "assets/models/sleepy-pillow-source.webp"
+    },
+    {
+      "id": "false-god-chalice",
+      "endingId": "false-god-vessel",
+      "title": "伪神之杯",
+      "glb": "assets/models/false-god-chalice.glb",
+      "preview": "assets/models/false-god-chalice-source.webp"
+    },
+    {
+      "id": "shadow-whisper-bell",
+      "endingId": "demon-cat",
+      "title": "影语铃",
+      "glb": "assets/models/shadow-whisper-bell.glb",
+      "preview": "assets/models/shadow-whisper-bell-source.webp"
+    },
+    {
+      "id": "moonlit-knight-blade",
+      "endingId": "cat-knight",
+      "title": "月下小剑",
+      "glb": "assets/models/moonlit-knight-blade.glb",
+      "preview": "assets/models/moonlit-knight-blade-source.webp"
+    },
+    {
+      "id": "stardust-merchant-jar",
+      "endingId": "star-merchant",
+      "title": "星尘罐",
+      "glb": "assets/models/stardust-merchant-jar.glb",
+      "preview": "assets/models/stardust-merchant-jar-source.webp"
     }
   ],
   "startEventId": "letter-moth"

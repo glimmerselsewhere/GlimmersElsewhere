@@ -2169,6 +2169,34 @@
       "title": "Festival Warm Pillow",
       "glb": "assets/models/sleepy-pillow.glb",
       "preview": "assets/models/sleepy-pillow-source.webp"
+    },
+    {
+      "id": "false-god-chalice",
+      "endingId": "false-god-vessel",
+      "title": "False God's Chalice",
+      "glb": "assets/models/false-god-chalice.glb",
+      "preview": "assets/models/false-god-chalice-source.webp"
+    },
+    {
+      "id": "shadow-whisper-bell",
+      "endingId": "demon-cat",
+      "title": "Shadow-Whisper Bell",
+      "glb": "assets/models/shadow-whisper-bell.glb",
+      "preview": "assets/models/shadow-whisper-bell-source.webp"
+    },
+    {
+      "id": "moonlit-knight-blade",
+      "endingId": "cat-knight",
+      "title": "Moonlit Knight's Blade",
+      "glb": "assets/models/moonlit-knight-blade.glb",
+      "preview": "assets/models/moonlit-knight-blade-source.webp"
+    },
+    {
+      "id": "stardust-merchant-jar",
+      "endingId": "star-merchant",
+      "title": "Stardust Merchant Jar",
+      "glb": "assets/models/stardust-merchant-jar.glb",
+      "preview": "assets/models/stardust-merchant-jar-source.webp"
     }
   ],
   "startEventId": "letter-moth"
