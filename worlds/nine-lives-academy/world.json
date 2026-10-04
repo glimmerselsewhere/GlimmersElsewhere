@@ -2005,7 +2005,8 @@
           "value": 25
         }
       ],
-      "image": "assets/images/endings/false-god-vessel.webp"
+      "image": "assets/images/endings/false-god-vessel.webp",
+      "video": "assets/videos/false-god-vessel-ending-v1.mp4"
     },
     {
       "id": "demon-cat",
@@ -2023,7 +2024,8 @@
           "value": 45
         }
       ],
-      "image": "assets/images/endings/demon-cat.webp"
+      "image": "assets/images/endings/demon-cat.webp",
+      "video": "assets/videos/demon-cat-ending-v1.mp4"
     },
     {
       "id": "cat-knight",
@@ -2039,7 +2041,8 @@
           "value": 25
         }
       ],
-      "image": "assets/images/endings/cat-knight.webp"
+      "image": "assets/images/endings/cat-knight.webp",
+      "video": "assets/videos/cat-knight-ending-v1.mp4"
     },
     {
       "id": "star-merchant",
@@ -2055,7 +2058,8 @@
           "value": 20
         }
       ],
-      "image": "assets/images/endings/star-merchant.webp"
+      "image": "assets/images/endings/star-merchant.webp",
+      "video": "assets/videos/star-merchant-ending-v1.mp4"
     },
     {
       "id": "grand-magus",
